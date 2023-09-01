@@ -1,0 +1,19 @@
+/******************************************************
+All the default css will place here...
+******************************************************/
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    padding: 0;
+    margin: 10px 0;
+    background: #f2f2f2 url('https://formbuilder.online/assets/img/noise.png');
+}
+
+div#simpleform-app-root {
+    overflow: hidden;
+}
