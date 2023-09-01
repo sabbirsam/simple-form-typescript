@@ -18,6 +18,40 @@ defined( 'ABSPATH' ) || exit;
  */
 class Table {
 
+	
+
+	/**
+	 * Insert table into the db.
+	 *
+	 * @param array $data The data to save.
+	 * @return int|false
+	 */
+	public function insert( array $data ) {
+		global $wpdb;
+		
+		// Initialize an array to store the formatted data
+		$formatted_data = [];
+
+		// Extract values from the $data array and format them.
+		foreach ($data as $key => $value) {
+			if ($key === 'form_fields') {
+				// Serialize the form_fields array as a JSON string.
+				$formatted_data[$key] = json_encode($value);
+			} else {
+				// Use the %s format for non-array values.
+				$formatted_data[$key] = is_array($value) ? '' : $value;
+			}
+		}
+
+
+		$table  = $wpdb->prefix . 'simple_form_tables';
+		$format = [ '%s', '%s', '%s', '%s' ];
+
+		$wpdb->insert( $table, $formatted_data, $format );
+		return $wpdb->insert_id;
+	}
+
+
 	/**
 	 * Fetch table with specific ID.
 	 *
@@ -31,22 +65,6 @@ class Table {
 		$result = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $table WHERE id=%d", absint( $id ) ), ARRAY_A ); // phpcs:ignore
 
 		return ! is_null( $result ) ? $result : null;
-	}
-
-	/**
-	 * Insert table into the db.
-	 *
-	 * @param array $data The data to save.
-	 * @return int|false
-	 */
-	public function insert( array $data ) {
-		global $wpdb;
-
-		$table  = $wpdb->prefix . 'simple_form_tables';
-		$format = [ '%s', '%s', '%s', '%s', '%s' ];
-
-		$wpdb->insert( $table, $data, $format );
-		return $wpdb->insert_id;
 	}
 
 	/**

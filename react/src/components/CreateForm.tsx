@@ -1,16 +1,26 @@
 import React, { useEffect , useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import $ from 'jquery';
 
+import { getDefaultSettings, getNonce,} from './../Helpers';
+
+import '../styles/_createForm.scss';
 
 const CreateForm = () => {
+    const navigate = useNavigate();
     const formBuilderRef = useRef(null);
+
+    var options = {
+      disableFields: ['autocomplete', 'button']
+    };
+
 
     useEffect(() => {
         const saveDataBtn = document.getElementById('saveData');
         saveDataBtn.addEventListener('click', handleSaveDataClick);
     
         const fbEditor = document.getElementById('build-wrap');
-        formBuilderRef.current = $(fbEditor).formBuilder();
+        formBuilderRef.current = $(fbEditor).formBuilder(options);
     
         return () => {
           // Cleanup event listener
@@ -18,10 +28,9 @@ const CreateForm = () => {
         };
       }, []);
 
-
       const handleSaveDataClick = () => {
         Swal.fire({
-          text: 'Please confirm below!',
+          text: 'Are you done!',
           icon: 'info',
           showCancelButton: true,
           confirmButtonColor: '#3085d6',
@@ -32,31 +41,62 @@ const CreateForm = () => {
             // Access the formBuilder instance
             const formBuilder = formBuilderRef.current; 
                 if (formBuilder) {
-                const allData = formBuilder.actions.getData();
 
-                const data = {
-                    result: allData,
-                    action: 'simple_message_form_submission',
-                    // form_field: $('#form_name').val(),
-                };
-                console.log(data);
+                  // Check if there are any li elements inside ul
+                  const ulElement = document.querySelector('.frmb');
+                  const liElements = ulElement.querySelectorAll('li');
 
-                /* $.ajax({
-                    url: simple_message_form_submission.ajaxurl,
-                    // url: qbf.ajaxurl,
-                    data: data,
-                    type: 'post',
-                    success: function () {
+                  if (liElements.length === 0) {
+                    // Show an alert and do not submit the form
                     Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: 'Your Form has been saved',
-                        showConfirmButton: false,
-                        timer: 1500,
+                      text: 'Add fields to the form before saving!',
+                      icon: 'warning',
                     });
-                    location.href = 'admin.php?page=form_data';
-                    },
-                }); */
+                  } else {
+                    const allData = formBuilder.actions.getData();
+                    const buttonData = {
+                      type: "button",
+                      subtype: "submit",
+                      label: "Send",
+                      className: "btn-primary btn",
+                      name: "simple-form-submit",
+                      access: false,
+                      style: "primary",
+                    };
+          
+                  // Add the button data to the existing form data
+                    allData.push(buttonData);
+
+                    // Update the form with the new data
+                    formBuilder.actions.setData(allData);
+
+                    const formNameInput = document.getElementById('formName');
+                    const formName = formNameInput.value;
+
+                    wp.ajax.send('simpleform_create_form', {
+                      data: {
+                        nonce: getNonce(),
+                        name: formName,
+                        formdata: allData,
+                      },
+
+                      success({ id }) {
+                        console.log(allData);
+                        Swal.fire({
+                          position: 'center',
+                          icon: 'success',
+                          title: 'Your Form has been saved',
+                          showConfirmButton: false,
+                          timer: 1500,
+                        });
+
+                        navigate(`/`);
+                      },
+                      error({ message }) {
+                      },
+                    });
+
+                  }
 
             } else {
               console.error("Form Builder instance not found.");
@@ -67,12 +107,16 @@ const CreateForm = () => {
     }
 
   return (
-    <div>
+    <div className="form-data-container">
         <h2>Form Create</h2>
         <label className="checkbox-wrapper">
-            <span className="">
+            <span className="formsavebtn">
                 <button className="js-open-modal saveData" id="saveData" type="button">Save</button>
             </span>
+            <span className="formname">
+              <input type="text" placeholder='Add form name' name='simpleformname'  className="js-open-modal" id="formName"/>
+            </span>
+                
         </label>
       <div id="build-wrap"></div>
     </div>

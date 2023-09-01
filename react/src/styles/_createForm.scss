@@ -1,0 +1,48 @@
+div#simpleform-app-root {
+    overflow: hidden;
+
+    .form-data-container {
+       
+
+        #build-wrap {
+            /* Your styles for build-wrap */
+        }
+
+        .checkbox-wrapper {
+            display: flex;
+            align-items: center; /* Center align items vertically */
+            text-align: center;
+            margin-bottom: 12px;
+            gap: 10px;
+            
+            button#saveData {
+                width: 100px;
+                padding: 15px 20px;
+                background: #2bb885;
+                border-radius: 8px;
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 21px;
+                color: #f8f9fa;
+                text-decoration: none;
+                border: none;
+                transition: all 0.3s ease;
+                cursor: pointer;
+
+                &:hover {
+                    color: white;
+                    background-color: #218f67;
+                }
+            }
+
+            input#formName {
+                flex: 1;
+                padding: 10px; 
+                border: 1px solid #ccc; 
+                border-radius: 8px; 
+                font-size: 16px; 
+                margin-top: 0;
+            }
+        }
+    }
+}
