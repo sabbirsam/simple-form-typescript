@@ -94,6 +94,7 @@ class Admin {
 	 */
 	public static function dashboardPage() {
 		echo '<div id="simpleform-app-root"></div>';
+		echo '<div id="simpleform-app-portal"></div>';
 	}
 
 	

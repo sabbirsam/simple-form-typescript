@@ -18,15 +18,17 @@ function Dashboard() {
 	const [tableCount, setTableCount] = useState(0);
 
 
+	/**
+	 * Receving all table data
+	 */
 	useEffect(() => {
 		setLoader(true);
-
 		wp.ajax.send('simpleform_get_tables', {
 			data: {
 				nonce: getNonce(),
 			},
 			success(response) {
-				console.log(response.tables)
+				// console.log(response.tables) 
 				setTables(response.tables);
 				setCopiedTables(response.tables);
 				setTableCount(response.tables_count);
@@ -38,10 +40,13 @@ function Dashboard() {
 		});
 	}, []);
 
+	/**
+	 * Search functionality
+	 */
 	useEffect(() => {
 		if (searchKey !== '') {
-			const filtered = tables.filter(({ table_name }: any) =>
-				table_name
+			const filtered = tables.filter(({ form_name }: any) =>
+				form_name
 					.toLowerCase()
 					.includes(searchKey.toString().toLowerCase())
 			);
@@ -102,7 +107,6 @@ function Dashboard() {
 							<h1>Loading...</h1>
 						</Card>
 					) : (
-						// 'Test'
 						<TablesList
 							tables={copiedTables}
 							copiedTables={copiedTables}

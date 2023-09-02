@@ -7,6 +7,7 @@ import Container from '../core/Container';
 import Row from '../core/Row';
 import Dashboard from './Dashboard';
 import CreateForm from './CreateForm';
+import EditTable from './EditTable';
 import Leads from './Leads';
 import Settings from './Settings';
 import Documentation from './Documentation';
@@ -29,6 +30,10 @@ function App() {
 							<Route 
 								path="/create-form" 
 								element={<CreateForm />} 
+							/>
+							<Route 
+								path="/edit/:id" 
+								element={<EditTable />} 
 							/>
 							<Route 
 								path="/Leads" 

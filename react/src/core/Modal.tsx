@@ -22,7 +22,7 @@ const Modal: FC< Props > = ( { children, customClass } ): JSX.Element => {
 				</div>
 			</div>
 		</>,
-		document.getElementById( 'swptls-app-portal' )
+		document.getElementById( 'simpleform-app-portal' )
 	);
 };
 

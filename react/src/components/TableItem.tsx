@@ -2,19 +2,23 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Column from '../core/Column';
 import Row from '../core/Row';
-import Modal from './../core/Modal';
 import { CopyIcon, Cross, DeleteIcon, EditIcon, TrashCan } from '../icons';
 
 //styles
 import '../styles/_table_item.scss';
 import Title from '../core/Title';
 import { getNonce } from '../Helpers';
+import Modal from './../core/Modal';
 
 function TableItem({ table, setCopiedTables, setTableCount, setTables, setLoader }) {
 	const confirmDeleteRef = useRef();
 	const [copySuccess, setCopySuccess] = useState(false);
 	const [deleteModal, setDeleteModal] = useState<boolean>(false);
 
+	/**
+	 * 
+	 * @param id Copy Shortcode
+	 */
 	const handleCopyShortcode = async (id) => {
 		const shortcode = `[simpleform_table id="${id}"]`;
 
@@ -32,14 +36,23 @@ function TableItem({ table, setCopiedTables, setTableCount, setTables, setLoader
 		}
 	};
 
+	/**
+	 * Delete Modal close
+	*/
 	const handleClosePopup = () => {
 		setDeleteModal(false);
 	};
 
+	/**
+	 * Delete Modal
+	*/
 	const handleDeleteTable = () => {
 		setDeleteModal(true);
 	};
 
+	/**
+	 * Delete Modal close get confitmation and delete from DB
+	*/
 	const ConfirmDeleteTable = (id) => {
 		wp.ajax.send('simpleform_delete_table', {
 			data: {
@@ -72,7 +85,7 @@ function TableItem({ table, setCopiedTables, setTableCount, setTables, setLoader
 	};
 
 	/**
-	 * Alert if clicked on outside of element
+	 * Alert close if clicked on outside of element
 	 *
 	 * @param  event
 	 */
@@ -138,7 +151,7 @@ function TableItem({ table, setCopiedTables, setTableCount, setTables, setLoader
 				<div className="table-info-box">
 					<div className="table-info">
 						{/* <Title tagName="h4">{table.form_name}</Title> */}
-						<Link to={`/tables/edit/${table.id}`} className="table-edit">
+						<Link to={`/edit/${table.id}`} className="table-edit">
 							<Title tagName="h4">{table.form_name}</Title>
 						</Link>
 
@@ -180,7 +193,7 @@ function TableItem({ table, setCopiedTables, setTableCount, setTables, setLoader
 						Copy Shortcode
 					</button>
 					<Link
-						to={`/tables/edit/${table.id}`}
+						to={`/edit/${table.id}`}
 						className="table-edit"
 					>
 						{EditIcon}

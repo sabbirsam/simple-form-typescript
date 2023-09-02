@@ -77,12 +77,30 @@ class Table {
 		global $wpdb;
 		$table = $wpdb->prefix . 'simple_form_tables';
 
+		// error_log( 'ID:: ' . print_r( $id, true ) );
+		// error_log( 'Data: ' . print_r( $data, true ) );
+
+		// Initialize an array to store the formatted data
+		$formatted_data = [];
+
+		// Extract values from the $data array and format them.
+		foreach ($data as $key => $value) {
+			if ($key === 'form_fields') {
+				// Serialize the form_fields array as a JSON string.
+				$formatted_data[$key] = json_encode($value);
+			} else {
+				// Use the %s format for non-array values.
+				$formatted_data[$key] = is_array($value) ? '' : $value;
+			}
+		}
+
+
 		$where  = [ 'id' => $id ];
 		$format = [ '%s', '%s', '%s', '%s' ];
 
 		$where_format = [ '%d' ];
 
-		return $wpdb->update( $table, $data, $where, $format, $where_format );
+		return $wpdb->update( $table, $formatted_data, $where, $format, $where_format );
 	}
 
 	/**
