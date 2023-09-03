@@ -125,7 +125,7 @@ class Assets {
 	public function load_assets_for_shortcode( $content ) {
 
 		// Check if the page contains the desired shortcode.
-		$shortcode = 'simpleform_table';
+		$shortcode = 'simple_form';
 
 		if ( has_shortcode( $content, $shortcode ) ) {
 			$this->frontend_scripts();
@@ -140,15 +140,35 @@ class Assets {
 	 * @since 2.12.15
 	 */
 	public function frontend_scripts() {
-		wp_enqueue_script( 'jquery' );
+		// wp_enqueue_script( 'jquery' );
+		// wp_enqueue_script( 'jquery-ui-sortable', false, array('jquery') );        
+		// wp_enqueue_script( 'jquery-ui-tabs', false, array('jquery') );
 
-		wp_enqueue_style(
+		wp_enqueue_script(
+			'simpleform-form-highlight-js',
+			SIMPLEFORM_BASE_URL . 'assets/public/library/highlight.js',
+			[ 'jquery' ],
+			SIMPLEFORM_VERSION,
+			true
+		);
+
+		wp_enqueue_script(
+			'simpleform-form-render-js',
+			SIMPLEFORM_BASE_URL . 'assets/public/library/form-render.js',
+			[ 'jquery' ],
+			SIMPLEFORM_VERSION,
+			true
+		);
+	
+
+		/* wp_enqueue_style(
 			'simpleform-frontend-css',
 			SIMPLEFORM_BASE_URL . 'assets/public/styles/frontend.min.css',
 			[],
 			SIMPLEFORM_VERSION,
 			'all'
-		);
+		); */
+
 
 		if ( ! SIMPLEFORM()->helpers->is_pro_active() ) {
 			

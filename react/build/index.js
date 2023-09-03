@@ -4331,18 +4331,18 @@ const CreateForm = () => {
             });
           } else {
             const allData = formBuilder.actions.getData();
-            const buttonData = {
+            /* const buttonData = {
               type: "button",
               subtype: "submit",
               label: "Send",
               className: "btn-primary btn",
               name: "simple-form-submit",
               access: false,
-              style: "primary"
-            };
+              style: "primary",
+            }; */
 
             // Add the button data to the existing form data
-            allData.push(buttonData);
+            // allData.push(buttonData);
 
             // Update the form with the new data
             formBuilder.actions.setData(allData);
@@ -4383,12 +4383,6 @@ const CreateForm = () => {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Form Create"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
     className: "checkbox-wrapper"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: "formsavebtn"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    className: "js-open-modal saveData",
-    id: "saveData",
-    type: "button"
-  }, "Save")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "formname"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
     type: "text",
@@ -4396,7 +4390,13 @@ const CreateForm = () => {
     name: "simpleformname",
     className: "js-open-modal",
     id: "formName"
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "formsavebtn"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    className: "js-open-modal saveData",
+    id: "saveData",
+    type: "button"
+  }, "Save"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     id: "build-wrap"
   }));
 };
@@ -4611,12 +4611,12 @@ function EditTable() {
         // const formBuilders = $(fbEditor).formBuilder({ formData })
 
         // Check if buttonData already exists in formData
-        const buttonDataIndex = formData.findIndex(item => item.type === 'button');
+        // const buttonDataIndex = formData.findIndex((item) => item.type === 'button');
 
         // If buttonData exists, remove it from formData
-        if (buttonDataIndex !== -1) {
-          formData.splice(buttonDataIndex, 1);
-        }
+        /* if (buttonDataIndex !== -1) {
+        	formData.splice(buttonDataIndex, 1);
+        } */
 
         // Show all data 
         const formBuilders = jquery__WEBPACK_IMPORTED_MODULE_2___default()(fbEditor).formBuilder({
@@ -4648,18 +4648,18 @@ function EditTable() {
                   const allData = formBuilder.actions.getData();
 
                   // Add button on save
-                  const buttonData = {
+                  /* const buttonData = {
                     type: "button",
                     subtype: "submit",
                     label: "Send",
                     className: "btn-primary btn",
                     name: "simple-form-submit",
                     access: false,
-                    style: "primary"
-                  };
+                    style: "primary",
+                  }; */
 
                   // Add the button data to the existing form data
-                  allData.push(buttonData);
+                  // allData.push(buttonData);
 
                   // Update the form with the new data
                   formBuilder.actions.setData(allData);
@@ -4843,7 +4843,7 @@ function TableItem({
    * @param id Copy Shortcode
    */
   const handleCopyShortcode = async id => {
-    const shortcode = `[simpleform_table id="${id}"]`;
+    const shortcode = `[simple_form id="${id}"]`;
     try {
       await navigator.clipboard.writeText(shortcode);
       setCopySuccess(true);

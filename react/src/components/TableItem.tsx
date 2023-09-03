@@ -20,7 +20,7 @@ function TableItem({ table, setCopiedTables, setTableCount, setTables, setLoader
 	 * @param id Copy Shortcode
 	 */
 	const handleCopyShortcode = async (id) => {
-		const shortcode = `[simpleform_table id="${id}"]`;
+		const shortcode = `[simple_form id="${id}"]`;
 
 		try {
 			await navigator.clipboard.writeText(shortcode);

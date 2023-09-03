@@ -30,6 +30,9 @@ class Tables {
 		add_action( 'wp_ajax_simpleform_delete_table', [ $this, 'delete' ] );  
 		add_action( 'wp_ajax_simpleform_edit_table', [ $this, 'edit' ] );
 		add_action( 'wp_ajax_simpleform_save_table', [ $this, 'save' ] );
+
+		add_action( 'wp_ajax_simpleform_table_html', [ $this, 'rendertable' ] );
+		add_action( 'wp_ajax_simpleform_get_submit_data', [ $this, 'get_submitdata' ] );
 	}
 
 	/**
@@ -244,5 +247,64 @@ class Tables {
 
 	}
 
+
+	/**
+	 * Get Form tables on ajax request.
+	 *
+	 * @since 3.0.0
+	 */
+	public function rendertable() {
+		if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( $_GET['nonce'], 'simpleform_sheet_nonce_action' ) ) {
+			wp_send_json_error([
+				'message' => __( 'Invalid nonce.', '' )
+			]);
+		}
+	
+		$table_id = ! empty( $_GET['id'] ) ? absint( $_GET['id'] ) : 0;
+	
+		if ( ! $table_id ) {
+			wp_send_json_error([
+				'message' => __( 'Invalid table to edit.', 'simpleform' )
+			]);
+		}
+	
+		$table = SIMPLEFORM()->database->table->get( $table_id );
+	
+		if ( ! $table ) {
+			wp_send_json_error([
+				'type'   => 'invalid_request',
+				'output' => esc_html__( 'Request is invalid', 'simpleform' )
+			]);
+		}
+	
+		$settings   = json_decode( $table['form_fields'], true );
+	
+		wp_send_json_success([
+			'form_name'     => esc_attr( $table['form_name'] ),
+			'table_settings' => $settings
+		]);
+	}
+
+
+	public function get_submitdata() {
+		if (!wp_verify_nonce($_POST['nonce'], 'simpleform_sheet_nonce_action')) {
+			wp_send_json_error([
+				'message' => __('Invalid nonce.', 'simpleform')
+			]);
+		}
+	
+		// Get the form data from the POST request
+		$form_data = isset($_POST['form_data']) ? sanitize_text_field($_POST['form_data']) : ''; // problem here sanitize
+
+
+		error_log( 'Data Received: ' . print_r( $form_data, true ) );
+
+
+		// Return a response (example response)
+		wp_send_json_success([
+			'message' => __('Form data received and processed successfully.', 'simpleform'),
+			'$form_data' => $form_data,
+		]);
+	}
 
 }

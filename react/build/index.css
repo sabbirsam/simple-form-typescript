@@ -1859,6 +1859,7 @@ div#simpleform-app-root .form-data-container .checkbox-wrapper input#formName {
   border-radius: 8px;
   font-size: 16px;
   margin-top: 0;
+  width: 50vh;
 }
 /*!*********************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/main.scss ***!

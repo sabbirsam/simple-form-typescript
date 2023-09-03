@@ -54,7 +54,7 @@ const CreateForm = () => {
                     });
                   } else {
                     const allData = formBuilder.actions.getData();
-                    const buttonData = {
+                    /* const buttonData = {
                       type: "button",
                       subtype: "submit",
                       label: "Send",
@@ -62,10 +62,10 @@ const CreateForm = () => {
                       name: "simple-form-submit",
                       access: false,
                       style: "primary",
-                    };
+                    }; */
           
                   // Add the button data to the existing form data
-                    allData.push(buttonData);
+                    // allData.push(buttonData);
 
                     // Update the form with the new data
                     formBuilder.actions.setData(allData);
@@ -110,13 +110,13 @@ const CreateForm = () => {
     <div className="form-data-container">
         <h2>Form Create</h2>
         <label className="checkbox-wrapper">
-            <span className="formsavebtn">
-                <button className="js-open-modal saveData" id="saveData" type="button">Save</button>
-            </span>
             <span className="formname">
               <input type="text" placeholder='Add form name' name='simpleformname'  className="js-open-modal" id="formName"/>
             </span>
-                
+            <span className="formsavebtn">
+                <button className="js-open-modal saveData" id="saveData" type="button">Save</button>
+            </span>
+             
         </label>
       <div id="build-wrap"></div>
     </div>

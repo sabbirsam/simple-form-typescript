@@ -39,17 +39,16 @@ function EditTable() {
                 // const formBuilders = $(fbEditor).formBuilder({ formData })
 
 				// Check if buttonData already exists in formData
-				const buttonDataIndex = formData.findIndex((item) => item.type === 'button');
+				// const buttonDataIndex = formData.findIndex((item) => item.type === 'button');
 
 				// If buttonData exists, remove it from formData
-				if (buttonDataIndex !== -1) {
-				formData.splice(buttonDataIndex, 1);
-				}
+				/* if (buttonDataIndex !== -1) {
+					formData.splice(buttonDataIndex, 1);
+				} */
 
 				// Show all data 
 				const formBuilders = $(fbEditor).formBuilder({ ...options, formData });
 
-			
 				const handleSaveDataClick = () => {
 					Swal.fire({
 					  text: 'Are you done!',
@@ -78,7 +77,7 @@ function EditTable() {
 								const allData = formBuilder.actions.getData();
 
 								// Add button on save
-								const buttonData = {
+								/* const buttonData = {
 								  type: "button",
 								  subtype: "submit",
 								  label: "Send",
@@ -86,10 +85,10 @@ function EditTable() {
 								  name: "simple-form-submit",
 								  access: false,
 								  style: "primary",
-								};
+								}; */
 					  
 							  // Add the button data to the existing form data
-								allData.push(buttonData);
+								// allData.push(buttonData);
 			
 								// Update the form with the new data
 								formBuilder.actions.setData(allData);
@@ -134,7 +133,6 @@ function EditTable() {
 
 				const saveDataBtn = document.getElementById('saveData');
 				saveDataBtn.addEventListener('click', handleSaveDataClick);
-		
 
 				setLoader(false);
 			},
