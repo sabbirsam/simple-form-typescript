@@ -159,6 +159,14 @@ class Assets {
 			SIMPLEFORM_VERSION,
 			true
 		);
+
+		/* wp_enqueue_script(
+			'simpleform-theme-tinymce-js',
+			SIMPLEFORM_BASE_URL . 'assets/public/library/theme.min.js',
+			[ 'jquery' ],
+			SIMPLEFORM_VERSION,
+			true
+		); */
 	
 
 		/* wp_enqueue_style(

@@ -1,0 +1,83 @@
+/* Styles for the form container */
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styles for form labels */
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  /* Styles for text inputs */
+  input[type="text"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  /* Styles for checkboxes with switch-like style */
+  .switch-label {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .switch-label input[type="checkbox"] {
+    display: none;
+  }
+  
+  .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #2196F3;
+    border-radius: 15px;
+    transition: transform 0.3s;
+  }
+  
+  .slider.round {
+    border-radius: 30px;
+  }
+  
+  .switch-label input[type="checkbox"]:checked + .slider {
+    background-color: #4CAF50;
+    transform: translateX(30px);
+  }
+  
+  /* Style for the form submit button */
+  button[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  

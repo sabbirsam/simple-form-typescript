@@ -36,16 +36,7 @@ function EditTable() {
 				const options = {
 					disableFields: ['autocomplete', 'button']
 				  };
-                // const formBuilders = $(fbEditor).formBuilder({ formData })
-
-				// Check if buttonData already exists in formData
-				// const buttonDataIndex = formData.findIndex((item) => item.type === 'button');
-
-				// If buttonData exists, remove it from formData
-				/* if (buttonDataIndex !== -1) {
-					formData.splice(buttonDataIndex, 1);
-				} */
-
+          
 				// Show all data 
 				const formBuilders = $(fbEditor).formBuilder({ ...options, formData });
 
@@ -76,21 +67,6 @@ function EditTable() {
 							  } else {
 								const allData = formBuilder.actions.getData();
 
-								// Add button on save
-								/* const buttonData = {
-								  type: "button",
-								  subtype: "submit",
-								  label: "Send",
-								  className: "btn-primary btn",
-								  name: "simple-form-submit",
-								  access: false,
-								  style: "primary",
-								}; */
-					  
-							  // Add the button data to the existing form data
-								// allData.push(buttonData);
-			
-								// Update the form with the new data
 								formBuilder.actions.setData(allData);
 			
 								const formidinput = document.getElementById('formid');

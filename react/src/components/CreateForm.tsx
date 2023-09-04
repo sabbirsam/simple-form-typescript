@@ -54,19 +54,7 @@ const CreateForm = () => {
                     });
                   } else {
                     const allData = formBuilder.actions.getData();
-                    /* const buttonData = {
-                      type: "button",
-                      subtype: "submit",
-                      label: "Send",
-                      className: "btn-primary btn",
-                      name: "simple-form-submit",
-                      access: false,
-                      style: "primary",
-                    }; */
-          
-                  // Add the button data to the existing form data
-                    // allData.push(buttonData);
-
+                    
                     // Update the form with the new data
                     formBuilder.actions.setData(allData);
 

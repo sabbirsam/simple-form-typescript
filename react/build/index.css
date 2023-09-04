@@ -1861,6 +1861,325 @@ div#simpleform-app-root .form-data-container .checkbox-wrapper input#formName {
   margin-top: 0;
   width: 50vh;
 }
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/_lead.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
+/* Add this CSS to your project */
+h2 {
+  text-align: center;
+}
+
+.form-builder {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.form-fields {
+  width: 25%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.form-canvas {
+  width: 65%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.draggable-field-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.draggable-field {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin: 8px 0;
+  padding: 8px;
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.draggable-field button {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+button.form-edit {
+  position: absolute;
+  right: 85px;
+  top: -18px;
+}
+
+button.form-remove {
+  position: absolute;
+  right: 20px;
+  top: -18px;
+}
+
+.form-canvas-container {
+  min-height: 200px;
+  background-color: #fff;
+  border: 2px dashed #aaa;
+  padding: 10px;
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  margin: 20px;
+}
+/*!*************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/_setting.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************/
+/* Styles for the form container */
+.form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for form labels */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+/* Styles for text inputs */
+input[type=text],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+}
+
+/* Styles for checkboxes with switch-like style */
+.switch-label {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.switch-label input[type=checkbox] {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2196F3;
+  border-radius: 15px;
+  transition: transform 0.3s;
+}
+
+.slider.round {
+  border-radius: 30px;
+}
+
+.switch-label input[type=checkbox]:checked + .slider {
+  background-color: #4CAF50;
+  transform: translateX(30px);
+}
+
+/* Style for the form submit button */
+button[type=submit] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+button[type=submit]:hover {
+  background-color: #45a049;
+}
+/*!************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/_render.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************/
+/* Styles for the form container */
+.form-fields {
+  width: 25%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+/* // Styles for the form container  sticky
+.form-fields {
+    width: 25%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+    height: -moz-max-content;
+    height: max-content;
+    position: fixed;
+    left: 182px;
+    z-index: 1;
+  }
+
+//  Styles for the form canvas when sticky
+.form-canvas {
+    width: 65%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+    position: absolute;
+    right: 0px; 
+} */
+.form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for form labels */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+/* Styles for text inputs */
+input[type=text],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+}
+
+/* Style for the select container */
+/* Style for the select container */
+.simple-form-select {
+  align-items: center; /* Vertically align the label and options */
+  margin-bottom: 20px;
+}
+
+/* Style for the select label */
+.simple-form-select label {
+  margin-right: 10px; /* Add some spacing between label and options */
+  font-weight: bold;
+  vertical-align: middle; /* Align the label with the middle of the radio input */
+  margin-top: 4px;
+}
+
+/* Style for the individual option container */
+.simple-form-fields {
+  display: flex;
+  align-items: center; /* Vertically align the input and label within each option */
+  margin-right: 20px; /* Add some spacing between options */
+}
+
+/* Style for the radio input */
+.simple-form-fields input[type=radio] {
+  margin-right: 5px; /* Add some spacing between radio input and label */
+  vertical-align: middle; /* Align the radio input with the middle of the label */
+}
+
+/* Styles for checkboxes with switch-like style */
+.switch-label {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.switch-label input[type=checkbox] {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2196F3;
+  border-radius: 15px;
+  transition: transform 0.3s;
+}
+
+.slider.round {
+  border-radius: 30px;
+}
+
+.switch-label input[type=checkbox]:checked + .slider {
+  background-color: #4CAF50;
+  transform: translateX(30px);
+}
+
+/* Style for the form submit button */
+button[type=submit] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+button[type=submit]:hover {
+  background-color: #45a049;
+}
 /*!*********************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/main.scss ***!
   \*********************************************************************************************************************************************************************************************************************************************/

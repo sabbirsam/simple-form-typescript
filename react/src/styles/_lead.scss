@@ -1,0 +1,89 @@
+/* Add this CSS to your project */
+
+h2 {
+  text-align: center;
+}
+
+.form-builder {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.form-fields{
+  width: 25%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+.form-canvas {
+  width: 65%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.draggable-field-container {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.draggable-field {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin: 8px 0;
+  padding: 8px;
+  cursor: grab;
+  display: flex;
+  // justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.draggable-field button {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+button.form-edit {
+  position: absolute;
+  right: 85px;
+  top: -18px;
+}
+
+  button.form-remove {
+    position: absolute;
+    right: 20px;
+    top: -18px;
+  }
+
+.form-canvas-container {
+  min-height: 200px;
+  background-color: #fff;
+  border: 2px dashed #aaa;
+  padding: 10px;
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  margin: 20px;
+}
