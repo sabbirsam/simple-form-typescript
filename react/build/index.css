@@ -1914,6 +1914,10 @@ h2 {
   margin-left: 4px;
 }
 
+.simple-form-text {
+  width: 100%;
+}
+
 button.form-edit {
   position: absolute;
   right: 85px;
@@ -2035,6 +2039,175 @@ button[type=submit] {
 
 button[type=submit]:hover {
   background-color: #45a049;
+}
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/_documentation.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
+/* Add this CSS to your project */
+h2 {
+  text-align: center;
+}
+
+.form-builder {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.form-fields {
+  width: 25%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.form-canvas {
+  width: 65%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.draggable-field-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-btn-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.draggable-field {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin: 8px 0;
+  padding: 8px;
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.draggable-field button {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+button.form-edit {
+  position: absolute;
+  right: 85px;
+  top: -18px;
+}
+
+button.form-remove {
+  position: absolute;
+  right: 20px;
+  top: -18px;
+}
+
+.form-canvas-container {
+  min-height: 200px;
+  background-color: #fff;
+  border: 2px dashed #aaa;
+  padding: 10px;
+}
+
+.edit-field-form {
+  border: 1px solid #ccc;
+  padding: 21px;
+  background-color: #f9f9f9;
+}
+
+/* .simple-form-id-panel {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 65px;
+
+  label{
+    flex: 1;
+    white-space: nowrap;
+    margin-right: 10px;
+  }
+
+  input[type="text"]{
+    flex: 12; 
+    padding: 5px;
+  }
+  .select-type-class{
+    flex: 12; 
+    padding: 5px;
+    position: absolute;
+    left: 90px;
+  }
+  input[type="checkbox"]{
+    flex: 12; 
+    padding: 5px;
+    margin-left: 40px;
+  }
+} */
+.simple-form-id-panel {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 65px;
+}
+.simple-form-id-panel label {
+  flex: 1;
+  white-space: nowrap;
+  margin-right: 10px;
+}
+.simple-form-id-panel input[type=text],
+.simple-form-id-panel .select-type-class,
+.simple-form-id-panel input[type=checkbox] {
+  flex: 12;
+  padding: 5px;
+}
+.simple-form-id-panel .select-type-class,
+.simple-form-id-panel input[type=checkbox] {
+  position: absolute;
+  left: calc(8% + 7px);
+}
+
+.select-fields-panel {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.select-fields-panel button.option-remover {
+  position: absolute;
+  right: 7px;
+  bottom: 17px;
+  font-size: 10px;
+  width: 68px;
+  height: 29px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  margin: 20px;
 }
 /*!************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/_render.scss ***!

@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import '../styles/_lead.scss';
 
+import RenderField from './Render';
+
+
 const Leads = () => {
   const [availableFields, setAvailableFields] = useState([
     {
@@ -10,11 +13,13 @@ const Leads = () => {
       type: 'text',
       placeholder: 'Enter text...',
       className: 'custom-input',
+      required: false,
     },
     {
       id: 'radio-button',
       label: 'Radio Button',
       type: 'radio',
+      required: false,
       options: [
         { label: 'Option 1', value: 'Option 1' },
         { label: 'Option 2', value: 'Option 2' },
@@ -24,6 +29,7 @@ const Leads = () => {
       id: 'checkbox',
       label: 'Checkbox',
       type: 'checkbox',
+      required: false,
       options: [
         { label: 'Option 1', value: 'Option 1' },
         { label: 'Option 2', value: 'Option 2' },
@@ -33,6 +39,7 @@ const Leads = () => {
       id: 'select-input',
       label: 'Select',
       type: 'select',
+      required: false,
       options: [
         { label: 'Option 1', value: 'Option 1' },
         { label: 'Option 2', value: 'Option 2' },
@@ -42,6 +49,7 @@ const Leads = () => {
       id: 'file-input',
       label: 'File Upload',
       type: 'file',
+      required: false,
     },
   ]);
 
@@ -50,30 +58,35 @@ const Leads = () => {
   const [editingField, setEditingField] = useState(null);
   const [editingOptionIndex, setEditingOptionIndex] = useState(null);
 
-  const onDragEnd = (result) => {
+  //   Make id as unique 
+	const onDragEnd = (result) => {
     if (!result.destination) return;
-
-    const sourceIndex = result.source.index;
-    const destinationIndex = result.destination.index;
-
-    if (result.source.droppableId === 'available-fields') {
-      const sourceField = availableFields[sourceIndex];
-      const newField = { ...sourceField, uniqueId: `field-${new Date().getTime()}` };
-
-      setFormFields((prevFormFields) => {
+      
+      const sourceIndex = result.source.index;
+      const destinationIndex = result.destination.index;
+      
+      if (result.source.droppableId === 'available-fields') {
+        const sourceField = availableFields[sourceIndex];
+        const newField = {
+        ...sourceField,
+        id: `${sourceField.id}-${new Date().getTime()}`, // Append a unique identifier
+        uniqueId: `field-${new Date().getTime()}`,
+        };
+      
+        setFormFields((prevFormFields) => {
         const updatedFormFields = [...prevFormFields];
         updatedFormFields.splice(destinationIndex, 0, newField);
         return updatedFormFields;
-      });
-    } else if (result.source.droppableId === 'form-canvas') {
-      setFormFields((prevFormFields) => {
+        });
+      } else if (result.source.droppableId === 'form-canvas') {
+        setFormFields((prevFormFields) => {
         const updatedFormFields = [...prevFormFields];
         const [movedField] = updatedFormFields.splice(sourceIndex, 1);
         updatedFormFields.splice(destinationIndex, 0, movedField);
         return updatedFormFields;
-      });
-    }
-  };
+        });
+      }
+	  };
 
   const handleRemoveField = (uniqueId) => {
     const updatedFormFields = formFields.filter((field) => field.uniqueId !== uniqueId);
@@ -111,12 +124,15 @@ const Leads = () => {
     }
   };
 
-  const handleRemoveOption = () => {
-    console.log("C");
-    
-    if (editingField && (editingField.type === 'select' || editingField.type === 'radio' || editingField.type === 'checkbox') && editingOptionIndex !== null) {
+  const handleRemoveOption = (optionIndex) => {
+   
+    if (
+      editingField &&
+      (editingField.type === 'select' || editingField.type === 'radio' || editingField.type === 'checkbox') &&
+      optionIndex !== null
+    ) {
       const updatedOptions = [...editingField.options];
-      updatedOptions.splice(editingOptionIndex, 1);
+      updatedOptions.splice(optionIndex, 1);
       setEditingField({ ...editingField, options: updatedOptions });
       setEditingOptionIndex(null);
     }
@@ -159,7 +175,7 @@ const Leads = () => {
               )}
             </Droppable>
           </div>
-          <div className="form-canvas">
+          {/* <div className="form-canvas">
             <h3>Form Canvas</h3>
             <Droppable droppableId="form-canvas" direction="vertical">
               {(provided) => (
@@ -178,8 +194,8 @@ const Leads = () => {
                           className="draggable-field"
                         >
                           {field.label}
-                          <button onClick={() => handleEditField(field.uniqueId)}>Edit</button>
-                          <button onClick={() => handleRemoveField(field.uniqueId)}>Remove</button>
+                          <button className='form-edit' onClick={() => handleEditField(field.uniqueId)}>Edit</button>
+                          <button className='form-remove' onClick={() => handleRemoveField(field.uniqueId)}>Remove</button>
                         </div>
                       )}
                     </Draggable>
@@ -188,7 +204,39 @@ const Leads = () => {
                 </div>
               )}
             </Droppable>
-          </div>
+          </div> */}
+
+          <div className="form-canvas">
+              <h3>Form Canvas</h3>
+              <Droppable droppableId="form-canvas" direction="vertical">
+                {(provided) => (
+                  <div
+                    {...provided.droppableProps}
+                    ref={provided.innerRef}
+                    className="form-canvas-container"
+                  >
+                    {formFields.map((field, index) => (
+                      <Draggable key={field.uniqueId} draggableId={field.uniqueId} index={index}>
+                        {(provided) => (
+                          <div
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            className="draggable-field"
+                          >
+                            {/* Render the field using the RenderField component */}
+                            <RenderField field={field} />
+                            <button className='form-edit' onClick={() => handleEditField(field.uniqueId)}>Edit</button>
+                            <button className='form-remove' onClick={() => handleRemoveField(field.uniqueId)}>Remove</button>
+                          </div>
+                        )}
+                      </Draggable>
+                    ))}
+                    {provided.placeholder}
+                  </div>
+                )}
+              </Droppable>
+            </div>
         </div>
       </DragDropContext>
 
@@ -219,6 +267,16 @@ const Leads = () => {
             value={editingField.placeholder}
             onChange={(e) => setEditingField({ ...editingField, placeholder: e.target.value })}
           />
+          <label>Required:
+          <input
+            type="checkbox"
+            checked={editingField.required}
+            onChange={(e) => {
+            setEditingField({ ...editingField, required: e.target.checked });
+            }}
+          />
+          </label>
+
           <label>Class Name:</label>
           <input
             type="text"

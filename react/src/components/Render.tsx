@@ -69,6 +69,276 @@ const RenderField = ({ field }) => {
             required={field.required}
             id={field.id}
             data-unique-id={field.uniqueId}
+            value={field.value}
+            />
+        </div>
+      );
+    case 'number':
+      return (
+        <div key={field.uniqueId} className='simple-form-text'>
+            <label>{field.label}</label>
+            <input
+            type="number"
+            placeholder={field.placeholder}
+            className={field.className}
+            required={field.required}
+            id={field.id}
+            data-unique-id={field.uniqueId}
+            value={field.value}
+            />
+        </div>
+      );
+    case 'button':
+      return (
+        <div key={field.uniqueId} className='simple-form-text'>
+            <label>{field.label}</label>
+            <input
+            type="button"
+            value={field.value}
+            className={field.className}
+            required={field.required}
+            id={field.id}
+            data-unique-id={field.uniqueId}
+            />
+        </div>
+      );
+
+    case 'hidden':
+      return (
+        <div key={field.uniqueId} className='simple-form-text'>
+            {/* <label>{field.label}</label> */}
+            <input
+            type="hidden"
+            placeholder={field.placeholder}
+            className={field.className}
+            required={field.required}
+            id={field.id}
+            value={field.value}
+            data-unique-id={field.uniqueId}
+            />
+        </div>
+      );
+    case 'email':
+      return (
+        <div key={field.uniqueId} className='simple-form-text'>
+            <label>{field.label}</label>
+            <input
+            type="email"
+            placeholder={field.placeholder}
+            className={field.className}
+            required={field.required}
+            id={field.id}
+            value={field.value}
+            data-unique-id={field.uniqueId}
+            />
+        </div>
+      );
+    case 'date':
+      return (
+        <div key={field.uniqueId} className='simple-form-text'>
+            <label>{field.label}</label>
+            <input
+            type="date"
+            placeholder={field.placeholder}
+            className={field.className}
+            required={field.required}
+            id={field.id}
+            value={field.value}
+            data-unique-id={field.uniqueId}
+            />
+        </div>
+      );
+    case 'color':
+      return (
+        <div key={field.uniqueId} className='simple-form-text'>
+            <label>{field.label}</label>
+            <input
+            type="color"
+            placeholder={field.placeholder}
+            className={field.className}
+            required={field.required}
+            id={field.id}
+            value={field.value}
+            data-unique-id={field.uniqueId}
+            />
+        </div>
+      );
+    case 'datetime-local':
+      return (
+        <div key={field.uniqueId} className='simple-form-text'>
+            <label>{field.label}</label>
+            <input
+            type="datetime-local"
+            placeholder={field.placeholder}
+            className={field.className}
+            required={field.required}
+            id={field.id}
+            value={field.value}
+            data-unique-id={field.uniqueId}
+            />
+        </div>
+      );
+    case 'password':
+      return (
+        <div key={field.uniqueId} className='simple-form-text'>
+            <label>{field.label}</label>
+            <input
+            type="password"
+            placeholder={field.placeholder}
+            className={field.className}
+            required={field.required}
+            id={field.id}
+            data-unique-id={field.uniqueId}
+            />
+        </div>
+      );
+    case 'tel':
+      return (
+        <div key={field.uniqueId} className='simple-form-text'>
+            <label>{field.label}</label>
+            <input
+            type="tel"
+            placeholder={field.placeholder}
+            className={field.className}
+            required={field.required}
+            id={field.id}
+            value={field.value}
+            data-unique-id={field.uniqueId}
+            />
+        </div>
+      );
+    case 'submit':
+      return (
+        <div key={field.uniqueId} className='simple-form-text'>
+            <label>{field.label}</label>
+            <input
+            type="submit"
+            placeholder={field.placeholder}
+            className={field.className}
+            required={field.required}
+            id={field.id}
+            value={field.value}
+            data-unique-id={field.uniqueId}
+            />
+        </div>
+      );
+    case 'time':
+      return (
+        <div key={field.uniqueId} className='simple-form-text'>
+            <label>{field.label}</label>
+            <input
+            type="time"
+            placeholder={field.placeholder}
+            className={field.className}
+            required={field.required}
+            id={field.id}
+            value={field.value}
+            data-unique-id={field.uniqueId}
+            />
+        </div>
+      );
+    case 'url':
+      return (
+        <div key={field.uniqueId} className='simple-form-text'>
+            <label>{field.label}</label>
+            <input
+            type="url"
+            placeholder={field.placeholder}
+            className={field.className}
+            required={field.required}
+            id={field.id}
+            value={field.value}
+            data-unique-id={field.uniqueId}
+            />
+        </div>
+      );
+    case 'week':
+      return (
+        <div key={field.uniqueId} className='simple-form-text'>
+            <label>{field.label}</label>
+            <input
+            type="week"
+            placeholder={field.placeholder}
+            className={field.className}
+            required={field.required}
+            id={field.id}
+            value={field.value}
+            data-unique-id={field.uniqueId}
+            />
+        </div>
+      );
+    case 'search':
+      return (
+        <div key={field.uniqueId} className='simple-form-text'>
+            <label>{field.label}</label>
+            <input
+            type="search"
+            placeholder={field.placeholder}
+            className={field.className}
+            required={field.required}
+            id={field.id}
+            value={field.value}
+            data-unique-id={field.uniqueId}
+            />
+        </div>
+      );
+    case 'reset':
+      return (
+        <div key={field.uniqueId} className='simple-form-text'>
+            <label>{field.label}</label>
+            <input
+            type="reset"
+            placeholder={field.placeholder}
+            className={field.className}
+            required={field.required}
+            id={field.id}
+            value={field.value}
+            data-unique-id={field.uniqueId}
+            />
+        </div>
+      );
+    case 'range':
+      return (
+        <div key={field.uniqueId} className='simple-form-text'>
+            <label>{field.label}</label>
+            <input
+            type="range"
+            placeholder={field.placeholder}
+            className={field.className}
+            required={field.required}
+            id={field.id}
+            value={field.value}
+            data-unique-id={field.uniqueId}
+            />
+        </div>
+      );
+    case 'image':
+      return (
+        <div key={field.uniqueId} className='simple-form-text'>
+            <label>{field.label}</label>
+            <input
+            type="image"
+            placeholder={field.placeholder}
+            className={field.className}
+            required={field.required}
+            id={field.id}
+            value={field.value}
+            data-unique-id={field.uniqueId}
+            />
+        </div>
+      );
+    case 'month':
+      return (
+        <div key={field.uniqueId} className='simple-form-text'>
+            <label>{field.label}</label>
+            <input
+            type="month"
+            placeholder={field.placeholder}
+            className={field.className}
+            required={field.required}
+            id={field.id}
+            value={field.value}
+            data-unique-id={field.uniqueId}
             />
         </div>
       );

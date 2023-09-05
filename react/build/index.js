@@ -17575,7 +17575,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-beautiful-dnd */ "../node_modules/react-beautiful-dnd/dist/react-beautiful-dnd.esm.js");
-/* harmony import */ var _styles_lead_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../styles/_lead.scss */ "./src/styles/_lead.scss");
+/* harmony import */ var _styles_documentation_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../styles/_documentation.scss */ "./src/styles/_documentation.scss");
 /* harmony import */ var _Render__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Render */ "./src/components/Render.tsx");
 
 
@@ -17589,7 +17589,8 @@ const Leads = () => {
     type: 'text',
     placeholder: 'Enter text...',
     className: 'custom-input',
-    required: false
+    required: false,
+    value: ''
   }, {
     id: 'radio-button',
     label: 'Radio Button',
@@ -17635,6 +17636,7 @@ const Leads = () => {
   const [formFields, setFormFields] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
   const [formData, setFormData] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
   const [editingField, setEditingField] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);
+  const [showjson, setShowjson] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
   const [editingOptionIndex, setEditingOptionIndex] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);
 
   //   Make id as unique 
@@ -17689,6 +17691,8 @@ const Leads = () => {
   };
   const handleSaveForm = () => {
     setFormData(formFields);
+    // setShowjson(true)
+    setShowjson(showjson => !showjson);
   };
   const handleAddOption = () => {
     if (editingField && (editingField.type === 'select' || editingField.type === 'radio' || editingField.type === 'checkbox')) {
@@ -17766,35 +17770,96 @@ const Leads = () => {
     onClick: () => handleRemoveField(field.uniqueId)
   }, "Remove")))), provided.placeholder))))), editingField && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "edit-field-form"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Edit Field"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "ID:"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "form-btn-group"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    onClick: handleUpdateField
+  }, "Update"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    onClick: handleSaveForm
+  }, showjson ? 'Hide Json' : 'Show Json')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Edit Field"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "simple-form-id-panel"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "ID:"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
     type: "text",
     value: editingField.id,
     onChange: e => setEditingField({
       ...editingField,
       id: e.target.value
     })
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Label:"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "simple-form-id-panel"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Label:"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
     type: "text",
     value: editingField.label,
     onChange: e => setEditingField({
       ...editingField,
       label: e.target.value
     })
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Type:"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "simple-form-id-panel type-dropdown"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Type:"), !(editingField.type === 'file' || editingField.type === 'select' || editingField.type === 'checkbox' || editingField.type === 'radio') ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("select", {
+    className: "select-type-class",
+    value: editingField.type,
+    onChange: e => setEditingField({
+      ...editingField,
+      type: e.target.value
+    })
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+    value: "button"
+  }, "Button"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+    value: "color"
+  }, "Color"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+    value: "date"
+  }, "Date"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+    value: "datetime-local"
+  }, "Datetime-local"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+    value: "email"
+  }, "Email"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+    value: "hidden"
+  }, "Hidden"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+    value: "image"
+  }, "Image"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+    value: "month"
+  }, "Month"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+    value: "number"
+  }, "Number"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+    value: "password"
+  }, "Password"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+    value: "range"
+  }, "Range"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+    value: "reset"
+  }, "Reset"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+    value: "search"
+  }, "Search"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+    value: "submit"
+  }, "Submit"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+    value: "tel"
+  }, "Tel"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+    value: "text"
+  }, "Text"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+    value: "time"
+  }, "Time"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+    value: "url"
+  }, "URL"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+    value: "week"
+  }, "Week")) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
     type: "text",
     value: editingField.type,
     onChange: e => setEditingField({
       ...editingField,
       type: e.target.value
     })
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Placeholder:"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "simple-form-id-panel"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Placeholder:"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
     type: "text",
     value: editingField.placeholder,
     onChange: e => setEditingField({
       ...editingField,
       placeholder: e.target.value
     })
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Required:", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "simple-form-id-panel"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Required:", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
     type: "checkbox",
     checked: editingField.required,
     onChange: e => {
@@ -17803,14 +17868,26 @@ const Leads = () => {
         required: e.target.checked
       });
     }
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Class Name:"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "simple-form-id-panel"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Class Name:"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
     type: "text",
     value: editingField.className,
     onChange: e => setEditingField({
       ...editingField,
       className: e.target.value
     })
-  }), ['select', 'radio', 'checkbox'].includes(editingField.type) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", null, editingField.type === 'select' ? 'Select Options' : 'Options'), editingField.options.map((option, optionIndex) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "simple-form-id-panel"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Value:"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "text",
+    value: editingField.value,
+    onChange: e => setEditingField({
+      ...editingField,
+      value: e.target.value
+    })
+  })), ['select', 'radio', 'checkbox'].includes(editingField.type) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", null, editingField.type === 'select' ? 'Select Options' : 'Options'), editingField.options.map((option, optionIndex) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "simple-form-id-panel select-fields-panel",
     key: optionIndex
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Label:"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
     type: "text",
@@ -17841,14 +17918,13 @@ const Leads = () => {
       });
     }
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    className: "option-remover",
     onClick: () => handleRemoveOption(optionIndex)
   }, "Remove"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     onClick: handleAddOption
-  }, "Add Option")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    onClick: handleUpdateField
-  }, "Update")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+  }, "Add Option"))), !editingField && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     onClick: handleSaveForm
-  }, "Save Form"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("pre", null, "Form Data: ", JSON.stringify(formData, null, 2)));
+  }, "Show Json"), showjson && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("pre", null, "Form Data: ", JSON.stringify(formData, null, 2)));
 };
 /* harmony default export */ __webpack_exports__["default"] = (Leads);
 
@@ -18378,6 +18454,239 @@ const RenderField = ({
         className: field.className,
         required: field.required,
         id: field.id,
+        "data-unique-id": field.uniqueId,
+        value: field.value
+      }));
+    case 'number':
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        key: field.uniqueId,
+        className: "simple-form-text"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, field.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+        type: "number",
+        placeholder: field.placeholder,
+        className: field.className,
+        required: field.required,
+        id: field.id,
+        "data-unique-id": field.uniqueId,
+        value: field.value
+      }));
+    case 'button':
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        key: field.uniqueId,
+        className: "simple-form-text"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, field.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+        type: "button",
+        value: field.value,
+        className: field.className,
+        required: field.required,
+        id: field.id,
+        "data-unique-id": field.uniqueId
+      }));
+    case 'hidden':
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        key: field.uniqueId,
+        className: "simple-form-text"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+        type: "hidden",
+        placeholder: field.placeholder,
+        className: field.className,
+        required: field.required,
+        id: field.id,
+        value: field.value,
+        "data-unique-id": field.uniqueId
+      }));
+    case 'email':
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        key: field.uniqueId,
+        className: "simple-form-text"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, field.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+        type: "email",
+        placeholder: field.placeholder,
+        className: field.className,
+        required: field.required,
+        id: field.id,
+        value: field.value,
+        "data-unique-id": field.uniqueId
+      }));
+    case 'date':
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        key: field.uniqueId,
+        className: "simple-form-text"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, field.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+        type: "date",
+        placeholder: field.placeholder,
+        className: field.className,
+        required: field.required,
+        id: field.id,
+        value: field.value,
+        "data-unique-id": field.uniqueId
+      }));
+    case 'color':
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        key: field.uniqueId,
+        className: "simple-form-text"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, field.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+        type: "color",
+        placeholder: field.placeholder,
+        className: field.className,
+        required: field.required,
+        id: field.id,
+        value: field.value,
+        "data-unique-id": field.uniqueId
+      }));
+    case 'datetime-local':
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        key: field.uniqueId,
+        className: "simple-form-text"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, field.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+        type: "datetime-local",
+        placeholder: field.placeholder,
+        className: field.className,
+        required: field.required,
+        id: field.id,
+        value: field.value,
+        "data-unique-id": field.uniqueId
+      }));
+    case 'password':
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        key: field.uniqueId,
+        className: "simple-form-text"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, field.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+        type: "password",
+        placeholder: field.placeholder,
+        className: field.className,
+        required: field.required,
+        id: field.id,
+        "data-unique-id": field.uniqueId
+      }));
+    case 'tel':
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        key: field.uniqueId,
+        className: "simple-form-text"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, field.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+        type: "tel",
+        placeholder: field.placeholder,
+        className: field.className,
+        required: field.required,
+        id: field.id,
+        value: field.value,
+        "data-unique-id": field.uniqueId
+      }));
+    case 'submit':
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        key: field.uniqueId,
+        className: "simple-form-text"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, field.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+        type: "submit",
+        placeholder: field.placeholder,
+        className: field.className,
+        required: field.required,
+        id: field.id,
+        value: field.value,
+        "data-unique-id": field.uniqueId
+      }));
+    case 'time':
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        key: field.uniqueId,
+        className: "simple-form-text"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, field.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+        type: "time",
+        placeholder: field.placeholder,
+        className: field.className,
+        required: field.required,
+        id: field.id,
+        value: field.value,
+        "data-unique-id": field.uniqueId
+      }));
+    case 'url':
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        key: field.uniqueId,
+        className: "simple-form-text"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, field.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+        type: "url",
+        placeholder: field.placeholder,
+        className: field.className,
+        required: field.required,
+        id: field.id,
+        value: field.value,
+        "data-unique-id": field.uniqueId
+      }));
+    case 'week':
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        key: field.uniqueId,
+        className: "simple-form-text"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, field.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+        type: "week",
+        placeholder: field.placeholder,
+        className: field.className,
+        required: field.required,
+        id: field.id,
+        value: field.value,
+        "data-unique-id": field.uniqueId
+      }));
+    case 'search':
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        key: field.uniqueId,
+        className: "simple-form-text"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, field.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+        type: "search",
+        placeholder: field.placeholder,
+        className: field.className,
+        required: field.required,
+        id: field.id,
+        value: field.value,
+        "data-unique-id": field.uniqueId
+      }));
+    case 'reset':
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        key: field.uniqueId,
+        className: "simple-form-text"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, field.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+        type: "reset",
+        placeholder: field.placeholder,
+        className: field.className,
+        required: field.required,
+        id: field.id,
+        value: field.value,
+        "data-unique-id": field.uniqueId
+      }));
+    case 'range':
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        key: field.uniqueId,
+        className: "simple-form-text"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, field.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+        type: "range",
+        placeholder: field.placeholder,
+        className: field.className,
+        required: field.required,
+        id: field.id,
+        value: field.value,
+        "data-unique-id": field.uniqueId
+      }));
+    case 'image':
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        key: field.uniqueId,
+        className: "simple-form-text"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, field.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+        type: "image",
+        placeholder: field.placeholder,
+        className: field.className,
+        required: field.required,
+        id: field.id,
+        value: field.value,
+        "data-unique-id": field.uniqueId
+      }));
+    case 'month':
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        key: field.uniqueId,
+        className: "simple-form-text"
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, field.label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+        type: "month",
+        placeholder: field.placeholder,
+        className: field.className,
+        required: field.required,
+        id: field.id,
+        value: field.value,
         "data-unique-id": field.uniqueId
       }));
     case 'radio':
@@ -21599,6 +21908,19 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************!*\
   !*** ./src/styles/_dashboard.scss ***!
   \************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/styles/_documentation.scss":
+/*!****************************************!*\
+  !*** ./src/styles/_documentation.scss ***!
+  \****************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

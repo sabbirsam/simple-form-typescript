@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-
-import '../styles/_documentation.scss';
+import '../styles/_lead.scss';
 
 import RenderField from './Render';
 
@@ -15,7 +14,6 @@ const Leads = () => {
       placeholder: 'Enter text...',
       className: 'custom-input',
       required: false,
-      value: '',
     },
     {
       id: 'radio-button',
@@ -58,7 +56,6 @@ const Leads = () => {
   const [formFields, setFormFields] = useState([]);
   const [formData, setFormData] = useState([]);
   const [editingField, setEditingField] = useState(null);
-  const [showjson, setShowjson] = useState(false);
   const [editingOptionIndex, setEditingOptionIndex] = useState(null);
 
   //   Make id as unique 
@@ -115,8 +112,6 @@ const Leads = () => {
 
   const handleSaveForm = () => {
     setFormData(formFields);
-    // setShowjson(true)
-    setShowjson((showjson) => !showjson);
   };
 
   const handleAddOption = () => {
@@ -217,123 +212,52 @@ const Leads = () => {
 
       {editingField && (
         <div className="edit-field-form">
-          <div className='form-btn-group'>
-            <button onClick={handleUpdateField}>Update</button>
-            {/* <button onClick={handleSaveForm}>Show Json</button> */}
-            <button onClick={handleSaveForm}>
-              {showjson ? 'Hide Json' : 'Show Json'}
-            </button>
-
-          </div>
           <h3>Edit Field</h3>
-          <div className='simple-form-id-panel'>
-            <label>ID:</label>
-            <input
-              type="text"
-              value={editingField.id}
-              onChange={(e) => setEditingField({ ...editingField, id: e.target.value })}
-            />
-          </div>
+          <label>ID:</label>
+          <input
+            type="text"
+            value={editingField.id}
+            onChange={(e) => setEditingField({ ...editingField, id: e.target.value })}
+          />
+          <label>Label:</label>
+          <input
+            type="text"
+            value={editingField.label}
+            onChange={(e) => setEditingField({ ...editingField, label: e.target.value })}
+          />
+          <label>Type:</label>
+          <input
+            type="text"
+            value={editingField.type}
+            onChange={(e) => setEditingField({ ...editingField, type: e.target.value })}
+          />
+          <label>Placeholder:</label>
+          <input
+            type="text"
+            value={editingField.placeholder}
+            onChange={(e) => setEditingField({ ...editingField, placeholder: e.target.value })}
+          />
+          <label>Required:
+          <input
+            type="checkbox"
+            checked={editingField.required}
+            onChange={(e) => {
+            setEditingField({ ...editingField, required: e.target.checked });
+            }}
+          />
+          </label>
 
-          <div className='simple-form-id-panel'>
-            <label>Label:</label>
-            <input
-              type="text"
-              value={editingField.label}
-              onChange={(e) => setEditingField({ ...editingField, label: e.target.value })}
-            />
-          </div>
-
-          <div className='simple-form-id-panel type-dropdown'>
-            <label>Type:</label>
-            {/* {editingField.type === 'text' ? ( */}
-            {!(editingField.type === 'file' || editingField.type === 'select' || editingField.type === 'checkbox' || editingField.type === 'radio') ? (
-              <select
-                className='select-type-class'
-                value={editingField.type}
-                onChange={(e) => setEditingField({ ...editingField, type: e.target.value })}
-              >
-                <option value="button">Button</option>
-                <option value="color">Color</option>
-                <option value="date">Date</option>
-                <option value="datetime-local">Datetime-local</option>
-                <option value="email">Email</option>
-                <option value="hidden">Hidden</option>
-                <option value="image">Image</option>
-                <option value="month">Month</option>
-                <option value="number">Number</option>
-                <option value="password">Password</option>
-                <option value="range">Range</option>
-                <option value="reset">Reset</option>
-                <option value="search">Search</option>
-                <option value="submit">Submit</option>
-                <option value="tel">Tel</option>
-                <option value="text">Text</option>
-                <option value="time">Time</option>
-                <option value="url">URL</option>
-                <option value="week">Week</option>
-              </select>
-            ) : (
-                <input
-                  type="text"
-                  value={editingField.type}
-                  onChange={(e) => setEditingField({ ...editingField, type: e.target.value })}
-                />
-            )}
-          </div>
-          {/* <div className='simple-form-id-panel'>
-            <label>Type:</label>
-            <input
-              type="text"
-              value={editingField.type}
-              onChange={(e) => setEditingField({ ...editingField, type: e.target.value })}
-            />
-          </div> */}
-
-          <div className='simple-form-id-panel'>
-            <label>Placeholder:</label>
-            <input
-              type="text"
-              value={editingField.placeholder}
-              onChange={(e) => setEditingField({ ...editingField, placeholder: e.target.value })}
-            />
-          </div>
-
-          <div className='simple-form-id-panel'>
-            <label>Required:
-            <input
-              type="checkbox"
-              checked={editingField.required}
-              onChange={(e) => {
-              setEditingField({ ...editingField, required: e.target.checked });
-              }}
-            />
-            </label>
-          </div>
-
-          <div className='simple-form-id-panel'>
-            <label>Class Name:</label>
-            <input
-              type="text"
-              value={editingField.className}
-              onChange={(e) => setEditingField({ ...editingField, className: e.target.value })}
-            />
-          </div>
-
-          <div className='simple-form-id-panel'>
-            <label>Value:</label>
-            <input
-              type="text"
-              value={editingField.value}
-              onChange={(e) => setEditingField({ ...editingField, value: e.target.value })}
-            />
-          </div>
-
+          <label>Class Name:</label>
+          <input
+            type="text"
+            value={editingField.className}
+            onChange={(e) => setEditingField({ ...editingField, className: e.target.value })}
+          />
           {['select', 'radio', 'checkbox'].includes(editingField.type) && (
             <div>
               <h4>{editingField.type === 'select' ? 'Select Options' : 'Options'}</h4>
               {editingField.options.map((option, optionIndex) => (
-                <div className='simple-form-id-panel select-fields-panel' key={optionIndex}>
+                <div key={optionIndex}>
                   <label>Label:</label>
                   <input
                     type="text"
@@ -354,23 +278,18 @@ const Leads = () => {
                       setEditingField({ ...editingField, options: updatedOptions });
                     }}
                   />
-                  <button className='option-remover' onClick={() => handleRemoveOption(optionIndex)}>Remove</button>
+                  <button onClick={() => handleRemoveOption(optionIndex)}>Remove</button>
                 </div>
               ))}
               <button onClick={handleAddOption}>Add Option</button>
-              
             </div>
           )}
-          
+          <button onClick={handleUpdateField}>Update</button>
         </div>
       )}
 
-    {!editingField && (
-      <button onClick={handleSaveForm}>Show Json</button> 
-    )}
-    {showjson && (
+      <button onClick={handleSaveForm}>Save Form</button>
       <pre>Form Data: {JSON.stringify(formData, null, 2)}</pre>
-    )}  
     </div>
   );
 };

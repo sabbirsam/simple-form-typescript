@@ -26,7 +26,11 @@ h2 {
   .draggable-field-container {
     display: flex;
     flex-direction: column;
-    
+  }
+
+  .form-btn-group {
+    display: flex;
+    flex-direction: row;
   }
   
   .draggable-field {
@@ -69,6 +73,89 @@ h2 {
     padding: 10px;
   }
   
+  .edit-field-form {
+    border: 1px solid #ccc;
+    padding: 21px;
+    background-color: #f9f9f9;
+}
+
+/* .simple-form-id-panel {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 65px;
+
+  label{
+    flex: 1;
+    white-space: nowrap;
+    margin-right: 10px;
+  }
+
+  input[type="text"]{
+    flex: 12; 
+    padding: 5px;
+  }
+  .select-type-class{
+    flex: 12; 
+    padding: 5px;
+    position: absolute;
+    left: 90px;
+  }
+  input[type="checkbox"]{
+    flex: 12; 
+    padding: 5px;
+    margin-left: 40px;
+  }
+} */
+
+.simple-form-id-panel {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 65px;
+
+  label {
+    flex: 1;
+    white-space: nowrap;
+    margin-right: 10px;
+  }
+
+  input[type="text"],
+  .select-type-class,
+  input[type="checkbox"] {
+    flex: 12;
+    padding: 5px;
+  }
+
+  .select-type-class,
+  input[type="checkbox"] {
+    position: absolute;
+    // left: calc(100% + 10px); 
+    left: calc(8% + 7px);
+  }
+}
+
+
+
+ .select-fields-panel{
+  display: flex;
+  align-items: center;
+  position: relative;
+
+    button.option-remover {
+      position: absolute;
+      right: 7px;
+      bottom: 17px;
+      font-size: 10px;
+      width: 68px;
+      height: 29px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+    }
+ }
+
+
   button {
     display: block;
     margin: 20px auto;

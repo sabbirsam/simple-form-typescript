@@ -35,6 +35,10 @@
     "webpack-cli": "^4.9.2"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.7",
+    "@mui/material": "^5.14.7",
     "formBuilder": "3.8.3",
     "jquery-ui-sortable": "1.0.0",
     "react": "16.4.2",
