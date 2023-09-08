@@ -1,49 +1,218 @@
-div#simpleform-app-root {
-    overflow: hidden;
+/* Add this CSS to your project */
 
-    .form-data-container {
-       
+ h2 {
+    text-align: center;
+  }
+  
+  .form-builder {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+ }
 
-        #build-wrap {
-            /* Your styles for build-wrap */
-        }
+ .form-fields {
+    width: 25%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+    position: sticky;
+    top: 0;
+    // height: 100vh; /* Adjust this as needed */
+    height: 80%;
+ }
 
-        .checkbox-wrapper {
-            display: flex;
-            align-items: center; /* Center align items vertically */
-            text-align: center;
-            margin-bottom: 12px;
-            gap: 10px;
-            
-            button#saveData {
-                width: 100px;
-                padding: 15px 20px;
-                background: #2bb885;
-                border-radius: 8px;
-                font-weight: 600;
-                font-size: 16px;
-                line-height: 21px;
-                color: #f8f9fa;
-                text-decoration: none;
-                border: none;
-                transition: all 0.3s ease;
-                cursor: pointer;
+.form-canvas {
+    width: 65%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+    overflow-y: auto; /* Add scroll when content exceeds the height */
+ }
 
-                &:hover {
-                    color: white;
-                    background-color: #218f67;
-                }
-            }
-
-            input#formName {
-                flex: 1;
-                padding: 10px; 
-                border: 1px solid #ccc; 
-                border-radius: 8px; 
-                font-size: 16px; 
-                margin-top: 0;
-                width: 50vh;
-            }
-        }
+  .draggable-field-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-btn-group {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .draggable-field {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin: 8px 0;
+    padding: 8px;
+    cursor: grab;
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+  
+  .draggable-field button {
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    margin-left: 4px;
+  }
+  
+  button.form-edit {
+    position: absolute;
+    right: 51px;
+    top: -9px;
+    background: white;
+  
+    &:hover{
+      background-color: #e5e5e5;
     }
-}
+  }
+  
+    button.form-remove {
+      position: absolute;
+      right: 20px;
+      top: -9px;
+      background: white;
+      &:hover{
+        background-color: #e5e5e5;
+      }
+    }
+  
+  .form-canvas-container {
+    min-height: calc(85% + 7px);
+    background-color: #fff;
+    border: 2px dashed #aaa;
+    padding: 10px;
+  }
+  
+  .edit-field-form {
+    border: 1px solid #ccc;
+    padding: 21px;
+    background-color: #f9f9f9;
+  }
+  
+  
+  .simple-form-id-panel {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 65px;
+  
+  label {
+    flex: 1;
+    white-space: nowrap;
+    margin-right: 10px;
+  }
+  
+  input[type="text"],
+  .select-type-class,
+  input[type="checkbox"] {
+    flex: 12;
+    padding: 5px;
+  }
+  
+  .select-type-class,
+  input[type="checkbox"] {
+    position: absolute;
+    left: calc(8% + 7px);
+  }
+  }
+  
+  .simple-form-text{
+    input[type="text"],
+    input[type="textarea"]{
+      width: 68vh;
+    }
+
+    input[type=date], input[type=datetime-local], input[type=datetime], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week]{
+      padding: 14px 20px 15px 45px;
+      background: #ffffff;
+      border: 1px solid #edeff1;
+      border-radius: 4px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+      color: #666873;
+      outline: none;
+      width: 68vh;
+      height: 50px;
+    }
+    input[type=text], select, textarea{
+      width: 68vh;
+    }
+  }
+
+  
+  .select-fields-panel{
+  display: flex;
+  align-items: center;
+  position: relative;
+  
+    button.option-remover {
+      position: absolute;
+      right: 7px;
+      bottom: 17px;
+      font-size: 10px;
+      width: 68px;
+      height: 29px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+    }
+  }
+  
+  .button-sub-group-simple-form{
+    display: flex;
+    align-items: center;
+    justify-content: left;  
+    margin-left: 11px;
+  }
+  
+  button {
+    display: block;
+    margin: 0px -6px -15px 11px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    padding: 10px;
+    background-color: #000000;
+    color: white;
+    border: 1px solid #ccc;
+    margin: 20px;
+    font-family: monospace;
+    font-size: 14px;
+    width: 60vh;
+    height: 60vh;
+    overflow-y: scroll;
+  }
+  
+  /* Style the scrollbar */
+  pre::-webkit-scrollbar {
+  width: 8px; /* Adjust the width as needed */
+  }
+  
+  pre::-webkit-scrollbar-thumb {
+  background-color: white;
+  }
+  
+  pre::-webkit-scrollbar-track {
+  background-color: #000000;
+  }
+
+  span.formname{
+    input#formName{
+        margin-left: 23px;
+        width: 95%; 
+    }
+  }

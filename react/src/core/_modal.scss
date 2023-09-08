@@ -114,6 +114,7 @@
 					border-radius: 4px;
 					background: #FFFFFF;
 					border: 1px solid #E1E4EA;
+					color: #1E1E1E;
 				}
 
 				&.confirm-button {
@@ -126,3 +127,7 @@
 		}
 	}
 }
+
+.action-buttons {
+    display: flex;
+}	

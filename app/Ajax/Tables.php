@@ -26,8 +26,13 @@ class Tables {
 	 */
 	public function __construct() {
 		add_action( 'wp_ajax_simpleform_create_form', [ $this, 'create' ] );
+		
 		add_action( 'wp_ajax_simpleform_get_tables', [ $this, 'get_all' ] );
+		add_action( 'wp_ajax_simpleform_get_leads', [ $this, 'get_all_leads' ] );
+
 		add_action( 'wp_ajax_simpleform_delete_table', [ $this, 'delete' ] );  
+		add_action( 'wp_ajax_simpleform_delete_leads', [ $this, 'delete_leads' ] );  
+
 		add_action( 'wp_ajax_simpleform_edit_table', [ $this, 'edit' ] );
 		add_action( 'wp_ajax_simpleform_save_table', [ $this, 'save' ] );
 
@@ -109,6 +114,43 @@ class Tables {
 	}
 
 
+	public function get_all_leads() {
+		if ( ! wp_verify_nonce( $_POST['nonce'], 'SIMPLEFORM-admin-app-nonce-action' ) ) {
+			wp_send_json_error([
+				'message' => __( 'Invalid nonce.', '' )
+			]);
+		}
+
+		$table_id = ! empty( $_POST['form_id'] ) ? absint( $_POST['form_id'] ) : 0;
+
+
+		if ( ! $table_id ) {
+			wp_send_json_error([
+				'message' => __( 'Invalid table to edit.', 'simpleform' )
+			]);
+		}
+
+		$table = SIMPLEFORM()->database->table->getleads( $table_id );
+
+		// error_log( 'Data Received: ' . print_r( $table, true ) );
+
+		if ( ! $table ) {
+			wp_send_json_error([
+				'type'   => 'invalid_request',
+				'output' => esc_html__( 'Request is invalid', 'simpleform' )
+			]);
+		}
+
+		wp_send_json_success([
+			'tables'       => $table,
+		]);
+
+	
+
+
+	}
+
+
 	/**
 	 * Delete table by id.
 	 *
@@ -127,6 +169,42 @@ class Tables {
 
 		if ( $id ) {
 			$response = SIMPLEFORM()->database->table->delete( $id );
+
+			if ( $response ) {
+				wp_send_json_success([
+					'message'      => sprintf( __( '%s form deleted.', '' ), $response ),
+					'tables'       => $tables,
+					'tables_count' => count( SIMPLEFORM()->database->table->get_all() )
+				]);
+			}
+
+			wp_send_json_error([
+				'message'      => sprintf( __( 'Failed to delete form with id %d' ), $id ),
+				'tables'       => $tables,
+				'tables_count' => count( SIMPLEFORM()->database->table->get_all() )
+			]);
+		}
+
+
+		wp_send_json_error([
+			'message'      => sprintf( __( 'Invalid table to perform delete.' ), $id ),
+			'tables'       => $tables,
+			'tables_count' => count( SIMPLEFORM()->database->table->get_all() )
+		]);
+	}
+
+	public function delete_leads() {
+		if ( ! wp_verify_nonce( $_POST['nonce'], 'SIMPLEFORM-admin-app-nonce-action' ) ) {
+			wp_send_json_error([
+				'message' => __( 'Invalid nonce.', '' )
+			]);
+		}
+
+		$id = ! empty( $_POST['id'] ) ? absint( $_POST['id'] ) : false;
+		$tables = SIMPLEFORM()->database->table->get_all();
+
+		if ( $id ) {
+			$response = SIMPLEFORM()->database->table->deleteleads( $id );
 
 			if ( $response ) {
 				wp_send_json_success([
@@ -170,7 +248,7 @@ class Tables {
 
 		if ( ! $table_id ) {
 			wp_send_json_error([
-				'message' => __( 'Invalid table to edit.', 'sheetstowptable' )
+				'message' => __( 'Invalid table to edit.', 'simpleform' )
 			]);
 		}
 
@@ -179,7 +257,7 @@ class Tables {
 		if ( ! $table ) {
 			wp_send_json_error([
 				'type'   => 'invalid_request',
-				'output' => esc_html__( 'Request is invalid', 'sheetstowptable' )
+				'output' => esc_html__( 'Request is invalid', 'simpleform' )
 			]);
 		}
 
@@ -285,26 +363,37 @@ class Tables {
 		]);
 	}
 
-
+	/**
+	 * Get Form submitted data on ajax request.
+	 *
+	 * @since 3.0.0
+	 */
 	public function get_submitdata() {
 		if (!wp_verify_nonce($_POST['nonce'], 'simpleform_sheet_nonce_action')) {
 			wp_send_json_error([
 				'message' => __('Invalid nonce.', 'simpleform')
 			]);
 		}
+		
+		// Get the form data from the POST request.
+		$id = isset($_POST['id']) ? sanitize_text_field($_POST['id']) : '';
+		$form_data = isset($_POST['form_data']) ? json_decode(stripslashes($_POST['form_data']), true) : [];
 	
-		// Get the form data from the POST request
-		$form_data = isset($_POST['form_data']) ? sanitize_text_field($_POST['form_data']) : ''; // problem here sanitize
-
-
-		error_log( 'Data Received: ' . print_r( $form_data, true ) );
-
-
-		// Return a response (example response)
+		// error_log('Data Received: ' . print_r($form_data, true));
+	
+		$table = [
+			'form_id' => $id,
+			'fields' => $form_data,
+			'time' => current_time('mysql'),
+		];
+	
+		$table_id = SIMPLEFORM()->database->table->insertleads($table);
+	
 		wp_send_json_success([
 			'message' => __('Form data received and processed successfully.', 'simpleform'),
-			'$form_data' => $form_data,
+			'form_data' => $table,
 		]);
 	}
+	
 
 }

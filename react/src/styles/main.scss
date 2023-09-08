@@ -114,7 +114,7 @@ All the default css will place here...
     }
 }
 
-// Edit button from dashboard
+// Delete button from dashboard
 .table-delete {
     max-width: 15px;
     width: 100%;
@@ -216,10 +216,6 @@ All the default css will place here...
     }
 }
 
-#wpwrap {
-    background: #f6f7fe;
-}
-
 //Input Styles
 input[type="text"],
 input[type="search"] {
@@ -267,141 +263,4 @@ input[type="search"] {
     font-size: 14px;
     line-height: 21px;
     color: #666873;
-}
-
-// imports
-@import "./_kyeframes.scss";
-
-#table-preview {
-    max-width: 100%;
-    overflow-x: auto;
-}
-
-.text-center {
-    text-align: center !important;
-}
-
-.wppoolsbe-elementor-notice {
-    color: #fff;
-    padding: 1px 20px;
-    text-align: center;
-    background-color: #2bb885;
-
-    a {
-        color: #fff;
-        font-weight: 600;
-
-        &:hover {
-            text-decoration: none;
-        }
-    }
-}
-
-.btn-pro {
-    margin-left: 9px;
-    border: 0;
-    outline: 0;
-    cursor: pointer;
-    box-shadow: none;
-    color: #FF5924;
-    font-weight: 600;
-    font-size: 11px;
-    line-height: 100%;
-    margin-left: 8px;
-    padding: 4px 10px;
-    border-radius: 11.5px;
-    background-color: rgba(240, 161, 43, 0.1);
-}
-// .cache-pro-tag{
-//     margin: 3px 8px 3px 24px;
-// }
-
-.swptls-pro-settings {
-    opacity: 0.5;
-    position: relative;
-
-    &:before {
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 100%;
-        content: "";
-        background: transparent;
-        z-index: 1;
-    }
-}
-
-button.single-theme-button {
-    position: relative;
-}
-
-.btn-pro-lock {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background: rgba(27, 47, 58, .6);
-    // pointer-events: none;
-    cursor: not-allowed;
-    z-index: 99;
-}
-
-.item-wrapper.swptls-pro-theme {
-    // pointer-events: none;
-    cursor: not-allowed;
-}
-
-.swptls-tooltip {
-    display: inline-block;
-}
-
-span.tooltip-hide-on {
-    margin-top: 6px;
-}
-
-/* .edit-form-group.cache-feature{
-    position: relative;
-} */
-
-/* span.tooltip-cache{
-    position: absolute;
-    margin-top: 4px;
-} */
-
-.swptls-grid-not-supported-error {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 150%;
-    color: #1E1E1E;
-    margin: 0 0 20px;
-    text-align: center;
-
-    span {
-        color: rgba(245, 78, 59, 1);
-        text-decoration: none;
-        cursor: pointer;
-    }
-}
-
-.Toastify__toast-container--top-right {
-    top: 5rem !important;
-}
-
-li#toplevel_page_gswpts-dashboard .current {
-    box-shadow: inset 4px 0 0 0 currentColor !important;
-}
-
-span.import-tooltip {
-    margin-top: 5px;
-}
-
-button.btn-pro.cache-pro-tag {
-    margin-top: -9px;
 }

@@ -1,0 +1,102 @@
+const availableFieldsList = [
+    {
+      id: 'text-input',
+      label: 'Text Input',
+      type: 'text',
+      placeholder: 'Enter text...',
+      className: 'custom-input',
+      required: false,
+      value: '',
+      subtype: 'text',
+    },
+    {
+      id: 'number-input',
+      label: 'Number',
+      type: 'number',
+      placeholder: 'Enter no...',
+      className: 'custom-input',
+      required: false,
+      value: '',
+    },
+    {
+      id: 'email-input',
+      label: 'Email',
+      type: 'email',
+      placeholder: 'Enter email...',
+      className: 'custom-input',
+      required: false,
+      value: '',
+      subtype: 'email',
+    },
+    {
+      id: 'text-field',
+      label: 'Text Field',
+      type: 'text',
+      placeholder: '',
+      className: 'custom-input',
+      required: false,
+      value: '',
+      subtype: 'text',
+    },
+    {
+      id: 'text-area',
+      label: 'Text Area',
+      type: 'textarea',
+      placeholder: '',
+      className: 'custom-input-text-area',
+      required: false,
+      value: '',
+      subtype: 'textarea',
+    },
+    {
+      id: 'radio-button',
+      label: 'Radio Button',
+      type: 'radio',
+      required: false,
+      options: [
+        { label: 'Option 1', value: 'Option 1' },
+        { label: 'Option 2', value: 'Option 2' },
+      ],
+      subtype: 'radio',
+    },
+    {
+      id: 'checkbox',
+      label: 'Checkbox',
+      type: 'checkbox',
+      required: false,
+      options: [
+        { label: 'Option 1', value: 'Option 1' },
+        { label: 'Option 2', value: 'Option 2' },
+      ],
+    },
+    {
+      id: 'select-input',
+      label: 'Select',
+      type: 'select',
+      required: false,
+      options: [
+        { label: 'Option 1', value: 'Option 1' },
+        { label: 'Option 2', value: 'Option 2' },
+      ],
+    },
+    {
+      id: 'file-input',
+      label: 'File Upload',
+      type: 'file',
+      required: false,
+      subtype: 'file',
+    },
+
+    {
+      id: 'text-hidden',
+      label: 'Hidden Field',
+      type: 'hidden',
+      placeholder: '',
+      className: 'custom-input',
+      required: false,
+      value: '',
+    },
+    
+  ];
+  
+  export default availableFieldsList;

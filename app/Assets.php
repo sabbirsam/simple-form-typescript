@@ -86,6 +86,7 @@ class Assets {
 				'nonce'            => wp_create_nonce( 'SIMPLEFORM-admin-app-nonce-action' ),
 				'icons'            => $icons,
 				'tables'           => SIMPLEFORM()->database->table->get_all(),
+				
 				'pro'              => [
 					'installed'   => SIMPLEFORM()->helpers->check_pro_plugin_exists(),
 					'active'      => SIMPLEFORM()->helpers->is_pro_active(),
@@ -140,42 +141,14 @@ class Assets {
 	 * @since 2.12.15
 	 */
 	public function frontend_scripts() {
-		// wp_enqueue_script( 'jquery' );
-		// wp_enqueue_script( 'jquery-ui-sortable', false, array('jquery') );        
-		// wp_enqueue_script( 'jquery-ui-tabs', false, array('jquery') );
-
-		wp_enqueue_script(
-			'simpleform-form-highlight-js',
-			SIMPLEFORM_BASE_URL . 'assets/public/library/highlight.js',
-			[ 'jquery' ],
-			SIMPLEFORM_VERSION,
-			true
-		);
-
-		wp_enqueue_script(
-			'simpleform-form-render-js',
-			SIMPLEFORM_BASE_URL . 'assets/public/library/form-render.js',
-			[ 'jquery' ],
-			SIMPLEFORM_VERSION,
-			true
-		);
-
-		/* wp_enqueue_script(
-			'simpleform-theme-tinymce-js',
-			SIMPLEFORM_BASE_URL . 'assets/public/library/theme.min.js',
-			[ 'jquery' ],
-			SIMPLEFORM_VERSION,
-			true
-		); */
 	
-
-		/* wp_enqueue_style(
+		wp_enqueue_style(
 			'simpleform-frontend-css',
-			SIMPLEFORM_BASE_URL . 'assets/public/styles/frontend.min.css',
+			SIMPLEFORM_BASE_URL . 'assets/public/styles/frontend.scss',
 			[],
 			SIMPLEFORM_VERSION,
 			'all'
-		); */
+		);
 
 
 		if ( ! SIMPLEFORM()->helpers->is_pro_active() ) {
@@ -190,6 +163,15 @@ class Assets {
 			SIMPLEFORM_VERSION,
 			true
 		);
+
+		wp_enqueue_script(
+			'simpleform-sweet-alert-js',
+			SIMPLEFORM_BASE_URL . 'assets/public/library/sweetalert2@11.js',
+			[ 'jquery' ],
+			SIMPLEFORM_VERSION,
+			true
+		);
+		
 
 		$iconsURLs = apply_filters( 'export_buttons_logo_frontend', false );
 

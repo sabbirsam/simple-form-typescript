@@ -1,93 +1,102 @@
-/* Add this CSS to your project */
+/* styles.scss */
 
-h2 {
-  text-align: center;
+/* Style the table container */
+.table-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.form-builder {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px;
-}
-
-.form-fields{
-  width: 25%;
-  border: 1px solid #ccc;
-  padding: 10px;
-  background-color: #f9f9f9;
-}
-.form-canvas {
-  width: 65%;
-  border: 1px solid #ccc;
-  padding: 10px;
-  background-color: #f9f9f9;
-}
-
-.draggable-field-container {
-  display: flex;
-  flex-direction: column;
-  
-}
-
-.draggable-field {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  margin: 8px 0;
-  padding: 8px;
-  cursor: grab;
-  display: flex;
-  // justify-content: space-between;
-  align-items: center;
-  position: relative;
-}
-
-.draggable-field button {
-  background-color: #f44336;
-  color: #fff;
-  border: none;
-  padding: 4px 8px;
-  cursor: pointer;
-  margin-left: 4px;
-}
-
-.simple-form-text {
+/* Style the search input */
+#search {
   width: 100%;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-button.form-edit {
-  position: absolute;
-  right: 85px;
-  top: -18px;
+/* Style the select field */
+select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-  button.form-remove {
-    position: absolute;
-    right: 20px;
-    top: -18px;
-  }
+/* Style the table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
 
-.form-canvas-container {
-  min-height: 200px;
-  background-color: #fff;
-  border: 2px dashed #aaa;
+table, th, td {
+  border: 1px solid #ccc;
+}
+
+th, td {
   padding: 10px;
+  text-align: left;
 }
 
-button {
-  display: block;
-  margin: 20px auto;
+/* Style the table header */
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+/* Style table rows on hover */
+tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Style pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.pagination li {
+  margin: 5px;
+  cursor: pointer;
+}
+
+.pagination li.active a {
   background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.pagination li a {
+  text-decoration: none;
+  color: #007bff;
+  padding: 6px 12px; /* Adjust padding as needed */
+  border: 1px solid #007bff; /* Add border for buttons */
+  border-radius: 4px;
+}
+
+.pagination li a:hover {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+
+// END 
+.search-select-panel {
+  display: flex;
+  gap: 10px;
+}
+
+button.delete-button {
+  display: block;
+  background-color: unset;
   color: #fff;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
-}
-
-pre {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  padding: 10px;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  margin: 20px;
 }

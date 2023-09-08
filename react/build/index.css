@@ -1507,6 +1507,7 @@
 }
 .table_info-action_box_wrapper .table_info-action_box .table-action-box .table-edit {
   margin-right: 32px;
+  margin-top: 19px;
 }
 @media (max-width: 550.98px) {
   .table_info-action_box_wrapper .table_info-action_box {
@@ -1686,12 +1687,17 @@
   border-radius: 4px;
   background: #FFFFFF;
   border: 1px solid #E1E4EA;
+  color: #1E1E1E;
 }
 .delete-table-modal-wrap .delete-table-modal .action-buttons .swptls-button.confirm-button {
   color: #F8F9FA;
   border-radius: 4px;
   background: #F93C80;
   border: 1px solid #F93C80;
+}
+
+.action-buttons {
+  display: flex;
 }
 /*!***************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/_dashboard.scss ***!
@@ -1724,7 +1730,7 @@
   width: 100%;
   height: 17px;
   left: 20px;
-  top: 50%;
+  top: 38%;
   transform: translateY(-50%);
 }
 .table-header .table-search-box .icon svg {
@@ -1818,397 +1824,6 @@
 .no-tables-created-intro .help a:hover {
   text-decoration: underline;
 }
-/*!****************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/_createForm.scss ***!
-  \****************************************************************************************************************************************************************************************************************************************************/
-div#simpleform-app-root {
-  overflow: hidden;
-}
-div#simpleform-app-root .form-data-container #build-wrap {
-  /* Your styles for build-wrap */
-}
-div#simpleform-app-root .form-data-container .checkbox-wrapper {
-  display: flex;
-  align-items: center; /* Center align items vertically */
-  text-align: center;
-  margin-bottom: 12px;
-  gap: 10px;
-}
-div#simpleform-app-root .form-data-container .checkbox-wrapper button#saveData {
-  width: 100px;
-  padding: 15px 20px;
-  background: #2bb885;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 21px;
-  color: #f8f9fa;
-  text-decoration: none;
-  border: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-div#simpleform-app-root .form-data-container .checkbox-wrapper button#saveData:hover {
-  color: white;
-  background-color: #218f67;
-}
-div#simpleform-app-root .form-data-container .checkbox-wrapper input#formName {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
-  margin-top: 0;
-  width: 50vh;
-}
-/*!**********************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/_lead.scss ***!
-  \**********************************************************************************************************************************************************************************************************************************************/
-/* Add this CSS to your project */
-h2 {
-  text-align: center;
-}
-
-.form-builder {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px;
-}
-
-.form-fields {
-  width: 25%;
-  border: 1px solid #ccc;
-  padding: 10px;
-  background-color: #f9f9f9;
-}
-
-.form-canvas {
-  width: 65%;
-  border: 1px solid #ccc;
-  padding: 10px;
-  background-color: #f9f9f9;
-}
-
-.draggable-field-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.draggable-field {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  margin: 8px 0;
-  padding: 8px;
-  cursor: grab;
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-.draggable-field button {
-  background-color: #f44336;
-  color: #fff;
-  border: none;
-  padding: 4px 8px;
-  cursor: pointer;
-  margin-left: 4px;
-}
-
-.simple-form-text {
-  width: 100%;
-}
-
-button.form-edit {
-  position: absolute;
-  right: 85px;
-  top: -18px;
-}
-
-button.form-remove {
-  position: absolute;
-  right: 20px;
-  top: -18px;
-}
-
-.form-canvas-container {
-  min-height: 200px;
-  background-color: #fff;
-  border: 2px dashed #aaa;
-  padding: 10px;
-}
-
-button {
-  display: block;
-  margin: 20px auto;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-pre {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  padding: 10px;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  margin: 20px;
-}
-/*!*************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/_setting.scss ***!
-  \*************************************************************************************************************************************************************************************************************************************************/
-/* Styles for the form container */
-.form-container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Styles for form labels */
-label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-
-/* Styles for text inputs */
-input[type=text],
-select,
-textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  outline: none;
-}
-
-/* Styles for checkboxes with switch-like style */
-.switch-label {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 30px;
-  background-color: #ccc;
-  border-radius: 15px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.switch-label input[type=checkbox] {
-  display: none;
-}
-
-.slider {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #2196F3;
-  border-radius: 15px;
-  transition: transform 0.3s;
-}
-
-.slider.round {
-  border-radius: 30px;
-}
-
-.switch-label input[type=checkbox]:checked + .slider {
-  background-color: #4CAF50;
-  transform: translateX(30px);
-}
-
-/* Style for the form submit button */
-button[type=submit] {
-  background-color: #4CAF50;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s;
-}
-
-button[type=submit]:hover {
-  background-color: #45a049;
-}
-/*!*******************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/_documentation.scss ***!
-  \*******************************************************************************************************************************************************************************************************************************************************/
-/* Add this CSS to your project */
-h2 {
-  text-align: center;
-}
-
-.form-builder {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px;
-}
-
-.form-fields {
-  width: 25%;
-  border: 1px solid #ccc;
-  padding: 10px;
-  background-color: #f9f9f9;
-}
-
-.form-canvas {
-  width: 65%;
-  border: 1px solid #ccc;
-  padding: 10px;
-  background-color: #f9f9f9;
-}
-
-.draggable-field-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-btn-group {
-  display: flex;
-  flex-direction: row;
-}
-
-.draggable-field {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  margin: 8px 0;
-  padding: 8px;
-  cursor: grab;
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-.draggable-field button {
-  background-color: #f44336;
-  color: #fff;
-  border: none;
-  padding: 4px 8px;
-  cursor: pointer;
-  margin-left: 4px;
-}
-
-button.form-edit {
-  position: absolute;
-  right: 85px;
-  top: -18px;
-}
-
-button.form-remove {
-  position: absolute;
-  right: 20px;
-  top: -18px;
-}
-
-.form-canvas-container {
-  min-height: 200px;
-  background-color: #fff;
-  border: 2px dashed #aaa;
-  padding: 10px;
-}
-
-.edit-field-form {
-  border: 1px solid #ccc;
-  padding: 21px;
-  background-color: #f9f9f9;
-}
-
-/* .simple-form-id-panel {
-  display: flex;
-  align-items: center;
-  position: relative;
-  height: 65px;
-
-  label{
-    flex: 1;
-    white-space: nowrap;
-    margin-right: 10px;
-  }
-
-  input[type="text"]{
-    flex: 12; 
-    padding: 5px;
-  }
-  .select-type-class{
-    flex: 12; 
-    padding: 5px;
-    position: absolute;
-    left: 90px;
-  }
-  input[type="checkbox"]{
-    flex: 12; 
-    padding: 5px;
-    margin-left: 40px;
-  }
-} */
-.simple-form-id-panel {
-  display: flex;
-  align-items: center;
-  position: relative;
-  height: 65px;
-}
-.simple-form-id-panel label {
-  flex: 1;
-  white-space: nowrap;
-  margin-right: 10px;
-}
-.simple-form-id-panel input[type=text],
-.simple-form-id-panel .select-type-class,
-.simple-form-id-panel input[type=checkbox] {
-  flex: 12;
-  padding: 5px;
-}
-.simple-form-id-panel .select-type-class,
-.simple-form-id-panel input[type=checkbox] {
-  position: absolute;
-  left: calc(8% + 7px);
-}
-
-.select-fields-panel {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-.select-fields-panel button.option-remover {
-  position: absolute;
-  right: 7px;
-  bottom: 17px;
-  font-size: 10px;
-  width: 68px;
-  height: 29px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
-
-button {
-  display: block;
-  margin: 20px auto;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-pre {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  padding: 10px;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  margin: 20px;
-}
 /*!************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/_render.scss ***!
   \************************************************************************************************************************************************************************************************************************************************/
@@ -2222,28 +1837,6 @@ pre {
   height: max-content;
 }
 
-/* // Styles for the form container  sticky
-.form-fields {
-    width: 25%;
-    border: 1px solid #ccc;
-    padding: 10px;
-    background-color: #f9f9f9;
-    height: -moz-max-content;
-    height: max-content;
-    position: fixed;
-    left: 182px;
-    z-index: 1;
-  }
-
-//  Styles for the form canvas when sticky
-.form-canvas {
-    width: 65%;
-    border: 1px solid #ccc;
-    padding: 10px;
-    background-color: #f9f9f9;
-    position: absolute;
-    right: 0px; 
-} */
 .form-container {
   max-width: 400px;
   margin: 0 auto;
@@ -2353,6 +1946,318 @@ button[type=submit] {
 button[type=submit]:hover {
   background-color: #45a049;
 }
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/_createForm.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+/* Add this CSS to your project */
+h2 {
+  text-align: center;
+}
+
+.form-builder {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.form-fields {
+  width: 25%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+  position: sticky;
+  top: 0;
+  height: 80%;
+}
+
+.form-canvas {
+  width: 65%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+  overflow-y: auto; /* Add scroll when content exceeds the height */
+}
+
+.draggable-field-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-btn-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.draggable-field {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin: 8px 0;
+  padding: 8px;
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.draggable-field button {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+button.form-edit {
+  position: absolute;
+  right: 51px;
+  top: -9px;
+  background: white;
+}
+button.form-edit:hover {
+  background-color: #e5e5e5;
+}
+
+button.form-remove {
+  position: absolute;
+  right: 20px;
+  top: -9px;
+  background: white;
+}
+button.form-remove:hover {
+  background-color: #e5e5e5;
+}
+
+.form-canvas-container {
+  min-height: calc(85% + 7px);
+  background-color: #fff;
+  border: 2px dashed #aaa;
+  padding: 10px;
+}
+
+.edit-field-form {
+  border: 1px solid #ccc;
+  padding: 21px;
+  background-color: #f9f9f9;
+}
+
+.simple-form-id-panel {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 65px;
+}
+.simple-form-id-panel label {
+  flex: 1;
+  white-space: nowrap;
+  margin-right: 10px;
+}
+.simple-form-id-panel input[type=text],
+.simple-form-id-panel .select-type-class,
+.simple-form-id-panel input[type=checkbox] {
+  flex: 12;
+  padding: 5px;
+}
+.simple-form-id-panel .select-type-class,
+.simple-form-id-panel input[type=checkbox] {
+  position: absolute;
+  left: calc(8% + 7px);
+}
+
+.simple-form-text input[type=text],
+.simple-form-text input[type=textarea] {
+  width: 68vh;
+}
+.simple-form-text input[type=date], .simple-form-text input[type=datetime-local], .simple-form-text input[type=datetime], .simple-form-text input[type=email], .simple-form-text input[type=month], .simple-form-text input[type=number], .simple-form-text input[type=password], .simple-form-text input[type=search], .simple-form-text input[type=tel], .simple-form-text input[type=text], .simple-form-text input[type=time], .simple-form-text input[type=url], .simple-form-text input[type=week] {
+  padding: 14px 20px 15px 45px;
+  background: #ffffff;
+  border: 1px solid #edeff1;
+  border-radius: 4px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #666873;
+  outline: none;
+  width: 68vh;
+  height: 50px;
+}
+.simple-form-text input[type=text], .simple-form-text select, .simple-form-text textarea {
+  width: 68vh;
+}
+
+.select-fields-panel {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.select-fields-panel button.option-remover {
+  position: absolute;
+  right: 7px;
+  bottom: 17px;
+  font-size: 10px;
+  width: 68px;
+  height: 29px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.button-sub-group-simple-form {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-left: 11px;
+}
+
+button {
+  display: block;
+  margin: 0px -6px -15px 11px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 10px;
+  background-color: #000000;
+  color: white;
+  border: 1px solid #ccc;
+  margin: 20px;
+  font-family: monospace;
+  font-size: 14px;
+  width: 60vh;
+  height: 60vh;
+  overflow-y: scroll;
+}
+
+/* Style the scrollbar */
+pre::-webkit-scrollbar {
+  width: 8px; /* Adjust the width as needed */
+}
+
+pre::-webkit-scrollbar-thumb {
+  background-color: white;
+}
+
+pre::-webkit-scrollbar-track {
+  background-color: #000000;
+}
+
+span.formname input#formName {
+  margin-left: 23px;
+  width: 95%;
+}
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/_lead.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
+/* styles.scss */
+/* Style the table container */
+.table-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style the search input */
+#search {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style the select field */
+select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style the table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #ccc;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+/* Style the table header */
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+/* Style table rows on hover */
+tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Style pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.pagination li {
+  margin: 5px;
+  cursor: pointer;
+}
+
+.pagination li.active a {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.pagination li a {
+  text-decoration: none;
+  color: #007bff;
+  padding: 6px 12px; /* Adjust padding as needed */
+  border: 1px solid #007bff; /* Add border for buttons */
+  border-radius: 4px;
+}
+
+.pagination li a:hover {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.search-select-panel {
+  display: flex;
+  gap: 10px;
+}
+
+button.delete-button {
+  display: block;
+  background-color: unset;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/_documentation.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
+
 /*!*********************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/main.scss ***!
   \*********************************************************************************************************************************************************************************************************************************************/
@@ -2536,10 +2441,6 @@ All the default css will place here...
   outline: none;
 }
 
-#wpwrap {
-  background: #f6f7fe;
-}
-
 input[type=text],
 input[type=search] {
   padding: 14px 20px 15px 45px;
@@ -2576,165 +2477,6 @@ input[type=search]:focus {
   font-size: 14px;
   line-height: 21px;
   color: #666873;
-}
-
-@keyframes bounce {
-  0%, 20%, 60%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-5px);
-  }
-  80% {
-    transform: translateY(-3px);
-  }
-}
-@keyframes shake {
-  0%, 20%, 60%, 100% {
-    transform: translateX(0);
-  }
-  40% {
-    transform: translateX(-5px);
-  }
-  80% {
-    transform: translateX(-3px);
-  }
-}
-@keyframes delete-shake {
-  10%, 90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-  20%, 80% {
-    transform: translate3d(2px, 0, 0);
-  }
-  30%, 50%, 70% {
-    transform: translate3d(-3px, 0, 0);
-  }
-  40%, 60% {
-    transform: translate3d(3px, 0, 0);
-  }
-}
-#table-preview {
-  max-width: 100%;
-  overflow-x: auto;
-}
-
-.text-center {
-  text-align: center !important;
-}
-
-.wppoolsbe-elementor-notice {
-  color: #fff;
-  padding: 1px 20px;
-  text-align: center;
-  background-color: #2bb885;
-}
-.wppoolsbe-elementor-notice a {
-  color: #fff;
-  font-weight: 600;
-}
-.wppoolsbe-elementor-notice a:hover {
-  text-decoration: none;
-}
-
-.btn-pro {
-  margin-left: 9px;
-  border: 0;
-  outline: 0;
-  cursor: pointer;
-  box-shadow: none;
-  color: #FF5924;
-  font-weight: 600;
-  font-size: 11px;
-  line-height: 100%;
-  margin-left: 8px;
-  padding: 4px 10px;
-  border-radius: 11.5px;
-  background-color: rgba(240, 161, 43, 0.1);
-}
-
-.swptls-pro-settings {
-  opacity: 0.5;
-  position: relative;
-}
-.swptls-pro-settings:before {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  content: "";
-  background: transparent;
-  z-index: 1;
-}
-
-button.single-theme-button {
-  position: relative;
-}
-
-.btn-pro-lock {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background: rgba(27, 47, 58, 0.6);
-  cursor: not-allowed;
-  z-index: 99;
-}
-
-.item-wrapper.swptls-pro-theme {
-  cursor: not-allowed;
-}
-
-.swptls-tooltip {
-  display: inline-block;
-}
-
-span.tooltip-hide-on {
-  margin-top: 6px;
-}
-
-/* .edit-form-group.cache-feature{
-    position: relative;
-} */
-/* span.tooltip-cache{
-    position: absolute;
-    margin-top: 4px;
-} */
-.swptls-grid-not-supported-error {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 150%;
-  color: #1E1E1E;
-  margin: 0 0 20px;
-  text-align: center;
-}
-.swptls-grid-not-supported-error span {
-  color: rgb(245, 78, 59);
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.Toastify__toast-container--top-right {
-  top: 5rem !important;
-}
-
-li#toplevel_page_gswpts-dashboard .current {
-  box-shadow: inset 4px 0 0 0 currentColor !important;
-}
-
-span.import-tooltip {
-  margin-top: 5px;
-}
-
-button.btn-pro.cache-pro-tag {
-  margin-top: -9px;
 }
 
 /*# sourceMappingURL=index.css.map*/

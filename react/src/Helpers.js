@@ -9,6 +9,7 @@ export function getTables() {
 }
 
 
+
 // Default setting once table create.
 export function getDefaultSettings() {
 	return {	

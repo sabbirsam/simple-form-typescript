@@ -53,6 +53,38 @@ class Table {
 
 
 	/**
+	 * Insert Leads into the db.
+	 *
+	 * @param array $data The data to save.
+	 * @return int|false
+	 */
+	public function insertleads( array $data ) {
+		global $wpdb;
+		
+		// Initialize an array to store the formatted data
+		$formatted_data = [];
+
+		// Extract values from the $data array and format them.
+		foreach ($data as $key => $value) {
+			if ($key === 'fields') {
+				// Serialize the form_fields array as a JSON string.
+				$formatted_data[$key] = json_encode($value);
+			} else {
+				// Use the %s format for non-array values.
+				$formatted_data[$key] = is_array($value) ? '' : $value;
+			}
+		}
+
+
+		$table  = $wpdb->prefix . 'simple_form_leads';
+		$format = [ '%s', '%s', '%s', '%s' ];
+
+		$wpdb->insert( $table, $formatted_data, $format );
+		return $wpdb->insert_id;
+	}
+
+
+	/**
 	 * Fetch table with specific ID.
 	 *
 	 * @param  int $id The table id.
@@ -67,6 +99,16 @@ class Table {
 		return ! is_null( $result ) ? $result : null;
 	}
 
+	public function getleads(int $id) {
+		global $wpdb;
+		$table = $wpdb->prefix . 'simple_form_leads';
+	
+		$results = $wpdb->get_results($wpdb->prepare("SELECT * FROM $table WHERE form_id = %d", absint($id)), ARRAY_A);
+	
+		return !empty($results) ? $results : null;
+	}
+	
+
 	/**
 	 * Update table with specific ID.
 	 *
@@ -76,9 +118,6 @@ class Table {
 	public function update( int $id, array $data ) {
 		global $wpdb;
 		$table = $wpdb->prefix . 'simple_form_tables';
-
-		// error_log( 'ID:: ' . print_r( $id, true ) );
-		// error_log( 'Data: ' . print_r( $data, true ) );
 
 		// Initialize an array to store the formatted data
 		$formatted_data = [];
@@ -116,6 +155,13 @@ class Table {
 		return $wpdb->delete( $table, [ 'id' => $id ], [ '%d' ] );
 	}
 
+	public function deleteleads( int $id ) {
+		global $wpdb;
+		$table = $wpdb->prefix . 'simple_form_leads';
+
+		return $wpdb->delete( $table, [ 'id' => $id ], [ '%d' ] );
+	}
+
 	/**
 	 * Fetch all the saved tables
 	 *
@@ -130,5 +176,6 @@ class Table {
 
 		return $result;
 	}
+
 
 }

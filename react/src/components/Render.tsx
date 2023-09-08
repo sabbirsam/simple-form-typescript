@@ -70,6 +70,23 @@ const RenderField = ({ field }) => {
             id={field.id}
             data-unique-id={field.uniqueId}
             value={field.value}
+            subtype={field.subtype}
+            />
+        </div>
+      );
+    case 'textarea':
+      return (
+        <div key={field.uniqueId} className='simple-form-text'>
+            <label>{field.label}</label>
+            <textarea
+            type="textarea"
+            placeholder={field.placeholder}
+            className={field.className}
+            required={field.required}
+            id={field.id}
+            data-unique-id={field.uniqueId}
+            value={field.value}
+            subtype={field.subtype}
             />
         </div>
       );
@@ -130,6 +147,7 @@ const RenderField = ({ field }) => {
             id={field.id}
             value={field.value}
             data-unique-id={field.uniqueId}
+            subtype={field.subtype}
             />
         </div>
       );
@@ -318,11 +336,15 @@ const RenderField = ({ field }) => {
             <label>{field.label}</label>
             <input
             type="image"
-            placeholder={field.placeholder}
+            src= {field.src}
+            alt= {field.alt}
+            width= {field.width}
+            height= {field.height}
+            // placeholder={field.placeholder}
             className={field.className}
             required={field.required}
             id={field.id}
-            value={field.value}
+            // value={field.value}
             data-unique-id={field.uniqueId}
             />
         </div>
@@ -332,7 +354,7 @@ const RenderField = ({ field }) => {
         <div key={field.uniqueId} className='simple-form-text'>
             <label>{field.label}</label>
             <input
-            type="month"
+            type="month"  
             placeholder={field.placeholder}
             className={field.className}
             required={field.required}
@@ -350,7 +372,8 @@ const RenderField = ({ field }) => {
             <label key={index}>
               <input 
               type="radio" 
-              name={field.id} 
+              name={field.id}         
+              subtype={field.subtype} 
               required={field.required}
               id={field.id}
               data-unique-id={field.uniqueId}
