@@ -62,7 +62,7 @@ const Column = ( {
 	children,
 }: PropTypes ) => {
 	const classes = () => {
-		let c = 'swptls-col';
+		let c = 'simpleform-col';
 		c += firstXs ? ' first-xs' : lastXs ? ' last-xs' : '';
 		c += firstSm ? ' first-sm' : lastSm ? ' last-sm' : '';
 		c += firstMd ? ' first-md' : lastMd ? ' last-md' : '';

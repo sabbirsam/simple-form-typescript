@@ -4,7 +4,7 @@ import "./_title.scss";
 
 const Title = ({ tagName, children }) => {
     const classes = () => {
-        let c = `swptls-title ${tagName ? tagName : ""}`;
+        let c = `simpleform-title ${tagName ? tagName : ""}`;
 
         return c;
     };

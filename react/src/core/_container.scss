@@ -1,34 +1,37 @@
-.swptls-container-fluid,
-.swptls-container {
+.simpleform-container-fluid,
+.simpleform-container {
 	margin-right: auto;
 	margin-left: auto;
+	background: white;// prev. none
+	
 }
 
-.swptls-container {
+.simpleform-container {
 	padding: 0 20px;
+	margin-top: 30px;
 }
 
-.swptls-container-fluid.hero,
-.swptls-container.hero {
+.simpleform-container-fluid.hero,
+.simpleform-container.hero {
 	min-height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.swptls-container-fluid {
+.simpleform-container-fluid {
 	padding-right: 2rem;
 	padding-left: 2rem;
 }
 
 @media only screen and (min-width: 782px) {
-	.swptls-container {
+	.simpleform-container {
 		padding: 0 30px;
 	}
 }
 
 @media only screen and (min-width: 1042px) {
-	.swptls-container {
+	.simpleform-container {
 		max-width: 85rem;
 
 		&.full-width {

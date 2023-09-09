@@ -78,7 +78,7 @@ const Row = ( {
 	children,
 }: propTypes ) => {
 	const classes = () => {
-		let c = reverse ? 'swptls-row reverse' : 'swptls-row ';
+		let c = reverse ? 'simpleform-row reverse' : 'simpleform-row ';
 		c += startXs
 			? ' start-xs'
 			: centerXs

@@ -2,7 +2,6 @@ import Card from '../core/Card';
 import React, { useState, useEffect } from 'react';
 import { getTables, getNonce } from '../Helpers';
 
-import AddNewTable from './AddNewTable';
 import TableItem from './TableItem';
 
 function TablesList({ copiedTables, tables, setCopiedTables, setTableCount, setTables, setLoader }) {
@@ -20,10 +19,6 @@ function TablesList({ copiedTables, tables, setCopiedTables, setTableCount, setT
 						setLoader={setLoader}
 					/>
 				))}
-
-			<div className="add-new-wrapper">
-				<AddNewTable />
-			</div>
 		</Card>
 	);
 }

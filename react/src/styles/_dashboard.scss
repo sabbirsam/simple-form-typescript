@@ -1,8 +1,8 @@
 // Dashboard Styles
 .create-table-intro {
-    margin-bottom: 51px;
+    // margin-bottom: 51px;
 
-    .swptls-title {
+    .simpleform-title {
         margin-bottom: 15px;
     }
 }
@@ -11,9 +11,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 25px;
+    // margin-bottom: 25px;
 
-    .swptls-title {
+    .simpleform-title {
         margin-bottom: 0;
         margin-right: 10px;
     }
@@ -39,11 +39,11 @@
     }
 }
 
-.swptls-card {
+.simpleform-card {
 
     &.table-item-card {
         padding: 26px 30px 30px 30px;
-        margin-bottom: 0;
+        margin-bottom: 30;
 
         &.manage-table-card {
             // padding: 56px 20px; // old one when fix tab list padding

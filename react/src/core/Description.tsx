@@ -2,7 +2,7 @@ import React from 'react';
 
 const Description = ( { children } ) => {
 	const classes = () => {
-		const c = 'swptls-description';
+		const c = 'simpleform-description';
 
 		return c;
 	};

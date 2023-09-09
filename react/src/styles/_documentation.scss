@@ -1,0 +1,146 @@
+.documentation-flex-row {
+
+    @media screen and (max-width: 781px) {
+        margin-left: -10px;
+        margin-right: -10px;
+
+        .swptls-col {
+            flex: 1 1 220px;
+            padding-left: 20px;
+            padding-right: 10px;
+        }
+    }
+}
+
+.documentation-card {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    padding: 50px 20px;
+    background: #FFFFFF;
+    border: 1px solid #ECECEF;
+
+    svg {
+        margin-bottom: 30px;
+    }
+
+    h4 {
+        margin: 0;
+        color: #1E1E1E;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 100%;
+        transition: all 0.3s ease;
+    }
+
+    .single-doc-item {
+        top: 0;
+        left: 0;
+        outline: 0;
+        width: 100%;
+        height: 100%;
+        box-shadow: none;
+        position: absolute;
+
+        &:any-link {
+
+            &:hover+svg+h4 {
+                color: #2BB885;
+            }
+        }
+    }
+}
+
+.documentation-contact {
+    outline: 0;
+    display: block;
+    box-shadow: none;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 30px;
+
+    svg {
+        margin-bottom: 17px;
+    }
+
+    h4 {
+        color: #1E1E1E;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 100%;
+        margin-top: 0;
+        margin-bottom: 6px;
+    }
+
+    p {
+        color: #666873;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        max-width: 173px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.get-pro-promo {
+    h2 {
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 33px;
+        color: #363A3D;
+
+        &+p {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 150%;
+            color: #424551;
+        }
+
+    }
+
+    p.documention-list::before {
+        content: '\2022';
+        margin-right: 10px;
+        font-size: 20px;
+        line-height: 1; 
+    }
+
+
+    .unlock-features {
+        width: 175px;
+        height: 39px;
+        background: #25D366;
+        border-radius: 4px;
+        border: 0px solid;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 39px; 
+        text-align: center;
+        color: #F8F9FA;
+        transition: 300ms;
+        padding: 0; 
+        transition: 300ms;
+
+        &:hover {
+            background: #1fb857;
+            color: #F8F9FA;
+        }
+    }
+
+    p {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 150%;
+        color: #666873;
+
+        >a {
+            text-decoration: none;
+            color: #1E1E1E;
+        }
+    }
+}

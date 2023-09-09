@@ -12,7 +12,7 @@ const Tooltip = ({ content }) => {
 			anchorId={`app-help-${randomId}`}
 			content={content}					
 		/>
-			<div className='swptls-tooltip' id={`app-help-${randomId}`}>
+			<div className='simpleform-tooltip' id={`app-help-${randomId}`}>
 				{infoIconWithQuestionMark}
 			</div></>
 	)

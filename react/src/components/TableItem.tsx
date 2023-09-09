@@ -128,13 +128,13 @@ function TableItem({ table, setCopiedTables, setTableCount, setTables, setLoader
 							</p>
 							<div className="action-buttons">
 								<button
-									className="swptls-button cancel-button"
+									className="simpleform-button cancel-button"
 									onClick={handleClosePopup}
 								>
 									Cancel
 								</button>
 								<button
-									className="swptls-button confirm-button"
+									className="simpleform-button confirm-button"
 									onClick={() =>
 										ConfirmDeleteTable(table.id)
 									}

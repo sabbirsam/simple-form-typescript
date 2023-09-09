@@ -615,666 +615,666 @@
 /*!**********************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/core/_column.scss ***!
   \**********************************************************************************************************************************************************************************************************************************************/
-.swptls-col .reverse {
+.simpleform-col .reverse {
   flex-direction: column-reverse;
 }
-.swptls-col.col-xs, .swptls-col.col-xs-1, .swptls-col.col-xs-2, .swptls-col.col-xs-3, .swptls-col.col-xs-4, .swptls-col.col-xs-5, .swptls-col.col-xs-6, .swptls-col.col-xs-7, .swptls-col.col-xs-8, .swptls-col.col-xs-9, .swptls-col.col-xs-10, .swptls-col.col-xs-11, .swptls-col.col-xs-12, .swptls-col.col-xs-offset-0, .swptls-col.col-xs-offset-1, .swptls-col.col-xs-offset-2, .swptls-col.col-xs-offset-3, .swptls-col.col-xs-offset-4, .swptls-col.col-xs-offset-5, .swptls-col.col-xs-offset-6, .swptls-col.col-xs-offset-7, .swptls-col.col-xs-offset-8, .swptls-col.col-xs-offset-9, .swptls-col.col-xs-offset-10, .swptls-col.col-xs-offset-11, .swptls-col.col-xs-offset-12 {
+.simpleform-col.col-xs, .simpleform-col.col-xs-1, .simpleform-col.col-xs-2, .simpleform-col.col-xs-3, .simpleform-col.col-xs-4, .simpleform-col.col-xs-5, .simpleform-col.col-xs-6, .simpleform-col.col-xs-7, .simpleform-col.col-xs-8, .simpleform-col.col-xs-9, .simpleform-col.col-xs-10, .simpleform-col.col-xs-11, .simpleform-col.col-xs-12, .simpleform-col.col-xs-offset-0, .simpleform-col.col-xs-offset-1, .simpleform-col.col-xs-offset-2, .simpleform-col.col-xs-offset-3, .simpleform-col.col-xs-offset-4, .simpleform-col.col-xs-offset-5, .simpleform-col.col-xs-offset-6, .simpleform-col.col-xs-offset-7, .simpleform-col.col-xs-offset-8, .simpleform-col.col-xs-offset-9, .simpleform-col.col-xs-offset-10, .simpleform-col.col-xs-offset-11, .simpleform-col.col-xs-offset-12 {
   box-sizing: border-box;
   flex: 0 0 auto;
   padding: 0.5rem;
 }
-.swptls-col.col-xs {
+.simpleform-col.col-xs {
   flex-grow: 1;
   flex-basis: 0;
   max-width: 100%;
 }
-.swptls-col.col-xs-1 {
+.simpleform-col.col-xs-1 {
   flex-basis: 8.33333333%;
   max-width: 8.33333333%;
 }
-.swptls-col.col-xs-2 {
+.simpleform-col.col-xs-2 {
   flex-basis: 16.66666667%;
   max-width: 16.66666667%;
 }
-.swptls-col.col-xs-3 {
+.simpleform-col.col-xs-3 {
   flex-basis: 25%;
   max-width: 25%;
 }
-.swptls-col.col-xs-4 {
+.simpleform-col.col-xs-4 {
   flex-basis: 33.33333333%;
   max-width: 33.33333333%;
 }
-.swptls-col.col-xs-5 {
+.simpleform-col.col-xs-5 {
   flex-basis: 41.66666667%;
   max-width: 41.66666667%;
 }
-.swptls-col.col-xs-6 {
+.simpleform-col.col-xs-6 {
   flex-basis: 50%;
   max-width: 50%;
 }
-.swptls-col.col-xs-7 {
+.simpleform-col.col-xs-7 {
   flex-basis: 58.33333333%;
   max-width: 58.33333333%;
 }
-.swptls-col.col-xs-8 {
+.simpleform-col.col-xs-8 {
   flex-basis: 66.66666667%;
   max-width: 66.66666667%;
 }
-.swptls-col.col-xs-9 {
+.simpleform-col.col-xs-9 {
   flex-basis: 75%;
   max-width: 75%;
 }
-.swptls-col.col-xs-10 {
+.simpleform-col.col-xs-10 {
   flex-basis: 83.33333333%;
   max-width: 83.33333333%;
 }
-.swptls-col.col-xs-11 {
+.simpleform-col.col-xs-11 {
   flex-basis: 91.66666667%;
   max-width: 91.66666667%;
 }
-.swptls-col.col-xs-12 {
+.simpleform-col.col-xs-12 {
   flex-basis: 100%;
   max-width: 100%;
 }
-.swptls-col.col-xs-offset-0 {
+.simpleform-col.col-xs-offset-0 {
   margin-left: 0;
 }
-.swptls-col.col-xs-offset-1 {
+.simpleform-col.col-xs-offset-1 {
   margin-left: 2.5%;
 }
-.swptls-col.col-xs-offset-2 {
+.simpleform-col.col-xs-offset-2 {
   margin-left: 5%;
 }
-.swptls-col.col-xs-offset-3 {
+.simpleform-col.col-xs-offset-3 {
   margin-left: 7.5%;
 }
-.swptls-col.col-xs-offset-4 {
+.simpleform-col.col-xs-offset-4 {
   margin-left: 10%;
 }
-.swptls-col.col-xs-offset-5 {
+.simpleform-col.col-xs-offset-5 {
   margin-left: 12.5%;
 }
-.swptls-col.col-xs-offset-6 {
+.simpleform-col.col-xs-offset-6 {
   margin-left: 15%;
 }
-.swptls-col.col-xs-offset-7 {
+.simpleform-col.col-xs-offset-7 {
   margin-left: 17.5%;
 }
-.swptls-col.col-xs-offset-8 {
+.simpleform-col.col-xs-offset-8 {
   margin-left: 20%;
 }
-.swptls-col.col-xs-offset-9 {
+.simpleform-col.col-xs-offset-9 {
   margin-left: 22.5%;
 }
-.swptls-col.col-xs-offset-10 {
+.simpleform-col.col-xs-offset-10 {
   margin-left: 25%;
 }
-.swptls-col.col-xs-offset-11 {
+.simpleform-col.col-xs-offset-11 {
   margin-left: 27.5%;
 }
-.swptls-col.first-xs {
+.simpleform-col.first-xs {
   order: -1;
 }
-.swptls-col.last-xs {
+.simpleform-col.last-xs {
   order: 1;
 }
-.swptls-col.text-xs-left {
+.simpleform-col.text-xs-left {
   text-align: left !important;
   justify-content: flex-start;
 }
-.swptls-col.text-xs-center {
+.simpleform-col.text-xs-center {
   text-align: center !important;
   justify-content: center;
 }
-.swptls-col.text-xs-right {
+.simpleform-col.text-xs-right {
   text-align: right !important;
   justify-content: flex-end;
 }
-.swptls-col.align-self-center {
+.simpleform-col.align-self-center {
   align-self: flex-start;
 }
-.swptls-col.p-0 {
+.simpleform-col.p-0 {
   padding: 0 !important;
 }
-.swptls-col.pt-0, .swptls-col.py-0 {
+.simpleform-col.pt-0, .simpleform-col.py-0 {
   padding-top: 0 !important;
 }
-.swptls-col.pr-0, .swptls-col.px-0 {
+.simpleform-col.pr-0, .simpleform-col.px-0 {
   padding-right: 0 !important;
 }
-.swptls-col.pb-0, .swptls-col.py-0 {
+.simpleform-col.pb-0, .simpleform-col.py-0 {
   padding-bottom: 0 !important;
 }
-.swptls-col.pl-0, .swptls-col.px-0 {
+.simpleform-col.pl-0, .simpleform-col.px-0 {
   padding-left: 0 !important;
 }
-.swptls-col.p-1 {
+.simpleform-col.p-1 {
   padding: 0.25rem !important;
 }
-.swptls-col.pt-1, .swptls-col.py-1 {
+.simpleform-col.pt-1, .simpleform-col.py-1 {
   padding-top: 0.25rem !important;
 }
-.swptls-col.pr-1, .swptls-col.px-1 {
+.simpleform-col.pr-1, .simpleform-col.px-1 {
   padding-right: 0.25rem !important;
 }
-.swptls-col.pb-1, .swptls-col.py-1 {
+.simpleform-col.pb-1, .simpleform-col.py-1 {
   padding-bottom: 0.25rem !important;
 }
-.swptls-col.pl-1, .swptls-col.px-1 {
+.simpleform-col.pl-1, .simpleform-col.px-1 {
   padding-left: 0.25rem !important;
 }
-.swptls-col.p-2 {
+.simpleform-col.p-2 {
   padding: 0.5rem !important;
 }
-.swptls-col.pt-2, .swptls-col.py-2 {
+.simpleform-col.pt-2, .simpleform-col.py-2 {
   padding-top: 0.5rem !important;
 }
-.swptls-col.pr-2, .swptls-col.px-2 {
+.simpleform-col.pr-2, .simpleform-col.px-2 {
   padding-right: 0.5rem !important;
 }
-.swptls-col.pb-2, .swptls-col.py-2 {
+.simpleform-col.pb-2, .simpleform-col.py-2 {
   padding-bottom: 0.5rem !important;
 }
-.swptls-col.pl-2, .swptls-col.px-2 {
+.simpleform-col.pl-2, .simpleform-col.px-2 {
   padding-left: 0.5rem !important;
 }
-.swptls-col.p-3 {
+.simpleform-col.p-3 {
   padding: 1rem !important;
 }
-.swptls-col.pt-3, .swptls-col.py-3 {
+.simpleform-col.pt-3, .simpleform-col.py-3 {
   padding-top: 1rem !important;
 }
-.swptls-col.pr-3, .swptls-col.px-3 {
+.simpleform-col.pr-3, .simpleform-col.px-3 {
   padding-right: 1rem !important;
 }
-.swptls-col.pb-3, .swptls-col.py-3 {
+.simpleform-col.pb-3, .simpleform-col.py-3 {
   padding-bottom: 1rem !important;
 }
-.swptls-col.pl-3, .swptls-col.px-3 {
+.simpleform-col.pl-3, .simpleform-col.px-3 {
   padding-left: 1rem !important;
 }
-.swptls-col.p-4 {
+.simpleform-col.p-4 {
   padding: 1.5rem !important;
 }
-.swptls-col.pt-4, .swptls-col.py-4 {
+.simpleform-col.pt-4, .simpleform-col.py-4 {
   padding-top: 1.5rem !important;
 }
-.swptls-col.pr-4, .swptls-col.px-4 {
+.simpleform-col.pr-4, .simpleform-col.px-4 {
   padding-right: 1.5rem !important;
 }
-.swptls-col.pb-4, .swptls-col.py-4 {
+.simpleform-col.pb-4, .simpleform-col.py-4 {
   padding-bottom: 1.5rem !important;
 }
-.swptls-col.pl-4, .swptls-col.px-4 {
+.simpleform-col.pl-4, .simpleform-col.px-4 {
   padding-left: 1.5rem !important;
 }
-.swptls-col.p-5 {
+.simpleform-col.p-5 {
   padding: 3rem !important;
 }
-.swptls-col.pt-5, .swptls-col.py-5 {
+.simpleform-col.pt-5, .simpleform-col.py-5 {
   padding-top: 3rem !important;
 }
-.swptls-col.pr-5, .swptls-col.px-5 {
+.simpleform-col.pr-5, .simpleform-col.px-5 {
   padding-right: 3rem !important;
 }
-.swptls-col.pb-5, .swptls-col.py-5 {
+.simpleform-col.pb-5, .simpleform-col.py-5 {
   padding-bottom: 3rem !important;
 }
-.swptls-col.pl-5, .swptls-col.px-5 {
+.simpleform-col.pl-5, .simpleform-col.px-5 {
   padding-left: 3rem !important;
 }
 @media only screen and (min-width: 782px) {
-  .swptls-col.col-sm, .swptls-col.col-sm-1, .swptls-col.col-sm-2, .swptls-col.col-sm-3, .swptls-col.col-sm-4, .swptls-col.col-sm-5, .swptls-col.col-sm-6, .swptls-col.col-sm-7, .swptls-col.col-sm-8, .swptls-col.col-sm-9, .swptls-col.col-sm-10, .swptls-col.col-sm-11, .swptls-col.col-sm-12, .swptls-col.col-sm-offset-0, .swptls-col.col-sm-offset-1, .swptls-col.col-sm-offset-2, .swptls-col.col-sm-offset-3, .swptls-col.col-sm-offset-4, .swptls-col.col-sm-offset-5, .swptls-col.col-sm-offset-6, .swptls-col.col-sm-offset-7, .swptls-col.col-sm-offset-8, .swptls-col.col-sm-offset-9, .swptls-col.col-sm-offset-10, .swptls-col.col-sm-offset-11, .swptls-col.col-sm-offset-12 {
+  .simpleform-col.col-sm, .simpleform-col.col-sm-1, .simpleform-col.col-sm-2, .simpleform-col.col-sm-3, .simpleform-col.col-sm-4, .simpleform-col.col-sm-5, .simpleform-col.col-sm-6, .simpleform-col.col-sm-7, .simpleform-col.col-sm-8, .simpleform-col.col-sm-9, .simpleform-col.col-sm-10, .simpleform-col.col-sm-11, .simpleform-col.col-sm-12, .simpleform-col.col-sm-offset-0, .simpleform-col.col-sm-offset-1, .simpleform-col.col-sm-offset-2, .simpleform-col.col-sm-offset-3, .simpleform-col.col-sm-offset-4, .simpleform-col.col-sm-offset-5, .simpleform-col.col-sm-offset-6, .simpleform-col.col-sm-offset-7, .simpleform-col.col-sm-offset-8, .simpleform-col.col-sm-offset-9, .simpleform-col.col-sm-offset-10, .simpleform-col.col-sm-offset-11, .simpleform-col.col-sm-offset-12 {
     box-sizing: border-box;
     flex: 0 0 auto;
     padding: 0.5rem;
   }
-  .swptls-col.col-sm {
+  .simpleform-col.col-sm {
     flex-grow: 1;
     flex-basis: 0;
     max-width: 100%;
   }
-  .swptls-col.col-sm-1 {
+  .simpleform-col.col-sm-1 {
     flex-basis: 8.33333333%;
     max-width: 8.33333333%;
   }
-  .swptls-col.col-sm-2 {
+  .simpleform-col.col-sm-2 {
     flex-basis: 16.66666667%;
     max-width: 16.66666667%;
   }
-  .swptls-col.col-sm-3 {
+  .simpleform-col.col-sm-3 {
     flex-basis: 25%;
     max-width: 25%;
   }
-  .swptls-col.col-sm-4 {
+  .simpleform-col.col-sm-4 {
     flex-basis: 33.33333333%;
     max-width: 33.33333333%;
   }
-  .swptls-col.col-sm-5 {
+  .simpleform-col.col-sm-5 {
     flex-basis: 41.66666667%;
     max-width: 41.66666667%;
   }
-  .swptls-col.col-sm-6 {
+  .simpleform-col.col-sm-6 {
     flex-basis: 50%;
     max-width: 50%;
   }
-  .swptls-col.col-sm-7 {
+  .simpleform-col.col-sm-7 {
     flex-basis: 58.33333333%;
     max-width: 58.33333333%;
   }
-  .swptls-col.col-sm-8 {
+  .simpleform-col.col-sm-8 {
     flex-basis: 66.66666667%;
     max-width: 66.66666667%;
   }
-  .swptls-col.col-sm-9 {
+  .simpleform-col.col-sm-9 {
     flex-basis: 75%;
     max-width: 75%;
   }
-  .swptls-col.col-sm-10 {
+  .simpleform-col.col-sm-10 {
     flex-basis: 83.33333333%;
     max-width: 83.33333333%;
   }
-  .swptls-col.col-sm-11 {
+  .simpleform-col.col-sm-11 {
     flex-basis: 91.66666667%;
     max-width: 91.66666667%;
   }
-  .swptls-col.col-sm-12 {
+  .simpleform-col.col-sm-12 {
     flex-basis: 100%;
     max-width: 100%;
   }
-  .swptls-col.col-sm-offset-0 {
+  .simpleform-col.col-sm-offset-0 {
     margin-left: 0;
   }
-  .swptls-col.col-sm-offset-1 {
+  .simpleform-col.col-sm-offset-1 {
     margin-left: 2.5%;
   }
-  .swptls-col.col-sm-offset-2 {
+  .simpleform-col.col-sm-offset-2 {
     margin-left: 5%;
   }
-  .swptls-col.col-sm-offset-3 {
+  .simpleform-col.col-sm-offset-3 {
     margin-left: 7.5%;
   }
-  .swptls-col.col-sm-offset-4 {
+  .simpleform-col.col-sm-offset-4 {
     margin-left: 10%;
   }
-  .swptls-col.col-sm-offset-5 {
+  .simpleform-col.col-sm-offset-5 {
     margin-left: 12.5%;
   }
-  .swptls-col.col-sm-offset-6 {
+  .simpleform-col.col-sm-offset-6 {
     margin-left: 15%;
   }
-  .swptls-col.col-sm-offset-7 {
+  .simpleform-col.col-sm-offset-7 {
     margin-left: 17.5%;
   }
-  .swptls-col.col-sm-offset-8 {
+  .simpleform-col.col-sm-offset-8 {
     margin-left: 20%;
   }
-  .swptls-col.col-sm-offset-9 {
+  .simpleform-col.col-sm-offset-9 {
     margin-left: 22.5%;
   }
-  .swptls-col.col-sm-offset-10 {
+  .simpleform-col.col-sm-offset-10 {
     margin-left: 25%;
   }
-  .swptls-col.col-sm-offset-11 {
+  .simpleform-col.col-sm-offset-11 {
     margin-left: 27.5%;
   }
-  .swptls-col.first-sm {
+  .simpleform-col.first-sm {
     order: -1;
   }
-  .swptls-col.last-sm {
+  .simpleform-col.last-sm {
     order: 1;
   }
-  .swptls-col.text-sm-left {
+  .simpleform-col.text-sm-left {
     text-align: left !important;
     justify-content: flex-start;
   }
-  .swptls-col.text-sm-center {
+  .simpleform-col.text-sm-center {
     text-align: center !important;
     justify-content: center;
   }
-  .swptls-col.text-sm-right {
+  .simpleform-col.text-sm-right {
     text-align: right !important;
     justify-content: flex-end;
   }
 }
 @media only screen and (min-width: 912px) {
-  .swptls-col.col-md, .swptls-col.col-md-1, .swptls-col.col-md-2, .swptls-col.col-md-3, .swptls-col.col-md-4, .swptls-col.col-md-5, .swptls-col.col-md-6, .swptls-col.col-md-7, .swptls-col.col-md-8, .swptls-col.col-md-9, .swptls-col.col-md-10, .swptls-col.col-md-11, .swptls-col.col-md-12, .swptls-col.col-md-offset-0, .swptls-col.col-md-offset-1, .swptls-col.col-md-offset-2, .swptls-col.col-md-offset-3, .swptls-col.col-md-offset-4, .swptls-col.col-md-offset-5, .swptls-col.col-md-offset-6, .swptls-col.col-md-offset-7, .swptls-col.col-md-offset-8, .swptls-col.col-md-offset-9, .swptls-col.col-md-offset-10, .swptls-col.col-md-offset-11, .swptls-col.col-md-offset-12 {
+  .simpleform-col.col-md, .simpleform-col.col-md-1, .simpleform-col.col-md-2, .simpleform-col.col-md-3, .simpleform-col.col-md-4, .simpleform-col.col-md-5, .simpleform-col.col-md-6, .simpleform-col.col-md-7, .simpleform-col.col-md-8, .simpleform-col.col-md-9, .simpleform-col.col-md-10, .simpleform-col.col-md-11, .simpleform-col.col-md-12, .simpleform-col.col-md-offset-0, .simpleform-col.col-md-offset-1, .simpleform-col.col-md-offset-2, .simpleform-col.col-md-offset-3, .simpleform-col.col-md-offset-4, .simpleform-col.col-md-offset-5, .simpleform-col.col-md-offset-6, .simpleform-col.col-md-offset-7, .simpleform-col.col-md-offset-8, .simpleform-col.col-md-offset-9, .simpleform-col.col-md-offset-10, .simpleform-col.col-md-offset-11, .simpleform-col.col-md-offset-12 {
     box-sizing: border-box;
     flex: 0 0 auto;
     padding: 0.5rem;
   }
-  .swptls-col.col-md {
+  .simpleform-col.col-md {
     flex-grow: 1;
     flex-basis: 0;
     max-width: 100%;
   }
-  .swptls-col.col-md-1 {
+  .simpleform-col.col-md-1 {
     flex-basis: 8.33333333%;
     max-width: 8.33333333%;
   }
-  .swptls-col.col-md-2 {
+  .simpleform-col.col-md-2 {
     flex-basis: 16.66666667%;
     max-width: 16.66666667%;
   }
-  .swptls-col.col-md-3 {
+  .simpleform-col.col-md-3 {
     flex-basis: 25%;
     max-width: 25%;
   }
-  .swptls-col.col-md-4 {
+  .simpleform-col.col-md-4 {
     flex-basis: 33.33333333%;
     max-width: 33.33333333%;
   }
-  .swptls-col.col-md-5 {
+  .simpleform-col.col-md-5 {
     flex-basis: 41.66666667%;
     max-width: 41.66666667%;
   }
-  .swptls-col.col-md-6 {
+  .simpleform-col.col-md-6 {
     flex-basis: 50%;
     max-width: 50%;
   }
-  .swptls-col.col-md-7 {
+  .simpleform-col.col-md-7 {
     flex-basis: 58.33333333%;
     max-width: 58.33333333%;
   }
-  .swptls-col.col-md-8 {
+  .simpleform-col.col-md-8 {
     flex-basis: 66.66666667%;
     max-width: 66.66666667%;
   }
-  .swptls-col.col-md-9 {
+  .simpleform-col.col-md-9 {
     flex-basis: 75%;
     max-width: 75%;
   }
-  .swptls-col.col-md-10 {
+  .simpleform-col.col-md-10 {
     flex-basis: 83.33333333%;
     max-width: 83.33333333%;
   }
-  .swptls-col.col-md-11 {
+  .simpleform-col.col-md-11 {
     flex-basis: 91.66666667%;
     max-width: 91.66666667%;
   }
-  .swptls-col.col-md-12 {
+  .simpleform-col.col-md-12 {
     flex-basis: 100%;
     max-width: 100%;
   }
-  .swptls-col.col-md-offset-0 {
+  .simpleform-col.col-md-offset-0 {
     margin-left: 0;
   }
-  .swptls-col.col-md-offset-1 {
+  .simpleform-col.col-md-offset-1 {
     margin-left: 2.5%;
   }
-  .swptls-col.col-md-offset-2 {
+  .simpleform-col.col-md-offset-2 {
     margin-left: 5%;
   }
-  .swptls-col.col-md-offset-3 {
+  .simpleform-col.col-md-offset-3 {
     margin-left: 7.5%;
   }
-  .swptls-col.col-md-offset-4 {
+  .simpleform-col.col-md-offset-4 {
     margin-left: 10%;
   }
-  .swptls-col.col-md-offset-5 {
+  .simpleform-col.col-md-offset-5 {
     margin-left: 12.5%;
   }
-  .swptls-col.col-md-offset-6 {
+  .simpleform-col.col-md-offset-6 {
     margin-left: 15%;
   }
-  .swptls-col.col-md-offset-7 {
+  .simpleform-col.col-md-offset-7 {
     margin-left: 17.5%;
   }
-  .swptls-col.col-md-offset-8 {
+  .simpleform-col.col-md-offset-8 {
     margin-left: 20%;
   }
-  .swptls-col.col-md-offset-9 {
+  .simpleform-col.col-md-offset-9 {
     margin-left: 22.5%;
   }
-  .swptls-col.col-md-offset-10 {
+  .simpleform-col.col-md-offset-10 {
     margin-left: 25%;
   }
-  .swptls-col.col-md-offset-11 {
+  .simpleform-col.col-md-offset-11 {
     margin-left: 27.5%;
   }
-  .swptls-col.first-md {
+  .simpleform-col.first-md {
     order: -1;
   }
-  .swptls-col.last-md {
+  .simpleform-col.last-md {
     order: 1;
   }
-  .swptls-col.text-md-left {
+  .simpleform-col.text-md-left {
     text-align: left !important;
     justify-content: flex-start;
   }
-  .swptls-col.text-md-center {
+  .simpleform-col.text-md-center {
     text-align: center !important;
     justify-content: center;
   }
-  .swptls-col.text-md-right {
+  .simpleform-col.text-md-right {
     text-align: right !important;
     justify-content: flex-end;
   }
 }
 @media only screen and (min-width: 1042px) {
-  .swptls-col.col-lg, .swptls-col.col-lg-1, .swptls-col.col-lg-2, .swptls-col.col-lg-3, .swptls-col.col-lg-4, .swptls-col.col-lg-5, .swptls-col.col-lg-6, .swptls-col.col-lg-7, .swptls-col.col-lg-8, .swptls-col.col-lg-9, .swptls-col.col-lg-10, .swptls-col.col-lg-11, .swptls-col.col-lg-12, .swptls-col.col-lg-offset-0, .swptls-col.col-lg-offset-1, .swptls-col.col-lg-offset-2, .swptls-col.col-lg-offset-3, .swptls-col.col-lg-offset-4, .swptls-col.col-lg-offset-5, .swptls-col.col-lg-offset-6, .swptls-col.col-lg-offset-7, .swptls-col.col-lg-offset-8, .swptls-col.col-lg-offset-9, .swptls-col.col-lg-offset-10, .swptls-col.col-lg-offset-11, .swptls-col.col-lg-offset-12 {
+  .simpleform-col.col-lg, .simpleform-col.col-lg-1, .simpleform-col.col-lg-2, .simpleform-col.col-lg-3, .simpleform-col.col-lg-4, .simpleform-col.col-lg-5, .simpleform-col.col-lg-6, .simpleform-col.col-lg-7, .simpleform-col.col-lg-8, .simpleform-col.col-lg-9, .simpleform-col.col-lg-10, .simpleform-col.col-lg-11, .simpleform-col.col-lg-12, .simpleform-col.col-lg-offset-0, .simpleform-col.col-lg-offset-1, .simpleform-col.col-lg-offset-2, .simpleform-col.col-lg-offset-3, .simpleform-col.col-lg-offset-4, .simpleform-col.col-lg-offset-5, .simpleform-col.col-lg-offset-6, .simpleform-col.col-lg-offset-7, .simpleform-col.col-lg-offset-8, .simpleform-col.col-lg-offset-9, .simpleform-col.col-lg-offset-10, .simpleform-col.col-lg-offset-11, .simpleform-col.col-lg-offset-12 {
     box-sizing: border-box;
     flex: 0 0 auto;
     padding: 0.5rem;
   }
-  .swptls-col.col-lg {
+  .simpleform-col.col-lg {
     flex-grow: 1;
     flex-basis: 0;
     max-width: 100%;
   }
-  .swptls-col.col-lg-1 {
+  .simpleform-col.col-lg-1 {
     flex-basis: 8.33333333%;
     max-width: 8.33333333%;
   }
-  .swptls-col.col-lg-2 {
+  .simpleform-col.col-lg-2 {
     flex-basis: 16.66666667%;
     max-width: 16.66666667%;
   }
-  .swptls-col.col-lg-3 {
+  .simpleform-col.col-lg-3 {
     flex-basis: 25%;
     max-width: 25%;
   }
-  .swptls-col.col-lg-4 {
+  .simpleform-col.col-lg-4 {
     flex-basis: 33.33333333%;
     max-width: 33.33333333%;
   }
-  .swptls-col.col-lg-5 {
+  .simpleform-col.col-lg-5 {
     flex-basis: 41.66666667%;
     max-width: 41.66666667%;
   }
-  .swptls-col.col-lg-6 {
+  .simpleform-col.col-lg-6 {
     flex-basis: 50%;
     max-width: 50%;
   }
-  .swptls-col.col-lg-7 {
+  .simpleform-col.col-lg-7 {
     flex-basis: 58.33333333%;
     max-width: 58.33333333%;
   }
-  .swptls-col.col-lg-8 {
+  .simpleform-col.col-lg-8 {
     flex-basis: 66.66666667%;
     max-width: 66.66666667%;
   }
-  .swptls-col.col-lg-9 {
+  .simpleform-col.col-lg-9 {
     flex-basis: 75%;
     max-width: 75%;
   }
-  .swptls-col.col-lg-10 {
+  .simpleform-col.col-lg-10 {
     flex-basis: 83.33333333%;
     max-width: 83.33333333%;
   }
-  .swptls-col.col-lg-11 {
+  .simpleform-col.col-lg-11 {
     flex-basis: 91.66666667%;
     max-width: 91.66666667%;
   }
-  .swptls-col.col-lg-12 {
+  .simpleform-col.col-lg-12 {
     flex-basis: 100%;
     max-width: 100%;
   }
-  .swptls-col.col-lg-offset-0 {
+  .simpleform-col.col-lg-offset-0 {
     margin-left: 0;
   }
-  .swptls-col.col-lg-offset-1 {
+  .simpleform-col.col-lg-offset-1 {
     margin-left: 2.5%;
   }
-  .swptls-col.col-lg-offset-2 {
+  .simpleform-col.col-lg-offset-2 {
     margin-left: 5%;
   }
-  .swptls-col.col-lg-offset-3 {
+  .simpleform-col.col-lg-offset-3 {
     margin-left: 7.5%;
   }
-  .swptls-col.col-lg-offset-4 {
+  .simpleform-col.col-lg-offset-4 {
     margin-left: 10%;
   }
-  .swptls-col.col-lg-offset-5 {
+  .simpleform-col.col-lg-offset-5 {
     margin-left: 12.5%;
   }
-  .swptls-col.col-lg-offset-6 {
+  .simpleform-col.col-lg-offset-6 {
     margin-left: 15%;
   }
-  .swptls-col.col-lg-offset-7 {
+  .simpleform-col.col-lg-offset-7 {
     margin-left: 17.5%;
   }
-  .swptls-col.col-lg-offset-8 {
+  .simpleform-col.col-lg-offset-8 {
     margin-left: 20%;
   }
-  .swptls-col.col-lg-offset-9 {
+  .simpleform-col.col-lg-offset-9 {
     margin-left: 22.5%;
   }
-  .swptls-col.col-lg-offset-10 {
+  .simpleform-col.col-lg-offset-10 {
     margin-left: 25%;
   }
-  .swptls-col.col-lg-offset-11 {
+  .simpleform-col.col-lg-offset-11 {
     margin-left: 27.5%;
   }
-  .swptls-col.first-lg {
+  .simpleform-col.first-lg {
     order: -1;
   }
-  .swptls-col.last-lg {
+  .simpleform-col.last-lg {
     order: 1;
   }
-  .swptls-col.text-lg-left {
+  .simpleform-col.text-lg-left {
     text-align: left !important;
     justify-content: flex-start;
   }
-  .swptls-col.text-lg-center {
+  .simpleform-col.text-lg-center {
     text-align: center !important;
     justify-content: center;
   }
-  .swptls-col.text-lg-right {
+  .simpleform-col.text-lg-right {
     text-align: right !important;
     justify-content: flex-end;
   }
 }
 @media only screen and (min-width: 1140px) {
-  .swptls-col.col-xl, .swptls-col.col-xl-1, .swptls-col.col-xl-2, .swptls-col.col-xl-3, .swptls-col.col-xl-4, .swptls-col.col-xl-5, .swptls-col.col-xl-6, .swptls-col.col-xl-7, .swptls-col.col-xl-8, .swptls-col.col-xl-9, .swptls-col.col-xl-10, .swptls-col.col-xl-11, .swptls-col.col-xl-12, .swptls-col.col-xl-offset-0, .swptls-col.col-xl-offset-1, .swptls-col.col-xl-offset-2, .swptls-col.col-xl-offset-3, .swptls-col.col-xl-offset-4, .swptls-col.col-xl-offset-5, .swptls-col.col-xl-offset-6, .swptls-col.col-xl-offset-7, .swptls-col.col-xl-offset-8, .swptls-col.col-xl-offset-9, .swptls-col.col-xl-offset-10, .swptls-col.col-xl-offset-11, .swptls-col.col-xl-offset-12 {
+  .simpleform-col.col-xl, .simpleform-col.col-xl-1, .simpleform-col.col-xl-2, .simpleform-col.col-xl-3, .simpleform-col.col-xl-4, .simpleform-col.col-xl-5, .simpleform-col.col-xl-6, .simpleform-col.col-xl-7, .simpleform-col.col-xl-8, .simpleform-col.col-xl-9, .simpleform-col.col-xl-10, .simpleform-col.col-xl-11, .simpleform-col.col-xl-12, .simpleform-col.col-xl-offset-0, .simpleform-col.col-xl-offset-1, .simpleform-col.col-xl-offset-2, .simpleform-col.col-xl-offset-3, .simpleform-col.col-xl-offset-4, .simpleform-col.col-xl-offset-5, .simpleform-col.col-xl-offset-6, .simpleform-col.col-xl-offset-7, .simpleform-col.col-xl-offset-8, .simpleform-col.col-xl-offset-9, .simpleform-col.col-xl-offset-10, .simpleform-col.col-xl-offset-11, .simpleform-col.col-xl-offset-12 {
     box-sizing: border-box;
     flex: 0 0 auto;
     padding: 0.5rem;
   }
-  .swptls-col.col-xl {
+  .simpleform-col.col-xl {
     flex-grow: 1;
     flex-basis: 0;
     max-width: 100%;
   }
-  .swptls-col.col-xl-1 {
+  .simpleform-col.col-xl-1 {
     flex-basis: 8.33333333%;
     max-width: 8.33333333%;
   }
-  .swptls-col.col-xl-2 {
+  .simpleform-col.col-xl-2 {
     flex-basis: 16.66666667%;
     max-width: 16.66666667%;
   }
-  .swptls-col.col-xl-3 {
+  .simpleform-col.col-xl-3 {
     flex-basis: 25%;
     max-width: 25%;
   }
-  .swptls-col.col-xl-4 {
+  .simpleform-col.col-xl-4 {
     flex-basis: 33.33333333%;
     max-width: 33.33333333%;
   }
-  .swptls-col.col-xl-5 {
+  .simpleform-col.col-xl-5 {
     flex-basis: 41.66666667%;
     max-width: 41.66666667%;
   }
-  .swptls-col.col-xl-6 {
+  .simpleform-col.col-xl-6 {
     flex-basis: 50%;
     max-width: 50%;
   }
-  .swptls-col.col-xl-7 {
+  .simpleform-col.col-xl-7 {
     flex-basis: 58.33333333%;
     max-width: 58.33333333%;
   }
-  .swptls-col.col-xl-8 {
+  .simpleform-col.col-xl-8 {
     flex-basis: 66.66666667%;
     max-width: 66.66666667%;
   }
-  .swptls-col.col-xl-9 {
+  .simpleform-col.col-xl-9 {
     flex-basis: 75%;
     max-width: 75%;
   }
-  .swptls-col.col-xl-10 {
+  .simpleform-col.col-xl-10 {
     flex-basis: 83.33333333%;
     max-width: 83.33333333%;
   }
-  .swptls-col.col-xl-11 {
+  .simpleform-col.col-xl-11 {
     flex-basis: 91.66666667%;
     max-width: 91.66666667%;
   }
-  .swptls-col.col-xl-12 {
+  .simpleform-col.col-xl-12 {
     flex-basis: 100%;
     max-width: 100%;
   }
-  .swptls-col.col-xl-offset-0 {
+  .simpleform-col.col-xl-offset-0 {
     margin-left: 0;
   }
-  .swptls-col.col-xl-offset-1 {
+  .simpleform-col.col-xl-offset-1 {
     margin-left: 2.5%;
   }
-  .swptls-col.col-xl-offset-2 {
+  .simpleform-col.col-xl-offset-2 {
     margin-left: 5%;
   }
-  .swptls-col.col-xl-offset-3 {
+  .simpleform-col.col-xl-offset-3 {
     margin-left: 7.5%;
   }
-  .swptls-col.col-xl-offset-4 {
+  .simpleform-col.col-xl-offset-4 {
     margin-left: 10%;
   }
-  .swptls-col.col-xl-offset-5 {
+  .simpleform-col.col-xl-offset-5 {
     margin-left: 12.5%;
   }
-  .swptls-col.col-xl-offset-6 {
+  .simpleform-col.col-xl-offset-6 {
     margin-left: 15%;
   }
-  .swptls-col.col-xl-offset-7 {
+  .simpleform-col.col-xl-offset-7 {
     margin-left: 17.5%;
   }
-  .swptls-col.col-xl-offset-8 {
+  .simpleform-col.col-xl-offset-8 {
     margin-left: 20%;
   }
-  .swptls-col.col-xl-offset-9 {
+  .simpleform-col.col-xl-offset-9 {
     margin-left: 22.5%;
   }
-  .swptls-col.col-xl-offset-10 {
+  .simpleform-col.col-xl-offset-10 {
     margin-left: 25%;
   }
-  .swptls-col.col-xl-offset-11 {
+  .simpleform-col.col-xl-offset-11 {
     margin-left: 27.5%;
   }
-  .swptls-col.first-xl {
+  .simpleform-col.first-xl {
     order: -1;
   }
-  .swptls-col.last-xl {
+  .simpleform-col.last-xl {
     order: 1;
   }
-  .swptls-col.text-xl-left {
+  .simpleform-col.text-xl-left {
     text-align: left !important;
     justify-content: flex-start;
   }
-  .swptls-col.text-xl-center {
+  .simpleform-col.text-xl-center {
     text-align: center !important;
     justify-content: center;
   }
-  .swptls-col.text-xl-right {
+  .simpleform-col.text-xl-right {
     text-align: right !important;
     justify-content: flex-end;
   }
@@ -1282,49 +1282,51 @@
 /*!*************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/core/_container.scss ***!
   \*************************************************************************************************************************************************************************************************************************************************/
-.swptls-container-fluid,
-.swptls-container {
+.simpleform-container-fluid,
+.simpleform-container {
   margin-right: auto;
   margin-left: auto;
+  background: white;
 }
 
-.swptls-container {
+.simpleform-container {
   padding: 0 20px;
+  margin-top: 30px;
 }
 
-.swptls-container-fluid.hero,
-.swptls-container.hero {
+.simpleform-container-fluid.hero,
+.simpleform-container.hero {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.swptls-container-fluid {
+.simpleform-container-fluid {
   padding-right: 2rem;
   padding-left: 2rem;
 }
 
 @media only screen and (min-width: 782px) {
-  .swptls-container {
+  .simpleform-container {
     padding: 0 30px;
   }
 }
 @media only screen and (min-width: 1042px) {
-  .swptls-container {
+  .simpleform-container {
     max-width: 85rem;
   }
-  .swptls-container.full-width {
+  .simpleform-container.full-width {
     max-width: 100%;
   }
-  .swptls-container.small {
+  .simpleform-container.small {
     max-width: 810px;
   }
 }
 /*!*******************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/core/_row.scss ***!
   \*******************************************************************************************************************************************************************************************************************************************/
-.swptls-row {
+.simpleform-row {
   box-sizing: border-box;
   display: flex;
   flex: 0 1 auto;
@@ -1333,120 +1335,120 @@
   margin-right: -0.5rem;
   margin-left: -0.5rem;
 }
-.swptls-row.reverse {
+.simpleform-row.reverse {
   flex-direction: row-reverse;
 }
-.swptls-row.start-xs {
+.simpleform-row.start-xs {
   justify-content: flex-start;
   text-align: start;
 }
-.swptls-row.center-xs {
+.simpleform-row.center-xs {
   justify-content: center;
   text-align: center;
 }
-.swptls-row.end-xs {
+.simpleform-row.end-xs {
   justify-content: flex-end;
   text-align: end;
 }
-.swptls-row.top-xs {
+.simpleform-row.top-xs {
   align-items: flex-start;
 }
-.swptls-row.middle-xs {
+.simpleform-row.middle-xs {
   align-items: center;
 }
-.swptls-row.bottom-xs {
+.simpleform-row.bottom-xs {
   align-items: flex-end;
 }
-.swptls-row.around-xs {
+.simpleform-row.around-xs {
   justify-content: space-around;
 }
-.swptls-row.between-xs {
+.simpleform-row.between-xs {
   justify-content: space-between;
 }
 @media only screen and (min-width: 782px) {
-  .swptls-row.start-sm {
+  .simpleform-row.start-sm {
     justify-content: flex-start;
     text-align: start;
   }
-  .swptls-row.center-sm {
+  .simpleform-row.center-sm {
     justify-content: center;
     text-align: center;
   }
-  .swptls-row.end-sm {
+  .simpleform-row.end-sm {
     justify-content: flex-end;
     text-align: end;
   }
-  .swptls-row.top-sm {
+  .simpleform-row.top-sm {
     align-items: flex-start;
   }
-  .swptls-row.middle-sm {
+  .simpleform-row.middle-sm {
     align-items: center;
   }
-  .swptls-row.bottom-sm {
+  .simpleform-row.bottom-sm {
     align-items: flex-end;
   }
-  .swptls-row.around-sm {
+  .simpleform-row.around-sm {
     justify-content: space-around;
   }
-  .swptls-row.between-sm {
+  .simpleform-row.between-sm {
     justify-content: space-between;
   }
 }
 @media only screen and (min-width: 912px) {
-  .swptls-row.start-md {
+  .simpleform-row.start-md {
     justify-content: flex-start;
     text-align: start;
   }
-  .swptls-row.center-md {
+  .simpleform-row.center-md {
     justify-content: center;
     text-align: center;
   }
-  .swptls-row.end-md {
+  .simpleform-row.end-md {
     justify-content: flex-end;
     text-align: end;
   }
-  .swptls-row.top-md {
+  .simpleform-row.top-md {
     align-items: flex-start;
   }
-  .swptls-row.middle-md {
+  .simpleform-row.middle-md {
     align-items: center;
   }
-  .swptls-row.bottom-md {
+  .simpleform-row.bottom-md {
     align-items: flex-end;
   }
-  .swptls-row.around-md {
+  .simpleform-row.around-md {
     justify-content: space-around;
   }
-  .swptls-row.between-md {
+  .simpleform-row.between-md {
     justify-content: space-between;
   }
 }
 @media only screen and (min-width: 1042px) {
-  .swptls-row.start-lg {
+  .simpleform-row.start-lg {
     justify-content: flex-start;
     text-align: start;
   }
-  .swptls-row.center-lg {
+  .simpleform-row.center-lg {
     justify-content: center;
     text-align: center;
   }
-  .swptls-row.end-lg {
+  .simpleform-row.end-lg {
     justify-content: flex-end;
     text-align: end;
   }
-  .swptls-row.top-lg {
+  .simpleform-row.top-lg {
     align-items: flex-start;
   }
-  .swptls-row.middle-lg {
+  .simpleform-row.middle-lg {
     align-items: center;
   }
-  .swptls-row.bottom-lg {
+  .simpleform-row.bottom-lg {
     align-items: flex-end;
   }
-  .swptls-row.around-lg {
+  .simpleform-row.around-lg {
     justify-content: space-around;
   }
-  .swptls-row.between-lg {
+  .simpleform-row.between-lg {
     justify-content: space-between;
   }
 }
@@ -1470,11 +1472,11 @@
 .table_info-action_box_wrapper .table_info-action_box .table-info-box {
   margin-right: 10px;
 }
-.table_info-action_box_wrapper .table_info-action_box .table-info-box .table-info .swptls-title.h4 {
+.table_info-action_box_wrapper .table_info-action_box .table-info-box .table-info .simpleform-title.h4 {
   color: #1e1e1e;
   margin-bottom: 10px;
 }
-.table_info-action_box_wrapper .table_info-action_box .table-info-box .table-info .swptls-title.p {
+.table_info-action_box_wrapper .table_info-action_box .table-info-box .table-info .simpleform-title.p {
   color: #666873;
   margin-bottom: 0;
 }
@@ -1485,7 +1487,7 @@
     justify-content: space-between;
     width: 100%;
   }
-  .table_info-action_box_wrapper .table_info-action_box .table-info-box .table-info .swptls-title.h4 {
+  .table_info-action_box_wrapper .table_info-action_box .table-info-box .table-info .simpleform-title.h4 {
     margin-bottom: 0px;
     margin-right: 10px;
   }
@@ -1524,7 +1526,7 @@
 /*!*********************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/core/_title.scss ***!
   \*********************************************************************************************************************************************************************************************************************************************/
-.swptls-title {
+.simpleform-title {
   font-style: normal;
   color: #1e1e1e;
   margin: 0 0 18px 0;
@@ -1532,33 +1534,33 @@
   align-items: center;
   justify-content: flex-start;
 }
-.swptls-title .info-tip {
+.simpleform-title .info-tip {
   display: inline-block;
   width: 18px;
   height: 18px;
   margin-left: 7px;
 }
-.swptls-title.h1 {
+.simpleform-title.h1 {
   font-weight: 600;
   font-size: 25px;
   line-height: 33px;
 }
-.swptls-title.h2 {
+.simpleform-title.h2 {
   font-size: 20px;
   line-height: 27px;
 }
-.swptls-title.h3 {
+.simpleform-title.h3 {
   font-size: 18px;
   line-height: 24px;
 }
-.swptls-title.h4 {
+.simpleform-title.h4 {
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 16px;
   color: #666873;
 }
-.swptls-title.p {
+.simpleform-title.p {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -1568,14 +1570,14 @@
 /*!********************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/core/_card.scss ***!
   \********************************************************************************************************************************************************************************************************************************************/
-.swptls-card {
-  border: 1px solid #e8e8eb;
+.simpleform-card {
+  border: 1px solid #e2e2ff;
   border-radius: 0 4px 4px 4px;
   padding: 15px 40px 15px;
   margin: 0 0 30px 0;
   background: #ffffff;
 }
-.swptls-card.colored-bg {
+.simpleform-card.colored-bg {
   background: #f7f7ff;
 }
 /*!*********************************************************************************************************************************************************************************************************************************************!*\
@@ -1675,7 +1677,7 @@
 .delete-table-modal-wrap .delete-table-modal .modal-media {
   margin-bottom: 22px;
 }
-.delete-table-modal-wrap .delete-table-modal .action-buttons .swptls-button {
+.delete-table-modal-wrap .delete-table-modal .action-buttons .simpleform-button {
   outline: 0;
   cursor: pointer;
   font-weight: 400;
@@ -1683,13 +1685,13 @@
   line-height: 21px;
   padding: 9px 30px;
 }
-.delete-table-modal-wrap .delete-table-modal .action-buttons .swptls-button.cancel-button {
+.delete-table-modal-wrap .delete-table-modal .action-buttons .simpleform-button.cancel-button {
   border-radius: 4px;
   background: #FFFFFF;
   border: 1px solid #E1E4EA;
   color: #1E1E1E;
 }
-.delete-table-modal-wrap .delete-table-modal .action-buttons .swptls-button.confirm-button {
+.delete-table-modal-wrap .delete-table-modal .action-buttons .simpleform-button.confirm-button {
   color: #F8F9FA;
   border-radius: 4px;
   background: #F93C80;
@@ -1702,10 +1704,7 @@
 /*!***************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/_dashboard.scss ***!
   \***************************************************************************************************************************************************************************************************************************************************/
-.create-table-intro {
-  margin-bottom: 51px;
-}
-.create-table-intro .swptls-title {
+.create-table-intro .simpleform-title {
   margin-bottom: 15px;
 }
 
@@ -1713,9 +1712,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 25px;
 }
-.table-header .swptls-title {
+.table-header .simpleform-title {
   margin-bottom: 0;
   margin-right: 10px;
 }
@@ -1737,15 +1735,15 @@
   width: 100%;
 }
 
-.swptls-card.table-item-card {
+.simpleform-card.table-item-card {
   padding: 26px 30px 30px 30px;
-  margin-bottom: 0;
+  margin-bottom: 30;
 }
-.swptls-card.table-item-card.manage-table-card {
+.simpleform-card.table-item-card.manage-table-card {
   padding: 26px 30px 30px 30px;
   text-align: center;
 }
-.swptls-card.table-item-card.manage-table-card h2 {
+.simpleform-card.table-item-card.manage-table-card h2 {
   color: #1E1E1E;
   font-weight: 600;
   font-size: 20px;
@@ -1753,7 +1751,7 @@
   margin-top: 0;
   margin-bottom: 6px;
 }
-.swptls-card.table-item-card.manage-table-card h4 {
+.simpleform-card.table-item-card.manage-table-card h4 {
   color: #666873;
   font-weight: 400;
   font-size: 16px;
@@ -1761,10 +1759,10 @@
   margin-top: 0;
   margin-bottom: 15px;
 }
-.swptls-card.table-item-card .table-action-box .copy-shortcode.btn-success {
+.simpleform-card.table-item-card .table-action-box .copy-shortcode.btn-success {
   color: #FF7E47;
 }
-.swptls-card.table-item-card .table-action-box .table-edit:hover svg path {
+.simpleform-card.table-item-card .table-action-box .table-edit:hover svg path {
   fill: #84AEFF;
 }
 
@@ -2156,6 +2154,10 @@ span.formname input#formName {
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/_lead.scss ***!
   \**********************************************************************************************************************************************************************************************************************************************/
 /* styles.scss */
+.main-leads-container {
+  margin-top: 40px;
+}
+
 /* Style the table container */
 .table-container {
   max-width: 800px;
@@ -2181,25 +2183,32 @@ select {
   border-radius: 4px;
 }
 
-/* Style the table */
 table {
   width: 100%;
   border-collapse: collapse;
+  border-spacing: 0;
 }
 
-table, th, td {
+/* Style table headers */
+th {
+  background-color: #1d4d6d; /* Header background color */
+  color: #fff; /* Header text color */
+  font-weight: bold;
   border: 1px solid #ccc;
-}
-
-th, td {
   padding: 10px;
   text-align: left;
 }
 
-/* Style the table header */
-th {
-  background-color: #f2f2f2;
-  font-weight: bold;
+/* Style table cells (both header and data cells) */
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Style table rows with alternating background colors */
+tbody tr:nth-child(odd) {
+  background-color: #f2f2f2; /* Odd row background color */
 }
 
 /* Style table rows on hover */
@@ -2254,10 +2263,280 @@ button.delete-button {
   padding: 10px 20px;
   cursor: pointer;
 }
+/*!*************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/_setting.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************/
+.acb_top, .acb_bottom {
+  margin: 20px;
+  padding: 10px;
+  display: flex;
+}
+.acb_top h1, .acb_bottom h1 {
+  color: lightgray;
+  font-size: 20px;
+}
+.acb_top h1.setting_panel, .acb_bottom h1.setting_panel {
+  flex: 3;
+}
+.acb_top h1.tesing_panel, .acb_bottom h1.tesing_panel {
+  flex: 3;
+}
+.acb_top h1.setting_panel a, .acb_bottom h1.setting_panel a {
+  color: lightgray;
+  text-decoration: none;
+  cursor: pointer;
+}
+.acb_top h1.setting_panel a:hover, .acb_bottom h1.setting_panel a:hover {
+  color: teal;
+}
+.acb_top .acb_left, .acb_bottom .acb_left {
+  flex: 4 !important;
+  text-align: center;
+  margin: 25px;
+  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+  padding: 14px;
+}
+.acb_top .acb_left .review-case-title, .acb_bottom .acb_left .review-case-title {
+  position: relative;
+}
+.acb_top .acb_left .review-case-title span.wcs_title, .acb_bottom .acb_left .review-case-title span.wcs_title {
+  position: absolute;
+}
+.acb_top .acb_left .review-case-title span.wcs_title svg.wcs_tooltip_icon, .acb_bottom .acb_left .review-case-title span.wcs_title svg.wcs_tooltip_icon {
+  font-size: 15px;
+}
+.acb_top .acb_left .wpnts-switch-review,
+.acb_top .acb_left .wpnts-switch-support,
+.acb_top .acb_left .wpnts-switch-floating, .acb_bottom .acb_left .wpnts-switch-review,
+.acb_bottom .acb_left .wpnts-switch-support,
+.acb_bottom .acb_left .wpnts-switch-floating {
+  font-size: 17px;
+  text-align: left;
+  display: flex;
+  margin-bottom: 25px;
+}
+.acb_top .acb_left .wpnts-switch-review label,
+.acb_top .acb_left .wpnts-switch-support label,
+.acb_top .acb_left .wpnts-switch-floating label, .acb_bottom .acb_left .wpnts-switch-review label,
+.acb_bottom .acb_left .wpnts-switch-support label,
+.acb_bottom .acb_left .wpnts-switch-floating label {
+  margin-top: 4px;
+  margin: 11px;
+  margin-right: 350px;
+  white-space: nowrap;
+}
+@media only screen and (max-width: 1366px) {
+  .acb_top .acb_left .wpnts-switch-review label,
+  .acb_top .acb_left .wpnts-switch-support label,
+  .acb_top .acb_left .wpnts-switch-floating label, .acb_bottom .acb_left .wpnts-switch-review label,
+  .acb_bottom .acb_left .wpnts-switch-support label,
+  .acb_bottom .acb_left .wpnts-switch-floating label {
+    margin-right: 100px;
+    white-space: nowrap;
+  }
+}
+.acb_top .acb_left .reviewSwitch, .acb_bottom .acb_left .reviewSwitch {
+  margin-left: 85px;
+}
+.acb_top .acb_left .supportSwitch-1, .acb_bottom .acb_left .supportSwitch-1 {
+  margin-left: 132px;
+}
+.acb_top .acb_left .supportSwitch-2, .acb_bottom .acb_left .supportSwitch-2 {
+  margin-left: 132px;
+}
+.acb_top .acb_right, .acb_bottom .acb_right {
+  flex: 2 !important;
+  margin: 25px;
+  margin-top: 37px;
+}
+.acb_top .acb_right form, .acb_bottom .acb_right form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.acb_top .acb_right form label, .acb_bottom .acb_right form label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+.acb_top .acb_right form .formInput, .acb_bottom .acb_right form .formInput {
+  width: 60%;
+}
+.acb_top .acb_right form .formInput textarea, .acb_bottom .acb_right form .formInput textarea {
+  height: 150px;
+}
+.acb_top .acb_right form .formInput input, .acb_bottom .acb_right form .formInput input {
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+.acb_top .acb_right form .formInput input:focus, .acb_bottom .acb_right form .formInput input:focus {
+  outline: none;
+  box-shadow: none;
+}
+.acb_top .acb_right form .formInput .wpnts-setting, .acb_bottom .acb_right form .formInput .wpnts-setting {
+  position: relative;
+}
+.acb_top .acb_right form .formInput .wpnts-setting .passimg, .acb_bottom .acb_right form .formInput .wpnts-setting .passimg {
+  position: absolute;
+  left: 90px;
+  font-size: 18px;
+  top: -19px;
+}
+.acb_top .acb_right form .formInput.open-new-tab, .acb_bottom .acb_right form .formInput.open-new-tab {
+  display: flex;
+  gap: 9px;
+}
+.acb_top .acb_right form .formInput.open-new-tab input[type=checkbox], .acb_bottom .acb_right form .formInput.open-new-tab input[type=checkbox] {
+  border: 1px solid white;
+  border-bottom: 1px solid gray;
+  border-top: 1px solid gray;
+  width: 18px;
+}
+.acb_top .acb_right form .save-webhook, .acb_bottom .acb_right form .save-webhook {
+  width: 160px;
+  padding: 10px;
+  border: none;
+  background-color: teal;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  float: left;
+}
 /*!*******************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/_documentation.scss ***!
   \*******************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+@media screen and (max-width: 781px) {
+  .documentation-flex-row {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  .documentation-flex-row .swptls-col {
+    flex: 1 1 220px;
+    padding-left: 20px;
+    padding-right: 10px;
+  }
+}
 
+.documentation-card {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  padding: 50px 20px;
+  background: #FFFFFF;
+  border: 1px solid #ECECEF;
+}
+.documentation-card svg {
+  margin-bottom: 30px;
+}
+.documentation-card h4 {
+  margin: 0;
+  color: #1E1E1E;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 100%;
+  transition: all 0.3s ease;
+}
+.documentation-card .single-doc-item {
+  top: 0;
+  left: 0;
+  outline: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: none;
+  position: absolute;
+}
+.documentation-card .single-doc-item:-moz-any-link:hover + svg + h4 {
+  color: #2BB885;
+}
+.documentation-card .single-doc-item:any-link:hover + svg + h4 {
+  color: #2BB885;
+}
+
+.documentation-contact {
+  outline: 0;
+  display: block;
+  box-shadow: none;
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 30px;
+}
+.documentation-contact svg {
+  margin-bottom: 17px;
+}
+.documentation-contact h4 {
+  color: #1E1E1E;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 100%;
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+.documentation-contact p {
+  color: #666873;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  max-width: 173px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.get-pro-promo h2 {
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 33px;
+  color: #363A3D;
+}
+.get-pro-promo h2 + p {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  color: #424551;
+}
+.get-pro-promo p.documention-list::before {
+  content: "•";
+  margin-right: 10px;
+  font-size: 20px;
+  line-height: 1;
+}
+.get-pro-promo .unlock-features {
+  width: 175px;
+  height: 39px;
+  background: #25D366;
+  border-radius: 4px;
+  border: 0px solid;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 39px;
+  text-align: center;
+  color: #F8F9FA;
+  transition: 300ms;
+  padding: 0;
+  transition: 300ms;
+}
+.get-pro-promo .unlock-features:hover {
+  background: #1fb857;
+  color: #F8F9FA;
+}
+.get-pro-promo p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  color: #666873;
+}
+.get-pro-promo p > a {
+  text-decoration: none;
+  color: #1E1E1E;
+}
 /*!*********************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/main.scss ***!
   \*********************************************************************************************************************************************************************************************************************************************/
@@ -2408,7 +2687,7 @@ All the default css will place here...
   border: none;
   box-shadow: none;
 }
-.table-edit h4.swptls-title.h4:hover {
+.table-edit h4.simpleform-title.h4:hover {
   color: #2271b1 !important;
 }
 

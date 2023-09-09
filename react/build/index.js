@@ -17226,34 +17226,6 @@ const screenSize = () => {
 
 /***/ }),
 
-/***/ "./src/components/AddNewTable.tsx":
-/*!****************************************!*\
-  !*** ./src/components/AddNewTable.tsx ***!
-  \****************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
-/* harmony import */ var _icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../icons */ "./src/icons.js");
-
-
-
-
-function AddNewTable() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-    to: "/create-form",
-    className: "add-new-table btn add-new-table-btn"
-  }, _icons__WEBPACK_IMPORTED_MODULE_2__.GrayPlusIcon, "Add new form");
-}
-/* harmony default export */ __webpack_exports__["default"] = (AddNewTable);
-
-/***/ }),
-
 /***/ "./src/components/App.tsx":
 /*!********************************!*\
   !*** ./src/components/App.tsx ***!
@@ -17943,12 +17915,77 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _styles_documentation_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../styles/_documentation.scss */ "./src/styles/_documentation.scss");
+/* harmony import */ var _core_Container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../core/Container */ "./src/core/Container.tsx");
+/* harmony import */ var _core_Row__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../core/Row */ "./src/core/Row.tsx");
+/* harmony import */ var _core_Column__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../core/Column */ "./src/core/Column.tsx");
+/* harmony import */ var _core_Card__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../core/Card */ "./src/core/Card.tsx");
+/* harmony import */ var _icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../icons */ "./src/icons.js");
+/* harmony import */ var _Helpers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Helpers */ "./src/Helpers.js");
+/* harmony import */ var _styles_documentation_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../styles/_documentation.scss */ "./src/styles/_documentation.scss");
+
+
+
+
+
+
 
 
 
 const Documentation = () => {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "Documentation Page");
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_core_Container__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    className: "documentation-page-wrap"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_core_Row__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    customClass: "documentation-flex-row"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_core_Column__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    lg: "3",
+    sm: "4"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_core_Card__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    customClass: "documentation-card"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: "",
+    target: "_blank",
+    className: "single-doc-item"
+  }), _icons__WEBPACK_IMPORTED_MODULE_6__.book, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", null, "Documentation"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_core_Column__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    lg: "3",
+    sm: "4"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_core_Card__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    customClass: "documentation-card"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: "",
+    target: "_blank",
+    className: "single-doc-item"
+  }), _icons__WEBPACK_IMPORTED_MODULE_6__.videoPlay, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", null, "Video Tutorial"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_core_Column__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    lg: "3",
+    sm: "4"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: "",
+    target: "_blank",
+    className: "documentation-contact"
+  }, _icons__WEBPACK_IMPORTED_MODULE_6__.support, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", null, "Need more help?"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Get professional help via our ticketing system")))), !(0,_Helpers__WEBPACK_IMPORTED_MODULE_7__.isProActive)() && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_core_Card__WEBPACK_IMPORTED_MODULE_5__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_core_Row__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    middleXs: true
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_core_Column__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    xs: "12",
+    sm: "6"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "get-pro-promo"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Get PRO"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Get the most out of the plugin. Go Pro!"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: "",
+    target: "_blank",
+    className: "unlock-features button"
+  }, "Unlock all features"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "documention-list"
+  }, "Link Support to import links from sheet"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "documention-list"
+  }, "Pre-built amazing table styles where Each styles is different from one another"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "documention-list"
+  }, "Hide your google sheet table rows based on your custom row selection"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "documention-list"
+  }, "Unlimited Row Sync and fetch unlimited rows from Google spreadsheet"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_core_Column__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    xs: "12",
+    sm: "6",
+    textXs: "center",
+    textSm: "right"
+  }))));
 };
 /* harmony default export */ __webpack_exports__["default"] = (Documentation);
 
@@ -18546,7 +18583,7 @@ const Leads = () => {
   const [filteredLeads, setFilteredLeads] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
   const [pageNumber, setPageNumber] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0);
   const [tables, setTables] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
-  const leadsPerPage = 5;
+  const leadsPerPage = 10;
   const pagesVisited = pageNumber * leadsPerPage;
   const pageCount = Math.ceil(filteredLeads.length / leadsPerPage);
 
@@ -18577,11 +18614,13 @@ const Leads = () => {
   }, []);
 
   /**
-   * Get form list by selected ID
-   */
-
+    * Get form list by selected ID
+  */
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
     if (selectedId !== null) {
+      setLeads([]); // Clear the previous leads
+      setFilteredLeads([]); // Clear the previous filtered leads
+
       // Fetch the leads data based on the selected form_id
       const getTableData = () => {
         wp.ajax.send('simpleform_get_leads', {
@@ -18603,14 +18642,24 @@ const Leads = () => {
   }, [selectedId]);
 
   // Handle search input change
+
   const handleSearchChange = e => {
     const searchQuery = e.target.value.toLowerCase();
     const filteredData = leads.filter(lead => {
-      const fields = JSON.parse(lead.fields);
-      for (const key in fields) {
-        if (fields[key].toLowerCase().includes(searchQuery)) {
-          return true;
+      try {
+        const fields = JSON.parse(lead.fields);
+
+        // Ensure that fields is an object (valid JSON)
+        if (typeof fields === 'object' && fields !== null) {
+          for (const key in fields) {
+            if (fields[key].toLowerCase().includes(searchQuery)) {
+              return true;
+            }
+          }
         }
+      } catch (error) {
+        // Handle any JSON parsing errors here
+        console.error('JSON parsing error:', error);
       }
       return false;
     });
@@ -18637,14 +18686,24 @@ const Leads = () => {
       }
     });
   };
-  const displayLeads = filteredLeads.slice(pagesVisited, pagesVisited + leadsPerPage).map((lead, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("tr", {
-    key: index
-  }, Object.values(JSON.parse(lead.fields)).map((value, subIndex) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
-    key: subIndex
-  }, value)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    className: "delete-button",
-    onClick: () => deleteLead(lead.id)
-  }, _icons__WEBPACK_IMPORTED_MODULE_4__.DeleteIcon))));
+  const displayLeads = filteredLeads.length > 0 ? filteredLeads.slice(pagesVisited, pagesVisited + leadsPerPage).map((lead, index) => {
+    try {
+      const fields = JSON.parse(lead.fields);
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("tr", {
+        key: index
+      }, Object.values(fields).map((value, subIndex) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
+        key: subIndex
+      }, value)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+        className: "delete-button",
+        onClick: () => deleteLead(lead.id)
+      }, _icons__WEBPACK_IMPORTED_MODULE_4__.DeleteIcon)));
+    } catch (error) {
+      console.error('JSON parsing error:', error);
+      return null; // Skip this row if JSON parsing fails
+    }
+  }) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("tr", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
+    colSpan: Object.keys(JSON.parse(leads[0]?.fields || '{}')).length + 1
+  }, "Leads empty!"));
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, loader ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_core_Card__WEBPACK_IMPORTED_MODULE_6__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, "Loading...")) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "main-leads-container"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -19073,10 +19132,114 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_switch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-switch */ "../node_modules/react-switch/dist/index.dev.mjs");
+/* harmony import */ var _styles_setting_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../styles/_setting.scss */ "./src/styles/_setting.scss");
+
+
+
 
 
 const Settings = () => {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "Settings");
+  const [whatsappRedirection, setWhatsappRedirection] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
+  const [mailNotification, setMailNotification] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
+  const [floatingwidgets, setFloating] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
+  const [whatsappNumber, setWhatsappNumber] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
+  const [openInNewTab, setOpenInNewTab] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
+  const [recipientMail, setRecipientMail] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
+  const isSaveButtonDisabled = !whatsappRedirection && !mailNotification;
+  const handleSubmit = e => {
+    e.preventDefault();
+    const settings = {
+      whatsappRedirection,
+      mailNotification,
+      floatingwidgets,
+      whatsappNumber,
+      openInNewTab,
+      recipientMail
+    };
+    console.log("Settings:", settings);
+  };
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "acb_bottom",
+    id: "acb_bottom"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "acb_left"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+    className: "review-case-title"
+  }, "Simple Form settings panel"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpnts-switch-review"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+    htmlFor: "reviewnoti"
+  }, "Enable WhatsApp redirection:"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_switch__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    checked: whatsappRedirection,
+    className: "reviewSwitch",
+    name: "wpnts-switch-review",
+    id: "reviewnoti",
+    onChange: checked => setWhatsappRedirection(checked)
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpnts-switch-support"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+    htmlFor: "supportnoti"
+  }, "Enable mail notification:"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_switch__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    checked: mailNotification,
+    className: "supportSwitch-1",
+    name: "wpnts-switch-support",
+    id: "supportnoti",
+    onChange: checked => setMailNotification(checked)
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpnts-switch-floating"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+    htmlFor: "floating-widgets"
+  }, "Enable floating widgets:"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_switch__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    checked: floatingwidgets,
+    className: "supportSwitch-2",
+    name: "wpnts-switch-floating",
+    id: "floating-widgets",
+    onChange: checked => setFloating(checked)
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "acb_right"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("form", {
+    onSubmit: handleSubmit,
+    id: "wpntswebhook"
+  }, whatsappRedirection && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "formInput"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+    htmlFor: "webhook"
+  }, "WhatsApp number"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpnts-setting"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "text",
+    placeholder: "Add country code ex. +88013071089564",
+    name: "webhook",
+    value: whatsappNumber,
+    onChange: e => setWhatsappNumber(e.target.value)
+  }))), whatsappRedirection && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "formInput open-new-tab"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+    htmlFor: "interval_review"
+  }, "Open in new tab"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpnts-setting"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "checkbox",
+    name: "interval_review",
+    checked: openInNewTab,
+    onChange: e => setOpenInNewTab(e.target.checked)
+  }))), mailNotification && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "formInput"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+    htmlFor: "interval"
+  }, "Add recipient mail"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wpnts-setting"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "email",
+    placeholder: "add email to receive mail",
+    name: "interval",
+    value: recipientMail,
+    onChange: e => setRecipientMail(e.target.value)
+  }))), mailNotification || whatsappRedirection ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    type: "submit",
+    className: "save-webhook"
+  }, "SAVE") : null)));
 };
 /* harmony default export */ __webpack_exports__["default"] = (Settings);
 
@@ -19221,10 +19384,10 @@ function TableItem({
   }, _icons__WEBPACK_IMPORTED_MODULE_2__.TrashCan), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Are you sure to delete the table? "), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "You are about to delete the table. This will permanently delete the table(s)"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "action-buttons"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    className: "swptls-button cancel-button",
+    className: "simpleform-button cancel-button",
     onClick: handleClosePopup
   }, "Cancel"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    className: "swptls-button confirm-button",
+    className: "simpleform-button confirm-button",
     onClick: () => ConfirmDeleteTable(table.id)
   }, "Delete"))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "table_info-action_box"
@@ -19288,9 +19451,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _Helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Helpers */ "./src/Helpers.js");
-/* harmony import */ var _AddNewTable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AddNewTable */ "./src/components/AddNewTable.tsx");
-/* harmony import */ var _TableItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./TableItem */ "./src/components/TableItem.tsx");
-
+/* harmony import */ var _TableItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./TableItem */ "./src/components/TableItem.tsx");
 
 
 
@@ -19306,16 +19467,14 @@ function TablesList({
 }) {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_core_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
     customClass: "table-item-card"
-  }, tables && tables.map(table => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_TableItem__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, tables && tables.map(table => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_TableItem__WEBPACK_IMPORTED_MODULE_4__["default"], {
     key: table.id,
     table: table,
     setCopiedTables: setCopiedTables,
     setTableCount: setTableCount,
     setTables: setTables,
     setLoader: setLoader
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "add-new-wrapper"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_AddNewTable__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
+  })));
 }
 /* harmony default export */ __webpack_exports__["default"] = (TablesList);
 
@@ -19447,7 +19606,7 @@ const Card = ({
   children,
   customClass
 }) => {
-  let classes = `swptls-card`;
+  let classes = `simpleform-card`;
   if (colored) {
     classes += ' colored-bg';
   }
@@ -19506,7 +19665,7 @@ const Column = ({
   children
 }) => {
   const classes = () => {
-    let c = 'swptls-col';
+    let c = 'simpleform-col';
     c += firstXs ? ' first-xs' : lastXs ? ' last-xs' : '';
     c += firstSm ? ' first-sm' : lastSm ? ' last-sm' : '';
     c += firstMd ? ' first-md' : lastMd ? ' last-md' : '';
@@ -19559,8 +19718,8 @@ const Container = ({
   children
 }) => {
   const classes = () => {
-    let c = fluid ? 'swptls-container-fluid ' : 'swptls-container ';
-    c += hero ? 'swptls-hero ' : '';
+    let c = fluid ? 'simpleform-container-fluid ' : 'simpleform-container ';
+    c += hero ? 'simpleform-hero ' : '';
     c += fullWidth ? 'full-width ' : '';
     c += small ? 'small ' : '';
     return c;
@@ -19661,7 +19820,7 @@ const Row = ({
   children
 }) => {
   const classes = () => {
-    let c = reverse ? 'swptls-row reverse' : 'swptls-row ';
+    let c = reverse ? 'simpleform-row reverse' : 'simpleform-row ';
     c += startXs ? ' start-xs' : centerXs ? ' center-xs' : endXs ? ' end-xs' : '';
     c += startSm ? ' start-sm' : centerSm ? ' center-sm' : endSm ? ' end-sm' : '';
     c += startMd ? ' start-md' : centerMd ? ' center-md' : endMd ? ' end-md' : '';
@@ -19705,7 +19864,7 @@ const Title = ({
   children
 }) => {
   const classes = () => {
-    let c = `swptls-title ${tagName ? tagName : ""}`;
+    let c = `simpleform-title ${tagName ? tagName : ""}`;
     return c;
   };
   if (tagName) {
@@ -19759,7 +19918,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   RedHeart: function() { return /* binding */ RedHeart; },
 /* harmony export */   TrashCan: function() { return /* binding */ TrashCan; },
 /* harmony export */   WhitePlusIcon: function() { return /* binding */ WhitePlusIcon; },
-/* harmony export */   searchIcon: function() { return /* binding */ searchIcon; }
+/* harmony export */   book: function() { return /* binding */ book; },
+/* harmony export */   searchIcon: function() { return /* binding */ searchIcon; },
+/* harmony export */   support: function() { return /* binding */ support; },
+/* harmony export */   videoPlay: function() { return /* binding */ videoPlay; }
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
@@ -19878,6 +20040,82 @@ const GrayPlusIcon = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createEl
 }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
   d: "M0.197675 8.56104H16.8024C16.9341 8.56104 17 8.62693 17 8.75872V10.2413C17 10.3731 16.9341 10.439 16.8024 10.439H0.197675C0.0658916 10.439 0 10.3731 0 10.2413V8.75872C0 8.62693 0.0658916 8.56104 0.197675 8.56104Z",
   fill: "#939393"
+}));
+const book = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  width: "59",
+  height: "46",
+  viewBox: "0 0 59 46",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M44.2701 0.486084C39.0382 0.486084 33.4038 1.5593 29.5134 4.51064C25.623 1.5593 19.9886 0.486084 14.7567 0.486084C10.8663 0.486084 6.73442 1.07635 3.27331 2.60568C1.31469 3.49109 0 5.39604 0 7.5693V37.834C0 41.3219 3.27331 43.8976 6.65393 43.0391C9.28331 42.3683 12.0737 42.0732 14.7567 42.0732C18.9422 42.0732 23.3961 42.7708 26.9914 44.5416C28.6012 45.3465 30.4256 45.3465 32.0086 44.5416C35.6039 42.7439 40.0578 42.0732 44.2433 42.0732C46.9263 42.0732 49.7167 42.3683 52.3461 43.0391C55.7267 43.9245 59 41.3487 59 37.834V7.5693C59 5.39604 57.6853 3.49109 55.7267 2.60568C52.2924 1.07635 48.1605 0.486084 44.2701 0.486084ZM53.6608 34.6412C53.6608 36.3315 52.1046 37.5657 50.4411 37.2705C48.4288 36.8949 46.3361 36.7339 44.2701 36.7339C39.709 36.7339 33.1355 38.4779 29.5134 40.7585V9.87672C33.1355 7.59613 39.709 5.85216 44.2701 5.85216C46.7385 5.85216 49.1801 6.09363 51.5143 6.60341C52.7485 6.87171 53.6608 7.97176 53.6608 9.23279V34.6412Z",
+  fill: "url(#paint0_linear_2854_839)"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M34.8258 17.9527C33.9673 17.9527 33.1892 17.4161 32.9209 16.5575C32.5721 15.5111 33.1624 14.3574 34.2087 14.0354C38.3406 12.6939 43.6799 12.2646 48.5898 12.8281C49.6899 12.9622 50.4948 13.955 50.3606 15.055C50.2265 16.155 49.2338 16.96 48.1337 16.8258C43.7872 16.316 39.0382 16.7185 35.4429 17.8722C35.2283 17.899 35.0137 17.9527 34.8258 17.9527ZM34.8258 25.0896C33.9673 25.0896 33.1892 24.553 32.9209 23.6944C32.5721 22.648 33.1624 21.4943 34.2087 21.1723C38.3138 19.8308 43.6799 19.4015 48.5898 19.965C49.6899 20.0991 50.4948 21.0918 50.3606 22.1919C50.2265 23.2919 49.2338 24.0968 48.1337 23.9627C43.7872 23.4529 39.0382 23.8554 35.4429 25.0091C35.2412 25.0605 35.034 25.0875 34.8258 25.0896ZM34.8258 32.2264C33.9673 32.2264 33.1892 31.6898 32.9209 30.8313C32.5721 29.7849 33.1624 28.6312 34.2087 28.3092C38.3138 26.9677 43.6799 26.5384 48.5898 27.1018C49.6899 27.236 50.4948 28.2287 50.3606 29.3288C50.2265 30.4288 49.2338 31.2069 48.1337 31.0996C43.7872 30.5898 39.0382 30.9922 35.4429 32.146C35.2412 32.1974 35.034 32.2244 34.8258 32.2264Z",
+  fill: "url(#paint1_linear_2854_839)"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("defs", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("linearGradient", {
+  id: "paint0_linear_2854_839",
+  x1: "-52.4316",
+  y1: "-20.099",
+  x2: "2.48406",
+  y2: "80.5656",
+  gradientUnits: "userSpaceOnUse"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
+  offset: "0.00359712",
+  "stop-color": "#514EFF"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
+  offset: "1",
+  "stop-color": "#9571F6"
+})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("linearGradient", {
+  id: "paint1_linear_2854_839",
+  x1: "17.2199",
+  y1: "3.53352",
+  x2: "45.2894",
+  y2: "38.3454",
+  gradientUnits: "userSpaceOnUse"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
+  offset: "0.00359712",
+  "stop-color": "#514EFF"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
+  offset: "1",
+  "stop-color": "#9571F6"
+}))));
+const videoPlay = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  width: "55",
+  height: "45",
+  viewBox: "0 0 55 45",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M50.6334 3.16432C50.3251 1.95336 48.8279 0.965332 47.3032 0.965332H7.69951C6.17206 0.965332 4.67487 1.95336 4.36938 3.16432L3.8162 6.46967H51.1838L50.6334 3.16432ZM53.4048 9.22184H1.5952C1.3729 9.22199 1.15308 9.26857 0.949829 9.35859C0.746575 9.44861 0.564365 9.5801 0.414871 9.74462C0.265376 9.90914 0.151893 10.1031 0.08169 10.314C0.0114874 10.5249 -0.0138866 10.7482 0.00719339 10.9695L2.54745 43.0845C2.59805 43.6087 2.84198 44.0952 3.23171 44.4493C3.62143 44.8034 4.12903 44.9998 4.65561 45.0001H50.3444C50.871 44.9998 51.3786 44.8034 51.7683 44.4493C52.158 44.0952 52.4019 43.6087 52.4525 43.0845L54.9928 10.9695C55.0139 10.7482 54.9885 10.5249 54.9183 10.314C54.8481 10.1031 54.7346 9.90914 54.5851 9.74462C54.4356 9.5801 54.2534 9.44861 54.0502 9.35859C53.8469 9.26857 53.6271 9.22199 53.4048 9.22184ZM21.997 33.9914V20.2305L34.0598 27.111L21.997 33.9914Z",
+  fill: "url(#paint0_linear_2854_832)"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("defs", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("linearGradient", {
+  id: "paint0_linear_2854_832",
+  x1: "-33.6368",
+  y1: "-9.06092",
+  x2: "-16.1758",
+  y2: "39.2147",
+  gradientUnits: "userSpaceOnUse"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
+  "stop-color": "#A737D5"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("stop", {
+  offset: "1",
+  "stop-color": "#EF497A"
+}))));
+const support = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  width: "78",
+  height: "78",
+  viewBox: "0 0 78 78",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
+}, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("circle", {
+  cx: "39",
+  cy: "39",
+  r: "39",
+  fill: "white"
+}), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M37.8821 19C35.3236 19 32.8699 20.0164 31.0607 21.8255C29.2516 23.6346 28.2352 26.0884 28.2352 28.6469C28.2352 31.2054 29.2516 33.6591 31.0607 35.4683C32.8699 37.2774 35.3236 38.2938 37.8821 38.2938C40.4407 38.2938 42.8944 37.2774 44.7036 35.4683C46.5127 33.6591 47.5291 31.2054 47.5291 28.6469C47.5291 26.0884 46.5127 23.6346 44.7036 21.8255C42.8944 20.0164 40.4407 19 37.8821 19ZM25.8452 40.7055C25.21 40.7029 24.5806 40.8258 23.993 41.067C23.4054 41.3083 22.8713 41.6631 22.4211 42.1113C21.971 42.5594 21.6137 43.0919 21.3699 43.6784C21.126 44.2649 21.0003 44.8938 21 45.5289C21 49.6071 23.009 52.6821 26.1491 54.6862C29.2409 56.6566 33.4084 57.5875 37.8821 57.5875C40.0045 57.5875 42.0569 57.3777 43.9597 56.9484C43.815 55.9041 43.9983 54.8189 44.5096 53.8687L44.5385 53.8156L44.7387 53.4852L46.1544 51.4087C46.6747 50.6309 47.4155 50.0262 48.2818 49.6721C49.148 49.3181 50.1003 49.2308 51.0164 49.4214L51.084 49.4359L51.4554 49.5372L52.7432 49.9665C53.134 49.5437 53.4761 49.0786 53.7634 48.5798C54.0649 48.0588 54.2843 47.5572 54.4387 47.0676L53.2811 45.9703C52.6422 45.357 52.1778 44.5849 51.9354 43.7331C51.693 42.8814 51.6813 41.9805 51.9016 41.1227C51.2846 40.8474 50.6165 40.7052 49.9408 40.7055H25.8452ZM54.3639 41.3446L55.3286 39.0752C55.7796 38.0092 56.8601 37.4304 57.9212 37.6522L58.1479 37.7101L59.3538 38.096C60.55 38.4795 61.4641 39.502 61.7607 40.7875C62.4625 43.8431 61.6208 47.5644 59.2308 51.9489C56.8456 56.3286 54.2337 58.9598 51.3903 59.8473C50.2857 60.1922 49.0991 59.9438 48.2068 59.1937L47.9728 58.9767L47.0564 58.0578C46.6714 57.6614 46.4227 57.1527 46.3463 56.6054C46.27 56.0582 46.37 55.5008 46.6319 55.0142L46.767 54.7923L48.1465 52.7665C48.3973 52.3841 48.7571 52.0857 49.1793 51.9098C49.6014 51.734 50.0667 51.6888 50.5148 51.7801L50.756 51.8452L53.3052 52.6966C54.3205 51.9248 55.1695 50.9601 55.8472 49.7904C56.4284 48.7896 56.8118 47.7766 56.9879 46.7493L57.0603 46.2331L54.9403 44.2194C54.5982 43.8859 54.3549 43.4643 54.2374 43.0013C54.12 42.5382 54.1329 42.0516 54.2747 41.5954L54.3639 41.3446Z",
+  fill: "#3FA3FF"
 }));
 
 /***/ }),
@@ -20044,6 +20282,19 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************!*\
   !*** ./src/styles/_render.scss ***!
   \*********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/styles/_setting.scss":
+/*!**********************************!*\
+  !*** ./src/styles/_setting.scss ***!
+  \**********************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22947,6 +23198,588 @@ function _typeof(o) {
     return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
   }, _typeof(o);
 }
+
+/***/ }),
+
+/***/ "../node_modules/react-switch/dist/index.dev.mjs":
+/*!*******************************************************!*\
+  !*** ../node_modules/react-switch/dist/index.dev.mjs ***!
+  \*******************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ ReactSwitch; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "../node_modules/prop-types/index.js");
+
+
+
+function _extends() {
+  _extends = Object.assign ? Object.assign.bind() : function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+  return _extends.apply(this, arguments);
+}
+
+/*
+The MIT License (MIT)
+
+Copyright (c) 2015 instructure-react
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+var uncheckedIcon = react__WEBPACK_IMPORTED_MODULE_0__.createElement('svg', {
+  viewBox: "-2 -5 14 20",
+  height: "100%",
+  width: "100%",
+  style: {
+    position: "absolute",
+    top: 0
+  }
+}, react__WEBPACK_IMPORTED_MODULE_0__.createElement('path', {
+  d: "M9.9 2.12L7.78 0 4.95 2.828 2.12 0 0 2.12l2.83 2.83L0 7.776 2.123 9.9 4.95 7.07 7.78 9.9 9.9 7.776 7.072 4.95 9.9 2.12",
+  fill: "#fff",
+  fillRule: "evenodd"
+}));
+var checkedIcon = react__WEBPACK_IMPORTED_MODULE_0__.createElement('svg', {
+  height: "100%",
+  width: "100%",
+  viewBox: "-2 -5 17 21",
+  style: {
+    position: "absolute",
+    top: 0
+  }
+}, react__WEBPACK_IMPORTED_MODULE_0__.createElement('path', {
+  d: "M11.264 0L5.26 6.004 2.103 2.847 0 4.95l5.26 5.26 8.108-8.107L11.264 0",
+  fill: "#fff",
+  fillRule: "evenodd"
+}));
+
+function createBackgroundColor(pos, checkedPos, uncheckedPos, offColor, onColor) {
+  var relativePos = (pos - uncheckedPos) / (checkedPos - uncheckedPos);
+
+  if (relativePos === 0) {
+    return offColor;
+  }
+
+  if (relativePos === 1) {
+    return onColor;
+  }
+
+  var newColor = "#";
+
+  for (var i = 1; i < 6; i += 2) {
+    var offComponent = parseInt(offColor.substr(i, 2), 16);
+    var onComponent = parseInt(onColor.substr(i, 2), 16);
+    var weightedValue = Math.round((1 - relativePos) * offComponent + relativePos * onComponent);
+    var newComponent = weightedValue.toString(16);
+
+    if (newComponent.length === 1) {
+      newComponent = "0" + newComponent;
+    }
+
+    newColor += newComponent;
+  }
+
+  return newColor;
+}
+
+function convertShorthandColor(color) {
+  if (color.length === 7) {
+    return color;
+  }
+
+  var sixDigitColor = "#";
+
+  for (var i = 1; i < 4; i += 1) {
+    sixDigitColor += color[i] + color[i];
+  }
+
+  return sixDigitColor;
+}
+
+function getBackgroundColor(pos, checkedPos, uncheckedPos, offColor, onColor) {
+  var sixDigitOffColor = convertShorthandColor(offColor);
+  var sixDigitOnColor = convertShorthandColor(onColor);
+  return createBackgroundColor(pos, checkedPos, uncheckedPos, sixDigitOffColor, sixDigitOnColor);
+}
+
+// Make sure color props are strings that start with "#" since other ways to write colors are not supported.
+var hexColorPropType = function (props, propName, componentName) {
+  var prop = props[propName];
+
+  if (typeof prop !== "string" || prop[0] !== "#" || prop.length !== 4 && prop.length !== 7) {
+    return new Error("Invalid prop '" + propName + "' supplied to '" + componentName + "'. '" + propName + "' has to be either a 3-digit or 6-digit hex-color string. Valid examples: '#abc', '#123456'");
+  }
+
+  return null;
+};
+
+function objectWithoutProperties(obj, exclude) {
+  var target = {};
+
+  for (var k in obj) if (Object.prototype.hasOwnProperty.call(obj, k) && exclude.indexOf(k) === -1) target[k] = obj[k];
+
+  return target;
+}
+
+var ReactSwitch = /*@__PURE__*/function (Component) {
+  function ReactSwitch(props) {
+    Component.call(this, props);
+    var height = props.height;
+    var width = props.width;
+    var handleDiameter = props.handleDiameter;
+    var checked = props.checked;
+    this.$handleDiameter = handleDiameter || height - 2;
+    this.$checkedPos = Math.max(width - height, width - (height + this.$handleDiameter) / 2);
+    this.$uncheckedPos = Math.max(0, (height - this.$handleDiameter) / 2);
+    this.state = {
+      $pos: checked ? this.$checkedPos : this.$uncheckedPos
+    };
+    this.$lastDragAt = 0;
+    this.$lastKeyUpAt = 0;
+    this.$onMouseDown = this.$onMouseDown.bind(this);
+    this.$onMouseMove = this.$onMouseMove.bind(this);
+    this.$onMouseUp = this.$onMouseUp.bind(this);
+    this.$onTouchStart = this.$onTouchStart.bind(this);
+    this.$onTouchMove = this.$onTouchMove.bind(this);
+    this.$onTouchEnd = this.$onTouchEnd.bind(this);
+    this.$onClick = this.$onClick.bind(this);
+    this.$onInputChange = this.$onInputChange.bind(this);
+    this.$onKeyUp = this.$onKeyUp.bind(this);
+    this.$setHasOutline = this.$setHasOutline.bind(this);
+    this.$unsetHasOutline = this.$unsetHasOutline.bind(this);
+    this.$getInputRef = this.$getInputRef.bind(this);
+  }
+
+  if (Component) ReactSwitch.__proto__ = Component;
+  ReactSwitch.prototype = Object.create(Component && Component.prototype);
+  ReactSwitch.prototype.constructor = ReactSwitch;
+
+  ReactSwitch.prototype.componentDidMount = function componentDidMount() {
+    this.$isMounted = true;
+  };
+
+  ReactSwitch.prototype.componentDidUpdate = function componentDidUpdate(prevProps) {
+    if (prevProps.checked === this.props.checked) {
+      return;
+    }
+
+    var $pos = this.props.checked ? this.$checkedPos : this.$uncheckedPos;
+    this.setState({
+      $pos: $pos
+    });
+  };
+
+  ReactSwitch.prototype.componentWillUnmount = function componentWillUnmount() {
+    this.$isMounted = false;
+  };
+
+  ReactSwitch.prototype.$onDragStart = function $onDragStart(clientX) {
+    this.$inputRef.focus();
+    this.setState({
+      $startX: clientX,
+      $hasOutline: true,
+      $dragStartingTime: Date.now()
+    });
+  };
+
+  ReactSwitch.prototype.$onDrag = function $onDrag(clientX) {
+    var ref = this.state;
+    var $startX = ref.$startX;
+    var $isDragging = ref.$isDragging;
+    var $pos = ref.$pos;
+    var ref$1 = this.props;
+    var checked = ref$1.checked;
+    var startPos = checked ? this.$checkedPos : this.$uncheckedPos;
+    var mousePos = startPos + clientX - $startX; // We need this check to fix a windows glitch where onDrag is triggered onMouseDown in some cases
+
+    if (!$isDragging && clientX !== $startX) {
+      this.setState({
+        $isDragging: true
+      });
+    }
+
+    var newPos = Math.min(this.$checkedPos, Math.max(this.$uncheckedPos, mousePos)); // Prevent unnecessary rerenders
+
+    if (newPos !== $pos) {
+      this.setState({
+        $pos: newPos
+      });
+    }
+  };
+
+  ReactSwitch.prototype.$onDragStop = function $onDragStop(event) {
+    var ref = this.state;
+    var $pos = ref.$pos;
+    var $isDragging = ref.$isDragging;
+    var $dragStartingTime = ref.$dragStartingTime;
+    var ref$1 = this.props;
+    var checked = ref$1.checked;
+    var halfwayCheckpoint = (this.$checkedPos + this.$uncheckedPos) / 2;
+    /*
+      Set position state back to the previous position even if user drags the switch with intention to change the state.
+      This is to prevent the switch from getting stuck in the middle if the event isn't handled in the onChange callback.
+    */
+
+    var prevPos = this.props.checked ? this.$checkedPos : this.$uncheckedPos;
+    this.setState({
+      $pos: prevPos
+    }); // Act as if the user clicked the handle if they didn't drag it _or_ the dragged it for less than 250ms
+
+    var timeSinceStart = Date.now() - $dragStartingTime;
+    var isSimulatedClick = !$isDragging || timeSinceStart < 250; // Handle when the user has dragged the switch more than halfway from either side
+
+    var isDraggedHalfway = checked && $pos <= halfwayCheckpoint || !checked && $pos >= halfwayCheckpoint;
+
+    if (isSimulatedClick || isDraggedHalfway) {
+      this.$onChange(event);
+    }
+
+    if (this.$isMounted) {
+      this.setState({
+        $isDragging: false,
+        $hasOutline: false
+      });
+    }
+
+    this.$lastDragAt = Date.now();
+  };
+
+  ReactSwitch.prototype.$onMouseDown = function $onMouseDown(event) {
+    event.preventDefault(); // Ignore right click and scroll
+
+    if (typeof event.button === "number" && event.button !== 0) {
+      return;
+    }
+
+    this.$onDragStart(event.clientX);
+    window.addEventListener("mousemove", this.$onMouseMove);
+    window.addEventListener("mouseup", this.$onMouseUp);
+  };
+
+  ReactSwitch.prototype.$onMouseMove = function $onMouseMove(event) {
+    event.preventDefault();
+    this.$onDrag(event.clientX);
+  };
+
+  ReactSwitch.prototype.$onMouseUp = function $onMouseUp(event) {
+    this.$onDragStop(event);
+    window.removeEventListener("mousemove", this.$onMouseMove);
+    window.removeEventListener("mouseup", this.$onMouseUp);
+  };
+
+  ReactSwitch.prototype.$onTouchStart = function $onTouchStart(event) {
+    this.$checkedStateFromDragging = null;
+    this.$onDragStart(event.touches[0].clientX);
+  };
+
+  ReactSwitch.prototype.$onTouchMove = function $onTouchMove(event) {
+    this.$onDrag(event.touches[0].clientX);
+  };
+
+  ReactSwitch.prototype.$onTouchEnd = function $onTouchEnd(event) {
+    event.preventDefault();
+    this.$onDragStop(event);
+  };
+
+  ReactSwitch.prototype.$onInputChange = function $onInputChange(event) {
+    // This condition is unfortunately needed in some browsers where the input's change event might get triggered
+    // right after the dragstop event is triggered (occurs when dropping over a label element)
+    if (Date.now() - this.$lastDragAt > 50) {
+      this.$onChange(event); // Prevent clicking label, but not key activation from setting outline to true - yes, this is absurd
+
+      if (Date.now() - this.$lastKeyUpAt > 50) {
+        if (this.$isMounted) {
+          this.setState({
+            $hasOutline: false
+          });
+        }
+      }
+    }
+  };
+
+  ReactSwitch.prototype.$onKeyUp = function $onKeyUp() {
+    this.$lastKeyUpAt = Date.now();
+  };
+
+  ReactSwitch.prototype.$setHasOutline = function $setHasOutline() {
+    this.setState({
+      $hasOutline: true
+    });
+  };
+
+  ReactSwitch.prototype.$unsetHasOutline = function $unsetHasOutline() {
+    this.setState({
+      $hasOutline: false
+    });
+  };
+
+  ReactSwitch.prototype.$getInputRef = function $getInputRef(el) {
+    this.$inputRef = el;
+  };
+
+  ReactSwitch.prototype.$onClick = function $onClick(event) {
+    event.preventDefault();
+    this.$inputRef.focus();
+    this.$onChange(event);
+
+    if (this.$isMounted) {
+      this.setState({
+        $hasOutline: false
+      });
+    }
+  };
+
+  ReactSwitch.prototype.$onChange = function $onChange(event) {
+    var ref = this.props;
+    var checked = ref.checked;
+    var onChange = ref.onChange;
+    var id = ref.id;
+    onChange(!checked, event, id);
+  };
+
+  ReactSwitch.prototype.render = function render() {
+    var ref = this.props;
+    var checked = ref.checked;
+    var disabled = ref.disabled;
+    var className = ref.className;
+    var offColor = ref.offColor;
+    var onColor = ref.onColor;
+    var offHandleColor = ref.offHandleColor;
+    var onHandleColor = ref.onHandleColor;
+    var checkedIcon = ref.checkedIcon;
+    var uncheckedIcon = ref.uncheckedIcon;
+    var checkedHandleIcon = ref.checkedHandleIcon;
+    var uncheckedHandleIcon = ref.uncheckedHandleIcon;
+    var boxShadow = ref.boxShadow;
+    var activeBoxShadow = ref.activeBoxShadow;
+    var height = ref.height;
+    var width = ref.width;
+    var borderRadius = ref.borderRadius;
+    ref.handleDiameter;
+    var rest$1 = objectWithoutProperties(ref, ["checked", "disabled", "className", "offColor", "onColor", "offHandleColor", "onHandleColor", "checkedIcon", "uncheckedIcon", "checkedHandleIcon", "uncheckedHandleIcon", "boxShadow", "activeBoxShadow", "height", "width", "borderRadius", "handleDiameter"]);
+    var rest = rest$1;
+    var ref$1 = this.state;
+    var $pos = ref$1.$pos;
+    var $isDragging = ref$1.$isDragging;
+    var $hasOutline = ref$1.$hasOutline;
+    var rootStyle = {
+      position: "relative",
+      display: "inline-block",
+      textAlign: "left",
+      opacity: disabled ? 0.5 : 1,
+      direction: "ltr",
+      borderRadius: height / 2,
+      WebkitTransition: "opacity 0.25s",
+      MozTransition: "opacity 0.25s",
+      transition: "opacity 0.25s",
+      touchAction: "none",
+      WebkitTapHighlightColor: "rgba(0, 0, 0, 0)",
+      WebkitUserSelect: "none",
+      MozUserSelect: "none",
+      msUserSelect: "none",
+      userSelect: "none"
+    };
+    var backgroundStyle = {
+      height: height,
+      width: width,
+      margin: Math.max(0, (this.$handleDiameter - height) / 2),
+      position: "relative",
+      background: getBackgroundColor($pos, this.$checkedPos, this.$uncheckedPos, offColor, onColor),
+      borderRadius: typeof borderRadius === "number" ? borderRadius : height / 2,
+      cursor: disabled ? "default" : "pointer",
+      WebkitTransition: $isDragging ? null : "background 0.25s",
+      MozTransition: $isDragging ? null : "background 0.25s",
+      transition: $isDragging ? null : "background 0.25s"
+    };
+    var checkedIconStyle = {
+      height: height,
+      width: Math.min(height * 1.5, width - (this.$handleDiameter + height) / 2 + 1),
+      position: "relative",
+      opacity: ($pos - this.$uncheckedPos) / (this.$checkedPos - this.$uncheckedPos),
+      pointerEvents: "none",
+      WebkitTransition: $isDragging ? null : "opacity 0.25s",
+      MozTransition: $isDragging ? null : "opacity 0.25s",
+      transition: $isDragging ? null : "opacity 0.25s"
+    };
+    var uncheckedIconStyle = {
+      height: height,
+      width: Math.min(height * 1.5, width - (this.$handleDiameter + height) / 2 + 1),
+      position: "absolute",
+      opacity: 1 - ($pos - this.$uncheckedPos) / (this.$checkedPos - this.$uncheckedPos),
+      right: 0,
+      top: 0,
+      pointerEvents: "none",
+      WebkitTransition: $isDragging ? null : "opacity 0.25s",
+      MozTransition: $isDragging ? null : "opacity 0.25s",
+      transition: $isDragging ? null : "opacity 0.25s"
+    };
+    var handleStyle = {
+      height: this.$handleDiameter,
+      width: this.$handleDiameter,
+      background: getBackgroundColor($pos, this.$checkedPos, this.$uncheckedPos, offHandleColor, onHandleColor),
+      display: "inline-block",
+      cursor: disabled ? "default" : "pointer",
+      borderRadius: typeof borderRadius === "number" ? borderRadius - 1 : "50%",
+      position: "absolute",
+      transform: "translateX(" + $pos + "px)",
+      top: Math.max(0, (height - this.$handleDiameter) / 2),
+      outline: 0,
+      boxShadow: $hasOutline ? activeBoxShadow : boxShadow,
+      border: 0,
+      WebkitTransition: $isDragging ? null : "background-color 0.25s, transform 0.25s, box-shadow 0.15s",
+      MozTransition: $isDragging ? null : "background-color 0.25s, transform 0.25s, box-shadow 0.15s",
+      transition: $isDragging ? null : "background-color 0.25s, transform 0.25s, box-shadow 0.15s"
+    };
+    var uncheckedHandleIconStyle = {
+      height: this.$handleDiameter,
+      width: this.$handleDiameter,
+      opacity: Math.max((1 - ($pos - this.$uncheckedPos) / (this.$checkedPos - this.$uncheckedPos) - 0.5) * 2, 0),
+      position: "absolute",
+      left: 0,
+      top: 0,
+      pointerEvents: "none",
+      WebkitTransition: $isDragging ? null : "opacity 0.25s",
+      MozTransition: $isDragging ? null : "opacity 0.25s",
+      transition: $isDragging ? null : "opacity 0.25s"
+    };
+    var checkedHandleIconStyle = {
+      height: this.$handleDiameter,
+      width: this.$handleDiameter,
+      opacity: Math.max((($pos - this.$uncheckedPos) / (this.$checkedPos - this.$uncheckedPos) - 0.5) * 2, 0),
+      position: "absolute",
+      left: 0,
+      top: 0,
+      pointerEvents: "none",
+      WebkitTransition: $isDragging ? null : "opacity 0.25s",
+      MozTransition: $isDragging ? null : "opacity 0.25s",
+      transition: $isDragging ? null : "opacity 0.25s"
+    };
+    var inputStyle = {
+      border: 0,
+      clip: "rect(0 0 0 0)",
+      height: 1,
+      margin: -1,
+      overflow: "hidden",
+      padding: 0,
+      position: "absolute",
+      width: 1
+    };
+    return react__WEBPACK_IMPORTED_MODULE_0__.createElement('div', {
+      className: className,
+      style: rootStyle
+    }, react__WEBPACK_IMPORTED_MODULE_0__.createElement('div', {
+      className: "react-switch-bg",
+      style: backgroundStyle,
+      onClick: disabled ? null : this.$onClick,
+      onMouseDown: function (e) {
+        return e.preventDefault();
+      }
+    }, checkedIcon && react__WEBPACK_IMPORTED_MODULE_0__.createElement('div', {
+      style: checkedIconStyle
+    }, checkedIcon), uncheckedIcon && react__WEBPACK_IMPORTED_MODULE_0__.createElement('div', {
+      style: uncheckedIconStyle
+    }, uncheckedIcon)), react__WEBPACK_IMPORTED_MODULE_0__.createElement('div', {
+      className: "react-switch-handle",
+      style: handleStyle,
+      onClick: function (e) {
+        return e.preventDefault();
+      },
+      onMouseDown: disabled ? null : this.$onMouseDown,
+      onTouchStart: disabled ? null : this.$onTouchStart,
+      onTouchMove: disabled ? null : this.$onTouchMove,
+      onTouchEnd: disabled ? null : this.$onTouchEnd,
+      onTouchCancel: disabled ? null : this.$unsetHasOutline
+    }, uncheckedHandleIcon && react__WEBPACK_IMPORTED_MODULE_0__.createElement('div', {
+      style: uncheckedHandleIconStyle
+    }, uncheckedHandleIcon), checkedHandleIcon && react__WEBPACK_IMPORTED_MODULE_0__.createElement('div', {
+      style: checkedHandleIconStyle
+    }, checkedHandleIcon)), react__WEBPACK_IMPORTED_MODULE_0__.createElement('input', _extends({}, {
+      type: "checkbox",
+      role: "switch",
+      'aria-checked': checked,
+      checked: checked,
+      disabled: disabled,
+      style: inputStyle
+    }, rest, {
+      ref: this.$getInputRef,
+      onFocus: this.$setHasOutline,
+      onBlur: this.$unsetHasOutline,
+      onKeyUp: this.$onKeyUp,
+      onChange: this.$onInputChange
+    })));
+  };
+
+  return ReactSwitch;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+ReactSwitch.propTypes = {
+  checked: prop_types__WEBPACK_IMPORTED_MODULE_1__.bool.isRequired,
+  onChange: prop_types__WEBPACK_IMPORTED_MODULE_1__.func.isRequired,
+  disabled: prop_types__WEBPACK_IMPORTED_MODULE_1__.bool,
+  offColor: hexColorPropType,
+  onColor: hexColorPropType,
+  offHandleColor: hexColorPropType,
+  onHandleColor: hexColorPropType,
+  handleDiameter: prop_types__WEBPACK_IMPORTED_MODULE_1__.number,
+  uncheckedIcon: prop_types__WEBPACK_IMPORTED_MODULE_1__.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_1__.bool, prop_types__WEBPACK_IMPORTED_MODULE_1__.element]),
+  checkedIcon: prop_types__WEBPACK_IMPORTED_MODULE_1__.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_1__.bool, prop_types__WEBPACK_IMPORTED_MODULE_1__.element]),
+  boxShadow: prop_types__WEBPACK_IMPORTED_MODULE_1__.string,
+  borderRadius: prop_types__WEBPACK_IMPORTED_MODULE_1__.number,
+  activeBoxShadow: prop_types__WEBPACK_IMPORTED_MODULE_1__.string,
+  uncheckedHandleIcon: prop_types__WEBPACK_IMPORTED_MODULE_1__.element,
+  checkedHandleIcon: prop_types__WEBPACK_IMPORTED_MODULE_1__.element,
+  height: prop_types__WEBPACK_IMPORTED_MODULE_1__.number,
+  width: prop_types__WEBPACK_IMPORTED_MODULE_1__.number,
+  id: prop_types__WEBPACK_IMPORTED_MODULE_1__.string,
+  className: prop_types__WEBPACK_IMPORTED_MODULE_1__.string
+};
+ReactSwitch.defaultProps = {
+  disabled: false,
+  offColor: "#888",
+  onColor: "#080",
+  offHandleColor: "#fff",
+  onHandleColor: "#fff",
+  uncheckedIcon: uncheckedIcon,
+  checkedIcon: checkedIcon,
+  boxShadow: null,
+  activeBoxShadow: "0 0 2px 3px #3bf",
+  height: 28,
+  width: 56
+};
+
+
+
 
 /***/ }),
 

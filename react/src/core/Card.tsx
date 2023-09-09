@@ -9,7 +9,7 @@ type Props = {
 import './_card.scss';
 
 const Card: FC<Props> = ({ colored, children, customClass }) => {
-	let classes = `swptls-card`;
+	let classes = `simpleform-card`;
 
 	if (colored) {
 		classes += ' colored-bg';

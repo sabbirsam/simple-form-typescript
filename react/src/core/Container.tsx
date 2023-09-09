@@ -16,8 +16,8 @@ const Container = ({
 	children,
 }: containerProps) => {
 	const classes = () => {
-		let c = fluid ? 'swptls-container-fluid ' : 'swptls-container ';
-		c += hero ? 'swptls-hero ' : '';
+		let c = fluid ? 'simpleform-container-fluid ' : 'simpleform-container ';
+		c += hero ? 'simpleform-hero ' : '';
 		c += fullWidth ? 'full-width ' : '';
 		c += small ? 'small ' : '';
 		return c;

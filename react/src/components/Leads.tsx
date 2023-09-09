@@ -14,7 +14,7 @@ const Leads = () => {
   const [pageNumber, setPageNumber] = useState(0);
   const [tables, setTables] = useState([]);
 
-  const leadsPerPage = 5;
+  const leadsPerPage = 10;
   const pagesVisited = pageNumber * leadsPerPage;
   const pageCount = Math.ceil(filteredLeads.length / leadsPerPage);
 
@@ -47,47 +47,64 @@ const Leads = () => {
   }, []);
 
   /**
-   * Get form list by selected ID
-   */
+    * Get form list by selected ID
+  */
+    useEffect(() => {
+      if (selectedId !== null) {
+        setLeads([]); // Clear the previous leads
+        setFilteredLeads([]); // Clear the previous filtered leads
 
-  useEffect(() => {
-    if (selectedId !== null) {
-      // Fetch the leads data based on the selected form_id
-      const getTableData = () => {
-        wp.ajax.send('simpleform_get_leads', {
-          data: {
-            nonce: getNonce(),
-            form_id: selectedId,
-          },
-          success(response) {
-            setLeads(response.tables);
-            setFilteredLeads(response.tables);
-          },
-          error(error) {
-            console.error('Error:', error);
-          },
-        });
-      };
-      getTableData();
-    }
-  }, [selectedId]);
+        // Fetch the leads data based on the selected form_id
+        const getTableData = () => {
+          wp.ajax.send('simpleform_get_leads', {
+            data: {
+              nonce: getNonce(),
+              form_id: selectedId,
+            },
+            success(response) {
+              setLeads(response.tables);
+              setFilteredLeads(response.tables);
+            },
+            error(error) {
+              console.error('Error:', error);
+            },
+          });
+        };
+        getTableData();
+      }
+    }, [selectedId]);
+
+
 
   // Handle search input change
+
   const handleSearchChange = (e) => {
     const searchQuery = e.target.value.toLowerCase();
-
+  
     const filteredData = leads.filter((lead) => {
-      const fields = JSON.parse(lead.fields);
-      for (const key in fields) {
-        if (fields[key].toLowerCase().includes(searchQuery)) {
-          return true;
+      try {
+        const fields = JSON.parse(lead.fields);
+  
+        // Ensure that fields is an object (valid JSON)
+        if (typeof fields === 'object' && fields !== null) {
+          for (const key in fields) {
+            if (fields[key].toLowerCase().includes(searchQuery)) {
+              return true;
+            }
+          }
         }
+      } catch (error) {
+        // Handle any JSON parsing errors here
+        console.error('JSON parsing error:', error);
       }
+  
       return false;
     });
+  
     setFilteredLeads(filteredData);
     setPageNumber(0); // Reset to the first page after search
   };
+  
 
   // Function to delete a lead by ID
   const deleteLead = (id) => {
@@ -112,20 +129,39 @@ const Leads = () => {
       
   };
 
-  const displayLeads = filteredLeads
-    .slice(pagesVisited, pagesVisited + leadsPerPage)
-    .map((lead, index) => (
-      <tr key={index}>
-        {Object.values(JSON.parse(lead.fields)).map((value, subIndex) => (
-          <td key={subIndex}>{value}</td>
-        ))}
-        <td>
-            <button className='delete-button' onClick={() => deleteLead(lead.id)}>
-              {DeleteIcon}
-            </button>
+
+    const displayLeads = filteredLeads.length > 0 ? (
+      filteredLeads
+        .slice(pagesVisited, pagesVisited + leadsPerPage)
+        .map((lead, index) => {
+          try {
+            const fields = JSON.parse(lead.fields);
+            return (
+              <tr key={index}>
+                {Object.values(fields).map((value, subIndex) => (
+                  <td key={subIndex}>{value}</td>
+                ))}
+                <td>
+                  <button className='delete-button' onClick={() => deleteLead(lead.id)}>
+                    {DeleteIcon}
+                  </button>
+                </td>
+              </tr>
+            );
+          } catch (error) {
+            console.error('JSON parsing error:', error);
+            return null; // Skip this row if JSON parsing fails
+          }
+        })
+    ) : (
+      <tr>
+        <td colSpan={Object.keys(JSON.parse(leads[0]?.fields || '{}')).length + 1}>
+          Leads empty!
         </td>
       </tr>
-    ));
+    );
+    
+    
     
 
   return (
