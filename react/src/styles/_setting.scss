@@ -20,6 +20,10 @@
   }
   // left ------------------------------------------------
   .acb_left{
+      opacity: 0.3;
+      cursor: not-allowed;
+
+
       flex: 4 !important; 
       text-align: center; 
       margin: 25px;
@@ -76,6 +80,10 @@
   }
 
   .acb_right{
+      opacity: 0.3;
+      cursor: not-allowed;
+
+
       flex: 2 !important; 
       margin: 25px;
       margin-top: 37px;
@@ -149,4 +157,33 @@
 
   }
 
+}
+
+.acb_bottom{
+  position: relative;
+  .upcomming {
+    position: absolute;
+    top: 123px;
+    left: 330px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+    animation: pulse 2s infinite;
+    transform-origin: center;
+    color: tomato;
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+  
+  }
+  
+  
 }

@@ -55,7 +55,7 @@ class Admin {
 			
 			$submenu['simpleform-dashboard'][] = [ __( 'Settings', 'simpleform-dashboard' ), 'manage_options', 'admin.php?page=simpleform-dashboard#/settings' ]; // phpcs:ignore
 
-			$submenu['simpleform-dashboard'][] = [ __( 'Documentation', 'simpleform-dashboard' ), 'manage_options', 'admin.php?page=simpleform-dashboard#/doc' ]; // phpcs:ignore
+			// $submenu['simpleform-dashboard'][] = [ __( 'Documentation', 'simpleform-dashboard' ), 'manage_options', 'admin.php?page=simpleform-dashboard#/doc' ]; // phpcs:ignore
 		}
 
 		if ( ! SIMPLEFORM()->helpers->check_pro_plugin_exists() || ! SIMPLEFORM()->helpers->is_pro_active() ) {
@@ -73,14 +73,14 @@ class Admin {
 				</svg>
  				GET PRO</span>', 'simpleform' ),
 				'manage_options',
-				'https://wpxpertise.dev/simple-form-pricing/'
+				'https://wpxpertise.com/simple-form-pricing/'
 			);
 
 			// Open the link in a new tab.
 			add_action('admin_footer', function() {
 				echo "<script>
 					jQuery(document).ready(function($) {
-						$('#toplevel_page_simpleform-dashboard .wp-submenu a[href=\"https://wpxpertise.dev/simple-form-pricing\"]').attr('target', '_blank');
+						$('#toplevel_page_simpleform-dashboard .wp-submenu a[href=\"https://wpxpertise.com/simple-form-pricing\"]').attr('target', '_blank');
 					});
 				</script>";
 			});

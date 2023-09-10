@@ -175,11 +175,16 @@
   button {
     display: block;
     margin: 0px -6px -15px 11px;
-    background-color: #007bff;
+    background-color: #0d4c62;
     color: #fff;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+
+    &:hover{
+      color: white;
+      background-color: #218f67;
+    }
   }
 
   pre {

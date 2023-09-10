@@ -4,6 +4,9 @@ import ReactSwitchsupport from "react-switch";
 import "../styles/_setting.scss";
 
 const Settings = () => {
+  const [isProUser, setisProUser] = useState(false);
+
+  
   const [whatsappRedirection, setWhatsappRedirection] = useState(false);
   const [mailNotification, setMailNotification] = useState(false);
   const [floatingwidgets, setFloating] = useState(false);
@@ -28,6 +31,7 @@ const Settings = () => {
 
   return (
     <div className="acb_bottom" id="acb_bottom">
+      <h3 className="upcomming">UPCOMMING</h3>
       <div className="acb_left">
         <h3 className="review-case-title">Simple Form settings panel</h3>
         <div className="wpnts-switch-review">
@@ -37,7 +41,12 @@ const Settings = () => {
             className="reviewSwitch"
             name="wpnts-switch-review"
             id="reviewnoti"
-            onChange={(checked) => setWhatsappRedirection(checked)}
+            onChange={(checked) => {
+              if (!isProUser) {  return; }
+              setWhatsappRedirection(checked);
+            }}
+            disabled={!isProUser}
+            
           />
         </div>
         <div className="wpnts-switch-support">
@@ -47,7 +56,10 @@ const Settings = () => {
             className="supportSwitch-1"
             name="wpnts-switch-support"
             id="supportnoti"
-            onChange={(checked) => setMailNotification(checked)}
+            onChange={(checked) => {
+              if (!isProUser) {  return; }
+              setMailNotification(checked)
+            }}
           />
         </div>
 
@@ -58,7 +70,8 @@ const Settings = () => {
             className="supportSwitch-2"
             name="wpnts-switch-floating"
             id="floating-widgets"
-            onChange={(checked) => setFloating(checked)}
+            onChange={(checked) => { if (!isProUser) {  return; } setFloating(checked)}}
+            //onChange={(checked) => setFloating(checked)}
           />
         </div>
 
