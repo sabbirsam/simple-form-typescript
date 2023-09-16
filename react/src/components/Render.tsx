@@ -8,7 +8,7 @@ const renderToggleCheckbox = (field) => (
         <input
           type="checkbox"
           id={field.id}
-          name={field.id}
+          name={field.name}
           className={field.className}
           required={field.required}
         />
@@ -20,7 +20,7 @@ const renderToggleCheckbox = (field) => (
             {option.label}
             <input
               type="checkbox"
-              name={`${field.id}[]`} // Use an array for multiple options
+              name={`${field.name}[]`} // Use an array for multiple options
               value={option.value}
             />
           </label>
@@ -38,7 +38,7 @@ const renderToggleCheckbox = (field) => (
             <input
               type="checkbox"
               id={option.value}
-              name={`${field.id}[]`} // Use an array for multiple options
+              name={`${field.name}[]`} // Use an array for multiple options
               value={option.value}
               className={field.className}
               required={field.required}
@@ -68,6 +68,7 @@ const RenderField = ({ field }) => {
             className={field.className}
             required={field.required}
             id={field.id}
+            name={field.name}
             data-unique-id={field.uniqueId}
             value={field.value}
             subtype={field.subtype}
@@ -84,6 +85,7 @@ const RenderField = ({ field }) => {
             className={field.className}
             required={field.required}
             id={field.id}
+            name={field.name}
             data-unique-id={field.uniqueId}
             value={field.value}
             subtype={field.subtype}
@@ -100,6 +102,7 @@ const RenderField = ({ field }) => {
             className={field.className}
             required={field.required}
             id={field.id}
+            name={field.name}
             data-unique-id={field.uniqueId}
             value={field.value}
             />
@@ -130,6 +133,7 @@ const RenderField = ({ field }) => {
             className={field.className}
             required={field.required}
             id={field.id}
+            name={field.name}
             value={field.value}
             data-unique-id={field.uniqueId}
             />
@@ -145,6 +149,7 @@ const RenderField = ({ field }) => {
             className={field.className}
             required={field.required}
             id={field.id}
+            name={field.name}
             value={field.value}
             data-unique-id={field.uniqueId}
             subtype={field.subtype}
@@ -161,6 +166,7 @@ const RenderField = ({ field }) => {
             className={field.className}
             required={field.required}
             id={field.id}
+            name={field.name}
             value={field.value}
             data-unique-id={field.uniqueId}
             />
@@ -176,6 +182,7 @@ const RenderField = ({ field }) => {
             className={field.className}
             required={field.required}
             id={field.id}
+            name={field.name}
             value={field.value}
             data-unique-id={field.uniqueId}
             />
@@ -191,6 +198,7 @@ const RenderField = ({ field }) => {
             className={field.className}
             required={field.required}
             id={field.id}
+            name={field.name}
             value={field.value}
             data-unique-id={field.uniqueId}
             />
@@ -206,6 +214,7 @@ const RenderField = ({ field }) => {
             className={field.className}
             required={field.required}
             id={field.id}
+            name={field.name}
             data-unique-id={field.uniqueId}
             />
         </div>
@@ -220,6 +229,7 @@ const RenderField = ({ field }) => {
             className={field.className}
             required={field.required}
             id={field.id}
+            name={field.name}
             value={field.value}
             data-unique-id={field.uniqueId}
             />
@@ -250,6 +260,7 @@ const RenderField = ({ field }) => {
             className={field.className}
             required={field.required}
             id={field.id}
+            name={field.name}
             value={field.value}
             data-unique-id={field.uniqueId}
             />
@@ -265,6 +276,7 @@ const RenderField = ({ field }) => {
             className={field.className}
             required={field.required}
             id={field.id}
+            name={field.name}
             value={field.value}
             data-unique-id={field.uniqueId}
             />
@@ -280,6 +292,7 @@ const RenderField = ({ field }) => {
             className={field.className}
             required={field.required}
             id={field.id}
+            name={field.name}
             value={field.value}
             data-unique-id={field.uniqueId}
             />
@@ -295,6 +308,7 @@ const RenderField = ({ field }) => {
             className={field.className}
             required={field.required}
             id={field.id}
+            name={field.name}
             value={field.value}
             data-unique-id={field.uniqueId}
             />
@@ -310,6 +324,7 @@ const RenderField = ({ field }) => {
             className={field.className}
             required={field.required}
             id={field.id}
+            name={field.name}
             value={field.value}
             data-unique-id={field.uniqueId}
             />
@@ -325,6 +340,7 @@ const RenderField = ({ field }) => {
             className={field.className}
             required={field.required}
             id={field.id}
+            name={field.name}
             value={field.value}
             data-unique-id={field.uniqueId}
             />
@@ -344,6 +360,7 @@ const RenderField = ({ field }) => {
             className={field.className}
             required={field.required}
             id={field.id}
+            name={field.name}
             // value={field.value}
             data-unique-id={field.uniqueId}
             />
@@ -359,6 +376,7 @@ const RenderField = ({ field }) => {
             className={field.className}
             required={field.required}
             id={field.id}
+            name={field.name}
             value={field.value}
             data-unique-id={field.uniqueId}
             />
@@ -372,7 +390,7 @@ const RenderField = ({ field }) => {
             <label key={index}>
               <input 
               type="radio" 
-              name={field.id}         
+              name={field.name}         
               subtype={field.subtype} 
               required={field.required}
               id={field.id}
@@ -398,7 +416,7 @@ const RenderField = ({ field }) => {
                 <input
                 type="radio"
                 id={option.value}
-                name={field.id}
+                name={field.name}
                 value={option.value}
                 />
                 <label htmlFor={option.value}>{option.label}</label>

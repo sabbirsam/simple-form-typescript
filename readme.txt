@@ -1,10 +1,10 @@
 === Simple Form ===
 Contributors: devsabbirahmed, wpxpertise
-Tags: simple-form, form, contact-form, subscribe, lead-form, contact us, social media, get in touch
+Tags: simple form, contact, form, contact form, feedback, email, ajax, captcha, akismet, multilingual, survey, free, custom form, contact form, form maker, form creator, simple
 Requires at least: 5.0 or higher
-Tested up to: 6.0.2
+Tested up to: 6.3
 Requires PHP: 5.4 or higher
-Stable Tag: 2.0.0
+Stable Tag: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,8 +28,6 @@ Works across all operating systems including Android, iOS, and macOS. No setting
 2. **Seamless Lead Collection** – Gathering leads should be a breeze, and that's precisely what we offer. Our plugin allows you to effortlessly collect leads by placing forms anywhere on your website using a simple shortcode. No more struggling with complicated integrations or worrying about where to put your forms – it's as easy as copy and paste.
 
 But that's not all! "Simple Form" offers a range of additional benefits:
-
-**Customization**: Tailor your forms to match your website's style and branding with ease. Customize colors, fonts, and form fields to create a seamless and visually appealing user experience.
 
 **Responsive Design**: Your forms will look and function flawlessly on all devices, ensuring that your users have a smooth experience whether they're on a desktop, tablet, or smartphone.
 
@@ -77,6 +75,13 @@ You will then automatically be redirected to the "Data" page, from there you can
 
 
 == Changelog ==
+
+= 2.0.2 =
+* Improvement: Add guide video
+
+= 2.0.1 =
+* Fix: Menu selection 
+* Improvement: WordPress 6.3 Compatible
 
 = 2.0.0 =
 * Improvement: Revamp version with latest technology

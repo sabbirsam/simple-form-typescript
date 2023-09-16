@@ -1,6 +1,7 @@
 const availableFieldsList = [
     {
       id: 'text-input',
+      name: 'name-text-input',
       label: 'Text Input',
       type: 'text',
       placeholder: 'Enter text...',
@@ -11,6 +12,7 @@ const availableFieldsList = [
     },
     {
       id: 'number-input',
+      name: 'number-text-input',
       label: 'Number',
       type: 'number',
       placeholder: 'Enter no...',
@@ -20,6 +22,7 @@ const availableFieldsList = [
     },
     {
       id: 'email-input',
+      name: 'email-text-input',
       label: 'Email',
       type: 'email',
       placeholder: 'Enter email...',
@@ -30,6 +33,7 @@ const availableFieldsList = [
     },
     {
       id: 'text-field',
+      name: 'textfield-text-input',
       label: 'Text Field',
       type: 'text',
       placeholder: '',
@@ -40,6 +44,7 @@ const availableFieldsList = [
     },
     {
       id: 'text-area',
+      name: 'textarea-text-input',
       label: 'Text Area',
       type: 'textarea',
       placeholder: '',
@@ -81,6 +86,7 @@ const availableFieldsList = [
     },
     {
       id: 'file-input',
+      name: 'file-text-input',
       label: 'File Upload',
       type: 'file',
       required: false,
@@ -89,6 +95,7 @@ const availableFieldsList = [
 
     {
       id: 'text-hidden',
+      name: 'hidden-text-input',
       label: 'Hidden Field',
       type: 'hidden',
       placeholder: '',

@@ -28,16 +28,26 @@ class Shortcode {
 		add_shortcode( 'simple_form', [ $this, 'shortcode' ] );
 	}
 
-	public function shortcode($atts){
+	public function shortcode( $atts ) {
+		if ( defined( 'ELEMENTOR_VERSION' ) && \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
+			return $this->table_shortcode( $atts );
+		} else {
+			
+			return $this->table_shortcode( $atts );
+		}
+	}
+	
+	public function table_shortcode($atts){
+
 		$output = '<h5><b>' . __( 'Form may be deleted or can\'t be loaded.', 'simpleform' ) . '</b></h5><br>';
 		$shortcodeID = isset($atts['id']) ? absint($atts['id']) : null;
-		$form_id = 'simple_form_' . uniqid(); // Generate a unique ID for each form
+		$form_id = 'simple_form_' . uniqid();
 	
 		if ($shortcodeID !== null) {
 			$form_data = SIMPLEFORM()->database->table->get($shortcodeID);
 	
 			if ($form_data !== null && isset($form_data['id'])) {
-				// Generate a unique identifier for the markup element based on the shortcode ID
+				// Generate a unique identifier for the markup element based on the shortcode ID.
 				$markup_id = 'markup_' . esc_attr($form_id);
 	
 				$output = '
@@ -52,14 +62,13 @@ class Shortcode {
 					<br><br>
 				';
 	
-				// Pass the unique markup identifier as an attribute to the JavaScript code
+				// Pass the unique markup identifier as an attribute to the JavaScript code.
 				$output .= '<script type="text/javascript">var markupId = "' . esc_js($markup_id) . '";</script>';
 			}
 		}
 	
 		return $output;
 	}
-	
 	
 	
 }

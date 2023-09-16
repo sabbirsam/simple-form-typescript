@@ -16,7 +16,7 @@ function generateRenderedForm(formData) {
         html += `
           <div class="text-fields">
             <label for="${field.id}">${field.label}</label>
-            <input id="${field.id}" type="${field.type}" name="${field.id}" placeholder="${field.placeholder}" class="${field.className}" value="${field.value || ''}">
+            <input id="${field.id}" type="${field.type}" name="${field.name}" placeholder="${field.placeholder}" class="${field.className}" value="${field.value || ''}">
           </div>
           <br>
         `;
@@ -26,7 +26,7 @@ function generateRenderedForm(formData) {
         html += `
           <div class="text-fields">
             <label for="${field.id}">${field.label}</label>
-            <select id="${field.id}" name="${field.id}">`;
+            <select id="${field.id}" name="${field.name}">`;
         field.options.forEach((option) => {
           html += `
             <option value="${option.value}" ${field.value === option.value ? 'selected' : ''}>${option.label}</option>
@@ -43,7 +43,7 @@ function generateRenderedForm(formData) {
         html += `
           <div class="text-fields">
             <label for="${field.id}">${field.label}</label>
-            <input id="${field.id}" type="${field.type}" name="${field.id}" class="${field.className}">
+            <input id="${field.id}" type="${field.type}" name="${field.name}" class="${field.className}">
           </div>
           <br>
         `;
@@ -54,10 +54,10 @@ function generateRenderedForm(formData) {
         html += `
           <div class="text-fields">
             <label>${field.label}</label>`;
-        field.options.forEach((option) => {
+        field.options.forEach((option) => { //name="`${field.name}[]`"
           html += `
             <div class="text-fields-insider">
-              <input type="checkbox" id="${option.value}" name="${field.id}" value="${option.value}">
+              <input type="checkbox" id="${option.value}" name="${field.name}" value="${option.value}">
               <label for="${option.value}">${option.label}</label>
             </div>`;
         });
@@ -75,7 +75,7 @@ function generateRenderedForm(formData) {
               <input
                 type="radio"
                 id="${option.value}"
-                name="${field.id}"
+                name="${field.name}"
                 value="${option.value}"
                 ${field.value === option.value ? 'checked' : ''}
               />

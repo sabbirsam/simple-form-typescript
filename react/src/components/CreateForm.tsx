@@ -58,7 +58,9 @@ const CreateForm = () => {
         const sourceField = availableFields[sourceIndex];
         const newField = {
         ...sourceField,
-        id: `${sourceField.id}-${new Date().getTime()}`, // Append a unique identifier
+        // Append a unique identifier
+        id: `${sourceField.id}-${new Date().getTime()}`, 
+        name: `${sourceField.name}-${new Date().getTime()}`,
         uniqueId: `field-${new Date().getTime()}`,
         };
       
@@ -296,6 +298,15 @@ const CreateForm = () => {
               type="text"
               value={editingField.id}
               onChange={(e) => setEditingField({ ...editingField, id: e.target.value })}
+            />
+          </div>
+
+          <div className='simple-form-id-panel'>
+            <label>Name:</label>
+            <input
+              type="text"
+              value={editingField.name}
+              onChange={(e) => setEditingField({ ...editingField, name: e.target.value })}
             />
           </div>
 

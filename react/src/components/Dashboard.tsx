@@ -67,7 +67,7 @@ function Dashboard() {
 						<p>Form will be appeared here once you create them</p>
 						<Link className='btn btn-lg' to="/create-form">Create new table</Link>
 						<p className="help">
-							Need help? <a href="https://youtu.be/hKYqE4e_ipY?list=PLd6WEu38CQSyY-1rzShSfsHn4ZVmiGNLP" target="_blank">Watch Now</a>
+							Need help? <a href="https://youtu.be/1PnGVuAqIxk" target="_blank">Watch Now</a>
 						</p>
 					</div>
 				</>

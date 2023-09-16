@@ -42,10 +42,6 @@ class Assets {
 			remove_all_actions( 'admin_notices' );
 			remove_all_actions( 'all_admin_notices' );
 
-			wp_enqueue_script( 'jquery' );
-			wp_enqueue_script( 'jquery-ui-sortable', false, array('jquery') );        
-			wp_enqueue_script( 'jquery-ui-tabs', false, array('jquery') );
-
 			$this->formTableScripts();
 
 			$dependencies = require_once SIMPLEFORM_BASE_PATH . 'react/build/index.asset.php';
@@ -58,7 +54,6 @@ class Assets {
 				'1.0.0',
 				'all'
 			);
-
 
 			if ( ! SIMPLEFORM()->helpers->is_pro_active() ) {
 			
@@ -86,19 +81,8 @@ class Assets {
 				'nonce'            => wp_create_nonce( 'SIMPLEFORM-admin-app-nonce-action' ),
 				'icons'            => $icons,
 				'tables'           => SIMPLEFORM()->database->table->get_all(),
-				
-				'pro'              => [
-					'installed'   => SIMPLEFORM()->helpers->check_pro_plugin_exists(),
-					'active'      => SIMPLEFORM()->helpers->is_pro_active(),
-					'license'     => function_exists( 'SIMPLEFORMpro' ) ? wp_validate_boolean( SIMPLEFORMpro()->license_status ) : false,
-					'license_url' => esc_url( admin_url( 'admin.php?page=sheets_to_wp_table_live_sync_pro_settings' ) )
-				],
 				'ran_setup_wizard' => wp_validate_boolean( get_option( 'SIMPLEFORM_ran_setup_wizard', false ) )
 			];
-
-			if ( SIMPLEFORM()->helpers->is_pro_active() && SIMPLEFORM()->helpers->is_latest_version() ) {
-				$localize['tabs'] = SIMPLEFORMpro()->database->tab->get_all();
-			}
 
 			wp_localize_script(
 				'SIMPLEFORM-app',
@@ -132,6 +116,17 @@ class Assets {
 			$this->frontend_scripts();
 		}
 
+		if ( wp_validate_boolean( did_action( 'elementor/loaded' ) ) ) {
+			global $post;
+			$isBuiltWithElementor = \Elementor\Plugin::$instance->documents->get( $post->ID )->is_built_with_elementor();
+			if ($isBuiltWithElementor) {
+				if (has_shortcode($post->post_content, 'simple_form')) {
+					$this->frontend_scripts();
+				}
+			}
+			/* if ( is_admin() && defined( 'ELEMENTOR_PATH' ) && \Elementor\Plugin::$instance->editor->is_edit_mode() ) {} */
+		}
+
 		return $content;
 	}
 
@@ -149,12 +144,6 @@ class Assets {
 			SIMPLEFORM_VERSION,
 			'all'
 		);
-
-
-		if ( ! SIMPLEFORM()->helpers->is_pro_active() ) {
-			
-		}
-
 
 		wp_enqueue_script(
 			'simpleform-frontend-js',
@@ -177,7 +166,6 @@ class Assets {
 
 		wp_localize_script('simpleform-frontend-js', 'front_end_data', [
 			'admin_ajax'           => esc_url( admin_url( 'admin-ajax.php' ) ),
-			'asynchronous_loading' => get_option( 'asynchronous_loading' ) === 'on' ? 'on' : 'off',
 			'isProActive'          => SIMPLEFORM()->helpers->is_pro_active(),
 			'iconsURL'             => $iconsURLs,
 			'nonce'                => wp_create_nonce( 'simpleform_sheet_nonce_action' )
@@ -191,23 +179,6 @@ class Assets {
 	 * @since 2.12.15
 	 */
 	public function formTableScripts() {
-
-		wp_enqueue_script(
-			'simpleform-form-builder-js',
-			SIMPLEFORM_BASE_URL . 'assets/public/library/form-builder.js',
-			[ 'jquery' ],
-			SIMPLEFORM_VERSION,
-			true
-		);	
-
-		wp_enqueue_script(
-			'simpleform-jquery-dataTable-js',
-			SIMPLEFORM_BASE_URL . 'assets/public/library/jquery.datatables.min.js',
-			[ 'jquery' ],
-			SIMPLEFORM_VERSION,
-			true
-		);	
-
 		wp_enqueue_script(
 			'simpleform-sweet-alert-js',
 			SIMPLEFORM_BASE_URL . 'assets/public/library/sweetalert2@11.js',
@@ -215,55 +186,7 @@ class Assets {
 			SIMPLEFORM_VERSION,
 			true
 		);
-
 		
-		wp_enqueue_style(
-			'simpleform-jquery-dataTables',
-			SIMPLEFORM_BASE_URL . 'assets/public/library/jquery.dataTables.min.css',
-			[],
-			SIMPLEFORM_VERSION,
-			'all'
-		);
-		
-	}
-
-
-	/**
-	 * Enqueue gutenberg files.
-	 *
-	 * @since 2.12.15
-	 */
-	public function gutenbergFiles() {
-		wp_enqueue_style(
-			'simpleform-gutenberg-css',
-			SIMPLEFORM_BASE_URL . 'assets/public/styles/gutenberg.min.css',
-			[],
-			SIMPLEFORM_VERSION,
-			'all'
-		);
-
-		register_block_type(
-			'simpleform/google-sheets-to-wp-tables',
-			[
-				'description'   => __( 'Display Google Spreadsheet data to WordPress table in just a few clicks
-				and keep the data always synced. Organize and display all your spreadsheet data in your WordPress quickly and effortlessly.', 'sheetstowptable' ),
-				'title'         => __( 'Sheets To WP Table Live Sync', 'sheetstowptable' ),
-				'editor_script' => 'simpleform-gutenberg',
-				'editor_style'  => 'simpleform-gutenberg-css'
-			]
-		);
-
-		wp_localize_script(
-			'simpleform-gutenberg',
-			'simpleform_gutenberg_block',
-			[
-				'admin_ajax'       => esc_url( admin_url( 'admin-ajax.php' ) ),
-				'table_details'    => SIMPLEFORM()->database->table->get_all(),
-				'isProActive'      => SIMPLEFORM()->helpers->is_pro_active(),
-				'nonce'  => wp_create_nonce( 'SIMPLEFORM-admin-app-nonce-action' ),
-				'fetch_nonce'     => wp_create_nonce( 'simpleform_sheet_nonce_action' ),
-			]
-		);
 	}
 
 }

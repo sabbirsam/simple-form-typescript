@@ -73,14 +73,14 @@ class Admin {
 				</svg>
  				GET PRO</span>', 'simpleform' ),
 				'manage_options',
-				'https://wpxpertise.com/simple-form-pricing/'
+				'https://wpxpertise.dev/simple-form/'
 			);
 
 			// Open the link in a new tab.
 			add_action('admin_footer', function() {
 				echo "<script>
 					jQuery(document).ready(function($) {
-						$('#toplevel_page_simpleform-dashboard .wp-submenu a[href=\"https://wpxpertise.com/simple-form-pricing\"]').attr('target', '_blank');
+						$('#toplevel_page_simpleform-dashboard .wp-submenu a[href=\"https://wpxpertise.dev/simple-form\"]').attr('target', '_blank');
 					});
 				</script>";
 			});
