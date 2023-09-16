@@ -284,9 +284,9 @@ const CreateForm = () => {
       {editingField && (
         <div className="edit-field-form">
           <div className='form-btn-group'>
-            <button onClick={handleUpdateField}>Update</button>
+            <button className='jsonbtn' onClick={handleUpdateField}>Update</button>
   
-            <button onClick={handleShowJsonForm}>
+            <button className='jsonbtn' onClick={handleShowJsonForm}>
               {showjson ? 'Hide Json' : 'Show Json'}
             </button>
 
@@ -417,6 +417,20 @@ const CreateForm = () => {
           
           )}
 
+          {editingField.type === 'checkbox' && (
+            <div className='simple-form-id-panel'>
+            <label>Toggle:
+              <input
+                type="checkbox"
+                checked={editingField.toggle === 'true'} // Convert to boolean
+                onChange={(e) => {
+                  setEditingField({ ...editingField, toggle: e.target.checked ? 'true' : 'false' }); // Convert to string
+                }}
+              />
+              </label>
+            </div>
+           )} 
+
           <div className='simple-form-id-panel'>
             <label>Required:
             <input
@@ -472,10 +486,10 @@ const CreateForm = () => {
                       setEditingField({ ...editingField, options: updatedOptions });
                     }}
                   />
-                  <button className='option-remover' onClick={() => handleRemoveOption(optionIndex)}>Remove</button>
+                  <button className='option-remover-multiple' onClick={() => handleRemoveOption(optionIndex)}>{DeleteIcon}</button>
                 </div>
               ))}
-              <button onClick={handleAddOption}>Add Option</button>
+              <button className='jsonbtn' onClick={handleAddOption}>Add Option</button>
               
             </div>
           )}

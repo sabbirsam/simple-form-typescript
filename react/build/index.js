@@ -17578,8 +17578,10 @@ const CreateForm = () => {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "form-btn-group"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    className: "jsonbtn",
     onClick: handleUpdateField
   }, "Update"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    className: "jsonbtn",
     onClick: handleShowJsonForm
   }, showjson ? 'Hide Json' : 'Show Json')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Edit Field"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "simple-form-id-panel"
@@ -17720,6 +17722,18 @@ const CreateForm = () => {
       ...editingField,
       alt: e.target.value
     })
+  }))), editingField.type === 'checkbox' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "simple-form-id-panel"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Toggle:", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "checkbox",
+    checked: editingField.toggle === 'true' // Convert to boolean
+    ,
+    onChange: e => {
+      setEditingField({
+        ...editingField,
+        toggle: e.target.checked ? 'true' : 'false'
+      }); // Convert to string
+    }
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "simple-form-id-panel"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Required:", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
@@ -17781,9 +17795,10 @@ const CreateForm = () => {
       });
     }
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    className: "option-remover",
+    className: "option-remover-multiple",
     onClick: () => handleRemoveOption(optionIndex)
-  }, "Remove"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+  }, _icons__WEBPACK_IMPORTED_MODULE_4__.DeleteIcon))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    className: "jsonbtn",
     onClick: handleAddOption
   }, "Add Option"))), createTableModal && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_core_Modal__WEBPACK_IMPORTED_MODULE_2__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "create-table-modal-wrap modal-content manage-modal-content",
@@ -18326,8 +18341,10 @@ const CreateForm = () => {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "form-btn-group"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    className: "jsonbtn",
     onClick: handleUpdateField
   }, "Update"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    className: "jsonbtn",
     onClick: handleShowJsonForm
   }, "  ", showjson ? 'Hide Json' : 'Show Json')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Edit Field"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "simple-form-id-panel"
@@ -18468,6 +18485,18 @@ const CreateForm = () => {
       ...editingField,
       alt: e.target.value
     })
+  }))), editingField.type === 'checkbox' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "simple-form-id-panel"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Toggle:", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "checkbox",
+    checked: editingField.toggle === 'true' // Convert to boolean
+    ,
+    onChange: e => {
+      setEditingField({
+        ...editingField,
+        toggle: e.target.checked ? 'true' : 'false'
+      });
+    }
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "simple-form-id-panel"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, "Required:", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
@@ -18529,9 +18558,10 @@ const CreateForm = () => {
       });
     }
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    className: "option-remover",
+    className: "option-remover-multiple",
     onClick: () => handleRemoveOption(optionIndex)
-  }, "Remove"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+  }, " ", _icons__WEBPACK_IMPORTED_MODULE_4__.DeleteIcon, " "))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    className: "jsonbtn",
     onClick: handleAddOption
   }, "Add Option"))), createTableModal && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_core_Modal__WEBPACK_IMPORTED_MODULE_2__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "create-table-modal-wrap modal-content manage-modal-content",
@@ -18758,16 +18788,15 @@ const renderToggleCheckbox = field => (0,_wordpress_element__WEBPACK_IMPORTED_MO
   type: "checkbox",
   id: field.id,
   name: field.name,
-  className: field.className,
+  className: `switch-input ${field.className}`,
   required: field.required
 }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
   className: "slider round"
-})), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, field.options.map(option => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+})), field.toggle ? null : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, field.options.map(option => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
   key: option.value
 }, option.label, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
   type: "checkbox",
-  name: `${field.name}[]` // Use an array for multiple options
-  ,
+  name: `${field.name}[]`,
   value: option.value
 })))));
 const renderDefaultCheckbox = field => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -19099,7 +19128,7 @@ const RenderField = ({
     case 'checkbox':
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
         key: field.uniqueId
-      }, field.toggle ? renderToggleCheckbox(field) : renderDefaultCheckbox(field));
+      }, field.toggle === 'true' ? renderToggleCheckbox(field) : renderDefaultCheckbox(field));
     case 'select':
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
         key: field.uniqueId,
@@ -19574,6 +19603,7 @@ const availableFieldsList = [{
   label: 'Radio Button',
   type: 'radio',
   required: false,
+  name: 'radio-button',
   options: [{
     label: 'Option 1',
     value: 'Option 1'
@@ -19586,6 +19616,8 @@ const availableFieldsList = [{
   id: 'checkbox',
   label: 'Checkbox',
   type: 'checkbox',
+  name: 'checkbox-button',
+  toggle: false,
   required: false,
   options: [{
     label: 'Option 1',
@@ -19596,6 +19628,7 @@ const availableFieldsList = [{
   }]
 }, {
   id: 'select-input',
+  name: 'select-input',
   label: 'Select',
   type: 'select',
   required: false,

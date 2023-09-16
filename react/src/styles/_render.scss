@@ -38,7 +38,6 @@
   }
   
 
-  /* Style for the select container */
 /* Style for the select container */
 .simple-form-select {
     // display: flex;
@@ -68,41 +67,62 @@
   }
   
   
-  /* Styles for checkboxes with switch-like style */
-  .switch-label {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 30px;
-    background-color: #ccc;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .switch-label input[type="checkbox"] {
-    display: none;
-  }
-  
-  .slider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #2196F3;
-    border-radius: 15px;
-    transition: transform 0.3s;
-  }
-  
-  .slider.round {
-    border-radius: 30px;
-  }
-  
-  .switch-label input[type="checkbox"]:checked + .slider {
-    background-color: #4CAF50;
-    transform: translateX(30px);
-  }
+    /* Toggle */
+    /* Add your custom styles for the toggle switch */
+    .simple-form-checkbox-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+    }
+
+    .switch-label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .switch-input {
+      position: absolute;
+      opacity: 0;
+      height: 0;
+      width: 0;
+    }
+
+    .slider {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 20px;
+      background-color: #ccc;
+      border-radius: 20px;
+      transition: background-color 0.4s;
+    }
+
+    .slider.round {
+      border-radius: 20px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      border-radius: 50%;
+      transition: transform 0.4s;
+    }
+
+    .switch-input:checked + .slider {
+      background-color: #2196F3; /* Change this color to your desired toggle color */
+    }
+
+    .switch-input:checked + .slider:before {
+      transform: translateX(20px); /* Adjust this value to match the width of the slider */
+    }
+
   
   /* Style for the form submit button */
   button[type="submit"] {

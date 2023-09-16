@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/_render.scss';
 
-const renderToggleCheckbox = (field) => (
+  const renderToggleCheckbox = (field) => (
     <div className='simple-form-checkbox-toggle'>
       <label className="switch-label">
         {field.label}
@@ -9,25 +9,28 @@ const renderToggleCheckbox = (field) => (
           type="checkbox"
           id={field.id}
           name={field.name}
-          className={field.className}
+          className={`switch-input ${field.className}`}
           required={field.required}
         />
         <span className="slider round"></span>
       </label>
-      <div>
-        {field.options.map((option) => (
-          <label key={option.value}>
-            {option.label}
-            <input
-              type="checkbox"
-              name={`${field.name}[]`} // Use an array for multiple options
-              value={option.value}
-            />
-          </label>
-        ))}
-      </div>
+      {field.toggle ? null : (
+        <div>
+          {field.options.map((option) => (
+            <label key={option.value}>
+              {option.label}
+              <input
+                type="checkbox"
+                name={`${field.name}[]`}
+                value={option.value}
+              />
+            </label>
+          ))}
+        </div>
+      )}
     </div>
   );
+
   
   const renderDefaultCheckbox = (field) => (
     <div className='simple-form-checkbox-default'>
@@ -404,7 +407,7 @@ const RenderField = ({ field }) => {
     case 'checkbox':
         return (
             <div key={field.uniqueId}>
-            {field.toggle ? renderToggleCheckbox(field) : renderDefaultCheckbox(field)}
+            {field.toggle === 'true' ? renderToggleCheckbox(field) : renderDefaultCheckbox(field)}
             </div>
         );
     case 'select':

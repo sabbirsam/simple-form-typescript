@@ -58,6 +58,7 @@ const availableFieldsList = [
       label: 'Radio Button',
       type: 'radio',
       required: false,
+      name: 'radio-button',
       options: [
         { label: 'Option 1', value: 'Option 1' },
         { label: 'Option 2', value: 'Option 2' },
@@ -68,6 +69,8 @@ const availableFieldsList = [
       id: 'checkbox',
       label: 'Checkbox',
       type: 'checkbox',
+      name: 'checkbox-button',
+      toggle: false,
       required: false,
       options: [
         { label: 'Option 1', value: 'Option 1' },
@@ -76,6 +79,7 @@ const availableFieldsList = [
     },
     {
       id: 'select-input',
+      name: 'select-input',
       label: 'Select',
       type: 'select',
       required: false,

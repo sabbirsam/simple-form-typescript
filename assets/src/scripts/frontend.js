@@ -4,6 +4,7 @@
  * @returns 
  */
 
+
 function generateRenderedForm(formData) {
   let html = '';
 
@@ -50,21 +51,32 @@ function generateRenderedForm(formData) {
         break;
 
       case 'checkbox':
-        //${field.value.includes(option.value) ? 'checked' : ''}
-        html += `
+        if (field.toggle === 'true') {
+          // Render the toggle checkbox
+          html += `
+            <div class="simple-form-checkbox-toggle">
+              <label class="switch-label">${field.label}
+                <input type="checkbox" id="${field.id}" name="${field.name}" class="switch-input ${field.className}" required="">
+                <span class="slider round"></span>
+              </label>
+            </div>`;
+        } else {
+          // Render the default checkboxes
+          html += `
           <div class="text-fields">
             <label>${field.label}</label>`;
-        field.options.forEach((option) => { //name="`${field.name}[]`"
+          field.options.forEach((option) => {
+            html += `
+              <div class="text-fields-insider">
+                <input type="checkbox" id="${option.value}" name="${field.name}" value="${option.value}">
+                <label for="${option.value}">${option.label}</label>
+              </div>`;
+          });
           html += `
-            <div class="text-fields-insider">
-              <input type="checkbox" id="${option.value}" name="${field.name}" value="${option.value}">
-              <label for="${option.value}">${option.label}</label>
             </div>`;
-        });
-        html += `
-          </div>`;
+        }
         break;
-
+    
       case 'radio':
         html += `
           <div class="text-fields">
