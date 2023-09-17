@@ -1,26 +1,20 @@
 import { FC } from 'react';
 import { createPortal } from 'react-dom';
+import { Cross } from '../icons';
 
 import './_modal.scss';
 
-type Props = {
-	children: React.ReactNode;
-	customClass?: string;
-};
-
-const Modal: FC< Props > = ( { children, customClass } ): JSX.Element => {
+const Modal = ({ onClose, children }) => {
 	return createPortal(
 		<>
 			<div className="modal-overlay" />
 			<div className="modal-content">
-				<div
-					className={ `modal-content-inner ${
-						customClass ? customClass : ''
-					}` }
-				>
+				<div>
+					<button className="modal-close" onClick={onClose}>{Cross}</button>
 					<div className="modal-body">{ children }</div>
 				</div>
 			</div>
+
 		</>,
 		document.getElementById( 'simpleform-app-portal' )
 	);

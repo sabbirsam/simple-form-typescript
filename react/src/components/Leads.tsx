@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { getNonce, getTables } from './../Helpers';
 import ReactPaginate from 'react-paginate';
-import { EditIcon, DeleteIcon, Cross } from '../icons';
+import { view, DeleteIcon, Cross } from '../icons';
 import '../styles/_lead.scss';
 import Card from '../core/Card';
+import Modal from '../core/Modal';
 
 
 const Leads = () => {
@@ -18,6 +19,25 @@ const Leads = () => {
   const pagesVisited = pageNumber * leadsPerPage;
   const pageCount = Math.ceil(filteredLeads.length / leadsPerPage);
 
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedLeadData, setSelectedLeadData] = useState(null);
+
+
+  const openModal = (leadId) => {
+    // Find the selected lead data based on leadId
+    const selectedLead = filteredLeads.find((lead) => lead.id === leadId);
+    if (selectedLead) {
+      setSelectedLeadData(selectedLead);
+      setModalVisible(true);
+    }
+  };
+
+  const closeModal = () => {
+    setModalVisible(false);
+  };
+  
+
+  console.log(selectedLeadData);
 
 
   /**
@@ -130,19 +150,34 @@ const Leads = () => {
   };
 
 
+    // First four th leads 
+
     const displayLeads = filteredLeads.length > 0 ? (
       filteredLeads
-        .slice(pagesVisited, pagesVisited + leadsPerPage)
+        .slice(pagesVisited, pagesVisited + leadsPerPage) // Apply pagination
         .map((lead, index) => {
           try {
             const fields = JSON.parse(lead.fields);
+            const fieldKeys = Object.keys(fields);
             return (
               <tr key={index}>
-                {Object.values(fields).map((value, subIndex) => (
-                  <td key={subIndex}>{value}</td>
+                {fieldKeys.slice(0, 4).map((key) => (
+                  <td key={key}>{fields[key]}</td>
                 ))}
-                <td>
-                  <button className='delete-button' onClick={() => deleteLead(lead.id)}>
+                <td className='view-td'>
+                  <button
+                    className="view-button"
+                    onClick={() => openModal(lead.id)}
+                  >
+                    {view}
+                  </button>
+                </td>
+
+                <td className='view-delete'>
+                  <button
+                    className="delete-button"
+                    onClick={() => deleteLead(lead.id)}
+                  >
                     {DeleteIcon}
                   </button>
                 </td>
@@ -150,20 +185,15 @@ const Leads = () => {
             );
           } catch (error) {
             console.error('JSON parsing error:', error);
-            return null; // Skip this row if JSON parsing fails
+            return null; 
           }
         })
     ) : (
       <tr>
-        <td colSpan={Object.keys(JSON.parse(leads[0]?.fields || '{}')).length + 1}>
-          Leads empty!
-        </td>
+        <td colSpan={5}>Leads empty!</td> 
       </tr>
     );
     
-    
-    
-
   return (
     <>
       {loader ? (
@@ -194,15 +224,17 @@ const Leads = () => {
             <table className="table table-striped table-bordered">
               <thead>
                 <tr>
-                  {leads.length > 0 &&
-                    Object.keys(JSON.parse(leads[0].fields)).map((field) => (
+                  {filteredLeads.length > 0 &&
+                    Object.keys(JSON.parse(filteredLeads[0].fields)).slice(0, 4).map((field) => (
                       <th key={field}>{field}</th>
                     ))}
-                  <th>Action</th>
+                  <th>View</th>
+                  <th>Delete</th>
                 </tr>
               </thead>
               <tbody>{displayLeads}</tbody>
             </table>
+            
             <ReactPaginate
               previousLabel={'Previous'}
               nextLabel={'Next'}
@@ -216,6 +248,30 @@ const Leads = () => {
           </div>
         </div>
       )}
+
+      {/* Modal */}
+      {modalVisible && selectedLeadData && (
+        <Modal onClose={closeModal}>
+          {/* Render the lead details in the modal */}
+          
+          <div className='details-leads'>
+            <table className="table table-striped table-bordered">
+               <h2 className="leads-title">Lead Details</h2>
+              <tbody>
+                {Object.entries(JSON.parse(selectedLeadData.fields)).map(([key, value]) => (
+                  <tr key={key}>
+                    <td>{key}</td><td>{value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Modal>
+      )}
+
+
+
+
     </>
   );
 };

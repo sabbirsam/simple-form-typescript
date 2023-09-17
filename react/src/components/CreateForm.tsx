@@ -435,9 +435,9 @@ const CreateForm = () => {
             <label>Required:
             <input
               type="checkbox"
-              checked={editingField.required}
+              checked={editingField.required === 'true'}
               onChange={(e) => {
-              setEditingField({ ...editingField, required: e.target.checked });
+              setEditingField({ ...editingField, required: e.target.checked ? 'true' : 'false' });
               }}
             />
             </label>

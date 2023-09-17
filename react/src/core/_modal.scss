@@ -4,6 +4,12 @@
 	top: 50%;
 	transform: translate(-50%, -50%);
 	z-index: 9999;
+
+	button.modal-close {
+		position: absolute;
+		right: 0px;
+		top: 0px;
+	}
 }
 
 .modal-overlay {

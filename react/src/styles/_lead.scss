@@ -138,3 +138,15 @@ button.delete-button {
   padding: 10px 20px;
   cursor: pointer;
 }
+
+
+.details-leads {
+  background: #e8e8e8;
+  width: 100vh;
+  min-height: 65vh;
+  padding: 20px 20px;
+
+  .leads-title{
+    text-align: left;
+  }
+}
