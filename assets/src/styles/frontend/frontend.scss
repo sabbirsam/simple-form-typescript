@@ -12,6 +12,11 @@
   background-color: #f9f9f9;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+  .text-fields {
+    display: flex !important;
+    flex-direction: column !important;
+  }
 }
 
 /* Style for labels */
@@ -145,3 +150,8 @@ input[type="radio"] {
 }
 
 // END 
+
+.simple_form_content .text-fields {
+  display: flex !important;
+  flex-direction: column !important;
+}

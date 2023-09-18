@@ -55,6 +55,7 @@ class Shortcode {
 						<form class="simple_form" data-form-id="' . esc_attr($shortcodeID) . '" data-nonce="' . esc_attr(wp_create_nonce('simpleform_sheet_nonce_action')) . '">
 							<div class="simple_form_content">
 								<div class="ui segment simple_form_loader" id="' . esc_attr($markup_id) . '"></div>
+								<br>
 								<button type="button" class="submit-button">Submit</button>
 							</div>
 						</form>

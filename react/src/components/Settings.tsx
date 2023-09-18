@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import ReactSwitchreview from "react-switch";
 import ReactSwitchsupport from "react-switch";
+import { getNonce, getTables } from './../Helpers';
 import "../styles/_setting.scss";
 
 const Settings = () => {
-  const [isProUser, setisProUser] = useState(false);
-
-  
+  const [tables, setTables] = useState(getTables());
+  const [selectedTable, setSelectedTable] = useState(null);
+  const [selectedWhatsapp, setSelectedWhatsapp] = useState(null);
+  const [isProUser, setisProUser] = useState(true);
   const [whatsappRedirection, setWhatsappRedirection] = useState(false);
   const [mailNotification, setMailNotification] = useState(false);
   const [floatingwidgets, setFloating] = useState(false);
@@ -25,15 +27,33 @@ const Settings = () => {
       whatsappNumber,
       openInNewTab,
       recipientMail,
+      selectedTable,
+      selectedWhatsapp,
+      
     };
     console.log("Settings:", settings);
   };
 
+  console.log(tables)
+
   return (
     <div className="acb_bottom" id="acb_bottom">
-      <h3 className="upcomming">UPCOMMING</h3>
+      {/* <h3 className="upcomming">UPCOMMING</h3> */}
       <div className="acb_left">
         <h3 className="review-case-title">Simple Form settings panel</h3>
+        
+        <div className="wpnts-switch-floating">
+          <label htmlFor="floating-widgets">Enable floating widgets:</label>
+          <ReactSwitchsupport
+            checked={floatingwidgets}
+            className="supportSwitch-2"
+            name="wpnts-switch-floating"
+            id="floating-widgets"
+            onChange={(checked) => { if (!isProUser) {  return; } setFloating(checked)}}
+            //onChange={(checked) => setFloating(checked)}
+          />
+        </div>
+
         <div className="wpnts-switch-review">
           <label htmlFor="reviewnoti">Enable WhatsApp redirection:</label>
           <ReactSwitchreview
@@ -63,21 +83,31 @@ const Settings = () => {
           />
         </div>
 
-        <div className="wpnts-switch-floating">
-          <label htmlFor="floating-widgets">Enable floating widgets:</label>
-          <ReactSwitchsupport
-            checked={floatingwidgets}
-            className="supportSwitch-2"
-            name="wpnts-switch-floating"
-            id="floating-widgets"
-            onChange={(checked) => { if (!isProUser) {  return; } setFloating(checked)}}
-            //onChange={(checked) => setFloating(checked)}
-          />
-        </div>
-
       </div>
       <div className="acb_right">
         <form onSubmit={handleSubmit} id="wpntswebhook">
+
+        {floatingwidgets && (
+            <div className="formInput">
+              <label htmlFor="selectedTable">Select Form to display as floating widgets</label>
+              <div className="wpnts-setting">
+                <select
+                  id="selectedTable"
+                  name="selectedTable"
+                  value={selectedTable || ''}
+                  onChange={(e) => setSelectedTable(parseInt(e.target.value, 10))}
+                >
+                  <option value="">Select a form</option>
+                  {tables.map((table) => (
+                    <option key={table.id} value={table.id}>
+                      {table.form_name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          )}
+          
           {whatsappRedirection && (
             <div className="formInput">
               <label htmlFor="webhook">WhatsApp number</label>
@@ -94,16 +124,40 @@ const Settings = () => {
           )}
 
           {whatsappRedirection && (
-            <div className="formInput open-new-tab">
-              <label htmlFor="interval_review">Open in new tab</label>
-              <div className="wpnts-setting">
-                <input
-                  type="checkbox"
-                  name="interval_review"
-                  checked={openInNewTab}
-                  onChange={(e) => setOpenInNewTab(e.target.checked)}
-                />
-              </div>
+            <div>
+                <div className="formInput open-new-tab">
+                  <label htmlFor="interval_review">Open in new tab</label>
+                  <div className="wpnts-setting">
+                    <input
+                      type="checkbox"
+                      name="interval_review"
+                      checked={openInNewTab}
+                      onChange={(e) => setOpenInNewTab(e.target.checked)}
+                    />
+                  </div>
+                </div>
+
+                <div className="formInput">
+                <label htmlFor="selectedWhatsapp">Select Forms for WhatsApp redirection:</label>
+                <div className="wpnts-setting">
+                  <select
+                      id="selectedWhatsapp"
+                      name="selectedWhatsapp"
+                      multiple
+                      value={selectedWhatsapp || []} // Initialize as an empty array
+                      onChange={(e) => {
+                        const selectedWhatsappid = Array.from(e.target.selectedOptions, (option) => option.value);
+                        setSelectedWhatsapp(selectedWhatsappid);
+                      }}
+                    >
+                    {tables.map((table) => (
+                      <option key={table.id} value={table.id}>
+                        {table.form_name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                </div>
             </div>
           )}
 
@@ -121,7 +175,9 @@ const Settings = () => {
               </div>
             </div>
           )}
-          {mailNotification || whatsappRedirection ? (
+
+          
+          {mailNotification || whatsappRedirection || floatingwidgets ? (
             <button type="submit" className="save-webhook">
               SAVE
             </button>

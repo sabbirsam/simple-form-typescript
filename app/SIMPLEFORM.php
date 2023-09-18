@@ -190,18 +190,18 @@ namespace SIMPLEFORM {
 				
 			];
 
-            if ( ! $this->helpers->check_pro_plugin_exists() ) {
-				array_push(
-					$plugin,
-					sprintf(
-						'<a style="font-weight: bold; color: #ff3b00; text-transform: uppercase; font-style: italic;"
-							href="%s"
-							target="_blank">%s</a>',
-						esc_url( 'https://go.wppool.dev/Si6' ),
-						esc_html__( 'Get Pro', 'sheetstowptable' )
-					)
-				);
-			}
+            // if ( ! $this->helpers->check_pro_plugin_exists() ) {
+			// 	array_push(
+			// 		$plugin,
+			// 		sprintf(
+			// 			'<a style="font-weight: bold; color: #ff3b00; text-transform: uppercase; font-style: italic;"
+			// 				href="%s"
+			// 				target="_blank">%s</a>',
+			// 			esc_url( '#' ),
+			// 			esc_html__( 'Get Pro', 'sheetstowptable' )
+			// 		)
+			// 	);
+			// }
 
 
 			return array_merge( $links, $plugin );

@@ -4,11 +4,18 @@
  * @returns 
  */
 
-
 function generateRenderedForm(formData) {
+  
+
   let html = '';
 
   formData.forEach((field) => {
+    let fieldAttributes = '';
+
+    if (field.required === 'true') {
+      fieldAttributes += ' required';
+    }
+
     switch (field.type) {
       case 'text':
       case 'number':
@@ -17,7 +24,7 @@ function generateRenderedForm(formData) {
         html += `
           <div class="text-fields">
             <label for="${field.id}">${field.label}</label>
-            <input id="${field.id}" type="${field.type}" name="${field.name}" placeholder="${field.placeholder}" class="${field.className}" value="${field.value || ''}">
+            <input id="${field.id}" type="${field.type}" name="${field.name}" placeholder="${field.placeholder}" class="${field.className}" value="${field.value || ''}"${fieldAttributes}>
           </div>
           <br>
         `;
@@ -27,7 +34,7 @@ function generateRenderedForm(formData) {
         html += `
           <div class="text-fields">
             <label for="${field.id}">${field.label}</label>
-            <select id="${field.id}" name="${field.name}">`;
+            <select id="${field.id}" name="${field.name}"${fieldAttributes}>`;
         field.options.forEach((option) => {
           html += `
             <option value="${option.value}" ${field.value === option.value ? 'selected' : ''}>${option.label}</option>
@@ -44,7 +51,7 @@ function generateRenderedForm(formData) {
         html += `
           <div class="text-fields">
             <label for="${field.id}">${field.label}</label>
-            <input id="${field.id}" type="${field.type}" name="${field.name}" class="${field.className}">
+            <input id="${field.id}" type="${field.type}" name="${field.name}" class="${field.className}"${fieldAttributes}>
           </div>
           <br>
         `;
@@ -56,7 +63,7 @@ function generateRenderedForm(formData) {
           html += `
             <div class="simple-form-checkbox-toggle">
               <label class="switch-label">${field.label}
-                <input type="checkbox" id="${field.id}" name="${field.name}" class="switch-input ${field.className}" required="">
+                <input type="checkbox" id="${field.id}" name="${field.name}" class="switch-input ${field.className}"${fieldAttributes}>
                 <span class="slider round"></span>
               </label>
             </div>`;
@@ -68,7 +75,7 @@ function generateRenderedForm(formData) {
           field.options.forEach((option) => {
             html += `
               <div class="text-fields-insider">
-                <input type="checkbox" id="${option.value}" name="${field.name}" value="${option.value}">
+                <input type="checkbox" id="${option.value}" name="${field.name}" value="${option.value}"${fieldAttributes}>
                 <label for="${option.value}">${option.label}</label>
               </div>`;
           });
@@ -90,6 +97,7 @@ function generateRenderedForm(formData) {
                 name="${field.name}"
                 value="${option.value}"
                 ${field.value === option.value ? 'checked' : ''}
+                ${fieldAttributes}
               />
               <label for="${option.value}">${option.label}</label>
             </div>`;
@@ -105,6 +113,7 @@ function generateRenderedForm(formData) {
 
   return html;
 }
+
 
 
 /**
@@ -156,26 +165,55 @@ window.addEventListener('load', function () {
     var submitButton = formContainer.querySelector('.submit-button');
 
     submitButton.addEventListener('click', function (event) {
-      
+
       // Prevent the default form submission behavior
       event.preventDefault();
 
-      // Serialize the form data
-      var formData = new FormData(formContainer.querySelector('.simple_form'));
+      // Get all form elements within the form
+      var formElements = formContainer.querySelectorAll('input, select, textarea');
 
-      // Check if form data is empty
-      if (formData.entries().next().done) {
-        alert("Form data is empty. Please fill out the form.");
-        return; // Don't proceed with the AJAX request
+      // Create an object to store the form data
+      var formDataObject = {};
+
+      // Create a flag to track if there are any required fields that are empty
+      var hasEmptyRequiredFields = false;
+
+      formElements.forEach(function (element) {
+        // Check if the element has the "simple-form-checkbox-toggle" class
+        var isToggleCheckbox = element.closest('.simple-form-checkbox-toggle') !== null;
+
+        // Handle checkboxes with the "simple-form-checkbox-toggle" class
+        if (isToggleCheckbox && element.type === 'checkbox') {
+          formDataObject[element.name] = element.checked ? 'on' : 'off';
+        } else {
+          formDataObject[element.name] = element.value;
+        }
+
+        // Check if the field is required and empty
+        if (element.hasAttribute('required') && formDataObject[element.name].trim() === '') {
+          // Add a red border to indicate the required field is empty
+          element.style.border = '1px solid red';
+          hasEmptyRequiredFields = true;
+        } else {
+          // Remove any red border if the field is not empty
+          element.style.border = '';
+        }
+      });
+
+      // If there are empty required fields, prevent form submission
+      if (hasEmptyRequiredFields) {
+        alert('Please fill out all required fields.');
+        return;
       }
+
+      // Add the nonce and formId to the formDataObject
+      // formDataObject['nonce'] = nonce;
+      formDataObject['id'] = formId;
 
       // Create an AJAX request for the form submission
       var xhr = new XMLHttpRequest();
       xhr.open('POST', front_end_data.admin_ajax, true);
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-      var formDataArray = Array.from(formData.entries()); // Used to send in Ajax
-      var formDataObject = Object.fromEntries(formDataArray); 
 
       var data = "action=simpleform_get_submit_data" + "&nonce=" + encodeURIComponent(nonce) + "&id=" + encodeURIComponent(formId) + "&form_data=" + JSON.stringify(formDataObject);
 
@@ -189,7 +227,7 @@ window.addEventListener('load', function () {
               // Clear the form fields
               var form = formContainer.querySelector('.simple_form');
               form.reset();
-              
+
               // Show a success message using SweetAlert
               Swal.fire({
                 icon: 'success',

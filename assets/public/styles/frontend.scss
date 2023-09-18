@@ -1,89 +1,95 @@
 .simple-form-container {
-    max-width: 400px; /* Adjust the width as needed */
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Style for labels */
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  /* Style for text, number, email, and hidden inputs */
-  input[type="text"],
-  input[type="number"],
-  input[type="email"],
-  input[type="hidden"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
+  max-width: 400px;
+  /* Adjust the width as needed */
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 
-  form input[type=number] {
-    max-width: 100%;
+  .text-fields {
+    display: flex !important;
+    flex-direction: column !important;
   }
-  
-  /* Style for select inputs */
-  select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: #fff;
-  }
-  
-  /* Style for file inputs */
-  input[type="file"] {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  
-  /* Style for checkboxes and radio buttons */
-  input[type="checkbox"],
-  input[type="radio"] {
-    margin-right: 5px;  
-  }
-  
-  /* Style for submit button */
-  .submit-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 7px 20px;
-    cursor: pointer;
-    font-size: 16px;
-  }
+}
 
-  .text-fields-insider {
-    display: flex;
-    align-items: center;
-  }
-  
-  .submit-button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Style for error messages (customize as needed) */
-  .error-message {
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
-  }
-  
+/* Style for labels */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
 
-  
+/* Style for text, number, email, and hidden inputs */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="hidden"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+form input[type=number] {
+  max-width: 100%;
+}
+
+/* Style for select inputs */
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #fff;
+}
+
+/* Style for file inputs */
+input[type="file"] {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Style for checkboxes and radio buttons */
+input[type="checkbox"],
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+/* Style for submit button */
+.submit-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 7px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.text-fields-insider {
+  display: flex;
+  align-items: center;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Style for error messages (customize as needed) */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+
+
 // Toogle button 
 .simple-form-checkbox-toggle {
   display: flex;
@@ -131,11 +137,17 @@
   transition: transform 0.4s;
 }
 
-.switch-input:checked + .slider {
+.switch-input:checked+.slider {
   background-color: #2196F3;
 }
 
-.switch-input:checked + .slider:before {
-  transform: translateX(20px); 
+.switch-input:checked+.slider:before {
+  transform: translateX(20px);
 }
+
 // END 
+
+.simple_form_content .text-fields {
+  display: flex !important;
+  flex-direction: column !important;
+}
