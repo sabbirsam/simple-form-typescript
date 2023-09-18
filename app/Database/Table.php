@@ -178,4 +178,24 @@ class Table {
 	}
 
 
+	public function get_settings() {
+		$options = get_option('form_settings');
+		// return $options ? $options : [];
+		if ($options) {
+			return $options;
+		} else {
+			return array(
+				'floatingwidgets' => false,
+				'mailNotification' => false,
+				'openInNewTab' => false,
+				'whatsappRedirection' => false,
+				'recipientMail' => "",
+				'selectedTable' => "",
+				'selectedWhatsapp' => "",
+				'whatsappNumber' => "",
+			);
+		}
+	}
+
+
 }

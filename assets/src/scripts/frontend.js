@@ -20,13 +20,18 @@ function generateRenderedForm(formData) {
       case 'text':
       case 'number':
       case 'email':
-      case 'hidden':
         html += `
           <div class="text-fields">
             <label for="${field.id}">${field.label}</label>
             <input id="${field.id}" type="${field.type}" name="${field.name}" placeholder="${field.placeholder}" class="${field.className}" value="${field.value || ''}"${fieldAttributes}>
           </div>
           <br>
+        `;
+        break;
+  
+      case 'hidden':
+        html += `
+            <input id="${field.id}" type="${field.type}" name="${field.name}" placeholder="${field.placeholder}" class="${field.className}" value="${field.value || ''}"${fieldAttributes}>
         `;
         break;
 
@@ -245,5 +250,19 @@ window.addEventListener('load', function () {
 
       xhr.send(data);
     });
+  });
+});
+
+
+
+// Floating form 
+window.addEventListener('load', function () {
+  // Get a reference to the WhatsApp icon and the form content
+  const whatsappIcon = document.querySelector('.whatsapp-icon');
+  const formContent = document.querySelector('.form-content');
+
+  // Toggle the "active" class on the floating-whatsapp container when the icon is clicked
+  whatsappIcon.addEventListener('click', function () {
+      formContent.classList.toggle('active');
   });
 });

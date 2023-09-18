@@ -77,10 +77,12 @@ class Assets {
 
 			$icons = apply_filters( 'export_buttons_logo_backend', false );
 
+		
 			$localize = [
 				'nonce'            => wp_create_nonce( 'SIMPLEFORM-admin-app-nonce-action' ),
 				'icons'            => $icons,
 				'tables'           => SIMPLEFORM()->database->table->get_all(),
+				'formsettings'     => SIMPLEFORM()->database->table->get_settings(),
 				'ran_setup_wizard' => wp_validate_boolean( get_option( 'SIMPLEFORM_ran_setup_wizard', false ) )
 			];
 

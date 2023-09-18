@@ -26,6 +26,7 @@ class Tables {
 	 */
 	public function __construct() {
 		add_action( 'wp_ajax_simpleform_create_form', [ $this, 'create' ] );
+		add_action( 'wp_ajax_simpleform_save_settings', [ $this, 'save_settings' ] );
 		
 		add_action( 'wp_ajax_simpleform_get_tables', [ $this, 'get_all' ] );
 		add_action( 'wp_ajax_simpleform_get_leads', [ $this, 'get_all_leads' ] );
@@ -87,6 +88,48 @@ class Tables {
 			'form_name'      => $name,
 			'form_fields'     => $from_data,
 			'message' => esc_html__( 'Table created successfully', 'simpleform' ),
+		]);
+	}
+
+	public function save_settings() {
+		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'SIMPLEFORM-admin-app-nonce-action' ) ) {
+			wp_send_json_error([
+				'message' => __( 'Invalid nonce.', '' )
+			]);
+		}
+
+		function sanitize_text_or_array_field($array_or_string) {
+			if( is_string($array_or_string) ){
+				$array_or_string = sanitize_text_field($array_or_string);
+			}elseif( is_array($array_or_string) ){
+				foreach ( $array_or_string as $key => &$value ) {
+					if ( is_array( $value ) ) {
+						$value = sanitize_text_or_array_field($value);
+					}
+					else {
+						$value = sanitize_text_field( $value );
+					}
+				}
+			} 
+			return $array_or_string;
+		}
+
+		$from_data_settings = isset( $_POST['settings'] ) ? sanitize_text_or_array_field( $_POST['settings'] ) : [];
+
+		// error_log( 'Data Received: ' . print_r( $from_data_settings, true ) );
+
+		// Save the settings in the WordPress options table
+		update_option( 'form_settings', $from_data_settings );
+
+		if ( false === get_option( 'form_settings' ) ) {
+			wp_send_json_error([
+				'message' => esc_html__( 'Failed to save settings.', 'simpleform' )
+			]);
+		}
+
+		wp_send_json_success([
+			'settings'     => $from_data_settings,
+			'message' => esc_html__( 'Settings created successfully', 'simpleform' ),
 		]);
 	}
 

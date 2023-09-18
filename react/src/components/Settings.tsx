@@ -1,12 +1,26 @@
 import React, { useState } from "react";
 import ReactSwitchreview from "react-switch";
 import ReactSwitchsupport from "react-switch";
-import { getNonce, getTables } from './../Helpers';
+import { getNonce, getTables, getFormSettings } from './../Helpers';
 import "../styles/_setting.scss";
 
 const Settings = () => {
   const [tables, setTables] = useState(getTables());
-  const [selectedTable, setSelectedTable] = useState(null);
+  const [formSettings, setSettings] = useState(getFormSettings());
+
+
+  const [selectedTable, setSelectedTable] = useState(formSettings.selectedTable || null);
+  const [selectedWhatsapp, setSelectedWhatsapp] = useState(formSettings.selectedWhatsapp || null);
+  const [isProUser, setisProUser] = useState(true);
+  const [whatsappRedirection, setWhatsappRedirection] = useState(formSettings.whatsappRedirection === 'true');
+  const [mailNotification, setMailNotification] = useState(formSettings.mailNotification === 'true');
+  const [floatingwidgets, setFloating] = useState(formSettings.floatingwidgets === 'true');
+  const [whatsappNumber, setWhatsappNumber] = useState(formSettings.whatsappNumber || "");
+  const [openInNewTab, setOpenInNewTab] = useState(formSettings.openInNewTab === 'true');
+  const [recipientMail, setRecipientMail] = useState(formSettings.recipientMail || "");
+
+
+  /* const [selectedTable, setSelectedTable] = useState(null);
   const [selectedWhatsapp, setSelectedWhatsapp] = useState(null);
   const [isProUser, setisProUser] = useState(true);
   const [whatsappRedirection, setWhatsappRedirection] = useState(false);
@@ -14,7 +28,8 @@ const Settings = () => {
   const [floatingwidgets, setFloating] = useState(false);
   const [whatsappNumber, setWhatsappNumber] = useState("");
   const [openInNewTab, setOpenInNewTab] = useState(false);
-  const [recipientMail, setRecipientMail] = useState("");
+  const [recipientMail, setRecipientMail] = useState(""); */
+
 
   const isSaveButtonDisabled = !whatsappRedirection && !mailNotification;
 
@@ -31,10 +46,45 @@ const Settings = () => {
       selectedWhatsapp,
       
     };
-    console.log("Settings:", settings);
+
+    Swal.fire({
+      text: 'Are you done!',
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Save!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+          wp.ajax.send('simpleform_save_settings', {
+            data: {
+              nonce: getNonce(),
+              settings: settings,
+            },
+
+            success({}) {
+              Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Your Form has been saved',
+                showConfirmButton: false,
+                timer: 1500,
+              });
+
+              // navigate(`/`);
+            },
+            error({ message }) {
+            },
+          });
+
+        }
+    });
+    // console.log(settings);
   };
 
-  console.log(tables)
+console.log(formSettings);
+console.log(formSettings["whatsappRedirection"]);
 
   return (
     <div className="acb_bottom" id="acb_bottom">
@@ -82,6 +132,12 @@ const Settings = () => {
             }}
           />
         </div>
+
+        {!mailNotification && !whatsappRedirection && !floatingwidgets ? (
+             <form onSubmit={handleSubmit} id="wpntswebhook">
+              <button type="submit" className="save-webhook">SAVE</button>
+            </form>
+          ) : null}
 
       </div>
       <div className="acb_right">

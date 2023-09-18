@@ -80,6 +80,7 @@ namespace SIMPLEFORM {
 		 * @var SIMPLEFORM\Shortcode
 		 */
 		public $shortcode;
+		public $floatingWidgets;
 
 		/**
 		 * Contains the plugin database helpers.
@@ -167,6 +168,7 @@ namespace SIMPLEFORM {
 			$this->assets      = new \SIMPLEFORM\Assets();
 			$this->admin       = new \SIMPLEFORM\Admin();
 			$this->shortcode   = new \SIMPLEFORM\Shortcode();
+			$this->floatingWidgets   = new \SIMPLEFORM\FloatingWidget();
 			$this->database    = new \SIMPLEFORM\Database();
 			$this->ajax        = new \SIMPLEFORM\Ajax();
 
