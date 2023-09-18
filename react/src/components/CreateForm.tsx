@@ -436,6 +436,7 @@ const CreateForm = () => {
             <input
               type="checkbox"
               checked={editingField.required === 'true'}
+              // checked={editingField.required || editingField.required === 'true'} 
               onChange={(e) => {
               setEditingField({ ...editingField, required: e.target.checked ? 'true' : 'false' });
               }}
