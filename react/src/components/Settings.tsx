@@ -122,7 +122,8 @@ const Settings = () => {
             
           />
         </div>
-        <div className="wpnts-switch-support">
+
+        {/* <div className="wpnts-switch-support">
           <label htmlFor="supportnoti">Enable mail notification:</label>
           <ReactSwitchsupport
             checked={mailNotification}
@@ -134,9 +135,10 @@ const Settings = () => {
               setMailNotification(checked)
             }}
           />
-        </div>
+        </div> */}
 
-        {!mailNotification && !whatsappRedirection && !floatingwidgets ? (
+        {/* {!mailNotification && !whatsappRedirection && !floatingwidgets ? ( */}
+        {!whatsappRedirection && !floatingwidgets ? (
              <form onSubmit={handleSubmit} id="wpntswebhook">
               <button type="submit" className="save-webhook">SAVE</button>
             </form>
@@ -220,7 +222,7 @@ const Settings = () => {
             </div>
           )}
 
-          {mailNotification && (
+          {/* {mailNotification && (
             <div className="formInput">
               <label htmlFor="interval">Add recipient mail</label>
               <div className="wpnts-setting">
@@ -233,10 +235,11 @@ const Settings = () => {
                 />
               </div>
             </div>
-          )}
+          )} */}
 
           
-          {mailNotification || whatsappRedirection || floatingwidgets ? (
+          {/* {mailNotification || whatsappRedirection || floatingwidgets ? ( */}
+          {whatsappRedirection || floatingwidgets ? (
             <button type="submit" className="save-webhook">
               SAVE
             </button>

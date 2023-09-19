@@ -210,7 +210,7 @@ window.addEventListener('load', function () {
 
       // Add the nonce and formId to the formDataObject
       // formDataObject['nonce'] = nonce;
-      // formDataObject['id'] = formId;
+      formDataObject['id'] = formId;
 
       // Create an AJAX request for the form submission
       var xhr = new XMLHttpRequest();
@@ -229,33 +229,6 @@ window.addEventListener('load', function () {
               // Clear the form fields
               var form = formContainer.querySelector('.simple_form');
               form.reset();
-
-
-              /**
-               * WhatsApp redirection
-               */
-              const scf_json = getCookie("simple_form_whatsapp_data");
-              const scf_opt = JSON.parse(scf_json);
-              
-              if (scf_opt && scf_opt.simple_form_whatsapp_number) {
-                const newTab = scf_opt.simple_form_new_tab === "true";
-                const target = newTab ? "_blank" : "_self";
-                const number = scf_opt.simple_form_whatsapp_number;
-                
-                // Convert the simple_form_whatsapp_data object to a formatted string
-                const text = Object.keys(scf_opt.simple_form_whatsapp_data)
-                  .map(key => `${key}: ${scf_opt.simple_form_whatsapp_data[key]}`)
-                  .join("\n");
-
-                const mobileurl = `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
-                const weburl = `https://web.whatsapp.com/send?phone=${number}&text=${encodeURIComponent(text)}`;
-
-                const url = window.innerWidth > 1024 ? weburl : mobileurl;
-                window.open(url, target);
-
-                eraseCookie("simple_form_whatsapp_data");
-              }
-              // END 
 
               // Show a success message using SweetAlert
               Swal.fire({
@@ -276,6 +249,41 @@ window.addEventListener('load', function () {
     });
   });
 });
+
+
+// Start -------------------------------------------------
+
+var formContainers = document.querySelectorAll('.simple_form_container');
+
+formContainers.forEach(function (formContainer) {
+  var submitButton = formContainer.querySelector('.submit-button');
+
+  submitButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    const scf_json = getCookie("simple_form_whatsapp_data");
+    const scf_opt = JSON.parse(scf_json);
+    
+    if (scf_opt && scf_opt.simple_form_whatsapp_number) {
+      const newTab = scf_opt.simple_form_new_tab === "true";
+      const target = newTab ? "_blank" : "_self";
+      const number = scf_opt.simple_form_whatsapp_number;
+      
+      // Convert the simple_form_whatsapp_data object to a formatted string
+      const text = Object.keys(scf_opt.simple_form_whatsapp_data)
+        .map(key => `${key}: ${scf_opt.simple_form_whatsapp_data[key]}`)
+        .join("\n");
+
+      const mobileurl = `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
+      const weburl = `https://web.whatsapp.com/send?phone=${number}&text=${encodeURIComponent(text)}`;
+
+      const url = window.innerWidth > 1024 ? weburl : mobileurl;
+      window.open(url, target);
+
+      eraseCookie("simple_form_whatsapp_data");
+    }
+  }, false);
+});
+
 
 
 function setCookie(name, value, days) {
@@ -364,8 +372,6 @@ initialAnimations();
 
 // After the initial animations, continue with the 10-second animation cycle
 setInterval(restartAnimation, 3000); // Restart every
-
-// END 
 
 
 

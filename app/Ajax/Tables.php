@@ -423,6 +423,8 @@ class Tables {
 		$form_data = isset($_POST['form_data']) ? json_decode(stripslashes($_POST['form_data']), true) : [];
 	
 		// error_log('Data Received: ' . print_r($form_data, true));
+
+		
 	
 		$table = [
 			'form_id' => $id,
@@ -431,6 +433,58 @@ class Tables {
 		];
 	
 		$table_id = SIMPLEFORM()->database->table->insertleads($table);
+
+		/**
+		 * WhatsApp redirection.
+		 */
+		$options = get_option('form_settings');
+
+		$selectedWhatsapp = isset($options['selectedWhatsapp']) ? $options['selectedWhatsapp'] : [];
+		$mailNotification = isset($options['mailNotification']) ? $options['mailNotification'] : "false";
+		$recipientMail = isset($options['recipientMail']) ? $options['recipientMail'] : null;
+
+		if (in_array($id, $selectedWhatsapp)) {
+
+			// WhatsApp redirection 
+			if (isset($options['whatsappRedirection']) && $options['whatsappRedirection'] === 'true') {
+
+				$whatsappNumber = $options['whatsappNumber'];
+				$openInNewTab = $options['openInNewTab'];
+	
+				$whatsappNumber = preg_replace( '/[^0-9\+]/', '', $whatsappNumber );
+				if ( substr( $whatsappNumber, 0, 1 ) != '+' ) {
+					$whatsappNumber = '+' . $whatsappNumber;
+				}
+				
+				if ('true' != $openInNewTab) {
+					// Ensure $form_data is a string by joining array elements
+					$form_data_str = is_array($form_data) ? implode(' ', $form_data) : $form_data;
+					$wh_url = 'https://wa.me/' . $whatsappNumber . '?text=' . urlencode(html_entity_decode($form_data_str));
+				} else {
+					// Ensure $form_data is a string by joining array elements
+					$form_data_str = is_array($form_data) ? implode(' ', $form_data) : $form_data;
+					$wh_url = 'https://web.whatsapp.com/send?phone=' . $whatsappNumber . '&text=' . urlencode(html_entity_decode($form_data_str));
+				}
+	
+	
+				$simple_form_new_opt = [];
+				// Send to WhatsApp now it has no used as url set from JS with new update code.
+				$simple_form_new_opt['simple_form_whatsapp_url'] = $wh_url; 
+				$simple_form_new_opt['simple_form_whatsapp_number'] = $whatsappNumber;
+				$simple_form_new_opt['simple_form_whatsapp_data'] = $form_data;
+				$simple_form_new_opt['simple_form_new_tab'] = $openInNewTab;
+	
+				// Add nonce.
+				$nonce = wp_create_nonce( 'simple_form_submission' );
+				$simple_form_new_opt['nonce'] = $nonce;
+	
+				$cookie_name = 'simple_form_whatsapp_data';
+				setcookie($cookie_name, json_encode($simple_form_new_opt), time() + ( 86400 * 30 ), '/');
+			}
+
+		}
+
+		
 	
 		wp_send_json_success([
 			'message' => __('Form data received and processed successfully.', 'simpleform'),

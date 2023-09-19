@@ -158,9 +158,7 @@ input[type="radio"] {
   bottom: 20px;
   right: 20px;
   z-index: 1000;
-  background-color: #25d366; 
   border-radius: 50%;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .floating-whatsapp .whatsapp-icon {
@@ -177,17 +175,85 @@ input[type="radio"] {
 .floating-whatsapp .form-content {
   display: none;
     position: absolute;
-    bottom: 70px; /* Adjust this value as needed */
+    bottom: 70px;
     right: 10px;
-    width: 300px; /* Adjust the width of the form */
+    width: 355px; 
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    padding: 20px;
+
+    transition: height 0.3s ease-in-out;
+    height: 0; /* Start with a height of 0 */
+    overflow: hidden;
 }
 
 /* Show the form content when the form is active */
 .floating-whatsapp .form-content.active {
   display: block;
+}
+
+.floating-whatsapp .form-content header {
+  background: #293239;
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+.floating-whatsapp .form-content h4:before {
+  background: #1a8a34;
+  border-radius: 50%;
+  content: "";
+  height: 8px;
+  margin: 0 8px 0 0;
+  width: 8px;
+}
+
+.floating-whatsapp .form-content h4 {
+  font-size: 13px;
+  margin: 0;
+  padding: 12px;
+  color: white;
+}
+
+
+.floating-whatsapp .main-search-btn {
+  transition: all .35s;
+  background: orange;
+  border: transparent;
+  color: #fff;
+  padding: 10px 16px;
+  margin-bottom: 12px;
+}
+.floating-whatsapp .main-search-btn:hover {
+   color: #fff;
+   background-color: #2196F3;
+}
+
+.simple_form_container_floating{
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  padding: 2px 15px;
+}
+
+
+@keyframes jumpAnimation {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Set animation duration to 10 seconds */
+#jumping-whatsapp {
+  animation: jumpAnimation 10s ease-in-out; 
+  transition: transform 0.5s;
+}
+
+/* Pause the animation on hover */
+#jumping-whatsapp:hover {
+  animation-play-state: paused;
 }
