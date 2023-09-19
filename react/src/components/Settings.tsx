@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import ReactSwitchreview from "react-switch";
 import ReactSwitchsupport from "react-switch";
 import { getNonce, getTables, getFormSettings } from './../Helpers';
@@ -19,19 +19,22 @@ const Settings = () => {
   const [openInNewTab, setOpenInNewTab] = useState(formSettings.openInNewTab === 'true');
   const [recipientMail, setRecipientMail] = useState(formSettings.recipientMail || "");
 
-
-  /* const [selectedTable, setSelectedTable] = useState(null);
-  const [selectedWhatsapp, setSelectedWhatsapp] = useState(null);
-  const [isProUser, setisProUser] = useState(true);
-  const [whatsappRedirection, setWhatsappRedirection] = useState(false);
-  const [mailNotification, setMailNotification] = useState(false);
-  const [floatingwidgets, setFloating] = useState(false);
-  const [whatsappNumber, setWhatsappNumber] = useState("");
-  const [openInNewTab, setOpenInNewTab] = useState(false);
-  const [recipientMail, setRecipientMail] = useState(""); */
-
-
   const isSaveButtonDisabled = !whatsappRedirection && !mailNotification;
+
+  useEffect(() => {
+		wp.ajax.send('simpleform_get_tables', {
+			data: {
+				nonce: getNonce(),
+			},
+			success(response) {
+				setTables(response.tables);
+			},
+			error(error) {
+				console.error(error);
+			},
+		});
+	}, []);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -83,8 +86,8 @@ const Settings = () => {
     // console.log(settings);
   };
 
-console.log(formSettings);
-console.log(formSettings["whatsappRedirection"]);
+// console.log(formSettings);
+// console.log(formSettings["whatsappRedirection"]);
 
   return (
     <div className="acb_bottom" id="acb_bottom">
