@@ -40,8 +40,8 @@ class Admin {
 			'manage_options',
 			'simpleform-dashboard',
 			[ $this, 'dashboardPage' ],
-			// SIMPLEFORM_BASE_URL . 'assets/public/images/logo_20_20.svg'
-			'dashicons-welcome-widgets-menus'
+			SIMPLEFORM_BASE_URL . 'assets/public/icons/logo.svg'
+			// 'dashicons-welcome-widgets-menus'
 		);
 
 		if ( current_user_can( 'manage_options' ) ) {
