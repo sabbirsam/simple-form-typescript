@@ -235,27 +235,30 @@ window.addEventListener('load', function () {
                * WhatsApp redirection
                */
               const scf_json = getCookie("simple_form_whatsapp_data");
-              const scf_opt = JSON.parse(scf_json);
+              if(scf_json){
+                const scf_opt = JSON.parse(scf_json);
               
-              if (scf_opt && scf_opt.simple_form_whatsapp_number) {
-                const newTab = scf_opt.simple_form_new_tab === "true";
-                const target = newTab ? "_blank" : "_self";
-                const number = scf_opt.simple_form_whatsapp_number;
-                
-                // Convert the simple_form_whatsapp_data object to a formatted string
-                const text = Object.keys(scf_opt.simple_form_whatsapp_data)
-                  .map(key => `${key}: ${scf_opt.simple_form_whatsapp_data[key]}`)
-                  .join("\n");
+                  if (scf_opt && scf_opt.simple_form_whatsapp_number) {
+                    const newTab = scf_opt.simple_form_new_tab === "true";
+                    const target = newTab ? "_blank" : "_self";
+                    const number = scf_opt.simple_form_whatsapp_number;
+                    
+                    // Convert the simple_form_whatsapp_data object to a formatted string
+                    const text = Object.keys(scf_opt.simple_form_whatsapp_data)
+                      .map(key => `${key}: ${scf_opt.simple_form_whatsapp_data[key]}`)
+                      .join("\n");
 
-                const mobileurl = `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
-                const weburl = `https://web.whatsapp.com/send?phone=${number}&text=${encodeURIComponent(text)}`;
+                    const mobileurl = `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
+                    const weburl = `https://web.whatsapp.com/send?phone=${number}&text=${encodeURIComponent(text)}`;
 
-                const url = window.innerWidth > 1024 ? weburl : mobileurl;
-                window.open(url, target);
+                    const url = window.innerWidth > 1024 ? weburl : mobileurl;
+                    window.open(url, target);
 
-                eraseCookie("simple_form_whatsapp_data");
+                    eraseCookie("simple_form_whatsapp_data");
+                  }
+                  // END 
               }
-              // END 
+              
 
               // Show a success message using SweetAlert
               Swal.fire({
@@ -318,10 +321,13 @@ window.addEventListener('load', function () {
   const formContent = document.querySelector('.form-content');
 
   // Toggle the "active" class and adjust the height of the form content when the icon is clicked
-  whatsappIcon.addEventListener('click', function () {
-    formContent.classList.toggle('active');
-    adjustFormHeight(formContent);
-  });
+  if(whatsappIcon){
+    whatsappIcon.addEventListener('click', function () {
+      formContent.classList.toggle('active');
+      adjustFormHeight(formContent);
+    });
+  }
+  
 
   function adjustFormHeight(element) {
     const isActive = element.classList.contains('active');
@@ -339,11 +345,14 @@ window.addEventListener('load', function () {
 // Function to restart the animation
 function restartAnimation() {
   const whatsappIcon = document.getElementById('jumping-whatsapp');
-  whatsappIcon.style.animation = 'none';
-  // Trigger reflow
-  void whatsappIcon.offsetWidth; 
-  // Set animation duration to 5 seconds
-  whatsappIcon.style.animation = 'jumpAnimation 0.9s ease-in-out'; 
+  if(whatsappIcon){
+    whatsappIcon.style.animation = 'none';
+    // Trigger reflow
+    void whatsappIcon.offsetWidth; 
+    // Set animation duration to 5 seconds
+    whatsappIcon.style.animation = 'jumpAnimation 0.9s ease-in-out'; 
+  }
+ 
 }
 
 // Initially, trigger the animation 4-5 times with a delay
