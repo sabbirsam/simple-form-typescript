@@ -2,19 +2,19 @@
 /**
  * Plugin Name: Simple Form
  *
- * @author            Sabbir Sam, devsabbirahmed
+ * @author            wpxpertise, devsabbirahmed
  * @copyright         2022- Sabbir Sam, wpxpertise
  * @license           GPL-2.0-or-later
  *
  * @wordpress-plugin
  * Plugin Name: Simple Form
  * Plugin URI: https://github.com/sabbirsam/Simple-Form/tree/free
- * Description: It's a simple contact form that lets you easily create forms via drag and drop feature. Its also free to collect all leads from the created forms.
+ * Description: It's a simple contact form with a drag-and-drop feature that allows you to quickly design and build forms. It is also free to collect all leads and deliver them directly to WhatsApp using floating widgets.
  * Version:           2.1.0
  * Requires at least: 5.9 or higher
  * Requires PHP:      5.4 or higher
- * Author:            SABBIRSAM
- * Author URI:        https://github.com/sabbirsam/
+ * Author:            WPXpertise
+ * Author URI:        https://github.com/wpxpertise/
  * Text Domain:       simpleform
  * Domain Path: /languages/
  * License:           GPL v2 or later
