@@ -51,7 +51,7 @@ class Assets {
 				'SIMPLEFORM-admin',
 				SIMPLEFORM_BASE_URL . 'assets/admin.css',
 				'',
-				'1.0.0',
+				SIMPLEFORM_VERSION,
 				'all'
 			);
 
@@ -63,7 +63,7 @@ class Assets {
 				'SIMPLEFORM-app',
 				SIMPLEFORM_BASE_URL . 'react/build/index.css',
 				'',
-				'1.0.0',
+				SIMPLEFORM_VERSION,
 				'all'
 			);
 
@@ -71,7 +71,7 @@ class Assets {
 				'SIMPLEFORM-app',
 				SIMPLEFORM_BASE_URL . 'react/build/index.js',
 				$dependencies['dependencies'],
-				'1.0.0',
+				SIMPLEFORM_VERSION,
 				true
 			);
 
@@ -127,6 +127,56 @@ class Assets {
 				}
 			}
 			/* if ( is_admin() && defined( 'ELEMENTOR_PATH' ) && \Elementor\Plugin::$instance->editor->is_edit_mode() ) {} */
+		}
+
+		// Check if Visual Composer.
+		if ( defined( 'VCV_VERSION' ) ) {
+			$this->frontend_scripts();
+		}
+
+		// Check if Themify Builder is active.
+		if ( function_exists( 'themify_builder_loaded' ) && themify_builder_loaded() ) {
+			$this->frontend_scripts();
+		}
+
+		// Check if Divi is active.
+		if ( function_exists( 'et_divi_is_plugin_active' ) && et_divi_is_plugin_active() ) {
+			$this->frontend_scripts();
+		}
+
+		// Check if MotoPress is active.
+		if ( class_exists( 'MotoPress' ) ) {
+			$this->frontend_scripts();
+		}
+
+		// Check if Oxygen is active.
+		if ( class_exists( 'Oxygen' ) ) {
+			$this->frontend_scripts();
+		}
+
+		// Check if Thrive Architect is active.
+		if ( defined( 'TVE_VERSION' ) ) {
+			$this->frontend_scripts();
+		}
+
+		// Check if Stackable is active.
+		if ( class_exists( 'WP_Stackable' ) ) {
+			$this->frontend_scripts();
+		}
+
+		// Check if Brizy is active.
+		if ( class_exists( 'Brizy' ) ) {
+			$this->frontend_scripts();
+		}
+
+		// Check if SeedProd is active.
+		if ( class_exists( 'SeedProd' ) ) {
+			$this->frontend_scripts();
+		}
+
+		// ACF fields supports page or post.
+		if ( function_exists('get_field') ) {
+			$this->frontend_scripts();
 		}
 
 		return $content;

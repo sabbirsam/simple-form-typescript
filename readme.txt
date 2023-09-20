@@ -27,6 +27,8 @@ Works across all operating systems including Android, iOS, and macOS. No setting
 
 2. **Seamless Lead Collection** – Gathering leads should be a breeze, and that's precisely what we offer. Our plugin allows you to effortlessly collect leads by placing forms anywhere on your website using a simple shortcode. No more struggling with complicated integrations or worrying about where to put your forms – it's as easy as copy and paste.
 
+3. **Redirection to WhatsApp** – Now, you can offer your users the convenience of initiating a WhatsApp chat directly from your forms. Whether it's for inquiries, support, or quick questions, this feature takes user engagement to a whole new level.
+
 But that's not all! "Simple Form" offers a range of additional benefits:
 
 **Responsive Design**: Your forms will look and function flawlessly on all devices, ensuring that your users have a smooth experience whether they're on a desktop, tablet, or smartphone.
