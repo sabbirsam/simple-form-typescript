@@ -1,10 +1,10 @@
-=== Simple Form- Drag and Drop builder with leads collection ===
+=== Simple Form- Advance Drag and Drop builder with easy leads collection ===
 Contributors: devsabbirahmed, wpxpertise
 Tags: simple form, contact, form, contact form, feedback, email, ajax, captcha, drag and drop, drag, WhatsApp, redirection, custom form, contact form, form maker, form creator, simple, easy form, leads redirection, whatsapp redirection
 Requires at least: 5.0 or higher
 Tested up to: 6.3
 Requires PHP: 5.4 or higher
-Stable Tag: 2.1.4
+Stable Tag: 2.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,55 +64,62 @@ You will then automatically be redirected to the "Data" page, from there you can
 
 
 == Screenshots ==
-1. Form Banner 
-2. Form Logo/Icon
-3. Screenshot-1-4
+1. Form Dashboard 
+2. Form Builder- Advance Drag & Drop with TypeScript
+3. Leads view page
+4. Leads view page
+5. Settings Page
+6. Floating Widgets
 
 
 == Changelog ==
 
-= 2.1.4 =
+= 2.1.5 - 21 SEP 2023 =
+* Fix: Fix floating Widgets not working in testWP site
+
+= 2.1.4 - 12 SEP 2023 =
 * Fix: Assets loading problem fix
 
-= 2.1.3 =
+= 2.1.3 - 28 AUG 2023 =
 * Fix: Desin update
 
-= 2.1.2 =
+= 2.1.2 - 27 AUG 2023 =
 * Fix: Console error fix with JS loading error
 
-= 2.1.1 =
+= 2.1.1 - 14 AUG 2023 =
 * Fix: Floating widgets design 
 
-= 2.1.0 =
+= 2.1.0 - 20 AUG 2023 =
 * New: Improvement Simple Form settings panel
 * New: Floating widgets
 * New: WhatsApp redirection
 
-= 2.0.4 =
+= 2.0.4 - 15 AUG 2023 =
 * New: Add details view of modal
 * Improvement: Leads page view
 * Fix: leds break when field added
 
-= 2.0.3 =
+= 2.0.3 - 01 AUG 2023 =
 * New: Elementor support
 * Improvement: Add required, toggle and form validation
 * Fix: Form design
 
-= 2.0.2 =
+= 2.0.2 - 29 JULY 2023 =
 * Improvement: Add guide video
 
-= 2.0.1 =
+= 2.0.1 - 26 MAY 2023 =
 * Fix: Menu selection 
 * Improvement: WordPress 6.3 Compatible
 
-= 2.0.0 =
+= 2.0.0 - 31 MAR 2023 =
 * Improvement: Revamp version with latest technology
 
-= 1.0.2 =
+= 1.0.2 - 11 FEB 2023 =
 * Fix: Fix minor bugs.
 
-= 1.0.1 =
-* Fix: Icon.
+= 1.0.1 - 28 JAN 2023 =
+* Fix: Minor bug fixes for compatibility issues.
+* Fix: Icon update.
 
-= 1.0.0 =
+= 1.0.0 - 28 DEC 2022 =
 * Inital commit of plugin

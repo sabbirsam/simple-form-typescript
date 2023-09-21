@@ -123,15 +123,7 @@ class Assets {
 	
 		wp_enqueue_style(
 			'simpleform-frontend-minified',
-			SIMPLEFORM_BASE_URL . 'assets/public/styles/frontend.scss',
-			[],
-			time(),
-			'all'
-		);
-
-		wp_enqueue_style(
-			'simpleform-frontend-src',
-			SIMPLEFORM_BASE_URL . 'assets/src/styles/frontend/frontend.scss',
+			SIMPLEFORM_BASE_URL . 'assets/public/styles/frontendcss.min.css',
 			[],
 			time(),
 			'all'

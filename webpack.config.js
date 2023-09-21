@@ -60,6 +60,11 @@ const config = (env, options) => {
                 import: path.resolve(__dirname, "assets/src/scripts/frontend.js"),
                 filename: "scripts/frontend/[name].min.js",
             },
+
+            frontendcss: {
+                import: path.resolve(__dirname, "assets/src/styles/frontend/frontend.scss"),
+                filename: "styles/frontend/[name].min.scss",
+            },
         },
         output: {
             path: path.resolve(__dirname, "assets/public/"),

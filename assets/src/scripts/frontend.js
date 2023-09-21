@@ -372,51 +372,6 @@ window.addEventListener('load', function () {
   }
 });
 
-/**
-window.addEventListener('load', function () {
-  // Get references to the WhatsApp icon and the form content
-  const whatsappIcon = document.querySelector('.whatsapp-icon');
-  const formContent = document.querySelector('.form-content');
-
-  let closingInterval; // Variable to hold the closing interval
-
-  // Toggle the "active" class and adjust the height of the form content when the icon is clicked
-  if (whatsappIcon) {
-    whatsappIcon.addEventListener('click', function () {
-      if (formContent.classList.contains('active')) {
-        // If active, start closing the form
-        clearInterval(closingInterval);
-        closingInterval = setInterval(() => {
-          const currentHeight = parseFloat(formContent.style.height);
-          if (currentHeight <= 0) {
-            clearInterval(closingInterval);
-            formContent.style.height = '0';
-            formContent.classList.remove('active');
-          } else {
-            formContent.style.height = (currentHeight - 10) + 'px';
-          }
-        }, 0); // Adjust the interval time for smoother animation
-      } else {
-        // If not active, open the form
-        formContent.classList.add('active');
-        adjustFormHeight(formContent);
-      }
-    });
-  }
-
-  function adjustFormHeight(element) {
-    if (element.classList.contains('active')) {
-      // Calculate the full height of the form content
-      element.style.height = element.scrollHeight + 'px';
-    } else {
-      // Set the height back to 0 for collapsing effect
-      element.style.height = '0';
-    }
-  }
-});
- */
-
-
 // Function to restart the animation
 function restartAnimation() {
   const whatsappIcon = document.getElementById('jumping-whatsapp');

@@ -28,7 +28,7 @@ input[type="email"],
 input[type="hidden"],
 textarea,
 input[type="range"] {
-  width: 92%;
+  width: 100%;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
@@ -37,7 +37,7 @@ input[type="range"] {
 }
 
 form input[type=number] {
-  max-width: 92%;
+  max-width: 100%;
 }
 
 /* Style for select inputs */
@@ -53,7 +53,7 @@ select {
 
 /* Style for file inputs */
 input[type="file"] {
-  width: 92%;
+  width: 100%;
   margin-bottom: 10px;
 }
 
@@ -72,6 +72,7 @@ input[type="radio"] {
   padding: 7px 20px;
   cursor: pointer;
   font-size: 16px;
+  height: 38px;
 }
 
 .text-fields-insider {
