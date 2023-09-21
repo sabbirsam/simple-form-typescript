@@ -6,7 +6,7 @@ import '../styles/_lead.scss';
 import Card from '../core/Card';
 import Modal from '../core/Modal';
 import { VerticalAlignBottom } from '@mui/icons-material';
-const cloudImage = require('../../../assets/public/icons/404-page.gif');
+const cloudImage = require('../../../assets/public/icons/No-leads.gif');
 
 
 const Leads = () => {
@@ -194,7 +194,7 @@ const Leads = () => {
       <tr>
         <td style={{ textAlign: 'center' }}>
         <div className="no-tables-intro-img">
-          <img style={{ width: '60vh', height: '40vh' }} src={cloudImage} alt="Cloud Icon" />
+          <img style={{ width: '40vh', height: '40vh' }} src={cloudImage} alt="Cloud Icon" />
         </div>
       </td>
       </tr>
@@ -262,7 +262,7 @@ const Leads = () => {
           {/* Render the lead details in the modal */}
           
           <div className='details-leads'>
-            <table className="table table-striped table-bordered">
+            <table className="rwd-table">
                <h2 className="leads-title">Lead Details</h2>
               <tbody>
                 {Object.entries(JSON.parse(selectedLeadData.fields)).map(([key, value]) => (

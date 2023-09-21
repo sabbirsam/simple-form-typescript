@@ -3,6 +3,7 @@ import ReactSwitchreview from "react-switch";
 import ReactSwitchsupport from "react-switch";
 import { getNonce, getTables, getFormSettings } from './../Helpers';
 import "../styles/_setting.scss";
+const Settingsicon = require('../../../assets/public/icons/Settings.gif');
 
 const Settings = () => {
   const [tables, setTables] = useState(getTables());
@@ -144,7 +145,12 @@ const Settings = () => {
             </form>
           ) : null}
 
+        <div className="no-tables-intro-img">
+          <img style={{ width: '40vh', height: '40vh' }} src={Settingsicon} alt="Cloud Icon" />
+        </div>
+
       </div>
+      
       <div className="acb_right">
         <form onSubmit={handleSubmit} id="wpntswebhook">
 

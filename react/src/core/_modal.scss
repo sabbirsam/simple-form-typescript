@@ -9,6 +9,14 @@
 		position: absolute;
 		right: 0px;
 		top: 0px;
+		background: unset;
+    	border: unset;
+		transition: all 0.3s ease;
+		
+		&:hover{
+			cursor: pointer;
+			transform: scale(1.1);
+		}
 	}
 }
 

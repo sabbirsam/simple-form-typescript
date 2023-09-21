@@ -7,7 +7,7 @@ import Title from '../core/Title';
 import TablesList from './TablesList';
 import { getNonce, getTables } from './../Helpers';
 // Import your image
-const cloudImage = require('../../../assets/public/icons/404-page.gif');
+const cloudImage = require('../../../assets/public/icons/No-form.gif');
 
 import '../styles/_dashboard.scss';
 import Card from '../core/Card';
@@ -64,8 +64,8 @@ function Dashboard() {
 			{tables.length < 1 ? (
 				<>
 					<div className="no-tables-created-intro text-center">
-						<div className="no-tables-intro-img"><img style={{ width: '60vh', height: '40vh' }} src={cloudImage} alt="Cloud Icon" /></div>
-						<h2>No form have been created yet</h2>
+						<div className="no-tables-intro-img"><img style={{ width: '42vh', height: '40vh' }} src={cloudImage} alt="Cloud Icon" /></div>
+						<h2>Because you didn't create one</h2>
 						<Link className='btn btn-lg' to="/create-form">Add Form</Link>
 						<p className="help">
 							Need help? <a href="https://youtu.be/1PnGVuAqIxk" target="_blank">Watch Now</a>

@@ -143,7 +143,7 @@ const CreateForm = () => {
             wp.ajax.send('simpleform_create_form', {
               data: {
                 nonce: getNonce(),
-                name: formName,
+                name: formName || 'Untitled',
                 formdata: allData,
               },
 
