@@ -120,12 +120,8 @@ function TableItem({ table, setCopiedTables, setTableCount, setTables, setLoader
 							{Cross}
 						</div>
 						<div className="delete-table-modal">
-							<div className="modal-media">{TrashCan}</div>
-							<h2>Are you sure to delete the table? </h2>
-							<p>
-								You are about to delete the table. This will
-								permanently delete the table(s)
-							</p>
+						{/* <div className="modal-media">{TrashCan}</div> */}
+							<h2>Are you sure to delete the Form? </h2>
 							<div className="action-buttons">
 								<button
 									className="simpleform-button cancel-button"
@@ -155,7 +151,7 @@ function TableItem({ table, setCopiedTables, setTableCount, setTables, setLoader
 							<Title tagName="h4">{table.form_name}</Title>
 						</Link>
 
-						<Title tagName="p">ID: TB_{table.id}</Title>
+						<Title tagName="p">Form ID : {table.id}</Title>
 					</div>
 				</div>
 				<div className="table-action-box">

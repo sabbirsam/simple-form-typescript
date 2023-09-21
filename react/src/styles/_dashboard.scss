@@ -20,8 +20,11 @@
 
     .table-search-box {
         position: relative;
-        max-width: 285px;
+        max-width: 384px;
         width: 100%;
+        display: flex;
+        gap: 10px;
+        margin-left: 30px;
 
         .icon {
             position: absolute;

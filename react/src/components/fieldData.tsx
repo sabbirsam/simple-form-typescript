@@ -88,14 +88,14 @@ const availableFieldsList = [
         { label: 'Option 2', value: 'Option 2' },
       ],
     },
-    {
+    /* {
       id: 'file-input',
       name: 'file-text-input',
       label: 'File Upload',
       type: 'file',
       required: false,
       subtype: 'file',
-    },
+    }, */
 
     {
       id: 'text-hidden',

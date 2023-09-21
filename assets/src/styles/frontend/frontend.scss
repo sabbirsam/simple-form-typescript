@@ -1,244 +1,266 @@
-// @use "./Parts/mixin";
+.simple-form-container {
+  max-width: 400px;
+  /* Adjust the width as needed */
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 
-// /* End of mixin */
+  .text-fields {
+    display: flex ;
+    flex-direction: column ;
+  }
+}
 
-// @import "./Parts/create_tab";
+/* Style for labels */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: unset;
+}
 
+/* Style for text, number, email, and hidden inputs */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="hidden"],
+textarea,
+input[type="range"] {
+  width: 92%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
 
-// .simple-form-container {
-//   max-width: 400px;
-//   /* Adjust the width as needed */
-//   margin: 0 auto;
-//   padding: 20px;
-//   border: 1px solid #ccc;
-//   background-color: #f9f9f9;
-//   border-radius: 5px;
-//   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+form input[type=number] {
+  max-width: 92%;
+}
 
-//   .text-fields {
-//     display: flex !important;
-//     flex-direction: column !important;
-//   }
-// }
+/* Style for select inputs */
+select {
+  width: 98%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #fff;
+}
 
-// /* Style for labels */
-// label {
-//   display: block;
-//   margin-bottom: 5px;
-//   font-weight: bold;
-// }
+/* Style for file inputs */
+input[type="file"] {
+  width: 92%;
+  margin-bottom: 10px;
+}
 
-// /* Style for text, number, email, and hidden inputs */
-// input[type="text"],
-// input[type="number"],
-// input[type="email"],
-// input[type="hidden"] {
-//   width: 100%;
-//   padding: 10px;
-//   margin-bottom: 10px;
-//   border: 1px solid #ccc;
-//   border-radius: 5px;
-//   font-size: 16px;
-// }
+/* Style for checkboxes and radio buttons */
+input[type="checkbox"],
+input[type="radio"] {
+  margin-right: 5px;
+}
 
-// form input[type=number] {
-//   max-width: 100%;
-// }
+/* Style for submit button */
+.submit-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 7px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
 
-// /* Style for select inputs */
-// select {
-//   width: 100%;
-//   padding: 10px;
-//   margin-bottom: 10px;
-//   border: 1px solid #ccc;
-//   border-radius: 5px;
-//   font-size: 16px;
-//   background-color: #fff;
-// }
+.text-fields-insider {
+  display: flex;
+  align-items: center;
+}
 
-// /* Style for file inputs */
-// input[type="file"] {
-//   width: 100%;
-//   margin-bottom: 10px;
-// }
+.submit-button:hover {
+  background-color: #0056b3;
+}
 
-// /* Style for checkboxes and radio buttons */
-// input[type="checkbox"],
-// input[type="radio"] {
-//   margin-right: 5px;
-// }
-
-// /* Style for submit button */
-// .submit-button {
-//   background-color: #007bff;
-//   color: #fff;
-//   border: none;
-//   border-radius: 5px;
-//   padding: 7px 20px;
-//   cursor: pointer;
-//   font-size: 16px;
-// }
-
-// .text-fields-insider {
-//   display: flex;
-//   align-items: center;
-// }
-
-// .submit-button:hover {
-//   background-color: #0056b3;
-// }
-
-// /* Style for error messages (customize as needed) */
-// .error-message {
-//   color: red;
-//   font-size: 14px;
-//   margin-top: 5px;
-// }
+/* Style for error messages (customize as needed) */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
 
 
 
-// // Toogle button 
-// .simple-form-checkbox-toggle {
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   padding: 10px;
-// }
+// Toogle button 
+.simple-form-checkbox-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
 
-// .switch-label {
-//   display: flex;
-//   align-items: center;
-//   cursor: pointer;
-// }
+.switch-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
 
-// .switch-input {
-//   position: absolute;
-//   opacity: 0;
-//   height: 0;
-//   width: 0;
-// }
+.switch-input {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
 
-// .slider {
-//   position: relative;
-//   display: inline-block;
-//   width: 40px;
-//   height: 20px;
-//   background-color: #ccc;
-//   border-radius: 20px;
-//   transition: background-color 0.4s;
-// }
+.slider {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 20px;
+  transition: background-color 0.4s;
+}
 
-// .slider.round {
-//   border-radius: 20px;
-// }
+.slider.round {
+  border-radius: 20px;
+}
 
-// .slider:before {
-//   position: absolute;
-//   content: "";
-//   height: 16px;
-//   width: 16px;
-//   left: 2px;
-//   bottom: 2px;
-//   background-color: white;
-//   border-radius: 50%;
-//   transition: transform 0.4s;
-// }
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.4s;
+}
 
-// .switch-input:checked+.slider {
-//   background-color: #2196F3;
-// }
+.switch-input:checked+.slider {
+  background-color: #2196F3;
+}
 
-// .switch-input:checked+.slider:before {
-//   transform: translateX(20px);
-// }
+.switch-input:checked+.slider:before {
+  transform: translateX(20px);
+}
 
-// // END 
+// END 
 
-// .simple_form_content .text-fields {
-//   display: flex !important;
-//   flex-direction: column !important;
-// }
+.simple_form_content .text-fields {
+  display: flex ;
+  flex-direction: column ;
+  margin-top: 5px;
+}
 
-// /* Floating WhatsApp Icon */
-// .floating-whatsapp {
-//   position: fixed;
-//   bottom: 20px;
-//   right: 20px;
-//   z-index: 1000;
-//   border-radius: 50%;
-// }
+.text-fields {
+  margin-top: 5px;
+}
 
-// .floating-whatsapp .whatsapp-icon {
-//   font-size: 24px;
-//   line-height: 1;
-//   color: #fff;
-//   border: none;
-//   background: transparent;
-//   padding: 10px;
-//   cursor: pointer;
-// }
+/* Floating WhatsApp Icon */
+.floating-whatsapp {
+  position: fixed ;
+  bottom: 20px ;
+  right: 20px ;
+  z-index: 1000 ;
+  border-radius: 50% ;
+}
 
-// /* Form Content */
-// .floating-whatsapp .form-content {
-//   display: none;
-//     position: absolute;
-//     bottom: 70px;
-//     right: 10px;
-//     width: 355px; 
-//     background-color: #fff;
-//     border: 1px solid #ccc;
-//     border-radius: 5px;
-//     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+.floating-whatsapp .whatsapp-icon {
+  font-size: 24px ;
+  line-height: 1 ;
+  color: #fff ;
+  border: none ;
+  background: transparent ;
+  padding: 10px ;
+  cursor: pointer ;
+}
 
-//     transition: height 0.3s ease-in-out;
-//     height: 0; /* Start with a height of 0 */
-//     overflow: hidden;
-// }
+/* Form Content */
+.floating-whatsapp .form-content {
+  display: none ;
+    position: absolute ;
+    bottom: 70px ;
+    right: 10px ;
+    width: 355px ; 
+    background-color: #fff ;
+    border: 1px solid #ccc ;
+    border-radius: 5px ;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5) ;
 
-// /* Show the form content when the form is active */
-// .floating-whatsapp .form-content.active {
-//   display: block;
-// }
+    transition: height 0.3s ease-in-out ;
+    height: 0 ; /* Start with a height of 0 */
+    overflow: hidden ;
+}
 
-// .form-content header {
-//   background: #293239;
-//   border-radius: 5px 5px 0 0;
-//   color: #fff;
-//   cursor: pointer;
-// }
+/* Show the form content when the form is active */
+.floating-whatsapp .form-content.active {
+  display: block ;
+}
 
-
-// .form-content h4:before {
-//   background: #1a8a34;
-//   border-radius: 50%;
-//   content: "";
-//   height: 8px;
-//   margin: 0 8px 0 0;
-//   width: 8px;
-// }
-
-// .form-content h4 {
-//   font-size: 13px;
-//   margin: 0;
-//   padding: 12px;
-//   color: white;
-// }
+.floating-whatsapp .form-content header {
+  background: #293239 ;
+  border-radius: 5px 5px 0 0 ;
+  color: #fff ;
+  cursor: pointer ;
+}
 
 
-// .main-search-btn {
-//   transition: all .35s;
-//   background: orange;
-//   border: transparent;
-//   color: #fff;
-//   padding: 10px 16px;
-//   margin-bottom: 12px;
-// }
-// .main-search-btn:hover {
-//    color: #fff;
-// }
+.floating-whatsapp .form-content h4:before {
+  background: #1a8a34 ;
+  border-radius: 50% ;
+  content: "" ;
+  height: 8px ;
+  margin: 0 8px 0 0 ;
+  width: 8px ;
+}
 
-// .simple_form_container{
-//   background: #f7f7f7;
-//   border: 1px solid #ddd;
-//   padding: 2px 15px;
-// }
+.floating-whatsapp .form-content h4 {
+  font-size: 13px ;
+  margin: 0 ;
+  padding: 12px ;
+  color: white ;
+}
+
+
+.floating-whatsapp .main-search-btn {
+  transition: all .35s ;
+  background: orange ;
+  border: transparent ;
+  color: #fff ;
+  padding: 10px 16px ;
+  margin-bottom: 12px ;
+}
+.floating-whatsapp .main-search-btn:hover {
+   color: #fff ;
+   background-color: #2196F3 ;
+}
+
+.simple_form_container_floating{
+  background: #f7f7f7 ;
+  border: 1px solid #ddd ;
+  padding: 2px 15px ;
+}
+
+
+@keyframes jumpAnimation {
+  0%, 100% {
+    transform: translateY(0) ;
+  }
+  50% {
+    transform: translateY(-10px) ;
+  }
+}
+
+/* Set animation duration to 10 seconds */
+#jumping-whatsapp {
+  animation: jumpAnimation 10s ease-in-out ; 
+  transition: transform 0.5s ;
+}
+
+/* Pause the animation on hover */
+#jumping-whatsapp:hover {
+  animation-play-state: paused ;
+}

@@ -5,6 +5,8 @@ import { view, DeleteIcon, Cross } from '../icons';
 import '../styles/_lead.scss';
 import Card from '../core/Card';
 import Modal from '../core/Modal';
+import { VerticalAlignBottom } from '@mui/icons-material';
+const cloudImage = require('../../../assets/public/icons/404-page.gif');
 
 
 const Leads = () => {
@@ -190,7 +192,11 @@ const Leads = () => {
         })
     ) : (
       <tr>
-        <td colSpan={5}>Leads empty!</td> 
+        <td style={{ textAlign: 'center' }}>
+        <div className="no-tables-intro-img">
+          <img style={{ width: '60vh', height: '40vh' }} src={cloudImage} alt="Cloud Icon" />
+        </div>
+      </td>
       </tr>
     );
     
@@ -203,11 +209,12 @@ const Leads = () => {
       ) : (
         <div className='main-leads-container'>
           <div className='leads-container'>
-            <div className='search-select-panel'>
+          <div className='search-select-panel'>
               <select
                 value={selectedId}
                 onChange={(e) => setSelectedId(e.target.value)}
               >
+                <option value="">Please choose one</option>
                 {tables.map((table) => (
                   <option key={table.id} value={table.id}>
                     {table.form_name}

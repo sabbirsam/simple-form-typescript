@@ -1,10 +1,10 @@
-=== Simple Form with Leads redirection to WhatsApp ===
+=== Simple Form- Drag and Drop builder with leads collection ===
 Contributors: devsabbirahmed, wpxpertise
-Tags: simple form, contact, form, contact form, feedback, email, ajax, captcha, akismet, multilingual, survey, free, custom form, contact form, form maker, form creator, simple
+Tags: simple form, contact, form, contact form, feedback, email, ajax, captcha, drag and drop, drag, WhatsApp, redirection, custom form, contact form, form maker, form creator, simple, easy form, leads redirection, whatsapp redirection
 Requires at least: 5.0 or higher
 Tested up to: 6.3
 Requires PHP: 5.4 or higher
-Stable Tag: 2.1.0
+Stable Tag: 2.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -70,6 +70,18 @@ You will then automatically be redirected to the "Data" page, from there you can
 
 
 == Changelog ==
+
+= 2.1.4 =
+* Fix: Assets loading problem fix
+
+= 2.1.3 =
+* Fix: Desin update
+
+= 2.1.2 =
+* Fix: Console error fix with JS loading error
+
+= 2.1.1 =
+* Fix: Floating widgets design 
 
 = 2.1.0 =
 * New: Improvement Simple Form settings panel

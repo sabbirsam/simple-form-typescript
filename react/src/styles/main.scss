@@ -13,9 +13,8 @@ All the default css will place here...
 
 .btn {
     padding: 15px 20px;
-    // background: #2bb885;
     background: #0d4c62;
-    border-radius: 8px;
+    border-radius: 3px;
     font-weight: 600;
     font-size: 16px;
     line-height: 21px;
@@ -27,6 +26,9 @@ All the default css will place here...
     border: none;
     transition: all 0.3s ease;
     cursor: pointer;
+    /* width: 21px; */
+    height: 50px;
+    white-space: nowrap;
 
     svg {
         margin-left: 10px;
@@ -186,14 +188,9 @@ All the default css will place here...
 
 // Shortcode button from dashboard
 .btn-shortcode {
-    padding: 6px 15px;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
-    color: #1e1e1e;
-    background: #ffffff;
-    border: 1px solid #e1e4ea;
-    border-radius: 16px;
+    border: none;
+    padding: 9px;
+    background: white;
     display: inline-flex;
     align-items: center;
     justify-content: center;

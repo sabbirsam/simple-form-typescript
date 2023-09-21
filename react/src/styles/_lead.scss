@@ -1,9 +1,5 @@
 /* styles.scss */
 
-.main-leads-container {
-  margin-top: 40px;
-}
-
 /* Style the table container */
 .table-container {
   max-width: 800px;
@@ -14,7 +10,7 @@
 
 /* Style the search input */
 #search {
-  width: 100%;
+  width: 30%;
   padding: 8px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
@@ -23,7 +19,8 @@
 
 /* Style the select field */
 select {
-  width: 100%;
+  width: 15rem;
+  max-width: 15rem;
   padding: 8px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
@@ -39,8 +36,8 @@ table {
 
 /* Style table headers */
 th {
-  background-color: #1d4d6d; /* Header background color */
-  color: #fff; /* Header text color */
+  background-color: #1d4d6d; 
+  color: #fff; 
   font-weight: bold;
   border: 1px solid #ccc;
   padding: 10px;
@@ -56,38 +53,15 @@ th, td {
 
 /* Style table rows with alternating background colors */
 tbody tr:nth-child(odd) {
-  background-color: #f2f2f2; /* Odd row background color */
+  background-color: #ffffff; 
+  // background-color: #f2f2f2; 
 }
 
 /* Style table rows on hover */
 tbody tr:hover {
-  background-color: #f5f5f5;
+  // background-color: #f5f5f5;
+  background-color: #ffffff; 
 }
-
-// table {
-//   width: 100%;
-//   border-collapse: collapse;
-// }
-
-// table, th, td {
-//   border: 1px solid #ccc;
-// }
-
-// th, td {
-//   padding: 10px;
-//   text-align: left;
-// }
-
-// /* Style the table header */
-// th {
-//   background-color: #f2f2f2;
-//   font-weight: bold;
-// }
-
-// /* Style table rows on hover */
-// tbody tr:hover {
-//   background-color: #f5f5f5;
-// }
 
 /* Style pagination */
 .pagination {
@@ -112,8 +86,8 @@ tbody tr:hover {
 .pagination li a {
   text-decoration: none;
   color: #007bff;
-  padding: 6px 12px; /* Adjust padding as needed */
-  border: 1px solid #007bff; /* Add border for buttons */
+  padding: 6px 12px; 
+  border: 1px solid #007bff; 
   border-radius: 4px;
 }
 

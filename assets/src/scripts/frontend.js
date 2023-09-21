@@ -20,6 +20,20 @@ function generateRenderedForm(formData) {
       case 'text':
       case 'number':
       case 'email':
+      case 'button':
+      case 'color':
+      case 'date':
+      case 'datetime-local':
+      case 'month':
+      case 'password':
+      case 'range':
+      case 'reset':
+      case 'search':
+      case 'submit':
+      case 'tel':
+      case 'time':
+      case 'url':
+      case 'url':
         html += `
           <div class="text-fields">
             <label for="${field.id}">${field.label}</label>
@@ -28,9 +42,26 @@ function generateRenderedForm(formData) {
         `;
         break;
   
+      case 'image':
+        html += `
+        <div class="text-fields">
+          <label for="${field.id}">${field.label}</label>
+          <input id="${field.id}" type="${field.type}" src="${field.src}" alt="${field.alt}" width="${field.width}" height="${field.height || ''}">
+        </div>
+        `;
+        break;
       case 'hidden':
         html += `
             <input id="${field.id}" type="${field.type}" name="${field.name}" placeholder="${field.placeholder}" class="${field.className}" value="${field.value || ''}"${fieldAttributes}>
+        `;
+        break;
+
+      case 'textarea':
+        html += `
+            <div class="text-fields">
+              <label for="${field.id}">${field.label}</label>
+              <textarea type="${field.type}" placeholder="${field.placeholder}" class="${field.className}" ${fieldAttributes} id="${field.id}" name="${field.name}" data-unique-id="${field.uniqueId}" subtype="type="${field.type}"></textarea>
+            </div>
         `;
         break;
 
@@ -340,6 +371,50 @@ window.addEventListener('load', function () {
     }
   }
 });
+
+/**
+window.addEventListener('load', function () {
+  // Get references to the WhatsApp icon and the form content
+  const whatsappIcon = document.querySelector('.whatsapp-icon');
+  const formContent = document.querySelector('.form-content');
+
+  let closingInterval; // Variable to hold the closing interval
+
+  // Toggle the "active" class and adjust the height of the form content when the icon is clicked
+  if (whatsappIcon) {
+    whatsappIcon.addEventListener('click', function () {
+      if (formContent.classList.contains('active')) {
+        // If active, start closing the form
+        clearInterval(closingInterval);
+        closingInterval = setInterval(() => {
+          const currentHeight = parseFloat(formContent.style.height);
+          if (currentHeight <= 0) {
+            clearInterval(closingInterval);
+            formContent.style.height = '0';
+            formContent.classList.remove('active');
+          } else {
+            formContent.style.height = (currentHeight - 10) + 'px';
+          }
+        }, 0); // Adjust the interval time for smoother animation
+      } else {
+        // If not active, open the form
+        formContent.classList.add('active');
+        adjustFormHeight(formContent);
+      }
+    });
+  }
+
+  function adjustFormHeight(element) {
+    if (element.classList.contains('active')) {
+      // Calculate the full height of the form content
+      element.style.height = element.scrollHeight + 'px';
+    } else {
+      // Set the height back to 0 for collapsing effect
+      element.style.height = '0';
+    }
+  }
+});
+ */
 
 
 // Function to restart the animation

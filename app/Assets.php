@@ -51,7 +51,7 @@ class Assets {
 				'SIMPLEFORM-admin',
 				SIMPLEFORM_BASE_URL . 'assets/admin.css',
 				'',
-				SIMPLEFORM_VERSION,
+				time(),
 				'all'
 			);
 
@@ -63,7 +63,7 @@ class Assets {
 				'SIMPLEFORM-app',
 				SIMPLEFORM_BASE_URL . 'react/build/index.css',
 				'',
-				SIMPLEFORM_VERSION,
+				time(),
 				'all'
 			);
 
@@ -71,7 +71,7 @@ class Assets {
 				'SIMPLEFORM-app',
 				SIMPLEFORM_BASE_URL . 'react/build/index.js',
 				$dependencies['dependencies'],
-				SIMPLEFORM_VERSION,
+				time(),
 				true
 			);
 
@@ -96,7 +96,7 @@ class Assets {
 				'SIMPLEFORM-admin-js',
 				SIMPLEFORM_BASE_URL . 'assets/public/scripts/backend/admin.min.js',
 				[ 'jquery' ],
-				SIMPLEFORM_VERSION,
+				time(),
 				true
 			);
 
@@ -110,75 +110,7 @@ class Assets {
 	 * @return mixed
 	 */
 	public function load_assets_for_shortcode( $content ) {
-
-		// Check if the page contains the desired shortcode.
-		$shortcode = 'simple_form';
-
-		if ( has_shortcode( $content, $shortcode ) ) {
-			$this->frontend_scripts();
-		}
-
-		if ( wp_validate_boolean( did_action( 'elementor/loaded' ) ) ) {
-			global $post;
-			$isBuiltWithElementor = \Elementor\Plugin::$instance->documents->get( $post->ID )->is_built_with_elementor();
-			if ($isBuiltWithElementor) {
-				if (has_shortcode($post->post_content, 'simple_form')) {
-					$this->frontend_scripts();
-				}
-			}
-			/* if ( is_admin() && defined( 'ELEMENTOR_PATH' ) && \Elementor\Plugin::$instance->editor->is_edit_mode() ) {} */
-		}
-
-		// Check if Visual Composer.
-		if ( defined( 'VCV_VERSION' ) ) {
-			$this->frontend_scripts();
-		}
-
-		// Check if Themify Builder is active.
-		if ( function_exists( 'themify_builder_loaded' ) && themify_builder_loaded() ) {
-			$this->frontend_scripts();
-		}
-
-		// Check if Divi is active.
-		if ( function_exists( 'et_divi_is_plugin_active' ) && et_divi_is_plugin_active() ) {
-			$this->frontend_scripts();
-		}
-
-		// Check if MotoPress is active.
-		if ( class_exists( 'MotoPress' ) ) {
-			$this->frontend_scripts();
-		}
-
-		// Check if Oxygen is active.
-		if ( class_exists( 'Oxygen' ) ) {
-			$this->frontend_scripts();
-		}
-
-		// Check if Thrive Architect is active.
-		if ( defined( 'TVE_VERSION' ) ) {
-			$this->frontend_scripts();
-		}
-
-		// Check if Stackable is active.
-		if ( class_exists( 'WP_Stackable' ) ) {
-			$this->frontend_scripts();
-		}
-
-		// Check if Brizy is active.
-		if ( class_exists( 'Brizy' ) ) {
-			$this->frontend_scripts();
-		}
-
-		// Check if SeedProd is active.
-		if ( class_exists( 'SeedProd' ) ) {
-			$this->frontend_scripts();
-		}
-
-		// ACF fields supports page or post.
-		if ( function_exists('get_field') ) {
-			$this->frontend_scripts();
-		}
-
+		$this->frontend_scripts();
 		return $content;
 	}
 
@@ -190,10 +122,18 @@ class Assets {
 	public function frontend_scripts() {
 	
 		wp_enqueue_style(
-			'simpleform-frontend-css',
+			'simpleform-frontend-minified',
 			SIMPLEFORM_BASE_URL . 'assets/public/styles/frontend.scss',
 			[],
-			SIMPLEFORM_VERSION,
+			time(),
+			'all'
+		);
+
+		wp_enqueue_style(
+			'simpleform-frontend-src',
+			SIMPLEFORM_BASE_URL . 'assets/src/styles/frontend/frontend.scss',
+			[],
+			time(),
 			'all'
 		);
 
@@ -201,7 +141,7 @@ class Assets {
 			'simpleform-frontend-js',
 			SIMPLEFORM_BASE_URL . 'assets/public/scripts/frontend/frontend.min.js',
 			[ 'jquery', 'jquery-ui-draggable' ],
-			SIMPLEFORM_VERSION,
+			time(),
 			true
 		);
 
@@ -209,7 +149,7 @@ class Assets {
 			'simpleform-sweet-alert-js',
 			SIMPLEFORM_BASE_URL . 'assets/public/library/sweetalert2@11.js',
 			[ 'jquery' ],
-			SIMPLEFORM_VERSION,
+			time(),
 			true
 		);
 		
@@ -235,7 +175,7 @@ class Assets {
 			'simpleform-sweet-alert-js',
 			SIMPLEFORM_BASE_URL . 'assets/public/library/sweetalert2@11.js',
 			[ 'jquery' ],
-			SIMPLEFORM_VERSION,
+			time(),
 			true
 		);
 		
