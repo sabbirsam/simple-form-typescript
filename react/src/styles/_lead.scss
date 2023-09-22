@@ -1,4 +1,12 @@
 /* styles.scss */
+.main-leads-container-leads,
+.simpleform-containers {
+	margin-right: auto;
+	margin-left: auto;
+	background: #ffffff;
+	padding: 50px;
+	
+}
 
 /* Style the table container */
 .table-container {
@@ -249,4 +257,9 @@ button.delete-button {
   .rwd-table td {
     padding: 1em !important;
   }
+}
+
+
+.main-leads-container {
+  margin-top: 15px;
 }

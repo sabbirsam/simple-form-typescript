@@ -197,6 +197,13 @@ window.addEventListener('load', function () {
     // Find the submit button within the current form container
     var submitButton = formContainer.querySelector('.submit-button');
 
+    // Create a div for displaying error messages
+    var errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.style.color = 'red';
+    formContainer.appendChild(errorDiv);
+    
+
     submitButton.addEventListener('click', function (event) {
 
       // Prevent the default form submission behavior
@@ -210,6 +217,7 @@ window.addEventListener('load', function () {
 
       // Create a flag to track if there are any required fields that are empty
       var hasEmptyRequiredFields = false;
+      var errorMessage = '';
 
       formElements.forEach(function (element) {
         // Check if the element has the "simple-form-checkbox-toggle" class
@@ -231,13 +239,35 @@ window.addEventListener('load', function () {
           // Remove any red border if the field is not empty
           element.style.border = '';
         }
+
+        // Add email validation
+        if (element.type === 'email' && !isValidEmail(element.value)) {
+          // Add a red border to indicate an invalid email
+          element.style.border = '1px solid red';
+          errorMessage = 'Email is not correct.';
+          hasEmptyRequiredFields = true;
+        }
+
+        // Add number validation
+        if (element.type === 'number' && !isValidNumber(element.value)) {
+          // Add a red border to indicate an invalid number
+          element.style.border = '1px solid red';
+          errorMessage = 'Please use the correct number format.';
+          hasEmptyRequiredFields = true;
+        }
+        
       });
 
       // If there are empty required fields, prevent form submission
-      if (hasEmptyRequiredFields) {
-        alert('Please fill out all required fields.');
+      if (hasEmptyRequiredFields || errorMessage) {
+        // alert('Please fill out all required fields.');
+        errorDiv.textContent = errorMessage || 'Please fill out all required fields.';
         return;
+      }else{
+         // Clear the error message if there are no errors
+        errorDiv.textContent = '';
       }
+
 
       // Add the nonce and formId to the formDataObject
       // formDataObject['nonce'] = nonce;
@@ -290,13 +320,23 @@ window.addEventListener('load', function () {
                   // END 
               }
               
-
               // Show a success message using SweetAlert
+              let timerInterval
               Swal.fire({
-                icon: 'success',
-                title: 'Success',
-                text: responseData.message,
-              });
+                title: 'Thanks for your submission',
+                html: 'We will contact you soon <br> Have a nice day.',
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: () => {
+                  Swal.showLoading()
+                  const b = Swal.getHtmlContainer().querySelector('b')
+                  timerInterval = setInterval(() => {
+                  }, 100)
+                },
+                willClose: () => {
+                  clearInterval(timerInterval)
+                }
+              })
             }
 
           } else {
@@ -310,6 +350,19 @@ window.addEventListener('load', function () {
     });
   });
 });
+
+
+// Helper function to validate email
+function isValidEmail(email) {
+  var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailPattern.test(email);
+}
+
+// Helper function to validate number
+function isValidNumber(number) {
+  var numberPattern = /^\d+$/;
+  return numberPattern.test(number);
+}
 
 
 function setCookie(name, value, days) {

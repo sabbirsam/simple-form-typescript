@@ -87,9 +87,6 @@ const Settings = () => {
     // console.log(settings);
   };
 
-// console.log(formSettings);
-// console.log(formSettings["whatsappRedirection"]);
-
   return (
     <div className="acb_bottom" id="acb_bottom">
       {/* <h3 className="upcomming">UPCOMMING</h3> */}
@@ -124,19 +121,6 @@ const Settings = () => {
           />
         </div>
 
-        {/* <div className="wpnts-switch-support">
-          <label htmlFor="supportnoti">Enable mail notification:</label>
-          <ReactSwitchsupport
-            checked={mailNotification}
-            className="supportSwitch-1"
-            name="wpnts-switch-support"
-            id="supportnoti"
-            onChange={(checked) => {
-              if (!isProUser) {  return; }
-              setMailNotification(checked)
-            }}
-          />
-        </div> */}
 
         {/* {!mailNotification && !whatsappRedirection && !floatingwidgets ? ( */}
         {!whatsappRedirection && !floatingwidgets ? (
@@ -228,23 +212,7 @@ const Settings = () => {
             </div>
           )}
 
-          {/* {mailNotification && (
-            <div className="formInput">
-              <label htmlFor="interval">Add recipient mail</label>
-              <div className="wpnts-setting">
-                <input
-                  type="email"
-                  placeholder="add email to receive mail"
-                  name="interval"
-                  value={recipientMail}
-                  onChange={(e) => setRecipientMail(e.target.value)}
-                />
-              </div>
-            </div>
-          )} */}
-
           
-          {/* {mailNotification || whatsappRedirection || floatingwidgets ? ( */}
           {whatsappRedirection || floatingwidgets ? (
             <button type="submit" className="save-webhook">
               SAVE

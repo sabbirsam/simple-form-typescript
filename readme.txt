@@ -75,7 +75,9 @@ You will then automatically be redirected to the "Data" page, from there you can
 == Changelog ==
 
 = 2.1.6 - 21 SEP 2023 =
-* Fix: 
+* Fix: Add validation in form submission
+* Fix: Minor UI improve
+* Fix: Code clean and refactor
 
 = 2.1.5 - 21 SEP 2023 =
 * Fix: Fix floating Widgets not working in testWP site
