@@ -4,7 +4,7 @@ Tags: simple form, contact, form, contact form, feedback, email, ajax, captcha, 
 Requires at least: 5.0 or higher
 Tested up to: 6.3
 Requires PHP: 5.4 or higher
-Stable Tag: 2.1.6
+Stable Tag: 2.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -74,12 +74,15 @@ You will then automatically be redirected to the "Data" page, from there you can
 
 == Changelog ==
 
+= 2.1.7 - 22 SEP 2023 =
+* Fix: Fix position of required text
+
 = 2.1.6 - 21 SEP 2023 =
 * Fix: Add validation in form submission
 * Fix: Minor UI improve
 * Fix: Code clean and refactor
 
-= 2.1.5 - 21 SEP 2023 =
+= 2.1.5 - 20 SEP 2023 =
 * Fix: Fix floating Widgets not working in testWP site
 
 = 2.1.4 - 12 SEP 2023 =
