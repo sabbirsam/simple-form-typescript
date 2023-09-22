@@ -208,6 +208,11 @@ input[type="radio"] {
   cursor: pointer ;
 }
 
+.floating-whatsapp .error-message {
+  position: absolute;
+  bottom: 60px;
+}
+
 
 .floating-whatsapp .form-content h4:before {
   background: #1a8a34 ;
