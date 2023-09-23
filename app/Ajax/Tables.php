@@ -49,7 +49,7 @@ class Tables {
 	public function create() {
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'SIMPLEFORM-admin-app-nonce-action' ) ) {
 			wp_send_json_error([
-				'message' => __( 'Invalid nonce.', '' ),
+				'message' => __( 'Invalid nonce.', 'simpleform' ),
 			]);
 		}
 
@@ -92,7 +92,7 @@ class Tables {
 	public function save_settings() {
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'SIMPLEFORM-admin-app-nonce-action' ) ) {
 			wp_send_json_error([
-				'message' => __( 'Invalid nonce.', '' ),
+				'message' => __( 'Invalid nonce.', 'simpleform' ),
 			]);
 		}
 
@@ -139,7 +139,7 @@ class Tables {
 	public function get_all() {
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'SIMPLEFORM-admin-app-nonce-action' ) ) {
 			wp_send_json_error([
-				'message' => __( 'Invalid nonce.', '' ),
+				'message' => __( 'Invalid nonce.', 'simpleform' ),
 			]);
 		}
 
@@ -347,7 +347,7 @@ class Tables {
 			'id'      => absint( $table_id ),
 			'form_name'     => esc_attr( $name ),
 			'form_fields' => json_encode( $from_data, true ),
-			'message' => __( 'Table updated successfully.', '' ),
+			'message' => __( 'Table updated successfully.', 'simpleform' ),
 
 		]);
 	}
@@ -361,7 +361,7 @@ class Tables {
 	public function rendertable() {
 		if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( $_GET['nonce'], 'simpleform_sheet_nonce_action' ) ) {
 			wp_send_json_error([
-				'message' => __( 'Invalid nonce.', '' ),
+				'message' => __( 'Invalid nonce.', 'simpleform' ),
 			]);
 		}
 
@@ -403,7 +403,7 @@ class Tables {
 		}
 
 		// Get the form data from the POST request.
-		$id = isset($_POST['id']) ? sanitize_text_field( wp_unslash($_POST['id'] ) ) : '';
+		$id = isset($_POST['id']) ? sanitize_text_field( wp_unslash($_POST['id'] ) ) : 'simpleform';
 		$form_data = isset($_POST['form_data']) ? json_decode( stripslashes( wp_unslash($_POST['form_data'] ) ), true) : [];
 
 		// error_log('Data Received: ' . print_r($form_data, true));
@@ -437,7 +437,7 @@ class Tables {
 				$whatsappNumber = $options['whatsappNumber'];
 				$openInNewTab = $options['openInNewTab'];
 
-				$whatsappNumber = preg_replace( '/[^0-9\+]/', '', $whatsappNumber );
+				$whatsappNumber = preg_replace( '/[^0-9\+]/', 'simpleform', $whatsappNumber );
 				if ( substr( $whatsappNumber, 0, 1 ) !== '+' ) {
 					$whatsappNumber = '+' . $whatsappNumber;
 				}
