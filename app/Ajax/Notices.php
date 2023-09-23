@@ -34,15 +34,15 @@ class Notices {
 	 * @since 2.12.15
 	 */
 	public function manageNotices() {
-		if ( ! wp_verify_nonce( $_POST['nonce'], 'SIMPLEFORM_notices_nonce' ) ) {
+		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash($_POST['nonce']) ), 'SIMPLEFORM_notices_nonce' ) ) {
 			wp_send_json_error([
-				'message' => __( 'Invalid action', 'sheetstowptable' ),
+				'message' => __( 'Invalid action', 'simpleform' ),
 			]);
 		}
 
-		$action_type = sanitize_text_field( $_POST['actionType'] );
-		$info_type   = sanitize_text_field( $_POST['info']['type'] );
-		$info_value  = sanitize_text_field( $_POST['info']['value'] );
+		$action_type = isset( $_POST['actionType'] ) ? sanitize_text_field( wp_unslash( $_POST['actionType'] ) ) : '';
+		$info_type   = isset( $_POST['info']['type'] ) ? sanitize_text_field( wp_unslash( $_POST['info']['type'] ) ) : '';
+		$info_value  = isset( $_POST['info']['value'] ) ? sanitize_text_field( wp_unslash( $_POST['info']['value'] ) ) : '';
 
 		if ( 'hide_notice' === $info_type ) {
 			$this->hideNotice( $action_type );

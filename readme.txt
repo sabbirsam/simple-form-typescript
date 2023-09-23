@@ -77,6 +77,8 @@ You will then automatically be redirected to the "Data" page, from there you can
 = 2.2.0 - 23 SEP 2023 =
 * New: Add design panel
 * New: Form customization feature
+* New: WPCS 3.0 compatibility
+
 
 
 = 2.1.7 - 22 SEP 2023 =

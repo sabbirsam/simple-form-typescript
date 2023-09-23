@@ -129,7 +129,7 @@ jQuery(document).ready(function($) {
 
 			$.ajax({
 				type: "POST",
-				url: "<?php echo admin_url( 'admin-ajax.php' ); ?>",
+				url: "<?php echo esc_url(admin_url( 'admin-ajax.php' )); ?>",
 				data: {
 					action: 'simpleform_notice_action',
 					nonce: '<?php echo esc_attr( wp_create_nonce( 'SIMPLEFORM_notices_nonce' ) ); ?>',
@@ -162,7 +162,7 @@ jQuery(document).ready(function($) {
 
 		$.ajax({
 			type: "POST",
-			url: "<?php echo admin_url( 'admin-ajax.php' ); ?>",
+			url: "<?php echo esc_url(admin_url( 'admin-ajax.php' )); ?>",
 			data: {
 				action: 'simpleform_notice_action',
 				nonce: '<?php echo esc_attr( wp_create_nonce( 'SIMPLEFORM_notices_nonce' ) ); ?>',
