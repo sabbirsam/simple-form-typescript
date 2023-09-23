@@ -84,5 +84,4 @@ class Notices {
 	public function showReviewNotice() {
 		load_template( SIMPLEFORM_BASE_PATH . 'app/templates/parts/review_notice.php' );
 	}
-
 }

@@ -36,7 +36,7 @@ class Notices {
 	public function manageNotices() {
 		if ( ! wp_verify_nonce( $_POST['nonce'], 'SIMPLEFORM_notices_nonce' ) ) {
 			wp_send_json_error([
-				'message' => __( 'Invalid action', 'sheetstowptable' )
+				'message' => __( 'Invalid action', 'sheetstowptable' ),
 			]);
 		}
 
@@ -65,7 +65,7 @@ class Notices {
 		}
 
 		wp_send_json_success([
-			'response_type' => 'success'
+			'response_type' => 'success',
 		]);
 	}
 
@@ -80,7 +80,7 @@ class Notices {
 		if ( 'hide_notice' === $info_value ) {
 			$this->hideNotice( $action_type );
 			wp_send_json_success([
-				'response_type' => 'success'
+				'response_type' => 'success',
 			]);
 		} else {
 
@@ -89,7 +89,7 @@ class Notices {
 			}
 
 			wp_send_json_success([
-				'response_type' => 'success'
+				'response_type' => 'success',
 			]);
 		}
 	}

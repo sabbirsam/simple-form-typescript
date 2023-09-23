@@ -248,18 +248,11 @@ window.addEventListener('load', function () {
           hasEmptyRequiredFields = true;
         }
 
-        if (element.type === 'text' && !isValidEmail(element.value)) {
-          // Add a red border to indicate an invalid email
-          element.style.border = '1px solid red';
-          errorMessage = 'Please fill out all required fields.';
-          hasEmptyRequiredFields = true;
-        }
-
         // Add number validation
         if (element.type === 'number' && !isValidNumber(element.value)) {
           // Add a red border to indicate an invalid number
           element.style.border = '1px solid red';
-          errorMessage = 'Please use the correct format.';
+          errorMessage = 'Please fillup required field and maintain its format.';
           hasEmptyRequiredFields = true;
         }
         

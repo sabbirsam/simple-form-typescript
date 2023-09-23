@@ -56,7 +56,7 @@ class Assets {
 			);
 
 			if ( ! SIMPLEFORM()->helpers->is_pro_active() ) {
-			
+
 			}
 
 			wp_enqueue_style(
@@ -77,13 +77,12 @@ class Assets {
 
 			$icons = apply_filters( 'export_buttons_logo_backend', false );
 
-		
 			$localize = [
 				'nonce'            => wp_create_nonce( 'SIMPLEFORM-admin-app-nonce-action' ),
 				'icons'            => $icons,
 				'tables'           => SIMPLEFORM()->database->table->get_all(),
 				'formsettings'     => SIMPLEFORM()->database->table->get_settings(),
-				'ran_setup_wizard' => wp_validate_boolean( get_option( 'SIMPLEFORM_ran_setup_wizard', false ) )
+				'ran_setup_wizard' => wp_validate_boolean( get_option( 'SIMPLEFORM_ran_setup_wizard', false ) ),
 			];
 
 			wp_localize_script(
@@ -120,7 +119,7 @@ class Assets {
 	 * @since 2.12.15
 	 */
 	public function frontend_scripts() {
-	
+
 		wp_enqueue_style(
 			'simpleform-frontend-minified',
 			SIMPLEFORM_BASE_URL . 'assets/public/styles/frontendcss.min.css',
@@ -144,7 +143,6 @@ class Assets {
 			time(),
 			true
 		);
-		
 
 		$iconsURLs = apply_filters( 'export_buttons_logo_frontend', false );
 
@@ -152,7 +150,7 @@ class Assets {
 			'admin_ajax'           => esc_url( admin_url( 'admin-ajax.php' ) ),
 			'isProActive'          => SIMPLEFORM()->helpers->is_pro_active(),
 			'iconsURL'             => $iconsURLs,
-			'nonce'                => wp_create_nonce( 'simpleform_sheet_nonce_action' )
+			'nonce'                => wp_create_nonce( 'simpleform_sheet_nonce_action' ),
 		]);
 	}
 
@@ -170,7 +168,5 @@ class Assets {
 			time(),
 			true
 		);
-		
 	}
-
 }

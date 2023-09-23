@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 3.0.0
  */
-final class Database {
+class Database {
 
 	/**
 	 * Contains plugins database migrations.

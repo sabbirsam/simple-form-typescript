@@ -213,6 +213,21 @@ input[type="radio"] {
   bottom: 60px;
 }
 
+.cta-text {
+  font-size: 14px;
+  margin-top: 5px;
+  color: #000;
+  position: absolute;
+  right: 74px;
+  bottom: 31px;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 1rem;
+  border-width: 1px;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.10196), 0 1px 2px -1px rgba(0,0,0,0.10196);
+}
 
 .floating-whatsapp .form-content h4:before {
   background: #1a8a34 ;

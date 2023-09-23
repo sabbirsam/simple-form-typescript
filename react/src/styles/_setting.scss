@@ -50,7 +50,7 @@
             font-size: 17px;
             text-align: left;
             display: flex;
-            margin-bottom: 25px;
+            margin-bottom: 35px;
 
             label {
               margin-top: 4px;
@@ -70,6 +70,9 @@
       .reviewSwitch{
         margin-left: 85px;
       }  
+      .customizationSwitch{
+        margin-left: 102px;
+      }  
       .supportSwitch-1{
         margin-left: 132px;
       }
@@ -87,6 +90,34 @@
       flex: 2 !important; 
       margin: 25px;
       margin-top: 37px;
+
+
+      .wpnts-setting {
+        
+        .FlotingSelectionbg {
+          width: 154px;
+          height: 58px;
+          margin-left: 59px;
+        }
+        .colorSelectionbg {
+          width: 154px;
+          height: 58px;
+          margin-left: 43px;
+        }
+
+        .colorSelectiontext {
+          width: 154px;
+          height: 58px;
+          margin-left: 35px;
+        }
+
+        .colorSelectionhover {
+          width: 154px;
+          height: 58px;
+          margin-left: 25px;
+        }
+      }
+
 
       form{
           position: relative;
@@ -152,7 +183,11 @@
               cursor: pointer;
               float: left;
             }
-    }
+      }
+
+      .seperationLine hr{
+        width: 45vh;
+      }
         
 
   }

@@ -14,12 +14,21 @@ const Settings = () => {
   const [selectedWhatsapp, setSelectedWhatsapp] = useState(formSettings.selectedWhatsapp || null);
   const [isProUser, setisProUser] = useState(true);
   const [whatsappRedirection, setWhatsappRedirection] = useState(formSettings.whatsappRedirection === 'true');
+  const [formCustomization, setformCustomization] = useState(formSettings.formCustomization === 'true');
   const [mailNotification, setMailNotification] = useState(formSettings.mailNotification === 'true');
   const [floatingwidgets, setFloating] = useState(formSettings.floatingwidgets === 'true');
   const [whatsappNumber, setWhatsappNumber] = useState(formSettings.whatsappNumber || "");
   const [openInNewTab, setOpenInNewTab] = useState(formSettings.openInNewTab === 'true');
   const [recipientMail, setRecipientMail] = useState(formSettings.recipientMail || "");
+  const [submitbtntext, setSubmitbtntext] = useState(formSettings.submitbtntext || 'Send');
+  const [formheader, setFormheader] = useState(formSettings.formheader || "");
+  const [formcta, setFormCTA] = useState(formSettings.formcta || "");
 
+  const [submitbtnbgcolor, setSubmitbtnbgcolor] = useState(formSettings.submitbtnbgcolor || "");
+  const [flotingwidgetsbgcolor, setFlotingwidgetsbgcolor] = useState(formSettings.flotingwidgetsbgcolor || "");
+  const [submitbtntextcolor, setSubmitbtntextcolor] = useState(formSettings.submitbtntextcolor || "");
+  const [submitbtntexthovercolor, setSubmitbtntexthovercolor] = useState(formSettings.submitbtntexthovercolor || "");
+  const [selectedFont, setSelectedFont] = useState(formSettings.selectedFont || "" );
   const isSaveButtonDisabled = !whatsappRedirection && !mailNotification;
 
   useEffect(() => {
@@ -42,12 +51,20 @@ const Settings = () => {
     const settings = {
       whatsappRedirection,
       mailNotification,
+      formCustomization,
       floatingwidgets,
       whatsappNumber,
       openInNewTab,
       recipientMail,
       selectedTable,
       selectedWhatsapp,
+      flotingwidgetsbgcolor,
+      submitbtntext,
+      formheader,
+      submitbtnbgcolor,
+      submitbtntextcolor,
+      selectedFont,
+      formcta
       
     };
 
@@ -87,6 +104,31 @@ const Settings = () => {
     // console.log(settings);
   };
 
+
+    const fontList = [
+      'Arial',
+      'Verdana',
+      'Times New Roman',
+      'Helvetica',
+      'Courier New',
+      'circular',
+      'auto',
+      'cursive',
+      'emoji',
+      'fangsong',
+      'fantasy',
+      'inherit',
+      'initial',
+      'monospace',
+      'system-ui',
+      'ui-monospace',
+      'unset'
+    ];
+
+    const handleFontChange = (e) => {
+      setSelectedFont(e.target.value);
+    };
+
   return (
     <div className="acb_bottom" id="acb_bottom">
       {/* <h3 className="upcomming">UPCOMMING</h3> */}
@@ -115,6 +157,23 @@ const Settings = () => {
             onChange={(checked) => {
               if (!isProUser) {  return; }
               setWhatsappRedirection(checked);
+            }}
+            disabled={!isProUser}
+            
+          />
+        </div>
+
+
+        <div className="wpnts-switch-review">
+          <label htmlFor="reviewnoti">Enable Form customization:</label>
+          <ReactSwitchreview
+            checked={formCustomization}
+            className="customizationSwitch"
+            name="wpnts-switch-review"
+            id="form-customization"
+            onChange={(checked) => {
+              if (!isProUser) {  return; }
+              setformCustomization(checked);
             }}
             disabled={!isProUser}
             
@@ -156,6 +215,11 @@ const Settings = () => {
                   ))}
                 </select>
               </div>
+
+                <div className="seperationLine">
+                <hr />
+                </div>
+
             </div>
           )}
           
@@ -209,11 +273,140 @@ const Settings = () => {
                   </select>
                 </div>
                 </div>
+
+                <div className="seperationLine">
+                <hr />
+                </div>
+
+            </div>
+          )}
+
+
+          {formCustomization && (
+            <div>
+              
+                <div className="formInput">
+                <label htmlFor="webhook">Submit button text</label>
+                  <div className="wpnts-setting">
+                  <input
+                      type="text"
+                      name="interval_review"
+                      value={submitbtntext}
+                      onChange={(e) => setSubmitbtntext(e.target.value)}
+                    />
+                  </div>
+                </div>
+
+
+                <div className="formInput">
+                <label htmlFor="webhook">Form Header text</label>
+                  <div className="wpnts-setting">
+                  <input
+                      type="text"
+                      name="interval_review"
+                      value={formheader}
+                      onChange={(e) => setFormheader(e.target.value)}
+                    />
+                  </div>
+                </div>
+
+                <div className="formInput">
+                <label htmlFor="webhook">Form CTA text</label>
+                  <div className="wpnts-setting">
+                  <input
+                      type="text"
+                      name="interval_review"
+                      value={formcta}
+                      onChange={(e) => setFormCTA(e.target.value)}
+                    />
+                  </div>
+                </div>
+
+                <div className="formInput">
+                  <label htmlFor="selectedFont">Select Font</label>
+                  <div className="wpnts-setting">
+                    <select
+                      id="selectedFont"
+                      name="selectedFont"
+                      value={selectedFont}
+                      onChange={handleFontChange}
+                    >
+                      <option value="">Select a font</option>
+                      {fontList.map((font) => (
+                        <option key={font} value={font}>
+                          {font}
+                        </option>
+                      ))}
+                    </select>
+                    {/* {selectedFont && (
+                      <p style={{ fontFamily: selectedFont, fontSize:'15px' }}>Selected font: {selectedFont}</p>
+                    )} */}
+                  </div>
+                 
+                </div>
+
+                <div className="formInput open-new-tab">
+                  <label htmlFor="interval_review">Floting widgets color</label>
+                  <div className="wpnts-setting">
+                    <input
+                      className="FlotingSelectionbg"
+                      type="color"
+                      name="interval_review"
+                      value={flotingwidgetsbgcolor}
+                      onChange={(e) => setFlotingwidgetsbgcolor(e.target.value)}
+                    />
+                  </div>
+                </div>
+
+
+                <div className="formInput open-new-tab">
+                  <label htmlFor="interval_review">Submit button BG color</label>
+                  <div className="wpnts-setting">
+                    <input
+                      className="colorSelectionbg"
+                      type="color"
+                      name="interval_review"
+                      value={submitbtnbgcolor}
+                      onChange={(e) => setSubmitbtnbgcolor(e.target.value)}
+                    />
+                  </div>
+                </div>
+
+                <div className="formInput open-new-tab">
+                  <label htmlFor="interval_review">Submit button text color</label>
+                  <div className="wpnts-setting">
+                    <input
+                      className="colorSelectiontext"
+                      type="color"
+                      name="interval_review"
+                      value={submitbtntextcolor}
+                      onChange={(e) => setSubmitbtntextcolor(e.target.value)}
+                    />
+                  </div>
+                </div>
+
+                <div className="formInput open-new-tab">
+                  <label htmlFor="interval_review">Submit button hover color</label>
+                  <div className="wpnts-setting">
+                    <input
+                      className="colorSelectionhover"  
+                      type="color"
+                      name="interval_review"
+                      value={submitbtntexthovercolor}
+                      onChange={(e) => setSubmitbtntexthovercolor(e.target.value)}
+                    />
+                  </div>
+                </div>
+
+                <div className="seperationLine">
+                <hr />
+                </div>
+
             </div>
           )}
 
           
-          {whatsappRedirection || floatingwidgets ? (
+          {whatsappRedirection || floatingwidgets || formCustomization ? (
             <button type="submit" className="save-webhook">
               SAVE
             </button>

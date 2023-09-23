@@ -2507,7 +2507,7 @@ button.delete-button {
   font-size: 17px;
   text-align: left;
   display: flex;
-  margin-bottom: 25px;
+  margin-bottom: 35px;
 }
 .acb_top .acb_left .wpnts-switch-review label,
 .acb_top .acb_left .wpnts-switch-support label,
@@ -2532,6 +2532,9 @@ button.delete-button {
 .acb_top .acb_left .reviewSwitch, .acb_bottom .acb_left .reviewSwitch {
   margin-left: 85px;
 }
+.acb_top .acb_left .customizationSwitch, .acb_bottom .acb_left .customizationSwitch {
+  margin-left: 102px;
+}
 .acb_top .acb_left .supportSwitch-1, .acb_bottom .acb_left .supportSwitch-1 {
   margin-left: 132px;
 }
@@ -2542,6 +2545,26 @@ button.delete-button {
   flex: 2 !important;
   margin: 25px;
   margin-top: 37px;
+}
+.acb_top .acb_right .wpnts-setting .FlotingSelectionbg, .acb_bottom .acb_right .wpnts-setting .FlotingSelectionbg {
+  width: 154px;
+  height: 58px;
+  margin-left: 59px;
+}
+.acb_top .acb_right .wpnts-setting .colorSelectionbg, .acb_bottom .acb_right .wpnts-setting .colorSelectionbg {
+  width: 154px;
+  height: 58px;
+  margin-left: 43px;
+}
+.acb_top .acb_right .wpnts-setting .colorSelectiontext, .acb_bottom .acb_right .wpnts-setting .colorSelectiontext {
+  width: 154px;
+  height: 58px;
+  margin-left: 35px;
+}
+.acb_top .acb_right .wpnts-setting .colorSelectionhover, .acb_bottom .acb_right .wpnts-setting .colorSelectionhover {
+  width: 154px;
+  height: 58px;
+  margin-left: 25px;
 }
 .acb_top .acb_right form, .acb_bottom .acb_right form {
   position: relative;
@@ -2599,6 +2622,9 @@ button.delete-button {
   font-weight: bold;
   cursor: pointer;
   float: left;
+}
+.acb_top .acb_right .seperationLine hr, .acb_bottom .acb_right .seperationLine hr {
+  width: 45vh;
 }
 
 .acb_bottom {

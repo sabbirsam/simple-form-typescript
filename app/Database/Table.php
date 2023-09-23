@@ -18,7 +18,7 @@ defined( 'ABSPATH' ) || exit;
  */
 class Table {
 
-	
+
 
 	/**
 	 * Insert table into the db.
@@ -28,21 +28,20 @@ class Table {
 	 */
 	public function insert( array $data ) {
 		global $wpdb;
-		
+
 		// Initialize an array to store the formatted data
 		$formatted_data = [];
 
 		// Extract values from the $data array and format them.
-		foreach ($data as $key => $value) {
-			if ($key === 'form_fields') {
+		foreach ( $data as $key => $value ) {
+			if ( $key === 'form_fields' ) {
 				// Serialize the form_fields array as a JSON string.
-				$formatted_data[$key] = json_encode($value);
+				$formatted_data[ $key ] = json_encode($value);
 			} else {
 				// Use the %s format for non-array values.
-				$formatted_data[$key] = is_array($value) ? '' : $value;
+				$formatted_data[ $key ] = is_array($value) ? '' : $value;
 			}
 		}
-
 
 		$table  = $wpdb->prefix . 'simple_form_tables';
 		$format = [ '%s', '%s', '%s', '%s' ];
@@ -60,21 +59,20 @@ class Table {
 	 */
 	public function insertleads( array $data ) {
 		global $wpdb;
-		
+
 		// Initialize an array to store the formatted data
 		$formatted_data = [];
 
 		// Extract values from the $data array and format them.
-		foreach ($data as $key => $value) {
-			if ($key === 'fields') {
+		foreach ( $data as $key => $value ) {
+			if ( $key === 'fields' ) {
 				// Serialize the form_fields array as a JSON string.
-				$formatted_data[$key] = json_encode($value);
+				$formatted_data[ $key ] = json_encode($value);
 			} else {
 				// Use the %s format for non-array values.
-				$formatted_data[$key] = is_array($value) ? '' : $value;
+				$formatted_data[ $key ] = is_array($value) ? '' : $value;
 			}
 		}
-
 
 		$table  = $wpdb->prefix . 'simple_form_leads';
 		$format = [ '%s', '%s', '%s', '%s' ];
@@ -99,15 +97,15 @@ class Table {
 		return ! is_null( $result ) ? $result : null;
 	}
 
-	public function getleads(int $id) {
+	public function getleads( int $id ) {
 		global $wpdb;
 		$table = $wpdb->prefix . 'simple_form_leads';
-	
+
 		$results = $wpdb->get_results($wpdb->prepare("SELECT * FROM $table WHERE form_id = %d", absint($id)), ARRAY_A);
-	
-		return !empty($results) ? $results : null;
+
+		return ! empty($results) ? $results : null;
 	}
-	
+
 
 	/**
 	 * Update table with specific ID.
@@ -123,16 +121,15 @@ class Table {
 		$formatted_data = [];
 
 		// Extract values from the $data array and format them.
-		foreach ($data as $key => $value) {
-			if ($key === 'form_fields') {
+		foreach ( $data as $key => $value ) {
+			if ( $key === 'form_fields' ) {
 				// Serialize the form_fields array as a JSON string.
-				$formatted_data[$key] = json_encode($value);
+				$formatted_data[ $key ] = json_encode($value);
 			} else {
 				// Use the %s format for non-array values.
-				$formatted_data[$key] = is_array($value) ? '' : $value;
+				$formatted_data[ $key ] = is_array($value) ? '' : $value;
 			}
 		}
-
 
 		$where  = [ 'id' => $id ];
 		$format = [ '%s', '%s', '%s', '%s' ];
@@ -181,7 +178,7 @@ class Table {
 	public function get_settings() {
 		$options = get_option('form_settings');
 		// return $options ? $options : [];
-		if ($options) {
+		if ( $options ) {
 			return $options;
 		} else {
 			return array(
@@ -189,13 +186,11 @@ class Table {
 				'mailNotification' => false,
 				'openInNewTab' => false,
 				'whatsappRedirection' => false,
-				'recipientMail' => "",
-				'selectedTable' => "",
-				'selectedWhatsapp' => "",
-				'whatsappNumber' => "",
+				'recipientMail' => '',
+				'selectedTable' => '',
+				'selectedWhatsapp' => '',
+				'whatsappNumber' => '',
 			);
 		}
 	}
-
-
 }

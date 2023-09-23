@@ -34,7 +34,7 @@ class Helpers {
 	 *
 	 * @return boolean
 	 */
-	public function is_pro_active():bool {
+	public function is_pro_active(): bool {
 		$license = function_exists( 'SIMPLEFORMpro' ) ? SIMPLEFORMpro()->license_status : false;
 
 		return in_array( 'sheets-to-wp-table-live-sync-pro/sheets-to-wp-table-live-sync-pro.php', get_option( 'active_plugins', [] ), true ) && $license;
@@ -66,7 +66,7 @@ class Helpers {
 	 * @since 3.0.0
 	 * @return bool
 	 */
-	public function is_latest_version():bool {
+	public function is_latest_version(): bool {
 		return version_compare( SIMPLEFORM_VERSION, '1.4.0', '>' );
 	}
 }

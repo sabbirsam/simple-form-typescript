@@ -26,20 +26,20 @@ class Settings {
 	public function get() {
 		if ( ! wp_verify_nonce( $_POST['nonce'], 'simpleform-admin-app-nonce-action' ) ) {
 			wp_send_json_error([
-				'message' => __( 'Invalid nonce.', '' )
+				'message' => __( 'Invalid nonce.', '' ),
 			]);
 		}
 
 		wp_send_json_success([
 			'async' => get_option( 'asynchronous_loading', false ),
-			'css'   => get_option( 'css_code_value' )
+			'css'   => get_option( 'css_code_value' ),
 		]);
 	}
 
 	public function save() {
 		if ( ! wp_verify_nonce( $_POST['nonce'], 'simpleform-admin-app-nonce-action' ) ) {
 			wp_send_json_error([
-				'message' => __( 'Invalid nonce.', '' )
+				'message' => __( 'Invalid nonce.', '' ),
 			]);
 		}
 
@@ -51,7 +51,7 @@ class Settings {
 		wp_send_json_success([
 			'message' => __( 'Settings saved successfully.', '' ),
 			'async' => get_option( 'asynchronous_loading', false ),
-			'css'   => get_option( 'css_code_value' )
+			'css'   => get_option( 'css_code_value' ),
 		]);
 	}
 }

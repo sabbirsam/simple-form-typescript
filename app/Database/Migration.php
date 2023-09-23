@@ -86,5 +86,4 @@ class Migration {
 		include_once ABSPATH . 'wp-admin/includes/upgrade.php';
 		dbDelta( $sql );
 	}
-
 }

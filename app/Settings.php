@@ -28,16 +28,16 @@ class Settings {
 				'inputName' => 'tableStyle',
 				'isPro'     => false,
 				'isChecked' => true,
-				'label'     => 'Default Style'
+				'label'     => 'Default Style',
 			],
 			'style-1'       => [
 				'imgUrl'    => SIMPLEFORM_BASE_URL . 'assets/public/images/',
 				'inputName' => 'tableStyle',
 				'isPro'     => true,
 				'isChecked' => false,
-				'label'     => 'Style 1'
+				'label'     => 'Style 1',
 			],
-			
+
 		];
 
 		$stylesArray = apply_filters( 'simpleform_table_styles', $stylesArray );
@@ -51,9 +51,9 @@ class Settings {
 		$scrollHeights = [
 			'200'  => [
 				'val'   => '200px',
-				'isPro' => true
+				'isPro' => true,
 			],
-			
+
 		];
 
 		$scrollHeights = apply_filters( 'simpleform_table_scorll_height', $scrollHeights );
@@ -68,7 +68,7 @@ class Settings {
 		$responsiveStyles = [
 			'default_style'  => [
 				'val'   => 'Default Style',
-				'isPro' => false
+				'isPro' => false,
 			],
 		];
 
@@ -88,7 +88,7 @@ class Settings {
 				'input_name'    => 'show_title',
 				'checked'       => false,
 				'type'          => 'checkbox',
-				'show_tooltip'  => true
+				'show_tooltip'  => true,
 			],
 			'show_info_block'      => [
 				'feature_title' => __( 'Show info block', 'sheetstowptable' ),
@@ -96,10 +96,10 @@ class Settings {
 				'input_name'    => 'info_block',
 				'checked'       => true,
 				'type'          => 'checkbox',
-				'show_tooltip'  => true
+				'show_tooltip'  => true,
 
 			],
-			
+
 		];
 
 		$settingsArray = apply_filters( 'simpleform_display_settings_arr', $settingsArray );
@@ -118,7 +118,7 @@ class Settings {
 				'input_name'    => 'sorting',
 				'checked'       => true,
 				'type'          => 'checkbox',
-				'show_tooltip'  => true
+				'show_tooltip'  => true,
 			],
 			'search_bar'    => [
 				'feature_title' => __( 'Search Bar', 'sheetstowptable' ),
@@ -126,8 +126,8 @@ class Settings {
 				'input_name'    => 'search_table',
 				'checked'       => true,
 				'type'          => 'checkbox',
-				'show_tooltip'  => true
-			]
+				'show_tooltip'  => true,
+			],
 		];
 
 		$settingsArray = apply_filters( 'simpleform_sortfilter_settings_arr', $settingsArray );
@@ -142,17 +142,17 @@ class Settings {
 		$rowsPerPage = [
 			'1'   => [
 				'val'   => 1,
-				'isPro' => false
+				'isPro' => false,
 			],
 			'5'   => [
 				'val'   => 5,
-				'isPro' => false
+				'isPro' => false,
 			],
 			'10'  => [
 				'val'   => 10,
-				'isPro' => false
+				'isPro' => false,
 			],
-			
+
 		];
 
 		$rowsPerPage = apply_filters( 'simpleform_rows_per_page', $rowsPerPage );
@@ -167,12 +167,12 @@ class Settings {
 		$cellFormats = [
 			'wrap'   => [
 				'val'   => 'Wrap Style',
-				'isPro' => true
+				'isPro' => true,
 			],
 			'expand' => [
 				'val'   => 'Expanded Style',
-				'isPro' => true
-			]
+				'isPro' => true,
+			],
 		];
 
 		$cellFormats = apply_filters( 'simpleform_cell_format', $cellFormats );
@@ -187,12 +187,12 @@ class Settings {
 		$redirectionTypes = [
 			'_blank' => [
 				'val'   => 'Blank Type',
-				'isPro' => true
+				'isPro' => true,
 			],
 			'_self'  => [
 				'val'   => 'Self Type',
-				'isPro' => true
-			]
+				'isPro' => true,
+			],
 		];
 
 		$redirectionTypes = apply_filters( 'simpleform_redirection_types', $redirectionTypes );

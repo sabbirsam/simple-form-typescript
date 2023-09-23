@@ -32,24 +32,24 @@ class Shortcode {
 		if ( defined( 'ELEMENTOR_VERSION' ) && \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
 			return $this->table_shortcode( $atts );
 		} else {
-			
+
 			return $this->table_shortcode( $atts );
 		}
 	}
-	
-	public function table_shortcode($atts){
+
+	public function table_shortcode( $atts ) {
 
 		$output = '<h5><b>' . __( 'Form may be deleted or can\'t be loaded.', 'simpleform' ) . '</b></h5><br>';
 		$shortcodeID = isset($atts['id']) ? absint($atts['id']) : null;
 		$form_id = 'simple_form_' . uniqid();
-	
-		if ($shortcodeID !== null) {
+
+		if ( $shortcodeID !== null ) {
 			$form_data = SIMPLEFORM()->database->table->get($shortcodeID);
-	
-			if ($form_data !== null && isset($form_data['id'])) {
+
+			if ( $form_data !== null && isset($form_data['id']) ) {
 				// Generate a unique identifier for the markup element based on the shortcode ID.
 				$markup_id = 'markup_' . esc_attr($form_id);
-	
+
 				$output = '
 					<div class="simple_form_container ' . esc_attr($form_id) . '" data-form-id="' . esc_attr($shortcodeID) . '" data-nonce="' . esc_attr(wp_create_nonce('simpleform_sheet_nonce_action')) . '">
 						<form class="simple_form" data-form-id="' . esc_attr($shortcodeID) . '" data-nonce="' . esc_attr(wp_create_nonce('simpleform_sheet_nonce_action')) . '">
@@ -62,14 +62,12 @@ class Shortcode {
 					</div>
 					<br><br>
 				';
-	
+
 				// Pass the unique markup identifier as an attribute to the JavaScript code.
 				$output .= '<script type="text/javascript">var markupId = "' . esc_js($markup_id) . '";</script>';
 			}
 		}
-	
+
 		return $output;
 	}
-	
-	
 }

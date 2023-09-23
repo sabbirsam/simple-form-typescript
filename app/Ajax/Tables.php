@@ -27,12 +27,12 @@ class Tables {
 	public function __construct() {
 		add_action( 'wp_ajax_simpleform_create_form', [ $this, 'create' ] );
 		add_action( 'wp_ajax_simpleform_save_settings', [ $this, 'save_settings' ] );
-		
+
 		add_action( 'wp_ajax_simpleform_get_tables', [ $this, 'get_all' ] );
 		add_action( 'wp_ajax_simpleform_get_leads', [ $this, 'get_all_leads' ] );
 
-		add_action( 'wp_ajax_simpleform_delete_table', [ $this, 'delete' ] );  
-		add_action( 'wp_ajax_simpleform_delete_leads', [ $this, 'delete_leads' ] );  
+		add_action( 'wp_ajax_simpleform_delete_table', [ $this, 'delete' ] );
+		add_action( 'wp_ajax_simpleform_delete_leads', [ $this, 'delete_leads' ] );
 
 		add_action( 'wp_ajax_simpleform_edit_table', [ $this, 'edit' ] );
 		add_action( 'wp_ajax_simpleform_save_table', [ $this, 'save' ] );
@@ -49,23 +49,22 @@ class Tables {
 	public function create() {
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'SIMPLEFORM-admin-app-nonce-action' ) ) {
 			wp_send_json_error([
-				'message' => __( 'Invalid nonce.', '' )
+				'message' => __( 'Invalid nonce.', '' ),
 			]);
 		}
 
-		function sanitize_text_or_array_field($array_or_string) {
-			if( is_string($array_or_string) ){
+		function sanitize_text_or_array_field( $array_or_string ) {
+			if ( is_string($array_or_string) ) {
 				$array_or_string = sanitize_text_field($array_or_string);
-			}elseif( is_array($array_or_string) ){
+			} elseif ( is_array($array_or_string) ) {
 				foreach ( $array_or_string as $key => &$value ) {
 					if ( is_array( $value ) ) {
 						$value = sanitize_text_or_array_field($value);
-					}
-					else {
+					} else {
 						$value = sanitize_text_field( $value );
 					}
 				}
-			} 
+			}
 			return $array_or_string;
 		}
 
@@ -73,16 +72,15 @@ class Tables {
 		$from_data = isset( $_POST['formdata'] ) ? sanitize_text_or_array_field( $_POST['formdata'] ) : [];
 
 		// error_log( 'Data Received: ' . print_r( $from_data, true ) );
-		
+
 		$table = [
-			'form_name'     => $name ,
+			'form_name'     => $name,
 			'form_fields'     => $from_data,
 			'time'     => current_time('mysql'),
 		];
 
 		$table_id = SIMPLEFORM()->database->table->insert( $table );
 
-		
 		wp_send_json_success([
 			'id'      => absint( $table_id ),
 			'form_name'      => $name,
@@ -94,23 +92,22 @@ class Tables {
 	public function save_settings() {
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'SIMPLEFORM-admin-app-nonce-action' ) ) {
 			wp_send_json_error([
-				'message' => __( 'Invalid nonce.', '' )
+				'message' => __( 'Invalid nonce.', '' ),
 			]);
 		}
 
-		function sanitize_text_or_array_field($array_or_string) {
-			if( is_string($array_or_string) ){
+		function sanitize_text_or_array_field( $array_or_string ) {
+			if ( is_string($array_or_string) ) {
 				$array_or_string = sanitize_text_field($array_or_string);
-			}elseif( is_array($array_or_string) ){
+			} elseif ( is_array($array_or_string) ) {
 				foreach ( $array_or_string as $key => &$value ) {
 					if ( is_array( $value ) ) {
 						$value = sanitize_text_or_array_field($value);
-					}
-					else {
+					} else {
 						$value = sanitize_text_field( $value );
 					}
 				}
-			} 
+			}
 			return $array_or_string;
 		}
 
@@ -123,7 +120,7 @@ class Tables {
 
 		if ( false === get_option( 'form_settings' ) ) {
 			wp_send_json_error([
-				'message' => esc_html__( 'Failed to save settings.', 'simpleform' )
+				'message' => esc_html__( 'Failed to save settings.', 'simpleform' ),
 			]);
 		}
 
@@ -142,34 +139,31 @@ class Tables {
 	public function get_all() {
 		if ( ! wp_verify_nonce( $_POST['nonce'], 'SIMPLEFORM-admin-app-nonce-action' ) ) {
 			wp_send_json_error([
-				'message' => __( 'Invalid nonce.', '' )
+				'message' => __( 'Invalid nonce.', '' ),
 			]);
 		}
 
 		$tables = SIMPLEFORM()->database->table->get_all();
 
-	
 		wp_send_json_success([
 			'tables'       => $tables,
-			'tables_count' => count( $tables )
+			'tables_count' => count( $tables ),
 		]);
-
 	}
 
 
 	public function get_all_leads() {
 		if ( ! wp_verify_nonce( $_POST['nonce'], 'SIMPLEFORM-admin-app-nonce-action' ) ) {
 			wp_send_json_error([
-				'message' => __( 'Invalid nonce.', '' )
+				'message' => __( 'Invalid nonce.', '' ),
 			]);
 		}
 
 		$table_id = ! empty( $_POST['form_id'] ) ? absint( $_POST['form_id'] ) : 0;
 
-
 		if ( ! $table_id ) {
 			wp_send_json_error([
-				'message' => __( 'Invalid table to edit.', 'simpleform' )
+				'message' => __( 'Invalid table to edit.', 'simpleform' ),
 			]);
 		}
 
@@ -180,17 +174,13 @@ class Tables {
 		if ( ! $table ) {
 			wp_send_json_error([
 				'type'   => 'invalid_request',
-				'output' => esc_html__( 'Request is invalid', 'simpleform' )
+				'output' => esc_html__( 'Request is invalid', 'simpleform' ),
 			]);
 		}
 
 		wp_send_json_success([
 			'tables'       => $table,
 		]);
-
-	
-
-
 	}
 
 
@@ -203,7 +193,7 @@ class Tables {
 	public function delete() {
 		if ( ! wp_verify_nonce( $_POST['nonce'], 'SIMPLEFORM-admin-app-nonce-action' ) ) {
 			wp_send_json_error([
-				'message' => __( 'Invalid nonce.', '' )
+				'message' => __( 'Invalid nonce.', '' ),
 			]);
 		}
 
@@ -217,29 +207,28 @@ class Tables {
 				wp_send_json_success([
 					'message'      => sprintf( __( '%s form deleted.', '' ), $response ),
 					'tables'       => $tables,
-					'tables_count' => count( SIMPLEFORM()->database->table->get_all() )
+					'tables_count' => count( SIMPLEFORM()->database->table->get_all() ),
 				]);
 			}
 
 			wp_send_json_error([
 				'message'      => sprintf( __( 'Failed to delete form with id %d' ), $id ),
 				'tables'       => $tables,
-				'tables_count' => count( SIMPLEFORM()->database->table->get_all() )
+				'tables_count' => count( SIMPLEFORM()->database->table->get_all() ),
 			]);
 		}
-
 
 		wp_send_json_error([
 			'message'      => sprintf( __( 'Invalid table to perform delete.' ), $id ),
 			'tables'       => $tables,
-			'tables_count' => count( SIMPLEFORM()->database->table->get_all() )
+			'tables_count' => count( SIMPLEFORM()->database->table->get_all() ),
 		]);
 	}
 
 	public function delete_leads() {
 		if ( ! wp_verify_nonce( $_POST['nonce'], 'SIMPLEFORM-admin-app-nonce-action' ) ) {
 			wp_send_json_error([
-				'message' => __( 'Invalid nonce.', '' )
+				'message' => __( 'Invalid nonce.', '' ),
 			]);
 		}
 
@@ -253,22 +242,21 @@ class Tables {
 				wp_send_json_success([
 					'message'      => sprintf( __( '%s form deleted.', '' ), $response ),
 					'tables'       => $tables,
-					'tables_count' => count( SIMPLEFORM()->database->table->get_all() )
+					'tables_count' => count( SIMPLEFORM()->database->table->get_all() ),
 				]);
 			}
 
 			wp_send_json_error([
 				'message'      => sprintf( __( 'Failed to delete form with id %d' ), $id ),
 				'tables'       => $tables,
-				'tables_count' => count( SIMPLEFORM()->database->table->get_all() )
+				'tables_count' => count( SIMPLEFORM()->database->table->get_all() ),
 			]);
 		}
-
 
 		wp_send_json_error([
 			'message'      => sprintf( __( 'Invalid table to perform delete.' ), $id ),
 			'tables'       => $tables,
-			'tables_count' => count( SIMPLEFORM()->database->table->get_all() )
+			'tables_count' => count( SIMPLEFORM()->database->table->get_all() ),
 		]);
 	}
 
@@ -281,7 +269,7 @@ class Tables {
 	public function edit() {
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'SIMPLEFORM-admin-app-nonce-action' ) ) {
 			wp_send_json_error([
-				'message' => __( 'Invalid nonce.', '' )
+				'message' => __( 'Invalid nonce.', '' ),
 			]);
 		}
 
@@ -291,7 +279,7 @@ class Tables {
 
 		if ( ! $table_id ) {
 			wp_send_json_error([
-				'message' => __( 'Invalid table to edit.', 'simpleform' )
+				'message' => __( 'Invalid table to edit.', 'simpleform' ),
 			]);
 		}
 
@@ -300,7 +288,7 @@ class Tables {
 		if ( ! $table ) {
 			wp_send_json_error([
 				'type'   => 'invalid_request',
-				'output' => esc_html__( 'Request is invalid', 'simpleform' )
+				'output' => esc_html__( 'Request is invalid', 'simpleform' ),
 			]);
 		}
 
@@ -310,7 +298,7 @@ class Tables {
 
 		wp_send_json_success([
 			'form_name'     => esc_attr( $table['form_name'] ),
-			'table_settings' => $settings
+			'table_settings' => $settings,
 		]);
 	}
 
@@ -321,34 +309,32 @@ class Tables {
 	public function save() {
 		if ( ! wp_verify_nonce( $_POST['nonce'], 'SIMPLEFORM-admin-app-nonce-action' ) ) {
 			wp_send_json_error([
-				'message' => __( 'Invalid nonce.', '' )
+				'message' => __( 'Invalid nonce.', '' ),
 			]);
 		}
 
-		function sanitize_text_or_array_field($array_or_string) {
-			if( is_string($array_or_string) ){
+		function sanitize_text_or_array_field( $array_or_string ) {
+			if ( is_string($array_or_string) ) {
 				$array_or_string = sanitize_text_field($array_or_string);
-			}elseif( is_array($array_or_string) ){
+			} elseif ( is_array($array_or_string) ) {
 				foreach ( $array_or_string as $key => &$value ) {
 					if ( is_array( $value ) ) {
 						$value = sanitize_text_or_array_field($value);
-					}
-					else {
+					} else {
 						$value = sanitize_text_field( $value );
 					}
 				}
-			} 
+			}
 			return $array_or_string;
 		}
 
-		
 		$id = ! empty( $_POST['id'] ) ? absint( $_POST['id'] ) : false;
 		$name     = isset( $_POST['name'] ) ? sanitize_text_field( $_POST['name'] ) : __( 'Untitled', 'simpleform' );
 		$from_data = isset( $_POST['formdata'] ) ? sanitize_text_or_array_field( $_POST['formdata'] ) : [];
 
 		$table = [
-			'id'  => $id ,
-			'form_name'     => $name ,
+			'id'  => $id,
+			'form_name'     => $name,
 			'form_fields'     => $from_data,
 			'time'     => current_time('mysql'),
 		];
@@ -357,15 +343,13 @@ class Tables {
 
 		$table_id = SIMPLEFORM()->database->table->update( $id, $table );
 
-		
 		wp_send_json_success([
 			'id'      => absint( $table_id ),
 			'form_name'     => esc_attr( $name ),
-			'form_fields' => json_encode( $from_data , true ),
+			'form_fields' => json_encode( $from_data, true ),
 			'message' => __( 'Table updated successfully.', '' ),
-			
-		]);
 
+		]);
 	}
 
 
@@ -377,32 +361,32 @@ class Tables {
 	public function rendertable() {
 		if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( $_GET['nonce'], 'simpleform_sheet_nonce_action' ) ) {
 			wp_send_json_error([
-				'message' => __( 'Invalid nonce.', '' )
+				'message' => __( 'Invalid nonce.', '' ),
 			]);
 		}
-	
+
 		$table_id = ! empty( $_GET['id'] ) ? absint( $_GET['id'] ) : 0;
-	
+
 		if ( ! $table_id ) {
 			wp_send_json_error([
-				'message' => __( 'Invalid table to edit.', 'simpleform' )
+				'message' => __( 'Invalid table to edit.', 'simpleform' ),
 			]);
 		}
-	
+
 		$table = SIMPLEFORM()->database->table->get( $table_id );
-	
+
 		if ( ! $table ) {
 			wp_send_json_error([
 				'type'   => 'invalid_request',
-				'output' => esc_html__( 'Request is invalid', 'simpleform' )
+				'output' => esc_html__( 'Request is invalid', 'simpleform' ),
 			]);
 		}
-	
+
 		$settings   = json_decode( $table['form_fields'], true );
-	
+
 		wp_send_json_success([
 			'form_name'     => esc_attr( $table['form_name'] ),
-			'table_settings' => $settings
+			'table_settings' => $settings,
 		]);
 	}
 
@@ -412,26 +396,24 @@ class Tables {
 	 * @since 3.0.0
 	 */
 	public function get_submitdata() {
-		if (!wp_verify_nonce($_POST['nonce'], 'simpleform_sheet_nonce_action')) {
+		if ( ! wp_verify_nonce($_POST['nonce'], 'simpleform_sheet_nonce_action') ) {
 			wp_send_json_error([
-				'message' => __('Invalid nonce.', 'simpleform')
+				'message' => __('Invalid nonce.', 'simpleform'),
 			]);
 		}
-		
+
 		// Get the form data from the POST request.
 		$id = isset($_POST['id']) ? sanitize_text_field($_POST['id']) : '';
 		$form_data = isset($_POST['form_data']) ? json_decode(stripslashes($_POST['form_data']), true) : [];
-	
+
 		// error_log('Data Received: ' . print_r($form_data, true));
 
-		
-	
 		$table = [
 			'form_id' => $id,
 			'fields' => $form_data,
 			'time' => current_time('mysql'),
 		];
-	
+
 		$table_id = SIMPLEFORM()->database->table->insertleads($table);
 
 		/**
@@ -440,23 +422,23 @@ class Tables {
 		$options = get_option('form_settings');
 
 		$selectedWhatsapp = isset($options['selectedWhatsapp']) ? $options['selectedWhatsapp'] : [];
-		$mailNotification = isset($options['mailNotification']) ? $options['mailNotification'] : "false";
+		$mailNotification = isset($options['mailNotification']) ? $options['mailNotification'] : 'false';
 		$recipientMail = isset($options['recipientMail']) ? $options['recipientMail'] : null;
 
-		if (in_array($id, $selectedWhatsapp)) {
+		if ( in_array($id, $selectedWhatsapp) ) {
 
-			// WhatsApp redirection 
-			if (isset($options['whatsappRedirection']) && $options['whatsappRedirection'] === 'true') {
+			// WhatsApp redirection
+			if ( isset($options['whatsappRedirection']) && $options['whatsappRedirection'] === 'true' ) {
 
 				$whatsappNumber = $options['whatsappNumber'];
 				$openInNewTab = $options['openInNewTab'];
-	
+
 				$whatsappNumber = preg_replace( '/[^0-9\+]/', '', $whatsappNumber );
-				if ( substr( $whatsappNumber, 0, 1 ) != '+' ) {
+				if ( substr( $whatsappNumber, 0, 1 ) !== '+' ) {
 					$whatsappNumber = '+' . $whatsappNumber;
 				}
-				
-				if ('true' != $openInNewTab) {
+
+				if ( 'true' !== $openInNewTab ) {
 					// Ensure $form_data is a string by joining array elements
 					$form_data_str = is_array($form_data) ? implode(' ', $form_data) : $form_data;
 					$wh_url = 'https://wa.me/' . $whatsappNumber . '?text=' . urlencode(html_entity_decode($form_data_str));
@@ -465,32 +447,26 @@ class Tables {
 					$form_data_str = is_array($form_data) ? implode(' ', $form_data) : $form_data;
 					$wh_url = 'https://web.whatsapp.com/send?phone=' . $whatsappNumber . '&text=' . urlencode(html_entity_decode($form_data_str));
 				}
-	
-	
+
 				$simple_form_new_opt = [];
 				// Send to WhatsApp now it has no used as url set from JS with new update code.
-				$simple_form_new_opt['simple_form_whatsapp_url'] = $wh_url; 
+				$simple_form_new_opt['simple_form_whatsapp_url'] = $wh_url;
 				$simple_form_new_opt['simple_form_whatsapp_number'] = $whatsappNumber;
 				$simple_form_new_opt['simple_form_whatsapp_data'] = $form_data;
 				$simple_form_new_opt['simple_form_new_tab'] = $openInNewTab;
-	
+
 				// Add nonce.
 				$nonce = wp_create_nonce( 'simple_form_submission' );
 				$simple_form_new_opt['nonce'] = $nonce;
-	
+
 				$cookie_name = 'simple_form_whatsapp_data';
 				setcookie($cookie_name, json_encode($simple_form_new_opt), time() + ( 86400 * 30 ), '/');
 			}
-
 		}
 
-		
-	
 		wp_send_json_success([
 			'message' => __('Form data received and processed successfully.', 'simpleform'),
 			'form_data' => $table,
 		]);
 	}
-	
-
 }

@@ -50,9 +50,9 @@ class Admin {
 			$submenu['simpleform-dashboard'][] = [ __( 'Dashboard', 'simpleform-dashboard' ), 'manage_options', 'admin.php?page=simpleform-dashboard#/' ]; // phpcs:ignore
 
 			$submenu['simpleform-dashboard'][] = [ __( 'Create Form', 'simpleform-dashboard' ), 'manage_options', 'admin.php?page=simpleform-dashboard#/create-form' ]; // phpcs:ignore
-		
+
 			$submenu['simpleform-dashboard'][] = [ __( 'Leads', 'simpleform-dashboard' ), 'manage_options', 'admin.php?page=simpleform-dashboard#/Leads' ]; // phpcs:ignore
-			
+
 			$submenu['simpleform-dashboard'][] = [ __( 'Settings', 'simpleform-dashboard' ), 'manage_options', 'admin.php?page=simpleform-dashboard#/settings' ]; // phpcs:ignore
 		}
 	}
@@ -66,7 +66,4 @@ class Admin {
 		echo '<div id="simpleform-app-root"></div>';
 		echo '<div id="simpleform-app-portal"></div>';
 	}
-
-	
-	
 }

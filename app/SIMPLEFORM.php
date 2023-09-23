@@ -16,7 +16,7 @@ namespace SIMPLEFORM {
 	 *
 	 * @since 2.12.15
 	 */
-	final class SIMPLEFORM {
+	class SIMPLEFORM {
 
 		/**
 		 * Holds the instance of the plugin currently in use.
@@ -116,20 +116,20 @@ namespace SIMPLEFORM {
 		}
 
 		/**
-		 * Class constructor.   
+		 * Class constructor.
 		 *
 		 * @since 2.12.15
 		 */
 		public function init() {
 			$this->includes();
-            $this->loader();
+			$this->loader();
 
 			if ( SIMPLEFORM()->helpers->version_check() ) {
 				return;
 			}
 		}
 
-        /**
+		/**
 		 * Instantiate plugin available classes.
 		 *
 		 * @since 2.12.15
@@ -171,10 +171,9 @@ namespace SIMPLEFORM {
 			$this->floatingWidgets   = new \SIMPLEFORM\FloatingWidget();
 			$this->database    = new \SIMPLEFORM\Database();
 			$this->ajax        = new \SIMPLEFORM\Ajax();
-
 		}
 
-		
+
 
 		/**
 		 * Add plugin action links.
@@ -189,22 +188,21 @@ namespace SIMPLEFORM {
 					esc_url( admin_url( 'admin.php?page=simpleform-dashboard' ) ),
 					esc_html__( 'Dashboard', 'simpleform' )
 				),
-				
+
 			];
 
-            // if ( ! $this->helpers->check_pro_plugin_exists() ) {
-			// 	array_push(
-			// 		$plugin,
-			// 		sprintf(
-			// 			'<a style="font-weight: bold; color: #ff3b00; text-transform: uppercase; font-style: italic;"
-			// 				href="%s"
-			// 				target="_blank">%s</a>',
-			// 			esc_url( '#' ),
-			// 			esc_html__( 'Get Pro', 'sheetstowptable' )
-			// 		)
-			// 	);
+			// if ( ! $this->helpers->check_pro_plugin_exists() ) {
+			// array_push(
+			// $plugin,
+			// sprintf(
+			// '<a style="font-weight: bold; color: #ff3b00; text-transform: uppercase; font-style: italic;"
+			// href="%s"
+			// target="_blank">%s</a>',
+			// esc_url( '#' ),
+			// esc_html__( 'Get Pro', 'sheetstowptable' )
+			// )
+			// );
 			// }
-
 
 			return array_merge( $links, $plugin );
 		}
@@ -244,7 +242,6 @@ namespace SIMPLEFORM {
 			add_option( 'gswptsReviewNotice', false );
 
 			add_option( 'deafaultNoticeInterval', ( time() + 7 * 24 * 60 * 60 ) );
-
 
 			flush_rewrite_rules();
 		}
