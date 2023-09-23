@@ -74,9 +74,9 @@ You will then automatically be redirected to the "Data" page, from there you can
 
 == Changelog ==
 
-= 2.2.0 - 22 SEP 2023 =
+= 2.2.0 - 23 SEP 2023 =
 * New: Add design panel
-* New: Submit button text changer
+* New: Form customization feature
 
 
 = 2.1.7 - 22 SEP 2023 =
