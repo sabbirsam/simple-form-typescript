@@ -24,7 +24,7 @@ const CreateForm = () => {
   // Add state to keep track of whether the field is being edited
   const [isEditingField, setIsEditingField] = useState(false);
 
-  console.log(isEditingField)
+  // console.log(isEditingField)
 
   const handleClosePopup = () => {
     setCreateTableModal(false);
@@ -116,7 +116,7 @@ const CreateForm = () => {
   const handleSaveFormtoDB = () => {
     setFormData(formFields);
     setShowjson((showjson) => !showjson);
-    console.log('formFields:', formFields);
+    // console.log('formFields:', formFields);
     Swal.fire({
       text: 'Are you done!',
       icon: 'info',
@@ -141,7 +141,7 @@ const CreateForm = () => {
           },
 
           success({ id }) {
-            console.log(allData);
+            // console.log(allData);
             Swal.fire({
               position: 'center',
               icon: 'success',
@@ -259,7 +259,7 @@ const CreateForm = () => {
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
                             // className="draggable-field"
-                            className={`draggable-field ${isEditingField && field.uniqueId === editingField.uniqueId
+                            className={`draggable-field ${isEditingField && field && editingField && field.uniqueId === editingField.uniqueId
                               ? 'remove-background'
                               : ''
                               }`}
@@ -267,7 +267,7 @@ const CreateForm = () => {
                             {/* Render the field using the RenderField component */}
                             <RenderField field={field} />
                             {/* <button className='form-edit' onClick={() => handleEditField(field.uniqueId)}>{EditIcon}</button> */}
-                            <button className={`form-edit ${isEditingField && field.uniqueId === editingField.uniqueId
+                            <button className={`form-edit ${isEditingField && field && editingField && field.uniqueId === editingField.uniqueId
                               ? 'remove-background'
                               : ''
                               }`}

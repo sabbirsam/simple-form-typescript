@@ -17337,7 +17337,9 @@ const CreateForm = () => {
 
   // Add state to keep track of whether the field is being edited
   const [isEditingField, setIsEditingField] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
-  console.log(isEditingField);
+
+  // console.log(isEditingField)
+
   const handleClosePopup = () => {
     setCreateTableModal(false);
     setShowjson(showjson => !showjson);
@@ -17419,7 +17421,7 @@ const CreateForm = () => {
   const handleSaveFormtoDB = () => {
     setFormData(formFields);
     setShowjson(showjson => !showjson);
-    console.log('formFields:', formFields);
+    // console.log('formFields:', formFields);
     Swal.fire({
       text: 'Are you done!',
       icon: 'info',
@@ -17443,7 +17445,7 @@ const CreateForm = () => {
           success({
             id
           }) {
-            console.log(allData);
+            // console.log(allData);
             Swal.fire({
               position: 'center',
               icon: 'success',
@@ -17550,11 +17552,11 @@ const CreateForm = () => {
     ...provided.draggableProps,
     ...provided.dragHandleProps,
     // className="draggable-field"
-    className: `draggable-field ${isEditingField && field.uniqueId === editingField.uniqueId ? 'remove-background' : ''}`
+    className: `draggable-field ${isEditingField && field && editingField && field.uniqueId === editingField.uniqueId ? 'remove-background' : ''}`
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Render__WEBPACK_IMPORTED_MODULE_6__["default"], {
     field: field
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    className: `form-edit ${isEditingField && field.uniqueId === editingField.uniqueId ? 'remove-background' : ''}`,
+    className: `form-edit ${isEditingField && field && editingField && field.uniqueId === editingField.uniqueId ? 'remove-background' : ''}`,
     onClick: () => {
       handleEditField(field.uniqueId);
       setIsEditingField(true); // Set editing state to false when removing
@@ -18190,7 +18192,8 @@ const CreateForm = () => {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
     getTableData();
   }, []);
-  console.log(formJson);
+
+  // console.log(formJson);
 
   /**
    * Update table in DB
@@ -18198,7 +18201,9 @@ const CreateForm = () => {
   const handleUpdateFormtoDB = () => {
     setFormData(formFields);
     setShowjson(showjson => !showjson);
-    console.log('formFields:', formFields);
+
+    // console.log('formFields:', formFields);
+
     Swal.fire({
       text: 'Are you done!',
       icon: 'info',
@@ -18318,11 +18323,11 @@ const CreateForm = () => {
     ...provided.draggableProps,
     ...provided.dragHandleProps,
     // className="draggable-field"
-    className: `draggable-field ${isEditingField && field.uniqueId === editingField.uniqueId ? 'remove-background' : ''}`
+    className: `draggable-field ${isEditingField && field && editingField && field.uniqueId === editingField.uniqueId ? 'remove-background' : ''}`
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Render__WEBPACK_IMPORTED_MODULE_7__["default"], {
     field: field
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    className: `form-edit ${isEditingField && field.uniqueId === editingField.uniqueId ? 'remove-background' : ''}`,
+    className: `form-edit ${isEditingField && field && editingField && field.uniqueId === editingField.uniqueId ? 'remove-background' : ''}`,
     onClick: () => {
       handleEditField(field.uniqueId);
       setIsEditingField(true); // Set editing state to false when removing

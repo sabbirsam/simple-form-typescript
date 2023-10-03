@@ -192,7 +192,7 @@ const CreateForm = () => {
   }, []);
 
 
-  console.log(formJson);
+  // console.log(formJson);
 
 
 
@@ -203,7 +203,7 @@ const CreateForm = () => {
     setFormData(formFields);
     setShowjson((showjson) => !showjson);
 
-    console.log('formFields:', formFields);
+    // console.log('formFields:', formFields);
 
     Swal.fire({
       text: 'Are you done!',
@@ -327,7 +327,7 @@ const CreateForm = () => {
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
                             // className="draggable-field"
-                            className={`draggable-field ${isEditingField && field.uniqueId === editingField.uniqueId
+                            className={`draggable-field ${isEditingField && field && editingField && field.uniqueId === editingField.uniqueId
                               ? 'remove-background'
                               : ''
                               }`}
@@ -337,7 +337,7 @@ const CreateForm = () => {
                             {/* <button className='form-edit' onClick={() => handleEditField(field.uniqueId)}>
                               {EditIcon}
                             </button> */}
-                            <button className={`form-edit ${isEditingField && field.uniqueId === editingField.uniqueId
+                            <button className={`form-edit ${isEditingField && field && editingField && field.uniqueId === editingField.uniqueId
                               ? 'remove-background'
                               : ''
                               }`}
