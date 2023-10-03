@@ -4,7 +4,7 @@ Tags: simple form, contact, form, contact form, feedback, email, ajax, captcha, 
 Requires at least: 5.0 or higher
 Tested up to: 6.3
 Requires PHP: 5.4 or higher
-Stable Tag: 2.2.0
+Stable Tag: 2.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -74,12 +74,13 @@ You will then automatically be redirected to the "Data" page, from there you can
 
 == Changelog ==
 
+= 2.2.1 - 03 OCT 2023 =
+* New: Improvement Canvas editor side panel
+
 = 2.2.0 - 23 SEP 2023 =
 * New: Add design panel
 * New: Form customization feature
 * New: WPCS 3.0 compatibility
-
-
 
 = 2.1.7 - 22 SEP 2023 =
 * Fix: Fix position of required text
