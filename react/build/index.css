@@ -1293,6 +1293,8 @@
 .simpleform-container {
   margin-top: 46px;
   padding: 0px;
+  max-width: 100% !important;
+  width: 100%;
 }
 
 .simpleform-container-fluid.hero,
@@ -1986,28 +1988,52 @@ h2 {
   text-align: center;
 }
 
+.form-builder-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
 .form-builder {
   display: flex;
   justify-content: space-between;
   margin: 20px;
+  width: 70%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
 }
 
 .form-fields {
-  width: 25%;
+  width: 20%;
   border: 1px solid #ccc;
   padding: 10px;
   background-color: #f9f9f9;
   position: sticky;
-  top: 0;
-  height: 80%;
+  top: 65px;
 }
 
 .form-canvas {
-  width: 65%;
+  width: 75%;
   border: 1px solid #ccc;
   padding: 10px;
   background-color: #f9f9f9;
-  overflow-y: auto; /* Add scroll when content exceeds the height */
+  overflow-y: auto;
+  /* Add scroll when content exceeds the height */
+}
+
+.edit-field-form {
+  border: 1px solid #ccc;
+  padding: 21px;
+  background-color: #f9f9f9;
+  margin: 10px;
+  width: 40%;
+  height: 100%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+  position: sticky;
+  top: 65px;
 }
 
 .draggable-field-container {
@@ -2018,6 +2044,8 @@ h2 {
 .form-btn-group {
   display: flex;
   flex-direction: row;
+  margin-bottom: 40px;
+  margin-left: -10px;
 }
 
 .draggable-field {
@@ -2080,7 +2108,7 @@ button.form-remove:hover {
   height: 65px;
 }
 .simple-form-id-panel label {
-  flex: 1;
+  flex: 2;
   white-space: nowrap;
   margin-right: 10px;
 }
@@ -2093,14 +2121,42 @@ button.form-remove:hover {
 .simple-form-id-panel .select-type-class,
 .simple-form-id-panel input[type=checkbox] {
   position: absolute;
-  left: calc(8% + 7px);
+  left: calc(12% + 17px);
+  border: none;
+}
+.simple-form-id-panel input[type=checkbox],
+.simple-form-id-panel input[type=radio] {
+  border: 1px solid #8c8f94 !important;
+  margin-top: 1px;
+  border-radius: 4px;
+  background: #fff;
+  color: #50575e;
+  clear: none;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 0;
+  height: 1rem;
+  margin: -0.25px 0.25rem 0px 0;
+  outline: 0;
 }
 
 .simple-form-text input[type=text],
 .simple-form-text input[type=textarea] {
-  width: 68vh;
+  width: 50vh;
 }
-.simple-form-text input[type=date], .simple-form-text input[type=datetime-local], .simple-form-text input[type=datetime], .simple-form-text input[type=email], .simple-form-text input[type=month], .simple-form-text input[type=number], .simple-form-text input[type=password], .simple-form-text input[type=search], .simple-form-text input[type=tel], .simple-form-text input[type=text], .simple-form-text input[type=time], .simple-form-text input[type=url], .simple-form-text input[type=week] {
+.simple-form-text input[type=date],
+.simple-form-text input[type=datetime-local],
+.simple-form-text input[type=datetime],
+.simple-form-text input[type=email],
+.simple-form-text input[type=month],
+.simple-form-text input[type=number],
+.simple-form-text input[type=password],
+.simple-form-text input[type=search],
+.simple-form-text input[type=tel],
+.simple-form-text input[type=text],
+.simple-form-text input[type=time],
+.simple-form-text input[type=url],
+.simple-form-text input[type=week] {
   padding: 14px 20px 15px 45px;
   background: #ffffff;
   border: 1px solid #edeff1;
@@ -2111,11 +2167,13 @@ button.form-remove:hover {
   line-height: 21px;
   color: #666873;
   outline: none;
-  width: 68vh;
+  width: 50vh;
   height: 50px;
 }
-.simple-form-text input[type=text], .simple-form-text select, .simple-form-text textarea {
-  width: 68vh;
+.simple-form-text input[type=text],
+.simple-form-text select,
+.simple-form-text textarea {
+  width: 50vh;
 }
 
 .select-fields-panel {
@@ -2153,7 +2211,8 @@ button.form-remove:hover {
   margin-left: 11px;
 }
 
-button.jsonbtn, button#saveData {
+button.jsonbtn,
+button#saveData {
   display: block;
   margin: 0px -6px -15px 11px;
   background-color: #0d4c62;
@@ -2163,7 +2222,8 @@ button.jsonbtn, button#saveData {
   cursor: pointer;
   border-radius: 3px;
 }
-button.jsonbtn:hover, button#saveData:hover {
+button.jsonbtn:hover,
+button#saveData:hover {
   color: white;
   background-color: #218f67;
 }
@@ -2185,7 +2245,8 @@ pre {
 
 /* Style the scrollbar */
 pre::-webkit-scrollbar {
-  width: 8px; /* Adjust the width as needed */
+  width: 8px;
+  /* Adjust the width as needed */
 }
 
 pre::-webkit-scrollbar-thumb {

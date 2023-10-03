@@ -1,238 +1,303 @@
 /* Add this CSS to your project */
 
- h2 {
-    text-align: center;
-  }
-  
-  .form-builder {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px;
- }
+h2 {
+  text-align: center;
+}
 
- .form-fields {
-    width: 25%;
-    border: 1px solid #ccc;
-    padding: 10px;
-    background-color: #f9f9f9;
-    position: sticky;
-    top: 0;
-    // height: 100vh; /* Adjust this as needed */
-    height: 80%;
- }
+.form-builder-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.form-builder {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+
+  width: 70%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.form-fields {
+  width: 20%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+
+  position: sticky;
+  top: 65px;
+}
 
 .form-canvas {
-    width: 65%;
-    border: 1px solid #ccc;
-    padding: 10px;
-    background-color: #f9f9f9;
-    overflow-y: auto; /* Add scroll when content exceeds the height */
- }
+  width: 75%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+  overflow-y: auto;
+  /* Add scroll when content exceeds the height */
+}
 
-  .draggable-field-container {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .form-btn-group {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .draggable-field {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    margin: 8px 0;
-    padding: 8px;
-    cursor: grab;
-    display: flex;
-    // justify-content: space-between;
-    align-items: center;
-    position: relative;
-  }
-  
-  .draggable-field button {
-    background-color: #f44336;
-    color: #fff;
-    border: none;
-    padding: 4px 8px;
-    cursor: pointer;
-    margin-left: 4px;
-  }
-  
-  button.form-edit {
-    position: absolute;
-    right: 51px;
-    top: -9px;
-    background: white;
-  
-    &:hover{
-      background-color: #e5e5e5;
-    }
-  }
-  
-    button.form-remove {
-      position: absolute;
-      right: 20px;
-      top: -9px;
-      background: white;
-      &:hover{
-        background-color: #e5e5e5;
-      }
-    }
+.edit-field-form {
+  border: 1px solid #ccc;
+  padding: 21px;
+  background-color: #f9f9f9;
+  margin: 10px;
+  width: 40%;
+  height: 100%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
 
-  
-  .form-canvas-container {
-    min-height: calc(85% + 7px);
-    background-color: #fff;
-    border: 2px dashed #aaa;
-    padding: 10px;
+  position: sticky;
+  top: 65px;
+}
+
+.draggable-field-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-btn-group {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 40px;
+  margin-left: -10px;
+}
+
+.draggable-field {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin: 8px 0;
+  padding: 8px;
+  cursor: grab;
+  display: flex;
+  // justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.draggable-field button {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+button.form-edit {
+  position: absolute;
+  right: 51px;
+  top: -9px;
+  background: white;
+
+  &:hover {
+    background-color: #e5e5e5;
   }
-  
-  .edit-field-form {
-    border: 1px solid #ccc;
-    padding: 21px;
-    background-color: #f9f9f9;
+}
+
+button.form-remove {
+  position: absolute;
+  right: 20px;
+  top: -9px;
+  background: white;
+
+  &:hover {
+    background-color: #e5e5e5;
   }
-  
-  
-  .simple-form-id-panel {
+}
+
+
+.form-canvas-container {
+  min-height: calc(85% + 7px);
+  background-color: #fff;
+  border: 2px dashed #aaa;
+  padding: 10px;
+}
+
+.edit-field-form {
+  border: 1px solid #ccc;
+  padding: 21px;
+  background-color: #f9f9f9;
+}
+
+
+.simple-form-id-panel {
   display: flex;
   align-items: center;
   position: relative;
   height: 65px;
-  
+
   label {
-    flex: 1;
+    flex: 2;
     white-space: nowrap;
     margin-right: 10px;
   }
-  
+
   input[type="text"],
   .select-type-class,
   input[type="checkbox"] {
     flex: 12;
     padding: 5px;
   }
-  
+
   .select-type-class,
   input[type="checkbox"] {
     position: absolute;
-    left: calc(8% + 7px);
-  }
-  }
-  
-  .simple-form-text{
-    input[type="text"],
-    input[type="textarea"]{
-      width: 68vh;
-    }
-
-    input[type=date], input[type=datetime-local], input[type=datetime], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week]{
-      padding: 14px 20px 15px 45px;
-      background: #ffffff;
-      border: 1px solid #edeff1;
-      border-radius: 4px;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 21px;
-      color: #666873;
-      outline: none;
-      width: 68vh;
-      height: 50px;
-    }
-    input[type=text], select, textarea{
-      width: 68vh;
-    }
+    left: calc(12% + 17px);
+    border: none;
   }
 
-  
-  .select-fields-panel{
+  input[type=checkbox],
+  input[type=radio] {
+    border: 1px solid #8c8f94 !important;
+    margin-top: 1px;
+    border-radius: 4px;
+    background: #fff;
+    color: #50575e;
+    clear: none;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 0;
+    height: 1rem;
+    margin: -0.25px 0.25rem 0px 0;
+    outline: 0;
+  }
+}
+
+.simple-form-text {
+
+  input[type="text"],
+  input[type="textarea"] {
+    width: 50vh;
+  }
+
+  input[type=date],
+  input[type=datetime-local],
+  input[type=datetime],
+  input[type=email],
+  input[type=month],
+  input[type=number],
+  input[type=password],
+  input[type=search],
+  input[type=tel],
+  input[type=text],
+  input[type=time],
+  input[type=url],
+  input[type=week] {
+    padding: 14px 20px 15px 45px;
+    background: #ffffff;
+    border: 1px solid #edeff1;
+    border-radius: 4px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #666873;
+    outline: none;
+    width: 50vh;
+    height: 50px;
+  }
+
+  input[type=text],
+  select,
+  textarea {
+    width: 50vh;
+  }
+}
+
+
+.select-fields-panel {
   display: flex;
   align-items: center;
   position: relative;
-  
-    button.option-remover {
-      position: absolute;
-      right: 7px;
-      bottom: 17px;
-      font-size: 10px;
-      width: 68px;
-      height: 29px;
-      align-items: center;
-      justify-content: center;
-      display: flex;
-    }
 
-    button.option-remover-multiple{
-      position: absolute;
-      right: 20px;
-      top: 12px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      &:hover{
-        background-color: #e5e5e5;
-      }
-    }
-
-  }
-  
-  .button-sub-group-simple-form{
-    display: flex;
+  button.option-remover {
+    position: absolute;
+    right: 7px;
+    bottom: 17px;
+    font-size: 10px;
+    width: 68px;
+    height: 29px;
     align-items: center;
-    justify-content: left;  
-    margin-left: 11px;
+    justify-content: center;
+    display: flex;
   }
-  
-  button.jsonbtn, button#saveData {
-    display: block;
-    margin: 0px -6px -15px 11px;
-    background-color: #0d4c62;
-    color: #fff;
+
+  button.option-remover-multiple {
+    position: absolute;
+    right: 20px;
+    top: 12px;
+    background: none;
     border: none;
-    padding: 10px 20px;
     cursor: pointer;
-    border-radius: 3px;
 
-    &:hover{
-      color: white;
-      background-color: #218f67;
+    &:hover {
+      background-color: #e5e5e5;
     }
   }
 
-  pre {
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    padding: 10px;
-    background-color: #000000;
+}
+
+.button-sub-group-simple-form {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-left: 11px;
+}
+
+button.jsonbtn,
+button#saveData {
+  display: block;
+  margin: 0px -6px -15px 11px;
+  background-color: #0d4c62;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 3px;
+
+  &:hover {
     color: white;
-    border: 1px solid #ccc;
-    margin: 20px;
-    font-family: monospace;
-    font-size: 14px;
-    width: 60vh;
-    height: 60vh;
-    overflow-y: scroll;
+    background-color: #218f67;
   }
-  
-  /* Style the scrollbar */
-  pre::-webkit-scrollbar {
-  width: 8px; /* Adjust the width as needed */
-  }
-  
-  pre::-webkit-scrollbar-thumb {
-  background-color: white;
-  }
-  
-  pre::-webkit-scrollbar-track {
-  background-color: #000000;
-  }
+}
 
-  span.formname{
-    input#formName{
-        margin-left: 23px;
-        width: 95%; 
-    }
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 10px;
+  background-color: #000000;
+  color: white;
+  border: 1px solid #ccc;
+  margin: 20px;
+  font-family: monospace;
+  font-size: 14px;
+  width: 60vh;
+  height: 60vh;
+  overflow-y: scroll;
+}
+
+/* Style the scrollbar */
+pre::-webkit-scrollbar {
+  width: 8px;
+  /* Adjust the width as needed */
+}
+
+pre::-webkit-scrollbar-thumb {
+  background-color: white;
+}
+
+pre::-webkit-scrollbar-track {
+  background-color: #000000;
+}
+
+span.formname {
+  input#formName {
+    margin-left: 23px;
+    width: 95%;
   }
+}

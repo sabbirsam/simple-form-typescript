@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import Modal from '../core/Modal';
-import { getNonce,} from './../Helpers';
+import { getNonce, } from './../Helpers';
 import { useNavigate } from 'react-router-dom';
 import { EditIcon, DeleteIcon, Cross } from '../icons';
 import availableFieldsList from './fieldData';
 import RenderField from './Render';
 
-import '../styles/_createForm.scss';  
+import '../styles/_createForm.scss';
 
 
 const CreateForm = () => {
@@ -50,34 +50,34 @@ const CreateForm = () => {
   //   Make id as unique 
   const onDragEnd = (result) => {
     if (!result.destination) return;
-      
-      const sourceIndex = result.source.index;
-      const destinationIndex = result.destination.index;
-      
-      if (result.source.droppableId === 'available-fields') {
-        const sourceField = availableFields[sourceIndex];
-        const newField = {
+
+    const sourceIndex = result.source.index;
+    const destinationIndex = result.destination.index;
+
+    if (result.source.droppableId === 'available-fields') {
+      const sourceField = availableFields[sourceIndex];
+      const newField = {
         ...sourceField,
         // Append a unique identifier
-        id: `${sourceField.id}-${new Date().getTime()}`, 
+        id: `${sourceField.id}-${new Date().getTime()}`,
         name: `${sourceField.name}-${new Date().getTime()}`,
         uniqueId: `field-${new Date().getTime()}`,
-        };
-      
-        setFormFields((prevFormFields) => {
+      };
+
+      setFormFields((prevFormFields) => {
         const updatedFormFields = [...prevFormFields];
         updatedFormFields.splice(destinationIndex, 0, newField);
         return updatedFormFields;
-        });
-      } else if (result.source.droppableId === 'form-canvas') {
-        setFormFields((prevFormFields) => {
+      });
+    } else if (result.source.droppableId === 'form-canvas') {
+      setFormFields((prevFormFields) => {
         const updatedFormFields = [...prevFormFields];
         const [movedField] = updatedFormFields.splice(sourceIndex, 1);
         updatedFormFields.splice(destinationIndex, 0, movedField);
         return updatedFormFields;
-        });
-      }
-    };
+      });
+    }
+  };
 
   const handleRemoveField = (uniqueId) => {
     const updatedFormFields = formFields.filter((field) => field.uniqueId !== uniqueId);
@@ -90,21 +90,21 @@ const CreateForm = () => {
     setEditingField({ ...fieldToEdit });
 
     // Scroll to the bottom of the page
-      const screenHeight = window.innerHeight;
-      let middleY;
+    /* const screenHeight = window.innerHeight;
+    let middleY;
 
-      if (screenHeight >= 700) {
-        middleY = screenHeight / 1.6 + 250;
-      } else {
-        middleY = screenHeight / 1.1 + 250;
-      }
+    if (screenHeight >= 700) {
+      middleY = screenHeight / 1.6 + 250;
+    } else {
+      middleY = screenHeight / 1.1 + 250;
+    }
 
-      window.scrollTo(0, middleY);
+    window.scrollTo(0, middleY); */
 
   };
 
   const handleUpdateField = () => {
-    const updatedFormFields = formFields.map((field) => { 
+    const updatedFormFields = formFields.map((field) => {
       if (field.uniqueId === editingField.uniqueId) {
         return { ...editingField };
       }
@@ -123,48 +123,48 @@ const CreateForm = () => {
   const handleSaveFormtoDB = () => {
     setFormData(formFields);
     setShowjson((showjson) => !showjson);
-    console.log('formFields:', formFields); 
+    console.log('formFields:', formFields);
     Swal.fire({
-        text: 'Are you done!',
-        icon: 'info',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Save!',
-      }).then((result) => {
-        if (result.isConfirmed) {
+      text: 'Are you done!',
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Save!',
+    }).then((result) => {
+      if (result.isConfirmed) {
 
-            const allData = formFields;
-            
-            // const allData = formData;
-            const formNameInput = document.getElementById('formName');
-            const formName = formNameInput.value;
+        const allData = formFields;
 
-            wp.ajax.send('simpleform_create_form', {
-              data: {
-                nonce: getNonce(),
-                name: formName || 'Untitled',
-                formdata: allData,
-              },
+        // const allData = formData;
+        const formNameInput = document.getElementById('formName');
+        const formName = formNameInput.value;
 
-              success({ id }) {
-                console.log(allData);
-                Swal.fire({
-                  position: 'center',
-                  icon: 'success',
-                  title: 'Your Form has been saved',
-                  showConfirmButton: false,
-                  timer: 1500,
-                });
+        wp.ajax.send('simpleform_create_form', {
+          data: {
+            nonce: getNonce(),
+            name: formName || 'Untitled',
+            formdata: allData,
+          },
 
-                navigate(`/`);
-              },
-              error({ message }) {
-              },
+          success({ id }) {
+            console.log(allData);
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Your Form has been saved',
+              showConfirmButton: false,
+              timer: 1500,
             });
 
-          }
-      });
+            navigate(`/`);
+          },
+          error({ message }) {
+          },
+        });
+
+      }
+    });
 
   };
 
@@ -179,7 +179,7 @@ const CreateForm = () => {
   };
 
   const handleRemoveOption = (optionIndex) => {
-  
+
     if (
       editingField &&
       (editingField.type === 'select' || editingField.type === 'radio' || editingField.type === 'checkbox') &&
@@ -200,54 +200,56 @@ const CreateForm = () => {
   return (
     <div className='simple-form-builder'>
       <h2>Drag and Drop Form Builder</h2>
-        
-        <div className="checkbox-wrapper">
-            <span className="formname">
-              <input type="text" placeholder='Add form name' name='simpleformname'  className="js-open-modal" id="formName"/>
-            </span> 
-        </div>
+
+      <div className="checkbox-wrapper">
+        <span className="formname">
+          <input type="text" placeholder='Add form name' name='simpleformname' className="js-open-modal" id="formName" />
+        </span>
+      </div>
 
       <div className='button-sub-group-simple-form'>
         {!editingField && (
           <button className='jsonbtn' onClick={handleShowJsonForm}>
-          {showjson ? 'Hide Json' : 'Show Json'}
-        </button>
+            {showjson ? 'Hide Json' : 'Show Json'}
+          </button>
         )}
         {/* <button className='savebtn' onClick={handleSaveForm}>Save</button>  */}
-        <button className="js-open-modal saveData" onClick={handleSaveFormtoDB} id="saveData" type="button">Save</button>  
+        <button className="js-open-modal saveData" onClick={handleSaveFormtoDB} id="saveData" type="button">Save</button>
       </div>
-      <DragDropContext onDragEnd={onDragEnd}>
-        <div className="form-builder">
-          <div className="form-fields">
-            <h3>Available Fields</h3>
-            <Droppable droppableId="available-fields" direction="vertical">
-              {(provided) => (
-                <div
-                  {...provided.droppableProps}
-                  ref={provided.innerRef}
-                  className="draggable-field-container"
-                >
-                  {availableFields.map((field, index) => (
-                    <Draggable key={field.id} draggableId={field.id} index={index}>
-                      {(provided) => (
-                        <div
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                          className="draggable-field"
-                        >
-                          {field.label}
-                        </div>
-                      )}
-                    </Draggable>
-                  ))}
-                  {provided.placeholder}
-                </div>
-              )}
-            </Droppable>
-          </div>
-          
-          <div className="form-canvas">
+
+      <div className="form-builder-container">
+        <DragDropContext onDragEnd={onDragEnd}>
+          <div className="form-builder">
+            <div className="form-fields">
+              <h3>Available Fields</h3>
+              <Droppable droppableId="available-fields" direction="vertical">
+                {(provided) => (
+                  <div
+                    {...provided.droppableProps}
+                    ref={provided.innerRef}
+                    className="draggable-field-container"
+                  >
+                    {availableFields.map((field, index) => (
+                      <Draggable key={field.id} draggableId={field.id} index={index}>
+                        {(provided) => (
+                          <div
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            className="draggable-field"
+                          >
+                            {field.label}
+                          </div>
+                        )}
+                      </Draggable>
+                    ))}
+                    {provided.placeholder}
+                  </div>
+                )}
+              </Droppable>
+            </div>
+
+            <div className="form-canvas">
               <h3>Form Canvas</h3>
               <Droppable droppableId="form-canvas" direction="vertical">
                 {(provided) => (
@@ -278,242 +280,246 @@ const CreateForm = () => {
                 )}
               </Droppable>
             </div>
-        </div>
-      </DragDropContext>
-
-      {editingField && (
-        <div className="edit-field-form">
-          <div className='form-btn-group'>
-            <button className='jsonbtn' onClick={handleUpdateField}>Update</button>
-  
-            <button className='jsonbtn' onClick={handleShowJsonForm}>
-              {showjson ? 'Hide Json' : 'Show Json'}
-            </button>
-
           </div>
-          <h3>Edit Field</h3>
-          <div className='simple-form-id-panel'>
-            <label>ID:</label>
-            <input
-              type="text"
-              value={editingField.id}
-              onChange={(e) => setEditingField({ ...editingField, id: e.target.value })}
-            />
-          </div>
+        </DragDropContext>
 
-          <div className='simple-form-id-panel'>
-            <label>Name:</label>
-            <input
-              type="text"
-              value={editingField.name}
-              onChange={(e) => setEditingField({ ...editingField, name: e.target.value })}
-            />
-          </div>
+        {editingField && (
+          <div className="edit-field-form">
+            <div className='form-btn-group'>
+              <button className='jsonbtn' onClick={handleUpdateField}>Update</button>
 
-          <div className='simple-form-id-panel'>
-            <label>Label:</label>
-            <input
-              type="text"
-              value={editingField.label}
-              onChange={(e) => setEditingField({ ...editingField, label: e.target.value })}
-            />
-          </div>
+              <button className='jsonbtn' onClick={handleShowJsonForm}>
+                {showjson ? 'Hide Json' : 'Show Json'}
+              </button>
 
-          <div className='simple-form-id-panel type-dropdown'>
-            <label>Type:</label>
-      
-            {!(editingField.type === 'file' || editingField.type === 'select' || editingField.type === 'checkbox' || editingField.type === 'radio') ? (
-              <select
-                className='select-type-class'
-                value={editingField.type}
-                onChange={(e) => setEditingField({ ...editingField, type: e.target.value })}
-              >
-                <option value="button">Button</option>
-                <option value="color">Color</option>
-                <option value="date">Date</option>
-                <option value="datetime-local">Datetime-local</option>
-                <option value="email">Email</option>
-                <option value="hidden">Hidden</option>
-                <option value="image">Image</option>
-                <option value="month">Month</option>
-                <option value="number">Number</option>
-                <option value="password">Password</option>
-                <option value="range">Range</option>
-                <option value="reset">Reset</option>
-                <option value="search">Search</option>
-                <option value="submit">Submit</option>
-                <option value="tel">Tel</option>
-                <option value="text">Text</option>
-                <option value="text">Text Input</option>
-                <option value="textarea">Text Area</option>
-                <option value="time">Time</option>
-                <option value="url">URL</option>
-                <option value="week">Week</option>
-              </select>
-            ) : (
+            </div>
+            <h3>Edit Field</h3>
+            <div className='simple-form-id-panel'>
+              <label>ID:</label>
+              <input
+                type="text"
+                value={editingField.id}
+                onChange={(e) => setEditingField({ ...editingField, id: e.target.value })}
+              />
+            </div>
+
+            <div className='simple-form-id-panel'>
+              <label>Name:</label>
+              <input
+                type="text"
+                value={editingField.name}
+                onChange={(e) => setEditingField({ ...editingField, name: e.target.value })}
+              />
+            </div>
+
+            <div className='simple-form-id-panel'>
+              <label>Label:</label>
+              <input
+                type="text"
+                value={editingField.label}
+                onChange={(e) => setEditingField({ ...editingField, label: e.target.value })}
+              />
+            </div>
+
+            <div className='simple-form-id-panel type-dropdown'>
+              <label>Type:</label>
+
+              {!(editingField.type === 'file' || editingField.type === 'select' || editingField.type === 'checkbox' || editingField.type === 'radio') ? (
+                <select
+                  className='select-type-class'
+                  value={editingField.type}
+                  onChange={(e) => setEditingField({ ...editingField, type: e.target.value })}
+                >
+                  <option value="button">Button</option>
+                  <option value="color">Color</option>
+                  <option value="date">Date</option>
+                  <option value="datetime-local">Datetime-local</option>
+                  <option value="email">Email</option>
+                  <option value="hidden">Hidden</option>
+                  <option value="image">Image</option>
+                  <option value="month">Month</option>
+                  <option value="number">Number</option>
+                  <option value="password">Password</option>
+                  <option value="range">Range</option>
+                  <option value="reset">Reset</option>
+                  <option value="search">Search</option>
+                  <option value="submit">Submit</option>
+                  <option value="tel">Tel</option>
+                  <option value="text">Text</option>
+                  <option value="text">Text Input</option>
+                  <option value="textarea">Text Area</option>
+                  <option value="time">Time</option>
+                  <option value="url">URL</option>
+                  <option value="week">Week</option>
+                </select>
+              ) : (
                 <input
                   type="text"
                   value={editingField.type}
                   onChange={(e) => setEditingField({ ...editingField, type: e.target.value })}
                 />
-            )}
-          </div>
+              )}
+            </div>
 
-          <div className='simple-form-id-panel'>
-            <label>Subtype:</label>
-            <input
-              type="text"
-              value={editingField.subtype}
-              onChange={(e) => setEditingField({ ...editingField, subtype: e.target.value })} 
-            />
-          </div>
-
-          <div className='simple-form-id-panel'>
-            <label>Placeholder:</label>
-            <input
-              type="text"
-              value={editingField.placeholder}
-              onChange={(e) => setEditingField({ ...editingField, placeholder: e.target.value })}
-            />
-          </div>
-
-          {editingField.type === 'image' && (
-            <>
-              <div className='simple-form-id-panel'>
-                <label>Sorce:</label>
-                <input
-                  type="text"
-                  value={editingField.src}
-                  onChange={(e) => setEditingField({ ...editingField, src: e.target.value })}
-                />
-              </div>
-
-              <div className='simple-form-id-panel'>
-                <label>Width:</label>
-                <input
-                  type="text"
-                  value={editingField.width}
-                  onChange={(e) => setEditingField({ ...editingField, width: e.target.value })}
-                />
-              </div>
-
-              <div className='simple-form-id-panel'>
-                <label>Height:</label>
-                <input
-                  type="text"
-                  value={editingField.height}
-                  onChange={(e) => setEditingField({ ...editingField, height: e.target.value })}
-                />
-              </div>
-              <div className='simple-form-id-panel'>
-                <label>Alt:</label>
-                <input
-                  type="text"
-                  value={editingField.alt}
-                  onChange={(e) => setEditingField({ ...editingField, alt: e.target.value })}
-                />
-              </div>
-            </>
-          
-          )}
-
-          {editingField.type === 'checkbox' && (
             <div className='simple-form-id-panel'>
-            <label>Toggle:
+              <label>Subtype:</label>
               <input
-                type="checkbox"
-                checked={editingField.toggle === 'true'} // Convert to boolean
-                onChange={(e) => {
-                  setEditingField({ ...editingField, toggle: e.target.checked ? 'true' : 'false' }); // Convert to string
-                }}
+                type="text"
+                value={editingField.subtype}
+                onChange={(e) => setEditingField({ ...editingField, subtype: e.target.value })}
               />
+            </div>
+
+            <div className='simple-form-id-panel'>
+              <label>Placeholder:</label>
+              <input
+                type="text"
+                value={editingField.placeholder}
+                onChange={(e) => setEditingField({ ...editingField, placeholder: e.target.value })}
+              />
+            </div>
+
+            {editingField.type === 'image' && (
+              <>
+                <div className='simple-form-id-panel'>
+                  <label>Sorce:</label>
+                  <input
+                    type="text"
+                    value={editingField.src}
+                    onChange={(e) => setEditingField({ ...editingField, src: e.target.value })}
+                  />
+                </div>
+
+                <div className='simple-form-id-panel'>
+                  <label>Width:</label>
+                  <input
+                    type="text"
+                    value={editingField.width}
+                    onChange={(e) => setEditingField({ ...editingField, width: e.target.value })}
+                  />
+                </div>
+
+                <div className='simple-form-id-panel'>
+                  <label>Height:</label>
+                  <input
+                    type="text"
+                    value={editingField.height}
+                    onChange={(e) => setEditingField({ ...editingField, height: e.target.value })}
+                  />
+                </div>
+                <div className='simple-form-id-panel'>
+                  <label>Alt:</label>
+                  <input
+                    type="text"
+                    value={editingField.alt}
+                    onChange={(e) => setEditingField({ ...editingField, alt: e.target.value })}
+                  />
+                </div>
+              </>
+
+            )}
+
+            {editingField.type === 'checkbox' && (
+              <div className='simple-form-id-panel'>
+                <label>Toggle:
+                  <input
+                    type="checkbox"
+                    checked={editingField.toggle === 'true'} // Convert to boolean
+                    onChange={(e) => {
+                      setEditingField({ ...editingField, toggle: e.target.checked ? 'true' : 'false' }); // Convert to string
+                    }}
+                  />
+                </label>
+              </div>
+            )}
+
+            <div className='simple-form-id-panel'>
+              <label>Required:
+                <input
+                  type="checkbox"
+                  checked={editingField.required === 'true'}
+                  // checked={editingField.required || editingField.required === 'true'} 
+                  onChange={(e) => {
+                    setEditingField({ ...editingField, required: e.target.checked ? 'true' : 'false' });
+                  }}
+                />
               </label>
             </div>
-           )} 
 
-          <div className='simple-form-id-panel'>
-            <label>Required:
-            <input
-              type="checkbox"
-              checked={editingField.required === 'true'}
-              // checked={editingField.required || editingField.required === 'true'} 
-              onChange={(e) => {
-              setEditingField({ ...editingField, required: e.target.checked ? 'true' : 'false' });
-              }}
-            />
-            </label>
-          </div>
-
-          <div className='simple-form-id-panel'>
-            <label>Class Name:</label>
-            <input
-              type="text"
-              value={editingField.className}
-              onChange={(e) => setEditingField({ ...editingField, className: e.target.value })}
-            />
-          </div>
-
-          <div className='simple-form-id-panel'>
-            <label>Value:</label>
-            <input
-              type="text"
-              value={editingField.value}
-              onChange={(e) => setEditingField({ ...editingField, value: e.target.value })}
-            />
-          </div>
-
-          {['select', 'radio', 'checkbox'].includes(editingField.type) && (
-            <div>
-              <h4>{editingField.type === 'select' ? 'Select Options' : 'Options'}</h4>
-              {editingField.options.map((option, optionIndex) => (
-                <div className='simple-form-id-panel select-fields-panel' key={optionIndex}>
-                  <label>Label:</label>
-                  <input
-                    type="text"
-                    value={option.label}
-                    onChange={(e) => {
-                      const updatedOptions = [...editingField.options];
-                      updatedOptions[optionIndex] = { ...option, label: e.target.value };
-                      setEditingField({ ...editingField, options: updatedOptions });
-                    }}
-                  />
-                  <label>Value:</label>
-                  <input
-                    type="text"
-                    value={option.value}
-                    onChange={(e) => {
-                      const updatedOptions = [...editingField.options];
-                      updatedOptions[optionIndex] = { ...option, value: e.target.value };
-                      setEditingField({ ...editingField, options: updatedOptions });
-                    }}
-                  />
-                  <button className='option-remover-multiple' onClick={() => handleRemoveOption(optionIndex)}>{DeleteIcon}</button>
-                </div>
-              ))}
-              <button className='jsonbtn' onClick={handleAddOption}>Add Option</button>
-              
+            <div className='simple-form-id-panel'>
+              <label>Class Name:</label>
+              <input
+                type="text"
+                value={editingField.className}
+                onChange={(e) => setEditingField({ ...editingField, className: e.target.value })}
+              />
             </div>
-          )}
-          
-        </div>
-      )}
+
+            <div className='simple-form-id-panel'>
+              <label>Value:</label>
+              <input
+                type="text"
+                value={editingField.value}
+                onChange={(e) => setEditingField({ ...editingField, value: e.target.value })}
+              />
+            </div>
+
+            {['select', 'radio', 'checkbox'].includes(editingField.type) && (
+              <div>
+                <h4>{editingField.type === 'select' ? 'Select Options' : 'Options'}</h4>
+                {editingField.options.map((option, optionIndex) => (
+                  <div className='simple-form-id-panel select-fields-panel' key={optionIndex}>
+                    <label>Label:</label>
+                    <input
+                      type="text"
+                      value={option.label}
+                      onChange={(e) => {
+                        const updatedOptions = [...editingField.options];
+                        updatedOptions[optionIndex] = { ...option, label: e.target.value };
+                        setEditingField({ ...editingField, options: updatedOptions });
+                      }}
+                    />
+                    <label>Value:</label>
+                    <input
+                      type="text"
+                      value={option.value}
+                      onChange={(e) => {
+                        const updatedOptions = [...editingField.options];
+                        updatedOptions[optionIndex] = { ...option, value: e.target.value };
+                        setEditingField({ ...editingField, options: updatedOptions });
+                      }}
+                    />
+                    <button className='option-remover-multiple' onClick={() => handleRemoveOption(optionIndex)}>{DeleteIcon}</button>
+                  </div>
+                ))}
+                <button className='jsonbtn' onClick={handleAddOption}>Add Option</button>
+
+              </div>
+            )}
+
+          </div>
+        )}
 
 
-      {createTableModal && (
-        <Modal>
-          <div
-            className="create-table-modal-wrap modal-content manage-modal-content"
-            ref={createTableModalRef}>
+        {createTableModal && (
+          <Modal>
+            <div
+              className="create-table-modal-wrap modal-content manage-modal-content"
+              ref={createTableModalRef}>
               <div
-                  className="cross_sign"
-                  onClick={() => handleClosePopup()}
-                >
+                className="cross_sign"
+                onClick={() => handleClosePopup()}
+              >
                 {Cross}
               </div>
-              <pre>Form Data: {JSON.stringify(formData, null, 2)}</pre> 
-          </div>
-        </Modal>
-      )}
+              <pre>Form Data: {JSON.stringify(formData, null, 2)}</pre>
+            </div>
+          </Modal>
+        )}
+
+      </div>
+
+
 
     </div>
   );
