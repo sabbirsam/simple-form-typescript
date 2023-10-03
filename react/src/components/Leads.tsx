@@ -37,7 +37,7 @@ const Leads = () => {
   const closeModal = () => {
     setModalVisible(false);
   };
-  
+
 
   console.log(selectedLeadData);
 
@@ -71,30 +71,30 @@ const Leads = () => {
   /**
     * Get form list by selected ID
   */
-    useEffect(() => {
-      if (selectedId !== null) {
-        setLeads([]); // Clear the previous leads
-        setFilteredLeads([]); // Clear the previous filtered leads
+  useEffect(() => {
+    if (selectedId !== null) {
+      setLeads([]); // Clear the previous leads
+      setFilteredLeads([]); // Clear the previous filtered leads
 
-        // Fetch the leads data based on the selected form_id
-        const getTableData = () => {
-          wp.ajax.send('simpleform_get_leads', {
-            data: {
-              nonce: getNonce(),
-              form_id: selectedId,
-            },
-            success(response) {
-              setLeads(response.tables);
-              setFilteredLeads(response.tables);
-            },
-            error(error) {
-              console.error('Error:', error);
-            },
-          });
-        };
-        getTableData();
-      }
-    }, [selectedId]);
+      // Fetch the leads data based on the selected form_id
+      const getTableData = () => {
+        wp.ajax.send('simpleform_get_leads', {
+          data: {
+            nonce: getNonce(),
+            form_id: selectedId,
+          },
+          success(response) {
+            setLeads(response.tables);
+            setFilteredLeads(response.tables);
+          },
+          error(error) {
+            console.error('Error:', error);
+          },
+        });
+      };
+      getTableData();
+    }
+  }, [selectedId]);
 
 
 
@@ -102,11 +102,11 @@ const Leads = () => {
 
   const handleSearchChange = (e) => {
     const searchQuery = e.target.value.toLowerCase();
-  
+
     const filteredData = leads.filter((lead) => {
       try {
         const fields = JSON.parse(lead.fields);
-  
+
         // Ensure that fields is an object (valid JSON)
         if (typeof fields === 'object' && fields !== null) {
           for (const key in fields) {
@@ -119,87 +119,104 @@ const Leads = () => {
         // Handle any JSON parsing errors here
         console.error('JSON parsing error:', error);
       }
-  
+
       return false;
     });
-  
+
     setFilteredLeads(filteredData);
     setPageNumber(0); // Reset to the first page after search
   };
-  
+
 
   // Function to delete a lead by ID
   const deleteLead = (id) => {
     console.log(id)
 
-      wp.ajax.send('simpleform_delete_leads', {
-        data: {
-          nonce: getNonce(),
-          id,
-        },
-        success() {
-          console.log("success")
-          const updatedLeads = leads.filter((lead) => lead.id !== id);
-          setLeads(updatedLeads);
-          setFilteredLeads(updatedLeads);
-          
-        },
-        error(error) {
-          console.error(error);
-        },
-      });
-      
+    wp.ajax.send('simpleform_delete_leads', {
+      data: {
+        nonce: getNonce(),
+        id,
+      },
+      success() {
+        console.log("success")
+        const updatedLeads = leads.filter((lead) => lead.id !== id);
+        setLeads(updatedLeads);
+        setFilteredLeads(updatedLeads);
+
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'bottom-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+
+        Toast.fire({
+          icon: 'success',
+          title: 'Lead has been deleted'
+        })
+
+      },
+      error(error) {
+        console.error(error);
+      },
+    });
+
   };
 
 
-    // First four th leads 
+  // First four th leads 
 
-    const displayLeads = filteredLeads.length > 0 ? (
-      filteredLeads
-        .slice(pagesVisited, pagesVisited + leadsPerPage) // Apply pagination
-        .map((lead, index) => {
-          try {
-            const fields = JSON.parse(lead.fields);
-            const fieldKeys = Object.keys(fields);
-            return (
-              <tr key={index}>
-                {fieldKeys.slice(0, 4).map((key) => (
-                  <td key={key}>{fields[key]}</td>
-                ))}
-                <td className='view-td'>
-                  <button
-                    className="view-button"
-                    onClick={() => openModal(lead.id)}
-                  >
-                    {view}
-                  </button>
-                </td>
+  const displayLeads = filteredLeads.length > 0 ? (
+    filteredLeads
+      .slice(pagesVisited, pagesVisited + leadsPerPage) // Apply pagination
+      .map((lead, index) => {
+        try {
+          const fields = JSON.parse(lead.fields);
+          const fieldKeys = Object.keys(fields);
+          return (
+            <tr key={index}>
+              {fieldKeys.slice(0, 4).map((key) => (
+                <td key={key}>{fields[key]}</td>
+              ))}
+              <td className='view-td'>
+                <button
+                  className="view-button"
+                  onClick={() => openModal(lead.id)}
+                >
+                  {view}
+                </button>
+              </td>
 
-                <td className='view-delete'>
-                  <button
-                    className="delete-button"
-                    onClick={() => deleteLead(lead.id)}
-                  >
-                    {DeleteIcon}
-                  </button>
-                </td>
-              </tr>
-            );
-          } catch (error) {
-            console.error('JSON parsing error:', error);
-            return null; 
-          }
-        })
-    ) : (
-      <tr>
-        <td style={{ textAlign: 'center' }}>
+              <td className='view-delete'>
+                <button
+                  className="delete-button"
+                  onClick={() => deleteLead(lead.id)}
+                >
+                  {DeleteIcon}
+                </button>
+              </td>
+            </tr>
+          );
+        } catch (error) {
+          console.error('JSON parsing error:', error);
+          return null;
+        }
+      })
+  ) : (
+    <tr>
+      <td style={{ textAlign: 'center' }}>
         <div className="no-tables-intro-img">
           <img style={{ width: '40vh', height: '40vh' }} src={cloudImage} alt="Cloud Icon" />
         </div>
       </td>
-      </tr>
-    );
-    
+    </tr>
+  );
+
   return (
     <>
       {loader ? (
@@ -209,7 +226,7 @@ const Leads = () => {
       ) : (
         <div className='main-leads-container'>
           <div className='leads-container'>
-          <div className='search-select-panel'>
+            <div className='search-select-panel'>
               <select
                 value={selectedId}
                 onChange={(e) => setSelectedId(e.target.value)}
@@ -241,7 +258,7 @@ const Leads = () => {
               </thead>
               <tbody>{displayLeads}</tbody>
             </table>
-            
+
             <ReactPaginate
               previousLabel={'Previous'}
               nextLabel={'Next'}
@@ -260,10 +277,10 @@ const Leads = () => {
       {modalVisible && selectedLeadData && (
         <Modal onClose={closeModal}>
           {/* Render the lead details in the modal */}
-          
+
           <div className='details-leads'>
             <table className="rwd-table">
-               <h2 className="leads-title">Lead Details</h2>
+              <h2 className="leads-title">Lead Details</h2>
               <tbody>
                 {Object.entries(JSON.parse(selectedLeadData.fields)).map(([key, value]) => (
                   <tr key={key}>

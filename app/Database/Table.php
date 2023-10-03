@@ -101,7 +101,9 @@ class Table {
 		global $wpdb;
 		$table = $wpdb->prefix . 'simple_form_leads';
 
-		$results = $wpdb->get_results($wpdb->prepare("SELECT * FROM $table WHERE form_id = %d", absint($id)), ARRAY_A);
+		// $results = $wpdb->get_results($wpdb->prepare("SELECT * FROM $table WHERE form_id = %d", absint($id)), ARRAY_A);
+		$results = $wpdb->get_results($wpdb->prepare("SELECT * FROM $table WHERE form_id = %d ORDER BY time DESC", absint($id)), ARRAY_A);
+
 
 		return ! empty($results) ? $results : null;
 	}

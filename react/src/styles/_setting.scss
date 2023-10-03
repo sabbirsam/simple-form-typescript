@@ -1,201 +1,220 @@
-.acb_top, .acb_bottom{
+.acb_top,
+.acb_bottom {
   margin: 20px;
   padding: 10px;
   // to make side by side
   display: flex;
 
-  h1{
-      color: lightgray;
-      font-size: 20px;
+  h1 {
+    color: lightgray;
+    font-size: 20px;
   }
-  h1.setting_panel{flex: 3;}
-  h1.tesing_panel{flex: 3;}
+
+  h1.setting_panel {
+    flex: 3;
+  }
+
+  h1.tesing_panel {
+    flex: 3;
+  }
+
   h1.setting_panel a {
-      color: lightgray;
-      text-decoration: none;
-      cursor:pointer;
-      &:hover{
-          color: teal;
-      }
+    color: lightgray;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      color: teal;
+    }
   }
+
   // left ------------------------------------------------
-  .acb_left{
-      // opacity: 0.3;
-      // cursor: not-allowed;
+  .acb_left {
+    flex: 2 !important;
+    text-align: center;
+    margin: 25px;
+    box-shadow: 2px 4px 10px 1px rgb(201 201 201 / 47%);
+    padding: 14px;
 
+    .review-case-title {
+      position: relative;
 
-      flex: 4 !important; 
-      text-align: center; 
-      margin: 25px;
-      box-shadow: 2px 4px 10px 1px rgb(201 201 201 / 47%);
-      padding: 14px;
+      span.wcs_title {
+        position: absolute;
 
-      .review-case-title{
-        position: relative;
-
-            span.wcs_title {
-              position: absolute;
-              svg.wcs_tooltip_icon {
-                font-size: 15px;
-              }
-
-            }
-      }
-
-
-      .wpnts-switch-review,
-      .wpnts-switch-support,
-      .wpnts-switch-floating
-        {
-            font-size: 17px;
-            text-align: left;
-            display: flex;
-            margin-bottom: 35px;
-
-            label {
-              margin-top: 4px;
-              margin: 11px;
-              margin-right: 350px;
-              white-space: nowrap;
-            }
-            @media only screen and (max-width: 1366px) {
-              label {
-                margin-right: 100px;
-                white-space: nowrap;
-              }
-            }
+        svg.wcs_tooltip_icon {
+          font-size: 15px;
+        }
 
       }
-      
-      .reviewSwitch{
-        margin-left: 85px;
-      }  
-      .customizationSwitch{
-        margin-left: 102px;
-      }  
-      .supportSwitch-1{
-        margin-left: 132px;
+    }
+
+
+    .wpnts-switch-review,
+    .wpnts-switch-support,
+    .wpnts-switch-floating {
+      font-size: 17px;
+      text-align: left;
+      display: flex;
+      margin-bottom: 35px;
+
+      label {
+        margin-top: 4px;
+        margin: 11px;
+        margin-right: 350px;
+        white-space: nowrap;
       }
-      .supportSwitch-2{
-        margin-left: 132px;
+
+      @media only screen and (max-width: 1366px) {
+        label {
+          margin-right: 100px;
+          white-space: nowrap;
+        }
       }
+
+    }
+
+    .reviewSwitch {
+      margin-left: 85px;
+    }
+
+    .customizationSwitch {
+      margin-left: 102px;
+    }
+
+    .supportSwitch-1 {
+      margin-left: 132px;
+    }
+
+    .supportSwitch-2 {
+      margin-left: 132px;
+    }
 
   }
 
-  .acb_right{
-      // opacity: 0.3;
-      // cursor: not-allowed;
+  .acb_right {
+    flex: 4 !important;
+    margin: 25px;
+    margin-top: 37px;
 
 
-      flex: 2 !important; 
-      margin: 25px;
-      margin-top: 37px;
+    .wpnts-setting {
 
-
-      .wpnts-setting {
-        
-        .FlotingSelectionbg {
-          width: 154px;
-          height: 58px;
-          margin-left: 59px;
-        }
-        .colorSelectionbg {
-          width: 154px;
-          height: 58px;
-          margin-left: 43px;
-        }
-
-        .colorSelectiontext {
-          width: 154px;
-          height: 58px;
-          margin-left: 35px;
-        }
-
-        .colorSelectionhover {
-          width: 154px;
-          height: 58px;
-          margin-left: 25px;
-        }
+      .FlotingSelectionbg {
+        width: 154px;
+        height: 58px;
+        margin-left: 59px;
       }
 
+      .colorSelectionbg {
+        width: 154px;
+        height: 58px;
+        margin-left: 43px;
+      }
 
-      form{
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          flex-wrap: wrap; // to set all inside the wrap with the given width screen
-          gap: 20px;
-          label{
-              display: flex;
-              align-items: center;
-              gap: 10px;
-              white-space: nowrap;
+      .colorSelectiontext {
+        width: 154px;
+        height: 58px;
+        margin-left: 35px;
+      }
+
+      .colorSelectionhover {
+        width: 154px;
+        height: 58px;
+        margin-left: 25px;
+      }
+    }
+
+
+    form {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap; // to set all inside the wrap with the given width screen
+      gap: 20px;
+
+      label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        white-space: nowrap;
+      }
+
+      .formInput {
+        width: 60%;
+
+        textarea {
+          height: 150px;
+        }
+
+        input {
+          // width: 100%;
+          padding: 5px;
+          border: none;
+          border-bottom: 1px solid gray;
+
+          &:focus {
+            outline: none;
+            box-shadow: none;
           }
-          .formInput{
-              width: 60%;
-              textarea{
-                  height: 150px;
-              }
-              input{
-                  // width: 100%;
-                  padding: 5px;
-                  border: none;
-                  border-bottom: 1px solid gray;
 
-                  &:focus{
-                      outline: none;
-                      box-shadow: none;
-                  }
+        }
 
-              }
+        .wpnts-setting {
+          position: relative;
 
-              .wpnts-setting{
-                position: relative;
-                .passimg{
-                  position: absolute;
-                  left: 90px;
-                  font-size: 18px;
-                  top: -19px;
-                }
-              }
+          .passimg {
+            position: absolute;
+            left: 90px;
+            font-size: 18px;
+            top: -19px;
+          }
+        }
 
-            }
-
-            .formInput.open-new-tab {
-              display: flex;
-              gap: 9px;
-              
-              input[type="checkbox"] {
-                border: 1px solid white;
-                border-bottom: 1px solid gray;
-                border-top: 1px solid gray;
-                width: 18px;
-              }
-            }
-
-            .save-webhook{
-              width: 160px;
-              padding: 10px;
-              border: none;
-              background-color: teal;
-              color: white;
-              font-weight: bold;
-              cursor: pointer;
-              float: left;
-            }
       }
 
-      .seperationLine hr{
-        width: 45vh;
-      }
-        
+      .formInput.open-new-tab {
+        display: flex;
+        gap: 9px;
 
+        input[type="checkbox"] {
+          border: 1px solid white;
+          border-bottom: 1px solid gray;
+          border-top: 1px solid gray;
+          width: 18px;
+        }
+      }
+
+      .save-webhook {
+        width: 160px;
+        padding: 10px;
+        border: none;
+        background-color: teal;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        float: left;
+      }
+    }
+
+    .seperationLine hr {
+      width: 45vh;
+    }
+
+
+  }
+
+  .acb_right_two {
+    flex: 4 !important;
+    margin: 25px;
+    margin-top: 37px;
   }
 
 }
 
-.acb_bottom{
+.acb_bottom {
   position: relative;
+
   .upcomming {
     position: absolute;
     top: 123px;
@@ -209,16 +228,18 @@
       0% {
         transform: scale(1);
       }
+
       50% {
         transform: scale(1.2);
       }
+
       100% {
         transform: scale(1);
       }
     }
 
-  
+
   }
-  
-  
+
+
 }

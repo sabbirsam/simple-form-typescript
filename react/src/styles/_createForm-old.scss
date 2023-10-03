@@ -13,13 +13,12 @@ h2 {
 .form-builder {
   display: flex;
   justify-content: space-between;
-  // margin: 10px;
-  margin: 10px 10px 0px 20px;
+  margin: 20px;
+
   width: 70%;
   border: 1px solid #ccc;
   padding: 10px;
-  background-color: #D6E1E9;
-  border-radius: 5px;
+  background-color: #f9f9f9;
 }
 
 .form-fields {
@@ -27,6 +26,7 @@ h2 {
   border: 1px solid #ccc;
   padding: 10px;
   background-color: #f9f9f9;
+
   position: sticky;
   top: 65px;
 }
@@ -43,7 +43,7 @@ h2 {
 .edit-field-form {
   border: 1px solid #ccc;
   padding: 21px;
-  background-color: #fff6ee;
+  background-color: #f9f9f9;
   margin: 10px;
   width: 40%;
   height: 100%;
@@ -58,13 +58,6 @@ h2 {
 .draggable-field-container {
   display: flex;
   flex-direction: column;
-}
-
-.draggable-field-container .draggable-field {
-  // background: #ff7300;
-  background: #D6E1E9;
-  color: rgb(1, 0, 35);
-  border-radius: 5px;
 }
 
 .form-btn-group {
@@ -87,7 +80,7 @@ h2 {
 }
 
 .draggable-field button {
-  background-color: #D6E1E9;
+  background-color: #f44336;
   color: #fff;
   border: none;
   padding: 4px 8px;
@@ -121,26 +114,16 @@ button.form-remove {
 .form-canvas-container {
   min-height: calc(85% + 7px);
   background-color: #fff;
-  border: 2px dashed #D6E1E9;
-  // border: 2px dashed #aaa;
+  border: 2px dashed #aaa;
   padding: 10px;
 }
 
 .edit-field-form {
   border: 1px solid #ccc;
   padding: 21px;
-  background-color: #D6E1E9;
-  border-radius: 5px;
+  background-color: #f9f9f9;
 }
 
-
-button.form-edit.remove-background {
-  background: #dbd4ff;
-}
-
-.draggable-field.remove-background {
-  border: 2px dotted indianred;
-}
 
 .simple-form-id-panel {
   display: flex;

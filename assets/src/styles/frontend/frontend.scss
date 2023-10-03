@@ -9,8 +9,8 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 
   .text-fields {
-    display: flex ;
-    flex-direction: column ;
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -151,8 +151,8 @@ input[type="radio"] {
 // END 
 
 .simple_form_content .text-fields {
-  display: flex ;
-  flex-direction: column ;
+  display: flex;
+  flex-direction: column;
   margin-top: 5px;
 }
 
@@ -162,55 +162,57 @@ input[type="radio"] {
 
 /* Floating WhatsApp Icon */
 .floating-whatsapp {
-  position: fixed ;
-  bottom: 20px ;
-  right: 20px ;
-  z-index: 1000 ;
-  border-radius: 50% ;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  border-radius: 50%;
 }
 
 .floating-whatsapp .whatsapp-icon {
-  font-size: 24px ;
-  line-height: 1 ;
-  color: #fff ;
-  border: none ;
-  background: transparent ;
-  padding: 10px ;
-  cursor: pointer ;
+  font-size: 24px;
+  line-height: 1;
+  color: #fff;
+  border: none;
+  background: transparent;
+  padding: 10px;
+  cursor: pointer;
 }
 
 /* Form Content */
 .floating-whatsapp .form-content {
-  display: none ;
-    position: absolute ;
-    bottom: 70px ;
-    right: 10px ;
-    width: 355px ; 
-    background-color: #fff ;
-    border: 1px solid #ccc ;
-    border-radius: 5px ;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5) ;
+  display: none;
+  position: absolute;
+  bottom: 70px;
+  right: 10px;
+  width: 355px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 
-    transition: height 0.3s ease-in-out ;
-    height: 0 ; /* Start with a height of 0 */
-    overflow: hidden ;
+  transition: height 0.3s ease-in-out;
+  height: 0;
+  /* Start with a height of 0 */
+  overflow: hidden;
 }
 
 /* Show the form content when the form is active */
 .floating-whatsapp .form-content.active {
-  display: block ;
+  display: block;
 }
 
 .floating-whatsapp .form-content header {
-  background: #293239 ;
-  border-radius: 5px 5px 0 0 ;
-  color: #fff ;
-  cursor: pointer ;
+  background: #293239;
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+  cursor: pointer;
 }
 
 .floating-whatsapp .error-message {
   position: absolute;
-  bottom: 60px;
+  bottom: 62px;
+  font-size: 10px;
 }
 
 .cta-text {
@@ -226,62 +228,66 @@ input[type="radio"] {
   border-width: 1px;
   padding: 0.5rem 1rem;
   text-align: center;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.10196), 0 1px 2px -1px rgba(0,0,0,0.10196);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10196), 0 1px 2px -1px rgba(0, 0, 0, 0.10196);
 }
 
 .floating-whatsapp .form-content h4:before {
-  background: #1a8a34 ;
-  border-radius: 50% ;
-  content: "" ;
-  height: 8px ;
-  margin: 0 8px 0 0 ;
-  width: 8px ;
+  background: #1a8a34;
+  border-radius: 50%;
+  content: "";
+  height: 8px;
+  margin: 0 8px 0 0;
+  width: 8px;
 }
 
 .floating-whatsapp .form-content h4 {
-  font-size: 13px ;
-  margin: 0 ;
-  padding: 12px ;
-  color: white ;
+  font-size: 13px;
+  margin: 0;
+  padding: 12px;
+  color: white;
 }
 
 
 .floating-whatsapp .main-search-btn {
-  transition: all .35s ;
-  background: orange ;
-  border: transparent ;
-  color: #fff ;
-  padding: 10px 16px ;
-  margin-bottom: 12px ;
-}
-.floating-whatsapp .main-search-btn:hover {
-   color: #fff ;
-   background-color: #2196F3 ;
+  transition: all .35s;
+  background: orange;
+  border: transparent;
+  color: #fff;
+  padding: 10px 16px;
+  margin-bottom: 12px;
 }
 
-.simple_form_container_floating{
-  background: #f7f7f7 ;
-  border: 1px solid #ddd ;
-  padding: 2px 15px ;
+.floating-whatsapp .main-search-btn:hover {
+  color: #fff;
+  background-color: #2196F3;
+}
+
+.simple_form_container_floating {
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  padding: 2px 15px;
 }
 
 
 @keyframes jumpAnimation {
-  0%, 100% {
-    transform: translateY(0) ;
+
+  0%,
+  100% {
+    transform: translateY(0);
   }
+
   50% {
-    transform: translateY(-10px) ;
+    transform: translateY(-10px);
   }
 }
 
 /* Set animation duration to 10 seconds */
 #jumping-whatsapp {
-  animation: jumpAnimation 10s ease-in-out ; 
-  transition: transform 0.5s ;
+  animation: jumpAnimation 10s ease-in-out;
+  transition: transform 0.5s;
 }
 
 /* Pause the animation on hover */
 #jumping-whatsapp:hover {
-  animation-play-state: paused ;
+  animation-play-state: paused;
 }

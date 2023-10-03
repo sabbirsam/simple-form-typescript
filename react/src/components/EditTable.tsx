@@ -26,6 +26,9 @@ const CreateForm = () => {
   const [showjson, setShowjson] = useState(false);
   const [editingOptionIndex, setEditingOptionIndex] = useState(null);
 
+  // Add state to keep track of whether the field is being edited
+  const [isEditingField, setIsEditingField] = useState(false);
+
   const handleClosePopup = () => {
     setCreateTableModal(false);
     setShowjson((showjson) => !showjson);
@@ -106,17 +109,6 @@ const CreateForm = () => {
   const handleEditField = (uniqueId) => {
     const fieldToEdit = formFields.find((field) => field.uniqueId === uniqueId);
     setEditingField({ ...fieldToEdit });
-
-    // Scroll to the bottom of the page
-    /* const screenHeight = window.innerHeight;
-    let middleY;
-
-    if (screenHeight >= 700) {
-      middleY = screenHeight / 1.6 + 250;
-    } else {
-      middleY = screenHeight / 1.1 + 250;
-    }
-    window.scrollTo(0, middleY); */
 
   };
 
@@ -334,13 +326,27 @@ const CreateForm = () => {
                             ref={provided.innerRef}
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
-                            className="draggable-field"
+                            // className="draggable-field"
+                            className={`draggable-field ${isEditingField && field.uniqueId === editingField.uniqueId
+                              ? 'remove-background'
+                              : ''
+                              }`}
                           >
                             {/* Render the field using the RenderField component */}
                             <RenderField field={field} />
-                            <button className='form-edit' onClick={() => handleEditField(field.uniqueId)}>
+                            {/* <button className='form-edit' onClick={() => handleEditField(field.uniqueId)}>
                               {EditIcon}
-                            </button>
+                            </button> */}
+                            <button className={`form-edit ${isEditingField && field.uniqueId === editingField.uniqueId
+                              ? 'remove-background'
+                              : ''
+                              }`}
+                              onClick={() => {
+                                handleEditField(field.uniqueId);
+                                setIsEditingField(true); // Set editing state to false when removing
+                              }}
+                            >{EditIcon}</button>
+
                             <button className='form-remove' onClick={() => handleRemoveField(field.uniqueId)}>
                               {DeleteIcon}
                             </button>
@@ -360,7 +366,8 @@ const CreateForm = () => {
         {editingField && (
           <div className="edit-field-form">
             <div className='form-btn-group'>
-              <button className='jsonbtn' onClick={handleUpdateField}>Update</button>
+              {/* <button className='jsonbtn' onClick={handleUpdateField}>Update</button> */}
+              <button className='jsonbtn' onClick={() => { handleUpdateField(); setIsEditingField(false); }} >Update</button>
               <button className='jsonbtn' onClick={handleShowJsonForm}>	 {showjson ? 'Hide Json' : 'Show Json'}</button>
             </div>
             <h3>Edit Field</h3>

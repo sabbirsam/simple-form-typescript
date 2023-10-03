@@ -1,10 +1,10 @@
-=== Simple Form- Advance Drag and Drop builder with easy leads collection ===
+=== Simple Form- Advance Drag and Drop builder with easy leads collection to social redirection ===
 Contributors: devsabbirahmed, wpxpertise
-Tags: simple form, contact, form, contact form, feedback, email, ajax, captcha, drag and drop, drag, WhatsApp, redirection, custom form, contact form, form maker, form creator, simple, easy form, leads redirection, whatsapp redirection
+Tags: simple form, contact, form, contact form, feedback, email, ajax, captcha, drag and drop, drag, WhatsApp, redirection, custom form, contact form, form maker, form creator, simple, easy form, leads redirection, whatsapp redirection, redirection, builder, Woocommerce, Elementor, Contact Form 7, 7, seven
 Requires at least: 5.0 or higher
 Tested up to: 6.3
 Requires PHP: 5.4 or higher
-Stable Tag: 2.2.1
+Stable Tag: 2.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -73,6 +73,9 @@ You will then automatically be redirected to the "Data" page, from there you can
 
 
 == Changelog ==
+
+= 2.2.2 - 03 OCT 2023 =
+* New: UI Improvement
 
 = 2.2.1 - 03 OCT 2023 =
 * New: Improvement Canvas editor side panel
