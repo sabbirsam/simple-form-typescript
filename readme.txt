@@ -2,9 +2,9 @@
 Contributors: devsabbirahmed, wpxpertise
 Tags: simple form, contact, form, contact form, feedback, email, ajax, captcha, drag and drop, drag, WhatsApp, redirection, custom form, contact form, form maker, form creator, simple, easy form, leads redirection, whatsapp redirection, redirection, builder, Woocommerce, Elementor, Contact Form 7, 7, seven
 Requires at least: 5.0 or higher
-Tested up to: 6.3
+Tested up to: 6.4
 Requires PHP: 5.4 or higher
-Stable Tag: 2.2.2
+Stable Tag: 2.2.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -73,6 +73,17 @@ You will then automatically be redirected to the "Data" page, from there you can
 
 
 == Changelog ==
+
+= 2.2.6 – 17 NOV 2023 =
+
+= 2.2.5 – 10 NOV 2023 =
+Improvement: Enhanced compatibility to support WordPress 6.4
+
+= 2.2.4 - 22 OCT 2023 
+* Fix: Minor bug fixes for compatibility issues
+
+= 2.2.3 - 04 OCT 2023 =
+* Fix: Fix delete uniqueId error
 
 = 2.2.2 - 03 OCT 2023 =
 * New: UI Improvement
