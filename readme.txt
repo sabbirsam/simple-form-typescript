@@ -4,7 +4,7 @@ Tags: simple form, contact, form, contact form, feedback, email, ajax, captcha, 
 Requires at least: 5.0 or higher
 Tested up to: 6.4
 Requires PHP: 5.4 or higher
-Stable Tag: 2.2.6
+Stable Tag: 2.2.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -74,10 +74,14 @@ You will then automatically be redirected to the "Data" page, from there you can
 
 == Changelog ==
 
+= 2.2.7 – 01 JAN 2024 =
+* Fix: Fix widgets and form not loading without login bugs
+
 = 2.2.6 – 17 NOV 2023 =
+* Fix: Fix minor bugs
 
 = 2.2.5 – 10 NOV 2023 =
-Improvement: Enhanced compatibility to support WordPress 6.4
+* Improvement: Enhanced compatibility to support WordPress 6.4
 
 = 2.2.4 - 22 OCT 2023 
 * Fix: Minor bug fixes for compatibility issues

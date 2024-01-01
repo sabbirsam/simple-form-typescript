@@ -83,16 +83,16 @@ class Settings {
 	public function displaySettingsArray(): array {
 		$settingsArray = [
 			'table_title'          => [
-				'feature_title' => __( 'Table Title', 'sheetstowptable' ),
-				'feature_desc'  => __( 'Enable this to show the table title in <i>h3</i> tag above the table in your website front-end', 'sheetstowptable' ),
+				'feature_title' => __( 'Table Title', 'simpleform' ),
+				'feature_desc'  => __( 'Enable this to show the table title in <i>h3</i> tag above the table in your website front-end', 'simpleform' ),
 				'input_name'    => 'show_title',
 				'checked'       => false,
 				'type'          => 'checkbox',
 				'show_tooltip'  => true,
 			],
 			'show_info_block'      => [
-				'feature_title' => __( 'Show info block', 'sheetstowptable' ),
-				'feature_desc'  => __( 'Show <i>Showing X to Y of Z entries</i>block below the table', 'sheetstowptable' ),
+				'feature_title' => __( 'Show info block', 'simpleform' ),
+				'feature_desc'  => __( 'Show <i>Showing X to Y of Z entries</i>block below the table', 'simpleform' ),
 				'input_name'    => 'info_block',
 				'checked'       => true,
 				'type'          => 'checkbox',
@@ -113,16 +113,16 @@ class Settings {
 	public function sortAndFilterSettingsArray(): array {
 		$settingsArray = [
 			'allow_sorting' => [
-				'feature_title' => __( 'Allow Sorting', 'sheetstowptable' ),
-				'feature_desc'  => __( 'Enable this feature to sort table data for frontend.', 'sheetstowptable' ),
+				'feature_title' => __( 'Allow Sorting', 'simpleform' ),
+				'feature_desc'  => __( 'Enable this feature to sort table data for frontend.', 'simpleform' ),
 				'input_name'    => 'sorting',
 				'checked'       => true,
 				'type'          => 'checkbox',
 				'show_tooltip'  => true,
 			],
 			'search_bar'    => [
-				'feature_title' => __( 'Search Bar', 'sheetstowptable' ),
-				'feature_desc'  => __( 'Enable this feature to show a search bar in for the table. It will help user to search data in the table', 'sheetstowptable' ),
+				'feature_title' => __( 'Search Bar', 'simpleform' ),
+				'feature_desc'  => __( 'Enable this feature to show a search bar in for the table. It will help user to search data in the table', 'simpleform' ),
 				'input_name'    => 'search_table',
 				'checked'       => true,
 				'type'          => 'checkbox',

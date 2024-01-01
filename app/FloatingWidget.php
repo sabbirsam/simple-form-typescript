@@ -35,8 +35,16 @@ class FloatingWidget {
 		if ( isset($options['formCustomization']) && $options['formCustomization'] === 'true' ) {
 			$submittext = isset($options['submitbtntext']) ? esc_html($options['submitbtntext']) : 'Send Message';
 			$formheader = isset($options['formheader']) ? esc_html($options['formheader']) : 'Have question? - Submit the Form';
+			
 			$submitbtntextcolor = isset($options['submitbtntextcolor']) ? sanitize_hex_color($options['submitbtntextcolor']) : '#fff';
 			$submitbtnbgcolor = isset($options['submitbtnbgcolor']) ? sanitize_hex_color($options['submitbtnbgcolor']) : 'orange';
+
+			$headertextcolor = isset($options['submitbtntextcolor']) ? sanitize_hex_color($options['submitbtntextcolor']) : '#fff';
+			$headerbgcolor = isset($options['submitbtnbgcolor']) ? sanitize_hex_color($options['submitbtnbgcolor']) : 'orange';
+			
+			$bodytextcolor = isset($options['submitbtntextcolor']) ? sanitize_hex_color($options['submitbtntextcolor']) : '#fff';
+			$bodybgcolor = isset($options['submitbtnbgcolor']) ? sanitize_hex_color($options['submitbtnbgcolor']) : 'orange';
+
 			$flotingwidgetsbgcolor = isset($options['flotingwidgetsbgcolor']) ? sanitize_hex_color($options['flotingwidgetsbgcolor']) : 'orange';
 			$submitbtntexthovercolor = isset($options['submitbtntexthovercolor']) ? sanitize_hex_color($options['submitbtntexthovercolor']) : '#2196f3';
 			$selectedFont = isset($options['selectedFont']) ? esc_html($options['selectedFont']) : 'Arial';
@@ -44,9 +52,17 @@ class FloatingWidget {
 		} else {
 			$submittext = 'Send Message';
 			$formheader = 'Have question? - Submit the Form';
+
+			$headertextcolor = '#fff';
+			$headerbgcolor = '#293239';
+
 			$submitbtntextcolor = '#fff';
 			$submitbtnbgcolor = 'orange';
-			$flotingwidgetsbgcolor = 'orange';
+
+			$bodytextcolor = '#293239';
+			$bodybgcolor = '#f7f7f7';
+			
+			$flotingwidgetsbgcolor = '#0065a0';
 			$submitbtntexthovercolor = '#2196f3';
 			$selectedFont = 'Arial';
 			$formcta = '';
@@ -86,6 +102,14 @@ class FloatingWidget {
 					</div>
 				</div>
 					<style>	
+						.simple_form_container_floating{
+							background-color: ' . esc_attr($bodybgcolor) . '; 
+							color: ' . esc_attr($bodytextcolor) . ';
+						}
+						header.clearfix{
+							background-color: ' . esc_attr($headerbgcolor) . '; 
+							color: ' . esc_attr($headertextcolor) . ';
+						}
 						circle {
 							fill: ' . esc_attr($flotingwidgetsbgcolor) . ';
 						}

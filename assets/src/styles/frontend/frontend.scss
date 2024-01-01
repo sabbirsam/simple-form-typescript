@@ -203,10 +203,13 @@ input[type="radio"] {
 }
 
 .floating-whatsapp .form-content header {
-  background: #293239;
   border-radius: 5px 5px 0 0;
-  color: #fff;
   cursor: pointer;
+  padding: 0 0 2px 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .floating-whatsapp .error-message {
@@ -242,15 +245,15 @@ input[type="radio"] {
 
 .floating-whatsapp .form-content h4 {
   font-size: 13px;
-  margin: 0;
+  margin: 8px 0px 0px 0;
   padding: 12px;
-  color: white;
+  color: #fff;
 }
 
 
 .floating-whatsapp .main-search-btn {
   transition: all .35s;
-  background: orange;
+  background: #0065a0;
   border: transparent;
   color: #fff;
   padding: 10px 16px;

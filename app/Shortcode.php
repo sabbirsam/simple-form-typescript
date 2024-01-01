@@ -32,7 +32,6 @@ class Shortcode {
 		if ( defined( 'ELEMENTOR_VERSION' ) && \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
 			return $this->table_shortcode( $atts );
 		} else {
-
 			return $this->table_shortcode( $atts );
 		}
 	}

@@ -72,34 +72,34 @@ defined( 'ABSPATH' ) || exit;
 }
 </style>
 <div class="notice notice-large is-dismissible notice-info simpleform-review-notice">
-	<p><?php esc_html_e( 'Hi there, it seems like', 'sheetstowptable' ); ?>
-		<a href="https://wordpress.org/plugins/sheets-to-wp-table-live-sync/" target="_blank">
+	<p><?php esc_html_e( 'Hi there, it seems like', 'simpleform' ); ?>
+		<a href="https://wordpress.org/plugins/simple-form/" target="_blank">
 			<?php echo esc_html( SIMPLEFORM_PLUGIN_NAME ); ?>
 		</a>
-		<?php esc_html_e( 'is bringing you some value, and that is pretty awesome! Can you please show us some love and rate', 'sheetstowptable' ); ?>
-		<a href="https://wordpress.org/plugins/sheets-to-wp-table-live-sync/" target="_blank">
+		<?php esc_html_e( 'is bringing you some value, and that is pretty awesome! Can you please show us some love and rate', 'simpleform' ); ?>
+		<a href="https://wordpress.org/plugins/simple-form/" target="_blank">
 			<?php echo esc_html( SIMPLEFORM_PLUGIN_NAME ); ?>
 		</a>
-		<?php esc_html_e( 'on WordPress? It will take two minutes of your time, and will really help us spread the world.', 'sheetstowptable' ); ?>
+		<?php esc_html_e( 'on WordPress? It will take two minutes of your time, and will really help us spread the world.', 'simpleform' ); ?>
 	</p>
 
 	<div class="notice-actions">
-		<a href="https://wordpress.org/support/plugin/sheets-to-wp-table-live-sync/reviews/?filter=5#new-post"
-			target="_blank"><?php esc_html_e( 'I\'d love to help', 'sheetstowptable' ); ?> :)</a>
-		<a href="#" class="remind_later"><?php esc_html_e( 'Not this time', 'sheetstowptable' ); ?></a>
+		<a href="https://wordpress.org/support/plugin/simple-form/reviews/?filter=5#new-post"
+			target="_blank"><?php esc_html_e( 'I\'d love to help', 'simpleform' ); ?> :)</a>
+		<a href="#" class="remind_later"><?php esc_html_e( 'Not this time', 'simpleform' ); ?></a>
 		<a href="#" class="hide_notice"
-			data-value="hide_notice"><?php esc_html_e( 'I\'ve already rated you', 'sheetstowptable' ); ?></a>
+			data-value="hide_notice"><?php esc_html_e( 'I\'ve already rated you', 'simpleform' ); ?></a>
 	</div>
 
 	<div class="notice-overlay-wrap">
 		<div class="notice-overlay">
-			<h4><?php esc_html_e( 'Would you like us to remind you about this later?', 'sheetstowptable' ); ?></h4>
+			<h4><?php esc_html_e( 'Would you like us to remind you about this later?', 'simpleform' ); ?></h4>
 
 			<div class="notice-overlay-actions">
-				<a href="#" data-value="3"><?php esc_html_e( 'Remind me in 3 days', 'sheetstowptable' ); ?></a>
-				<a href="#" data-value="10"><?php esc_html_e( 'Remind me in 10 days', 'sheetstowptable' ); ?></a>
+				<a href="#" data-value="3"><?php esc_html_e( 'Remind me in 3 days', 'simpleform' ); ?></a>
+				<a href="#" data-value="10"><?php esc_html_e( 'Remind me in 10 days', 'simpleform' ); ?></a>
 				<a href="#"
-					data-value="hide_notice"><?php esc_html_e( 'Don\'t remind me about this', 'sheetstowptable' ); ?></a>
+					data-value="hide_notice"><?php esc_html_e( 'Don\'t remind me about this', 'simpleform' ); ?></a>
 			</div>
 
 			<span class="promo_close_btn">

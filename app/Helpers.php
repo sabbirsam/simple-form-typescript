@@ -26,7 +26,7 @@ class Helpers {
 	 * @return boolean
 	 */
 	public function check_pro_plugin_exists(): bool {
-		return file_exists( WP_PLUGIN_DIR . '/sheets-to-wp-table-live-sync-pro/sheets-to-wp-table-live-sync-pro.php' );
+		return file_exists( WP_PLUGIN_DIR . '/simple-form-pro/simple-form-pro.php' );
 	}
 
 	/**
@@ -37,7 +37,7 @@ class Helpers {
 	public function is_pro_active(): bool {
 		$license = function_exists( 'SIMPLEFORMpro' ) ? SIMPLEFORMpro()->license_status : false;
 
-		return in_array( 'sheets-to-wp-table-live-sync-pro/sheets-to-wp-table-live-sync-pro.php', get_option( 'active_plugins', [] ), true ) && $license;
+		return in_array( 'simple-form-pro/simple-form-pro.php', get_option( 'active_plugins', [] ), true ) && $license;
 	}
 
 	/**

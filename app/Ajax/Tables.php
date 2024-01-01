@@ -38,6 +38,8 @@ class Tables {
 		add_action( 'wp_ajax_simpleform_save_table', [ $this, 'save' ] );
 
 		add_action( 'wp_ajax_simpleform_table_html', [ $this, 'rendertable' ] );
+		add_action('wp_ajax_nopriv_simpleform_table_html', [ $this, 'rendertable' ] );
+
 		add_action( 'wp_ajax_simpleform_get_submit_data', [ $this, 'get_submitdata' ] );
 	}
 

@@ -5,17 +5,12 @@
  */
 
 function generateRenderedForm(formData) {
-  
-
   let html = '';
-
   formData.forEach((field) => {
     let fieldAttributes = '';
-
     if (field.required === 'true') {
       fieldAttributes += ' required';
     }
-
     switch (field.type) {
       case 'text':
       case 'number':
@@ -143,11 +138,8 @@ function generateRenderedForm(formData) {
         break;
     }
   });
-
   return html;
 }
-
-
 
 /**
  * Load Form 
@@ -176,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(function (error) {
           // Handle the error for this form
-          console.error('Form', formId, 'Error:', error);
+          console.error('Form', formId, 'Error:', error.message);
         });
     });
   });

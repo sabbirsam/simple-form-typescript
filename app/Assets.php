@@ -26,7 +26,8 @@ class Assets {
 	 */
 	public function __construct() {
 		add_action( 'admin_enqueue_scripts', [ $this, 'admin_scripts' ] );
-		add_filter( 'the_content', [ $this, 'load_assets_for_shortcode' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'fe_scripts' ] );
+
 	}
 
 	/**
@@ -103,15 +104,15 @@ class Assets {
 	}
 
 	/**
-	 * Load assets for shortcode
+	 * Load assets frontend
 	 *
 	 * @param  mixed $content The page content.
 	 * @return mixed
 	 */
-	public function load_assets_for_shortcode( $content ) {
-		$this->frontend_scripts();
-		return $content;
-	}
+
+	public function fe_scripts() {
+        $this->frontend_scripts();
+    }
 
 	/**
 	 * Enqueue frontend files.

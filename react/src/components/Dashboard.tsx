@@ -78,7 +78,7 @@ function Dashboard() {
 						{/* <Title tagName="h4">
 							<strong>Total Table: {tableCount}</strong>&nbsp;
 						</Title> */}
-						
+
 						<div className="table-search-box">
 							<input
 								type="text"
