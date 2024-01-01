@@ -106,23 +106,16 @@
         margin-left: 59px;
       }
 
-      .colorSelectionbg {
-        width: 154px;
-        height: 58px;
-        margin-left: 43px;
-      }
-
-      .colorSelectiontext {
-        width: 154px;
-        height: 58px;
-        margin-left: 35px;
-      }
-
+      .colorSelectionformtext,
+      .colorSelectionformtextcolor,
+      .colorSelectionbg,
+      .colorSelectiontext,
       .colorSelectionhover {
         width: 154px;
         height: 58px;
-        margin-left: 25px;
+        margin-bottom: 20px;
       }
+
     }
 
 

@@ -36,14 +36,14 @@ class FloatingWidget {
 			$submittext = isset($options['submitbtntext']) ? esc_html($options['submitbtntext']) : 'Send Message';
 			$formheader = isset($options['formheader']) ? esc_html($options['formheader']) : 'Have question? - Submit the Form';
 			
-			$submitbtntextcolor = isset($options['submitbtntextcolor']) ? sanitize_hex_color($options['submitbtntextcolor']) : '#fff';
+			$submitbtntextcolor = isset($options['submitbtntextcolor']) ? sanitize_hex_color($options['submitbtntextcolor']) : '#ffffff';
 			$submitbtnbgcolor = isset($options['submitbtnbgcolor']) ? sanitize_hex_color($options['submitbtnbgcolor']) : 'orange';
 
-			$headertextcolor = isset($options['submitbtntextcolor']) ? sanitize_hex_color($options['submitbtntextcolor']) : '#fff';
+			$headertextcolor = isset($options['formtextcolor']) ? sanitize_hex_color($options['formtextcolor']) : '#ffffff';
 			$headerbgcolor = isset($options['submitbtnbgcolor']) ? sanitize_hex_color($options['submitbtnbgcolor']) : 'orange';
 			
-			$bodytextcolor = isset($options['submitbtntextcolor']) ? sanitize_hex_color($options['submitbtntextcolor']) : '#fff';
-			$bodybgcolor = isset($options['submitbtnbgcolor']) ? sanitize_hex_color($options['submitbtnbgcolor']) : 'orange';
+			$bodytextcolor = isset($options['submitbtntextcolor']) ? sanitize_hex_color($options['submitbtntextcolor']) : '#ffffff';
+			$bodybgcolor = isset($options['formbackgroundcolor']) ? sanitize_hex_color($options['formbackgroundcolor']) : 'orange';
 
 			$flotingwidgetsbgcolor = isset($options['flotingwidgetsbgcolor']) ? sanitize_hex_color($options['flotingwidgetsbgcolor']) : 'orange';
 			$submitbtntexthovercolor = isset($options['submitbtntexthovercolor']) ? sanitize_hex_color($options['submitbtntexthovercolor']) : '#2196f3';
@@ -53,10 +53,10 @@ class FloatingWidget {
 			$submittext = 'Send Message';
 			$formheader = 'Have question? - Submit the Form';
 
-			$headertextcolor = '#fff';
+			$headertextcolor = '#ffffff';
 			$headerbgcolor = '#293239';
 
-			$submitbtntextcolor = '#fff';
+			$submitbtntextcolor = '#ffffff';
 			$submitbtnbgcolor = 'orange';
 
 			$bodytextcolor = '#293239';

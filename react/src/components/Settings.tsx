@@ -25,8 +25,12 @@ const Settings = () => {
   const [formcta, setFormCTA] = useState(formSettings.formcta || "");
 
   const [submitbtnbgcolor, setSubmitbtnbgcolor] = useState(formSettings.submitbtnbgcolor || "");
-  const [flotingwidgetsbgcolor, setFlotingwidgetsbgcolor] = useState(formSettings.flotingwidgetsbgcolor || "");
   const [submitbtntextcolor, setSubmitbtntextcolor] = useState(formSettings.submitbtntextcolor || "");
+
+  const [formbackgroundcolor, setFormbackgroundcolor] = useState(formSettings.formbackgroundcolor || "");
+  const [formtextcolor, setFormtextcolor] = useState(formSettings.formtextcolor || "");
+
+  const [flotingwidgetsbgcolor, setFlotingwidgetsbgcolor] = useState(formSettings.flotingwidgetsbgcolor || "");
   const [submitbtntexthovercolor, setSubmitbtntexthovercolor] = useState(formSettings.submitbtntexthovercolor || "");
   const [selectedFont, setSelectedFont] = useState(formSettings.selectedFont || "");
   const isSaveButtonDisabled = !whatsappRedirection && !mailNotification;
@@ -62,6 +66,8 @@ const Settings = () => {
       submitbtntext,
       formheader,
       submitbtnbgcolor,
+      formbackgroundcolor,
+      formtextcolor,
       submitbtntextcolor,
       selectedFont,
       formcta
@@ -322,6 +328,10 @@ const Settings = () => {
                 </div>
               </div>
 
+              <div className="seperationLine">
+                <hr />
+              </div>
+
               <div className="formInput">
                 <label htmlFor="selectedFont">Select Font</label>
                 <div className="wpnts-setting">
@@ -345,53 +355,84 @@ const Settings = () => {
 
               </div>
 
-              <div className="formInput open-new-tab">
-                <label htmlFor="interval_review">Floting widgets color</label>
+              <div className="formInput">
+                <label htmlFor="formtextcolor">Form text color</label>
                 <div className="wpnts-setting">
                   <input
-                    className="FlotingSelectionbg"
+                    className="colorSelectionformtext"
                     type="color"
-                    name="interval_review"
-                    value={flotingwidgetsbgcolor}
-                    onChange={(e) => setFlotingwidgetsbgcolor(e.target.value)}
+                    name="formtextcolor"
+                    value={formtextcolor}
+                    onChange={(e) => setFormtextcolor(e.target.value)}
                   />
                 </div>
               </div>
 
+              {/* Form color  */}
 
-              <div className="formInput open-new-tab">
-                <label htmlFor="interval_review">Submit button BG color</label>
+              {/* <div className="formInput open-new-tab"> */}
+              <div className="formInput">
+                <label htmlFor="formbackgroundcolor">Form background color</label>
                 <div className="wpnts-setting">
                   <input
                     className="colorSelectionbg"
                     type="color"
-                    name="interval_review"
-                    value={submitbtnbgcolor}
-                    onChange={(e) => setSubmitbtnbgcolor(e.target.value)}
+                    name="formbackgroundcolor"
+                    value={formbackgroundcolor}
+                    onChange={(e) => setFormbackgroundcolor(e.target.value)}
                   />
                 </div>
               </div>
 
-              <div className="formInput open-new-tab">
-                <label htmlFor="interval_review">Submit button text color</label>
+              <div className="formInput">
+                <label htmlFor="submitbtntextcolor">Form fields text color</label>
                 <div className="wpnts-setting">
                   <input
-                    className="colorSelectiontext"
+                    className="colorSelectionformtextcolor"
                     type="color"
-                    name="interval_review"
+                    name="submitbtntextcolor"
                     value={submitbtntextcolor}
                     onChange={(e) => setSubmitbtntextcolor(e.target.value)}
                   />
                 </div>
               </div>
 
-              <div className="formInput open-new-tab">
-                <label htmlFor="interval_review">Submit button hover color</label>
+              <div className="formInput">
+                <label htmlFor="submitbtnbgcolor">Submit button BG color</label>
                 <div className="wpnts-setting">
                   <input
+                    id="submitbtnbgcolor"
+                    className="colorSelectionbg"
+                    type="color"
+                    name="submitbtnbgcolor"
+                    value={submitbtnbgcolor}
+                    onChange={(e) => setSubmitbtnbgcolor(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              <div className="formInput">
+                <label htmlFor="submitbtntextcolor">Submit button text color</label>
+                <div className="wpnts-setting">
+                  <input
+                    id="submitbtntextcolor"
+                    className="colorSelectiontext"
+                    type="color"
+                    name="submitbtntextcolor"
+                    value={submitbtntextcolor}
+                    onChange={(e) => setSubmitbtntextcolor(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              <div className="formInput">
+                <label htmlFor="submitbtntexthovercolor">Submit button hover color</label>
+                <div className="wpnts-setting">
+                  <input
+                    id="submitbtntexthovercolor"
                     className="colorSelectionhover"
                     type="color"
-                    name="interval_review"
+                    name="submitbtntexthovercolor"
                     value={submitbtntexthovercolor}
                     onChange={(e) => setSubmitbtntexthovercolor(e.target.value)}
                   />

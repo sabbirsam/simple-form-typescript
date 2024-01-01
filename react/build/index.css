@@ -2647,23 +2647,19 @@ button.delete-button {
   height: 58px;
   margin-left: 59px;
 }
+.acb_top .acb_right .wpnts-setting .colorSelectionformtext,
+.acb_top .acb_right .wpnts-setting .colorSelectionformtextcolor,
 .acb_top .acb_right .wpnts-setting .colorSelectionbg,
-.acb_bottom .acb_right .wpnts-setting .colorSelectionbg {
-  width: 154px;
-  height: 58px;
-  margin-left: 43px;
-}
 .acb_top .acb_right .wpnts-setting .colorSelectiontext,
-.acb_bottom .acb_right .wpnts-setting .colorSelectiontext {
-  width: 154px;
-  height: 58px;
-  margin-left: 35px;
-}
 .acb_top .acb_right .wpnts-setting .colorSelectionhover,
+.acb_bottom .acb_right .wpnts-setting .colorSelectionformtext,
+.acb_bottom .acb_right .wpnts-setting .colorSelectionformtextcolor,
+.acb_bottom .acb_right .wpnts-setting .colorSelectionbg,
+.acb_bottom .acb_right .wpnts-setting .colorSelectiontext,
 .acb_bottom .acb_right .wpnts-setting .colorSelectionhover {
   width: 154px;
   height: 58px;
-  margin-left: 25px;
+  margin-bottom: 20px;
 }
 .acb_top .acb_right form,
 .acb_bottom .acb_right form {
