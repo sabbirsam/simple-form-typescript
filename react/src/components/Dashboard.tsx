@@ -17,6 +17,7 @@ function Dashboard() {
 	const [tables, setTables] = useState(getTables());
 	const [copiedTables, setCopiedTables] = useState(getTables());
 	const [searchKey, setSearchKey] = useState<string>('');
+	const [tableCount, setTableCount] = useState(0);
 
 
 	/**
@@ -32,7 +33,7 @@ function Dashboard() {
 				// console.log(response.tables) 
 				setTables(response.tables);
 				setCopiedTables(response.tables);
-
+				setTableCount(response.tables_count);
 				setLoader(false);
 			},
 			error(error) {
@@ -64,7 +65,7 @@ function Dashboard() {
 				<>
 					<div className="no-tables-created-intro text-center">
 						<div className="no-tables-intro-img"><img style={{ width: '42vh', height: '40vh' }} src={cloudImage} alt="Cloud Icon" /></div>
-						<h2>Because you didn't create one</h2>
+						<h2>Please create one</h2>
 						<Link className='btn btn-lg' to="/create-form">Add Form</Link>
 						<p className="help">
 							Need help? <a href="https://youtu.be/1PnGVuAqIxk" target="_blank">Watch Now</a>
@@ -105,6 +106,7 @@ function Dashboard() {
 								copiedTables={copiedTables}
 								setCopiedTables={setCopiedTables}
 								setTables={setTables}
+								setTableCount={setTableCount}
 								setLoader={setLoader}
 							/>
 						</div>

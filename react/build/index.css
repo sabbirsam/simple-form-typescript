@@ -2004,6 +2004,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .form-builder {
@@ -2242,7 +2243,7 @@ button.form-edit.remove-background {
 button.jsonbtn,
 button#saveData {
   display: block;
-  margin: 0px -6px -15px 11px;
+  margin: 0px -9px 20px 18px;
   background-color: #0d4c62;
   color: #fff;
   border: none;
@@ -2287,7 +2288,8 @@ pre::-webkit-scrollbar-track {
 
 span.formname input#formName {
   margin-left: 23px;
-  width: 95%;
+  width: 285px;
+  height: 40px;
 }
 /*!**********************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/_lead.scss ***!
@@ -3089,7 +3091,7 @@ All the default css will place here...
 
 input[type=text],
 input[type=search] {
-  padding: 14px 20px 15px 45px;
+  padding: 14px 16px 12px 20px;
   background: #ffffff;
   border: 1px solid #edeff1;
   border-radius: 4px;

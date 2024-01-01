@@ -28248,16 +28248,6 @@ const CreateForm = () => {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "simple-form-builder"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_icons_material_DynamicForm__WEBPACK_IMPORTED_MODULE_9__["default"], null), " Drag and Drop Form Builder"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "checkbox-wrapper"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: "formname"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    type: "text",
-    placeholder: "Add form name",
-    name: "simpleformname",
-    className: "js-open-modal",
-    id: "formName"
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "button-sub-group-simple-form"
   }, !editingField && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     className: "jsonbtn",
@@ -28267,7 +28257,15 @@ const CreateForm = () => {
     onClick: handleSaveFormtoDB,
     id: "saveData",
     type: "button"
-  }, "Save")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, "Save"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "formname"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "text",
+    placeholder: "Add form name",
+    name: "simpleformname",
+    className: "js-open-modal",
+    id: "formName"
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "form-builder-container"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_10__.DragDropContext, {
     onDragEnd: onDragEnd
@@ -28598,6 +28596,7 @@ function Dashboard() {
   const [tables, setTables] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)((0,_Helpers__WEBPACK_IMPORTED_MODULE_4__.getTables)());
   const [copiedTables, setCopiedTables] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)((0,_Helpers__WEBPACK_IMPORTED_MODULE_4__.getTables)());
   const [searchKey, setSearchKey] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('');
+  const [tableCount, setTableCount] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0);
 
   /**
    * Receving all table data
@@ -28612,6 +28611,7 @@ function Dashboard() {
         // console.log(response.tables) 
         setTables(response.tables);
         setCopiedTables(response.tables);
+        setTableCount(response.tables_count);
         setLoader(false);
       },
       error(error) {
@@ -28644,7 +28644,7 @@ function Dashboard() {
     },
     src: cloudImage,
     alt: "Cloud Icon"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Because you didn't create one"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Please create one"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
     className: "btn btn-lg",
     to: "/create-form"
   }, "Add Form"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
@@ -28670,6 +28670,7 @@ function Dashboard() {
     copiedTables: copiedTables,
     setCopiedTables: setCopiedTables,
     setTables: setTables,
+    setTableCount: setTableCount,
     setLoader: setLoader
   }))));
 }

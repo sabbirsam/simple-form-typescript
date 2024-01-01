@@ -195,12 +195,6 @@ const CreateForm = () => {
     <div className='simple-form-builder'>
       <h2><DynamicFormIcon /> Drag and Drop Form Builder</h2>
 
-      <div className="checkbox-wrapper">
-        <span className="formname">
-          <input type="text" placeholder='Add form name' name='simpleformname' className="js-open-modal" id="formName" />
-        </span>
-      </div>
-
       <div className='button-sub-group-simple-form'>
         {!editingField && (
           <button className='jsonbtn' onClick={handleShowJsonForm}>
@@ -209,6 +203,9 @@ const CreateForm = () => {
         )}
         {/* <button className='savebtn' onClick={handleSaveForm}>Save</button>  */}
         <button className="js-open-modal saveData" onClick={handleSaveFormtoDB} id="saveData" type="button">Save</button>
+        <span className="formname">
+          <input type="text" placeholder='Add form name' name='simpleformname' className="js-open-modal" id="formName" />
+        </span>
       </div>
 
       <div className="form-builder-container">

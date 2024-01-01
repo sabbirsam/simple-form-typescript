@@ -179,7 +179,7 @@ All the default css will place here...
         box-shadow: none;
     }
 
-    h4.simpleform-title.h4{
+    h4.simpleform-title.h4 {
         &:hover {
             color: #2271b1 !important;
         }
@@ -217,7 +217,7 @@ All the default css will place here...
 //Input Styles
 input[type="text"],
 input[type="search"] {
-    padding: 14px 20px 15px 45px;
+    padding: 14px 16px 12px 20px;
     background: #ffffff;
     border: 1px solid #edeff1;
     border-radius: 4px;
