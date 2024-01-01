@@ -23,29 +23,29 @@ function App() {
 					<Column xs="12">
 
 						<Routes>
-							<Route 
-								path="/" 
-								element={<Dashboard />} 
+							<Route
+								path="/"
+								element={<Dashboard />}
 							/>
-							<Route 
-								path="/create-form" 
-								element={<CreateForm />} 
+							<Route
+								path="/create-form"
+								element={<CreateForm />}
 							/>
-							<Route 
-								path="/edit/:id" 
-								element={<EditTable />} 
+							<Route
+								path="/edit/:id"
+								element={<EditTable />}
 							/>
-							<Route 
-								path="/Leads" 
-								element={<Leads />} 
+							<Route
+								path="/Leads"
+								element={<Leads />}
 							/>
 
-							<Route 
-								path="/settings" 
+							<Route
+								path="/settings"
 								element={<Settings />} />
-							<Route 
-								path="/doc" 
-								element={<Documentation />} 
+							<Route
+								path="/doc"
+								element={<Documentation />}
 							/>
 						</Routes>
 

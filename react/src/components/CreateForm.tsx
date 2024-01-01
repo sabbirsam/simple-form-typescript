@@ -4,6 +4,7 @@ import Modal from '../core/Modal';
 import { getNonce, } from './../Helpers';
 import { useNavigate } from 'react-router-dom';
 import { EditIcon, DeleteIcon, Cross } from '../icons';
+import DynamicFormIcon from '@mui/icons-material/DynamicForm';
 import availableFieldsList from './fieldData';
 import RenderField from './Render';
 
@@ -192,7 +193,7 @@ const CreateForm = () => {
 
   return (
     <div className='simple-form-builder'>
-      <h2>Drag and Drop Form Builder</h2>
+      <h2><DynamicFormIcon /> Drag and Drop Form Builder</h2>
 
       <div className="checkbox-wrapper">
         <span className="formname">

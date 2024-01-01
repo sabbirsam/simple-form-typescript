@@ -17,7 +17,6 @@ function Dashboard() {
 	const [tables, setTables] = useState(getTables());
 	const [copiedTables, setCopiedTables] = useState(getTables());
 	const [searchKey, setSearchKey] = useState<string>('');
-	const [tableCount, setTableCount] = useState(0);
 
 
 	/**
@@ -33,7 +32,7 @@ function Dashboard() {
 				// console.log(response.tables) 
 				setTables(response.tables);
 				setCopiedTables(response.tables);
-				setTableCount(response.tables_count);
+
 				setLoader(false);
 			},
 			error(error) {
@@ -106,7 +105,6 @@ function Dashboard() {
 								copiedTables={copiedTables}
 								setCopiedTables={setCopiedTables}
 								setTables={setTables}
-								setTableCount={setTableCount}
 								setLoader={setLoader}
 							/>
 						</div>

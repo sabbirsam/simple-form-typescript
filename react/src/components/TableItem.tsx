@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Column from '../core/Column';
 import Row from '../core/Row';
+import EditCalendarIcon from '@mui/icons-material/EditCalendar';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import RecyclingIcon from '@mui/icons-material/Recycling';
 import { CopyIcon, Cross, DeleteIcon, EditIcon, TrashCan } from '../icons';
 
 //styles
@@ -29,8 +32,8 @@ function TableItem({ table, setCopiedTables, setTableCount, setTables, setLoader
 			// Reset copySuccess state after 1 second
 			setTimeout(() => {
 				setCopySuccess(false);
-			  }, 1000); // 1000 milliseconds = 1 second
-			
+			}, 1000); // 1000 milliseconds = 1 second
+
 		} catch (err) {
 			setCopySuccess(false);
 		}
@@ -117,10 +120,12 @@ function TableItem({ table, setCopiedTables, setTableCount, setTables, setLoader
 							className="cross_sign"
 							onClick={() => handleClosePopup()}
 						>
-							{Cross}
+							{/* {Cross} */}
+							<HighlightOffIcon className='scf-delete-btn' />
 						</div>
 						<div className="delete-table-modal">
-						{/* <div className="modal-media">{TrashCan}</div> */}
+							{/* <div className="modal-media">{TrashCan}</div> */}
+							<div className="modal-media"><RecyclingIcon fontSize='large' htmlColor='secondary' className='scf-form-delete' /></div>
 							<h2>Are you sure to delete the Form? </h2>
 							<div className="action-buttons">
 								<button
@@ -161,8 +166,8 @@ function TableItem({ table, setCopiedTables, setTableCount, setTables, setLoader
 					>
 						{!copySuccess ? (
 							<svg
-								width="14"
-								height="14"
+								width="20"
+								height="20"
 								viewBox="0 0 14 14"
 								fill="none"
 								xmlns="http://www.w3.org/2000/svg"
@@ -174,8 +179,8 @@ function TableItem({ table, setCopiedTables, setTableCount, setTables, setLoader
 							</svg>
 						) : (
 							<svg
-								width="14"
-								height="14"
+								width="20"
+								height="20"
 								viewBox="0 0 14 14"
 								fill="none"
 								xmlns="http://www.w3.org/2000/svg"
@@ -186,19 +191,21 @@ function TableItem({ table, setCopiedTables, setTableCount, setTables, setLoader
 								/>
 							</svg>
 						)}
-						Copy Shortcode
+						COPY
 					</button>
 					<Link
 						to={`/edit/${table.id}`}
 						className="table-edit"
 					>
-						{EditIcon}
+						{/* {EditIcon} */}
+						<EditCalendarIcon className='sf-edit-form' />
 					</Link>
 					<button
 						className="table-delete"
 						onClick={handleDeleteTable}
 					>
-						{DeleteIcon}
+						{/* {DeleteIcon} */}
+						<HighlightOffIcon className='scf-delete-btn' />
 					</button>
 				</div>
 			</div>
