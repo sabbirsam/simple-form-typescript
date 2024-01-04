@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getNonce, getTables } from './../Helpers';
 import ReactPaginate from 'react-paginate';
 import { view, DeleteIcon, Cross } from '../icons';
+import { DataGrid } from '@mui/x-data-grid';
 import '../styles/_lead.scss';
 import Card from '../core/Card';
 import Modal from '../core/Modal';
@@ -24,6 +25,9 @@ const Leads = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedLeadData, setSelectedLeadData] = useState(null);
 
+  // console.log(tables)
+  // console.log(filteredLeads)
+
 
   const openModal = (leadId) => {
     // Find the selected lead data based on leadId
@@ -37,9 +41,6 @@ const Leads = () => {
   const closeModal = () => {
     setModalVisible(false);
   };
-
-
-  console.log(selectedLeadData);
 
 
   /**
@@ -97,37 +98,6 @@ const Leads = () => {
   }, [selectedId]);
 
 
-
-  // Handle search input change
-
-  const handleSearchChange = (e) => {
-    const searchQuery = e.target.value.toLowerCase();
-
-    const filteredData = leads.filter((lead) => {
-      try {
-        const fields = JSON.parse(lead.fields);
-
-        // Ensure that fields is an object (valid JSON)
-        if (typeof fields === 'object' && fields !== null) {
-          for (const key in fields) {
-            if (fields[key].toLowerCase().includes(searchQuery)) {
-              return true;
-            }
-          }
-        }
-      } catch (error) {
-        // Handle any JSON parsing errors here
-        console.error('JSON parsing error:', error);
-      }
-
-      return false;
-    });
-
-    setFilteredLeads(filteredData);
-    setPageNumber(0); // Reset to the first page after search
-  };
-
-
   // Function to delete a lead by ID
   const deleteLead = (id) => {
     console.log(id)
@@ -169,131 +139,47 @@ const Leads = () => {
   };
 
 
-  // First four th leads 
 
-  const displayLeads = filteredLeads.length > 0 ? (
-    filteredLeads
-      .slice(pagesVisited, pagesVisited + leadsPerPage) // Apply pagination
-      .map((lead, index) => {
-        try {
-          const fields = JSON.parse(lead.fields);
-          const fieldKeys = Object.keys(fields);
-          return (
-            <tr key={index}>
-              {fieldKeys.slice(0, 4).map((key) => (
-                <td key={key}>{fields[key]}</td>
-              ))}
-              <td className='view-td'>
-                <button
-                  className="view-button"
-                  onClick={() => openModal(lead.id)}
-                >
-                  {view}
-                </button>
-              </td>
+  const columns = [
+    { field: 'id', headerName: 'ID', width: 70 },
+    { field: 'firstName', headerName: 'First name', width: 130 },
+    { field: 'lastName', headerName: 'Last name', width: 130 },
+    {
+      field: 'age',
+      headerName: 'Age',
+      type: 'number',
+      width: 90,
+    }
+  ];
 
-              <td className='view-delete'>
-                <button
-                  className="delete-button"
-                  onClick={() => deleteLead(lead.id)}
-                >
-                  {DeleteIcon}
-                </button>
-              </td>
-            </tr>
-          );
-        } catch (error) {
-          console.error('JSON parsing error:', error);
-          return null;
-        }
-      })
-  ) : (
-    <tr>
-      <td style={{ textAlign: 'center' }}>
-        <div className="no-tables-intro-img">
-          <img style={{ width: '40vh', height: '40vh' }} src={cloudImage} alt="Cloud Icon" />
-        </div>
-      </td>
-    </tr>
-  );
+  const rows = [
+    { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
+    { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
+    { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
+    { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
+    { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
+    { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
+    { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
+    { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
+    { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
+  ];
+
+
 
   return (
-    <>
-      {loader ? (
-        <Card>
-          <h1>Loading...</h1>
-        </Card>
-      ) : (
-        <div className='main-leads-container'>
-          <div className='leads-container'>
-            <div className='search-select-panel'>
-              <select
-                value={selectedId}
-                onChange={(e) => setSelectedId(e.target.value)}
-              >
-                <option value="">Please choose one</option>
-                {tables.map((table) => (
-                  <option key={table.id} value={table.id}>
-                    {table.form_name}
-                  </option>
-                ))}
-              </select>
-              <input
-                type="text"
-                id="search"
-                placeholder="Search..."
-                onChange={handleSearchChange}
-              />
-            </div>
-            <table className="table table-striped table-bordered">
-              <thead>
-                <tr>
-                  {filteredLeads.length > 0 &&
-                    Object.keys(JSON.parse(filteredLeads[0].fields)).slice(0, 4).map((field) => (
-                      <th key={field}>{field}</th>
-                    ))}
-                  <th>View</th>
-                  <th>Delete</th>
-                </tr>
-              </thead>
-              <tbody>{displayLeads}</tbody>
-            </table>
-
-            <ReactPaginate
-              previousLabel={'Previous'}
-              nextLabel={'Next'}
-              pageCount={pageCount}
-              onPageChange={(data) => {
-                setPageNumber(data.selected);
-              }}
-              containerClassName={'pagination'}
-              activeClassName={'active'}
-            />
-          </div>
-        </div>
-      )}
-
-      {/* Modal */}
-      {modalVisible && selectedLeadData && (
-        <Modal onClose={closeModal}>
-          {/* Render the lead details in the modal */}
-
-          <div className='details-leads'>
-            <table className="rwd-table">
-              <h2 className="leads-title">Lead Details</h2>
-              <tbody>
-                {Object.entries(JSON.parse(selectedLeadData.fields)).map(([key, value]) => (
-                  <tr key={key}>
-                    <td>{key}</td><td>{value}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </Modal>
-      )}
-
-    </>
+    <div style={{ height: 400, width: '100%' }}>
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        initialState={{
+          pagination: {
+            paginationModel: { page: 0, pageSize: 5 },
+          },
+        }}
+        pageSizeOptions={[5, 10]}
+        checkboxSelection
+      />
+    </div>
   );
 };
 
