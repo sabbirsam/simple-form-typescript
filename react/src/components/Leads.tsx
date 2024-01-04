@@ -199,7 +199,8 @@ const Leads = () => {
         </div>
       )}
 
-      {modalVisible && selectedLeadData && (
+      {/* To display the lead details horigontal and use datagrid in the modal */}
+      {/* {modalVisible && selectedLeadData && (
         <Modal onClose={closeModal}>
           <div className='details-leads'>
             <h2 className="leads-title">Lead Details</h2>
@@ -218,7 +219,51 @@ const Leads = () => {
             </div>
           </div>
         </Modal>
+      )} */}
+
+      {/* To display the lead details vertically in the modal */}
+      {/* {modalVisible && selectedLeadData && (
+        <Modal onClose={closeModal}>
+          <div className='details-leads'>
+            <h2 className="leads-title">Lead Details</h2>
+            <div style={{ height: 'auto', width: '100%', overflowY: 'auto' }}>
+              {Object.entries(JSON.parse(selectedLeadData.fields)).map(([key, value]) => (
+                <div key={key} style={{ margin: '10px' }}>
+                  <strong>{key}:</strong> {value}
+                </div>
+              ))}
+            </div>
+          </div>
+        </Modal>
+      )} */}
+
+      {/* USING DataGrid  */}
+      {modalVisible && selectedLeadData && (
+        <Modal onClose={closeModal}>
+          <div className='details-leads'>
+            <h2 className="leads-title">Lead Details</h2>
+            <div style={{ height: 400, width: '100%' }} className="datagrid-container">
+              <DataGrid
+                rows={Object.entries(JSON.parse(selectedLeadData.fields)).map(([key, value]) => ({
+                  id: key,
+                  field: key,
+                  value,
+                }))}
+                columns={[
+                  { field: 'field', headerName: 'Field', flex: 1 },
+                  { field: 'value', headerName: 'Value', flex: 1 },
+                ]}
+                pageSize={Object.keys(JSON.parse(selectedLeadData.fields)).length}
+                // hideFooterPagination
+                // checkboxSelection={false}
+                checkboxSelection
+              />
+            </div>
+          </div>
+        </Modal>
       )}
+
+
     </>
   );
 };

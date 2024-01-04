@@ -2310,18 +2310,21 @@ span.formname input#formName {
   padding: 20px;
 }
 
-button.view-buttonm, button.delete-button {
+button.view-buttonm,
+button.delete-button {
   border: unset !important;
   background: none !important;
   cursor: pointer;
   background-color: unset;
   transition: all 0.3s ease;
 }
-button.view-buttonm:hover, button.delete-button:hover {
+button.view-buttonm:hover,
+button.delete-button:hover {
   color: #135e96;
   transform: scale(1.1);
 }
-button.view-buttonm:active, button.delete-button:active {
+button.view-buttonm:active,
+button.delete-button:active {
   color: #135e96;
 }
 
@@ -2357,73 +2360,6 @@ select {
   border-radius: 4px;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-/* Style table headers */
-th {
-  background-color: #1d4d6d;
-  color: #fff;
-  font-weight: bold;
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: left;
-}
-
-/* Style table cells (both header and data cells) */
-th, td {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: left;
-}
-
-/* Style table rows with alternating background colors */
-tbody tr:nth-child(odd) {
-  background-color: #ffffff;
-}
-
-/* Style table rows on hover */
-tbody tr:hover {
-  background-color: #ffffff;
-}
-
-/* Style pagination */
-.pagination {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-  margin-top: 15px;
-}
-
-.pagination li {
-  margin: 5px;
-  cursor: pointer;
-}
-
-.pagination li.active a {
-  background-color: #0d4c62;
-  color: white;
-  border-color: #0d4c62;
-}
-
-.pagination li a {
-  text-decoration: none;
-  color: #007bff;
-  padding: 6px 12px;
-  border: 1px solid #007bff;
-  border-radius: 4px;
-}
-
-.pagination li a:hover {
-  background-color: #0d4c62;
-  color: white;
-  border-color: #007bff;
-}
-
 .search-select-panel {
   display: flex;
   gap: 10px;
@@ -2448,105 +2384,13 @@ button.delete-button {
   text-align: left;
 }
 
-.rwd-table {
-  margin: auto;
-  min-width: 300px;
-  max-width: 100%;
-  border-collapse: collapse;
-}
-
-.rwd-table tr:first-child {
-  border-top: none;
-  background-color: #ebf3f9;
-  color: #000;
-}
-
-.rwd-table tr {
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  background-color: #f5f9fc;
-}
-
-.rwd-table tr:nth-child(odd):not(:first-child) {
-  background-color: #ebf3f9;
-}
-
-.rwd-table th {
-  display: none;
-}
-
-.rwd-table td {
-  display: block;
-}
-
-.rwd-table td:first-child {
-  margin-top: 0.5em;
-}
-
-.rwd-table td:last-child {
-  margin-bottom: 0.5em;
-}
-
-.rwd-table td:before {
-  content: attr(data-th) ": ";
-  font-weight: bold;
-  width: 120px;
-  display: inline-block;
-  color: #000;
-}
-
-.rwd-table th,
-.rwd-table td {
-  text-align: left;
-}
-
-.rwd-table {
-  color: #333;
-  border-radius: 0.4em;
-  overflow: hidden;
-}
-
-.rwd-table tr {
-  border-color: #bfbfbf;
-}
-
-.rwd-table th,
-.rwd-table td {
-  padding: 0.5em 1em;
-}
-
-@media screen and (max-width: 601px) {
-  .rwd-table tr:nth-child(2) {
-    border-top: none;
-  }
-}
-@media screen and (min-width: 600px) {
-  .rwd-table tr:hover:not(:first-child) {
-    background-color: #d8e7f3;
-  }
-  .rwd-table td:before {
-    display: none;
-  }
-  .rwd-table th,
-  .rwd-table td {
-    display: table-cell;
-    padding: 0.25em 0.5em;
-  }
-  .rwd-table th:first-child,
-  .rwd-table td:first-child {
-    padding-left: 0;
-  }
-  .rwd-table th:last-child,
-  .rwd-table td:last-child {
-    padding-right: 0;
-  }
-  .rwd-table th,
-  .rwd-table td {
-    padding: 1em !important;
-  }
-}
 .main-leads-container {
   margin-top: 15px;
+}
+
+.datagrid-container {
+  height: 100%;
+  width: 100%;
 }
 /*!*************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/_setting.scss ***!
