@@ -405,9 +405,6 @@ class Tables {
 			]);
 		}
 
-		error_log( 'Data _POST: ' . print_r( $_POST, true ) );
-
-
 		$id = isset($_POST['id']) ? sanitize_text_field( wp_unslash($_POST['id'] ) ) : 'simpleform';
 		// Sanitize and validate form_data.
 		$form_data = isset( $_POST['form_data'] ) ? json_decode( stripslashes( wp_unslash( $_POST['form_data'] ) ), true ) : array();
