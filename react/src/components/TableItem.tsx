@@ -7,7 +7,6 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import RecyclingIcon from '@mui/icons-material/Recycling';
 import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
 import { CopyIcon, Cross, DeleteIcon, EditIcon, TrashCan } from '../icons';
-
 //styles
 import '../styles/_table_item.scss';
 import Title from '../core/Title';

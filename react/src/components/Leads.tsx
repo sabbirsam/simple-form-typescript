@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { getNonce, getTables } from './../Helpers';
 import CircularProgress from '@mui/material/CircularProgress';
 import PreviewIcon from '@mui/icons-material/Preview';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import DisplaySettingsIcon from '@mui/icons-material/DisplaySettings';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import RecyclingIcon from '@mui/icons-material/Recycling';
 import { DataGrid } from '@mui/x-data-grid';
 import Card from '../core/Card';
 import Modal from '../core/Modal';
@@ -11,6 +13,7 @@ import { v4 as uuidv4 } from 'uuid';
 import '../styles/_lead.scss';
 
 const Leads = () => {
+  const confirmDeleteRef = useRef();
   const [loader, setLoader] = useState<boolean>(false);
   const [selectedId, setSelectedId] = useState(null);
   const [leads, setLeads] = useState([]);
@@ -19,6 +22,8 @@ const Leads = () => {
   const [filteredLeads, setFilteredLeads] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedLeadData, setSelectedLeadData] = useState(null);
+  const [deleteModal, setDeleteModal] = useState<boolean>(false);
+  const [deleteId, setDeleteID] = useState();
 
 
   const openModal = (leadId, event) => {
@@ -33,6 +38,23 @@ const Leads = () => {
   const closeModal = () => {
     setModalVisible(false);
   };
+
+  /**
+   * Delete Modal close
+  */
+  const handleClosePopup = () => {
+    setDeleteModal(false);
+  };
+
+  /**
+   * Delete Modal
+  */
+  const handleDeleteTable = (id, event) => {
+    event.stopPropagation();
+    setDeleteID(id);
+    setDeleteModal(true);
+  };
+
 
   useEffect(() => {
     setLoader(true);
@@ -52,8 +74,7 @@ const Leads = () => {
     });
   }, []);
 
-  const deleteLead = (id, event) => {
-    event.stopPropagation();
+  const deleteLead = (id) => {
     wp.ajax.send('simpleform_delete_leads', {
       data: {
         nonce: getNonce(),
@@ -61,6 +82,7 @@ const Leads = () => {
       },
       success() {
         console.log("success")
+        setDeleteModal(false);
         const updatedLeads = leads.filter((lead) => lead.id !== id);
         setLeads(updatedLeads);
         setFilteredLeads(updatedLeads);
@@ -108,6 +130,24 @@ const Leads = () => {
     }
   }, [selectedId]);
 
+  function handleCancelOutside(event: MouseEvent) {
+    if (
+      confirmDeleteRef.current &&
+      !confirmDeleteRef.current.contains(event.target)
+    ) {
+      handleClosePopup();
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleCancelOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleCancelOutside);
+    };
+  }, [handleCancelOutside]);
+
+
+
   // To display the first 3 columns
   const columns = leads.length > 0 && leads[0]?.fields
     ? Object.keys(JSON.parse(leads[0].fields)).slice(0, 3).map((field) => ({
@@ -141,7 +181,8 @@ const Leads = () => {
         </button>
         <button
           className="delete-button"
-          onClick={(event) => deleteLead(params.value, event)}
+          // onClick={(event) => deleteLead(params.value, event)}
+          onClick={(event) => handleDeleteTable(params.value, event)}
         >
           {/* {DeleteIcon} */}
           <DeleteOutlineIcon className='leads-delete' />
@@ -210,6 +251,44 @@ const Leads = () => {
                 // hideFooterPagination
                 checkboxSelection
               />
+            </div>
+          </div>
+        </Modal>
+      )}
+
+      {/* Delete modal  */}
+      {deleteModal && (
+        <Modal>
+          <div
+            className="delete-table-modal-wrap modal-content"
+            ref={confirmDeleteRef}
+          >
+            <div
+              className="cross_sign"
+              onClick={() => handleClosePopup()}
+            >
+              {/* {Cross} */}
+              <HighlightOffIcon className='scf-delete-btn' />
+            </div>
+            <div className="delete-table-modal">
+              <div className="modal-media"><DeleteOutlineIcon fontSize='large' htmlColor='secondary' className='scf-form-delete' /></div>
+              <h2>Are you sure to delete the leads? </h2>
+              <div className="action-buttons">
+                <button
+                  className="simpleform-button cancel-button"
+                  onClick={handleClosePopup}
+                >
+                  Cancel
+                </button>
+                <button
+                  className="simpleform-button confirm-button"
+                  onClick={() =>
+                    deleteLead(deleteId)
+                  }
+                >
+                  Delete
+                </button>
+              </div>
             </div>
           </div>
         </Modal>

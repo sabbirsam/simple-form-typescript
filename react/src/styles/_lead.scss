@@ -1,6 +1,15 @@
 /* styles.scss */
 .main-leads-container {
   margin: 35px;
+
+  .leads-container {
+
+    input[type=checkbox],
+    input[type=radio] {
+      top: 17px;
+      left: 13px;
+    }
+  }
 }
 
 
@@ -43,6 +52,17 @@ button.delete-button {
   .leads-title {
     text-align: left;
   }
+
+  .datagrid-container {
+
+    input[type=checkbox],
+    input[type=radio] {
+      top: 17px;
+      left: 13px;
+    }
+  }
+
+
 }
 
 
