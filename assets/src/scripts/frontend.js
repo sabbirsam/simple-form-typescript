@@ -329,6 +329,9 @@ window.addEventListener('load', function () {
                   clearInterval(timerInterval)
                 }
               })
+            } else{
+              console.log(responseData.data.message); 
+              errorDiv.textContent = "Don't try it again! You silly human!"
             }
 
           } else {

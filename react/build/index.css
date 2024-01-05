@@ -1542,6 +1542,7 @@
   padding: 15px 40px 15px;
   margin: 0 0 30px 0;
   background: #ffffff;
+  text-align: center;
 }
 .simpleform-card.colored-bg {
   background: #f7f7ff;
@@ -2295,12 +2296,8 @@ span.formname input#formName {
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/_lead.scss ***!
   \**********************************************************************************************************************************************************************************************************************************************/
 /* styles.scss */
-.main-leads-container-leads,
-.simpleform-containers {
-  margin-right: auto;
-  margin-left: auto;
-  background: #ffffff;
-  padding: 50px;
+.main-leads-container {
+  margin: 35px;
 }
 
 /* Style the table container */
@@ -2310,82 +2307,36 @@ span.formname input#formName {
   padding: 20px;
 }
 
-button.view-buttonm,
+.action-button {
+  display: flex;
+  gap: 20px;
+}
+
+button.view-button,
 button.delete-button {
-  border: unset !important;
-  background: none !important;
   cursor: pointer;
   background-color: unset;
+  border: none;
   transition: all 0.3s ease;
 }
-button.view-buttonm:hover,
+button.view-button:hover,
 button.delete-button:hover {
   color: #135e96;
   transform: scale(1.1);
 }
-button.view-buttonm:active,
+button.view-button:active,
 button.delete-button:active {
   color: #135e96;
 }
 
-td.view-td .view-button {
-  border: none;
-  background: none;
-  transition: all 0.3s ease;
-}
-td.view-td .view-button:hover {
-  color: #135e96;
-  transform: scale(1.1);
-}
-td.view-td .view-button:active {
-  color: #135e96;
-}
-
-/* Style the search input */
-#search {
-  width: 30%;
-  padding: 8px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-/* Style the select field */
-select {
-  width: 15rem;
-  max-width: 15rem;
-  padding: 8px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.search-select-panel {
-  display: flex;
-  gap: 10px;
-}
-
-button.delete-button {
-  display: block;
-  background-color: unset;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
 .details-leads {
-  background: #e8e8e8;
+  background: #ffffff;
   width: 100vh;
   min-height: 65vh;
-  padding: 20px 20px;
+  padding: 30px;
 }
 .details-leads .leads-title {
   text-align: left;
-}
-
-.main-leads-container {
-  margin-top: 15px;
 }
 
 .datagrid-container {
@@ -2910,7 +2861,8 @@ All the default css will place here...
 }
 
 .btn-shortcode {
-  border: none;
+  border: 1px solid #e9e8e8;
+  border-radius: 11px;
   padding: 9px;
   background: white;
   display: inline-flex;

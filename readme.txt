@@ -4,7 +4,7 @@ Tags: simple form, contact, form, contact form, feedback, email, ajax, captcha, 
 Requires at least: 5.0 or higher
 Tested up to: 6.4
 Requires PHP: 5.4 or higher
-Stable Tag: 2.3.0
+Stable Tag: 2.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,10 +39,6 @@ But that's not all! "Simple Form" offers a range of additional benefits:
 
 **Instant Gratification**: Start using "Simple Form" today, and experience instant results. No steep learning curve, no hidden fees – just a powerful form builder at your fingertips.
 
-**Redirection to WhatsApp**: Connect Like Never Before
-
-In today's world, seamless communication is key. That's why we've introduced the Redirection to WhatsApp feature. Now, you can offer your users the convenience of initiating a WhatsApp chat directly from your forms. Whether it's for inquiries, support, or quick questions, this feature takes user engagement to a whole new level. Make it easy for your audience to reach out and connect with you effortlessly.
-
 **Floating Widgets**: Elevate User Experience
 
 We understand the importance of user experience, and that's why we've added Floating Widgets. These sleek and customizable widgets can be placed anywhere on your website, ensuring that your forms are easily accessible to your visitors at all times. Float your forms strategically to capture leads, gather feedback, or facilitate engagement without disrupting your website's flow.
@@ -73,6 +69,10 @@ You will then automatically be redirected to the "Data" page, from there you can
 
 
 == Changelog ==
+
+= 2.4.0 – 05 JAN 2024 =
+* New: Leads page UI improvement
+* Fix: Fixed null value error not showing the form leads
 
 = 2.3.0 – 01 JAN 2024 =
 * New: Widgets more customization options add

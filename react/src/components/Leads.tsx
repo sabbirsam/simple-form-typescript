@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { getNonce, getTables } from './../Helpers';
+import CircularProgress from '@mui/material/CircularProgress';
+import PreviewIcon from '@mui/icons-material/Preview';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import DisplaySettingsIcon from '@mui/icons-material/DisplaySettings';
 import { DataGrid } from '@mui/x-data-grid';
 import Card from '../core/Card';
 import Modal from '../core/Modal';
@@ -17,7 +21,8 @@ const Leads = () => {
   const [selectedLeadData, setSelectedLeadData] = useState(null);
 
 
-  const openModal = (leadId) => {
+  const openModal = (leadId, event) => {
+    event.stopPropagation();
     const selectedLead = leads.find((lead) => lead.id === leadId);
     if (selectedLead) {
       setSelectedLeadData(selectedLead);
@@ -47,9 +52,8 @@ const Leads = () => {
     });
   }, []);
 
-  const deleteLead = (id) => {
-    console.log(id)
-
+  const deleteLead = (id, event) => {
+    event.stopPropagation();
     wp.ajax.send('simpleform_delete_leads', {
       data: {
         nonce: getNonce(),
@@ -104,24 +108,7 @@ const Leads = () => {
     }
   }, [selectedId]);
 
-  // For all 
-  /* const columns = leads.length > 0 && leads[0]?.fields
-    ? Object.keys(JSON.parse(leads[0].fields)).map((field) => ({
-      field,
-      headerName: field,
-      flex: 1,
-    }))
-    : [];
-
-  const rows = leads.map((lead) => ({
-    id: lead.id,
-    ...JSON.parse(lead.fields),
-    actions: lead.id,
-  })); */
-
-
-  // For first 3
-  // Assuming you want to display the first 3 columns
+  // To display the first 3 columns
   const columns = leads.length > 0 && leads[0]?.fields
     ? Object.keys(JSON.parse(leads[0].fields)).slice(0, 3).map((field) => ({
       field,
@@ -145,20 +132,21 @@ const Leads = () => {
     headerName: 'Actions',
     width: 150,
     renderCell: (params) => (
-      <>
+      <div className='action-button'>
         <button
           className="view-button"
-          onClick={() => openModal(params.value)}
+          onClick={(event) => openModal(params.value, event)}
         >
-          View
+          <PreviewIcon className='sf-view-form' />
         </button>
         <button
           className="delete-button"
-          onClick={() => deleteLead(params.value)}
+          onClick={(event) => deleteLead(params.value, event)}
         >
-          Delete
+          {/* {DeleteIcon} */}
+          <DeleteOutlineIcon className='leads-delete' />
         </button>
-      </>
+      </div>
     ),
   };
 
@@ -169,10 +157,13 @@ const Leads = () => {
     <>
       {loader ? (
         <Card>
-          <h1>Loading...</h1>
+          <CircularProgress />
         </Card>
       ) : (
         <div className='main-leads-container'>
+          <h3 className="review-case-title">Simple form leads<a href="#" target="_blank"></a>
+          </h3>
+
           <div className='leads-container'>
             <div className='search-select-panel'>
               <select
@@ -199,49 +190,11 @@ const Leads = () => {
         </div>
       )}
 
-      {/* To display the lead details horigontal and use datagrid in the modal */}
-      {/* {modalVisible && selectedLeadData && (
-        <Modal onClose={closeModal}>
-          <div className='details-leads'>
-            <h2 className="leads-title">Lead Details</h2>
-            <div style={{ height: 400, width: '100%' }}>
-              <DataGrid
-                rows={[{ id: uuidv4(), ...JSON.parse(selectedLeadData.fields) }]}
-                columns={Object.keys(JSON.parse(selectedLeadData.fields)).map((field) => ({
-                  field,
-                  headerName: field,
-                  flex: 1,
-                }))}
-                pageSize={1}
-                hideFooterPagination
-                checkboxSelection={false}
-              />
-            </div>
-          </div>
-        </Modal>
-      )} */}
-
-      {/* To display the lead details vertically in the modal */}
-      {/* {modalVisible && selectedLeadData && (
-        <Modal onClose={closeModal}>
-          <div className='details-leads'>
-            <h2 className="leads-title">Lead Details</h2>
-            <div style={{ height: 'auto', width: '100%', overflowY: 'auto' }}>
-              {Object.entries(JSON.parse(selectedLeadData.fields)).map(([key, value]) => (
-                <div key={key} style={{ margin: '10px' }}>
-                  <strong>{key}:</strong> {value}
-                </div>
-              ))}
-            </div>
-          </div>
-        </Modal>
-      )} */}
-
       {/* USING DataGrid  */}
       {modalVisible && selectedLeadData && (
         <Modal onClose={closeModal}>
           <div className='details-leads'>
-            <h2 className="leads-title">Lead Details</h2>
+            <h2 className="leads-title"><DisplaySettingsIcon /> Lead Details</h2>
             <div style={{ height: 400, width: '100%' }} className="datagrid-container">
               <DataGrid
                 rows={Object.entries(JSON.parse(selectedLeadData.fields)).map(([key, value]) => ({
@@ -255,7 +208,6 @@ const Leads = () => {
                 ]}
                 pageSize={Object.keys(JSON.parse(selectedLeadData.fields)).length}
                 // hideFooterPagination
-                // checkboxSelection={false}
                 checkboxSelection
               />
             </div>

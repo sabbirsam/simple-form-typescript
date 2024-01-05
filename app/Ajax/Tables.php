@@ -73,7 +73,6 @@ class Tables {
 		$name     = isset( $_POST['name'] ) ? sanitize_text_field( wp_unslash($_POST['name'] ) ) : __( 'Untitled', 'simpleform' );
 		$from_data = isset( $_POST['formdata'] ) ? sanitize_text_or_array_field( wp_unslash($_POST['formdata'] ) ) : [];
 
-		// error_log( 'Data Received: ' . print_r( $from_data, true ) );
 
 		$table = [
 			'form_name'     => $name,
@@ -405,16 +404,35 @@ class Tables {
 		}
 
 		// Get the form data from the POST request.
-		$id = isset($_POST['id']) ? sanitize_text_field( wp_unslash($_POST['id'] ) ) : 'simpleform';
-		$form_data = isset($_POST['form_data']) ? json_decode( stripslashes( wp_unslash($_POST['form_data'] ) ), true) : [];
+		// $id = isset($_POST['id']) ? sanitize_text_field( wp_unslash($_POST['id'] ) ) : 'simpleform';
+		// $form_data = isset($_POST['form_data']) ? json_decode( stripslashes( wp_unslash($_POST['form_data'] ) ), true) : [];
 
 		// error_log('Data Received: ' . print_r($form_data, true));
 
-		$table = [
+		/* $table = [
 			'form_id' => $id,
 			'fields' => $form_data,
 			'time' => current_time('mysql'),
-		];
+		]; */
+
+		$id = isset($_POST['id']) ? sanitize_text_field( wp_unslash($_POST['id'] ) ) : 'simpleform';
+		// Sanitize and validate form_data.
+		$form_data = isset( $_POST['form_data'] ) ? json_decode( stripslashes( wp_unslash( $_POST['form_data'] ) ), true ) : array();
+    	$form_data = is_array( $form_data ) ? array_map( 'sanitize_text_field', $form_data ) : array();
+
+		if ( empty( $form_data ) ) {
+			wp_send_json_error( array(
+				'message' => esc_html__( 'Form data is empty, not storing in the database.', 'simpleform' ),
+			) );
+		}
+	
+		// Validate and sanitize other values.
+		$table = array(
+			'form_id' => $id,
+			'fields'  => $form_data,
+			'time'    => current_time( 'mysql' ),
+		);
+
 
 		$table_id = SIMPLEFORM()->database->table->insertleads($table);
 

@@ -39,10 +39,10 @@ class FloatingWidget {
 			$submitbtntextcolor = isset($options['submitbtntextcolor']) ? sanitize_hex_color($options['submitbtntextcolor']) : '#ffffff';
 			$submitbtnbgcolor = isset($options['submitbtnbgcolor']) ? sanitize_hex_color($options['submitbtnbgcolor']) : 'orange';
 
-			$headertextcolor = isset($options['formtextcolor']) ? sanitize_hex_color($options['formtextcolor']) : '#ffffff';
-			$headerbgcolor = isset($options['submitbtnbgcolor']) ? sanitize_hex_color($options['submitbtnbgcolor']) : 'orange';
+			$headerbgcolor = isset($options['headerbackgroundcolor']) ? sanitize_hex_color($options['headerbackgroundcolor']) : 'orange';
+			$headertextcolor = isset($options['headertextcolor']) ? sanitize_hex_color($options['headertextcolor']) : '#ffffff';
 			
-			$bodytextcolor = isset($options['submitbtntextcolor']) ? sanitize_hex_color($options['submitbtntextcolor']) : '#ffffff';
+			$bodytextcolor = isset($options['formfieldtextcolor']) ? sanitize_hex_color($options['formfieldtextcolor']) : '#ffffff';
 			$bodybgcolor = isset($options['formbackgroundcolor']) ? sanitize_hex_color($options['formbackgroundcolor']) : 'orange';
 
 			$flotingwidgetsbgcolor = isset($options['flotingwidgetsbgcolor']) ? sanitize_hex_color($options['flotingwidgetsbgcolor']) : 'orange';
@@ -108,8 +108,12 @@ class FloatingWidget {
 						}
 						header.clearfix{
 							background-color: ' . esc_attr($headerbgcolor) . '; 
+						}
+
+						.floating-whatsapp .form-content h4{
 							color: ' . esc_attr($headertextcolor) . ';
 						}
+
 						circle {
 							fill: ' . esc_attr($flotingwidgetsbgcolor) . ';
 						}

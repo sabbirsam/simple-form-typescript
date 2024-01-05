@@ -27,8 +27,11 @@ const Settings = () => {
   const [submitbtnbgcolor, setSubmitbtnbgcolor] = useState(formSettings.submitbtnbgcolor || "");
   const [submitbtntextcolor, setSubmitbtntextcolor] = useState(formSettings.submitbtntextcolor || "");
 
+  const [headerbackgroundcolor, setHeaderbackgroundcolor] = useState(formSettings.headerbackgroundcolor || "");
+  const [headertextcolor, setHeadertextcolor] = useState(formSettings.headertextcolor || "");
+
+  const [formfieldtextcolor, setFormfieldtextcolor] = useState(formSettings.formfieldtextcolor || "");
   const [formbackgroundcolor, setFormbackgroundcolor] = useState(formSettings.formbackgroundcolor || "");
-  const [formtextcolor, setFormtextcolor] = useState(formSettings.formtextcolor || "");
 
   const [flotingwidgetsbgcolor, setFlotingwidgetsbgcolor] = useState(formSettings.flotingwidgetsbgcolor || "");
   const [submitbtntexthovercolor, setSubmitbtntexthovercolor] = useState(formSettings.submitbtntexthovercolor || "");
@@ -62,16 +65,19 @@ const Settings = () => {
       recipientMail,
       selectedTable,
       selectedWhatsapp,
-      flotingwidgetsbgcolor,
       submitbtntext,
-      formheader,
-      submitbtnbgcolor,
-      formbackgroundcolor,
-      formtextcolor,
-      submitbtntextcolor,
       selectedFont,
-      formcta
+      formcta,
+      formheader,
 
+      flotingwidgetsbgcolor,
+      formbackgroundcolor,
+      formfieldtextcolor,
+      headerbackgroundcolor,
+      headertextcolor,
+      submitbtntextcolor,
+      submitbtnbgcolor,
+      submitbtntexthovercolor
     };
 
     Swal.fire({
@@ -356,14 +362,27 @@ const Settings = () => {
               </div>
 
               <div className="formInput">
-                <label htmlFor="formtextcolor">Form text color</label>
+                <label htmlFor="flotingwidgetsbgcolor">Floting widgets color</label>
                 <div className="wpnts-setting">
                   <input
                     className="colorSelectionformtext"
                     type="color"
-                    name="formtextcolor"
-                    value={formtextcolor}
-                    onChange={(e) => setFormtextcolor(e.target.value)}
+                    name="flotingwidgetsbgcolor"
+                    value={flotingwidgetsbgcolor}
+                    onChange={(e) => setFlotingwidgetsbgcolor(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              <div className="formInput">
+                <label htmlFor="headertextcolor">Header text color</label>
+                <div className="wpnts-setting">
+                  <input
+                    className="colorSelectionformtext"
+                    type="color"
+                    name="headertextcolor"
+                    value={headertextcolor}
+                    onChange={(e) => setHeadertextcolor(e.target.value)}
                   />
                 </div>
               </div>
@@ -371,6 +390,19 @@ const Settings = () => {
               {/* Form color  */}
 
               {/* <div className="formInput open-new-tab"> */}
+              <div className="formInput">
+                <label htmlFor="headerbackgroundcolor">header background color</label>
+                <div className="wpnts-setting">
+                  <input
+                    className="colorSelectionbg"
+                    type="color"
+                    name="headerbackgroundcolor"
+                    value={headerbackgroundcolor}
+                    onChange={(e) => setHeaderbackgroundcolor(e.target.value)}
+                  />
+                </div>
+              </div>
+
               <div className="formInput">
                 <label htmlFor="formbackgroundcolor">Form background color</label>
                 <div className="wpnts-setting">
@@ -385,14 +417,14 @@ const Settings = () => {
               </div>
 
               <div className="formInput">
-                <label htmlFor="submitbtntextcolor">Form fields text color</label>
+                <label htmlFor="formfieldtextcolor">Form fields text/lable color</label>
                 <div className="wpnts-setting">
                   <input
                     className="colorSelectionformtextcolor"
                     type="color"
-                    name="submitbtntextcolor"
-                    value={submitbtntextcolor}
-                    onChange={(e) => setSubmitbtntextcolor(e.target.value)}
+                    name="formfieldtextcolor"
+                    value={formfieldtextcolor}
+                    onChange={(e) => setFormfieldtextcolor(e.target.value)}
                   />
                 </div>
               </div>

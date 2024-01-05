@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { createPortal } from 'react-dom';
 import { Cross } from '../icons';
+import CloseIcon from '@mui/icons-material/Close';
 
 import './_modal.scss';
 
@@ -10,13 +11,14 @@ const Modal = ({ onClose, children }) => {
 			<div className="modal-overlay" />
 			<div className="modal-content">
 				<div>
-					<button className="modal-close" onClick={onClose}>{Cross}</button>
-					<div className="modal-body">{ children }</div>
+					{/* <button className="modal-close" onClick={onClose}>{Cross}</button> */}
+					<button className="modal-close" onClick={onClose}><CloseIcon /></button>
+					<div className="modal-body">{children}</div>
 				</div>
 			</div>
 
 		</>,
-		document.getElementById( 'simpleform-app-portal' )
+		document.getElementById('simpleform-app-portal')
 	);
 };
 

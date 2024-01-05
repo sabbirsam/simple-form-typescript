@@ -1,12 +1,8 @@
 /* styles.scss */
-.main-leads-container-leads,
-.simpleform-containers {
-  margin-right: auto;
-  margin-left: auto;
-  background: #ffffff;
-  padding: 50px;
-
+.main-leads-container {
+  margin: 35px;
 }
+
 
 /* Style the table container */
 .table-container {
@@ -15,91 +11,40 @@
   padding: 20px;
 }
 
-button.view-buttonm,
-button.delete-button {
-  border: unset !important;
-  background: none !important;
-  cursor: pointer;
-  background-color: unset;
-  transition: all 0.3s ease;
-
-  &:hover {
-    color: #135e96;
-    transform: scale(1.1);
-  }
-
-  &:active {
-    color: #135e96;
-  }
-}
-
-td.view-td .view-button {
-  border: none;
-  background: none;
-  transition: all 0.3s ease;
-
-  &:hover {
-    color: #135e96;
-    transform: scale(1.1);
-  }
-
-  &:active {
-    color: #135e96;
-  }
-}
-
-/* Style the search input */
-#search {
-  width: 30%;
-  padding: 8px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-/* Style the select field */
-select {
-  width: 15rem;
-  max-width: 15rem;
-  padding: 8px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-
-// END 
-.search-select-panel {
+.action-button {
   display: flex;
-  gap: 10px;
+  gap: 20px;
 }
 
+button.view-button,
 button.delete-button {
-  display: block;
-  background-color: unset;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
   cursor: pointer;
+  background-color: unset;
+  border: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: #135e96;
+    transform: scale(1.1);
+  }
+
+  &:active {
+    color: #135e96;
+  }
 }
 
 
 .details-leads {
-  background: #e8e8e8;
+  background: #ffffff;
   width: 100vh;
   min-height: 65vh;
-  padding: 20px 20px;
+  padding: 30px;
 
   .leads-title {
     text-align: left;
   }
 }
 
-
-
-.main-leads-container {
-  margin-top: 15px;
-}
 
 
 // New data grid modal design 
