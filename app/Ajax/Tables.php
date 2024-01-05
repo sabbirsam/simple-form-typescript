@@ -430,7 +430,7 @@ class Tables {
 		 */
 		$options = get_option('form_settings');
 
-		$selectedWhatsapp = isset($options['selectedWhatsapp']) ? array_map('sanitize_text_field', $options['selectedWhatsapp']) : [];
+		$selectedWhatsapp = isset($options['selectedWhatsapp']) && $options['selectedWhatsapp'] !== '' ? array_map('sanitize_text_field', $options['selectedWhatsapp']) : [];
 		$mailNotification = isset($options['mailNotification']) ? filter_var($options['mailNotification'], FILTER_VALIDATE_BOOLEAN) : false;
 		$recipientMail = isset($options['recipientMail']) ? sanitize_email($options['recipientMail']) : null;
 
