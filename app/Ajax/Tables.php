@@ -41,6 +41,7 @@ class Tables {
 		add_action('wp_ajax_nopriv_simpleform_table_html', [ $this, 'rendertable' ] );
 
 		add_action( 'wp_ajax_simpleform_get_submit_data', [ $this, 'get_submitdata' ] );
+		add_action('wp_ajax_nopriv_simpleform_get_submit_data', [ $this, 'get_submitdata' ] );
 	}
 
 	/**
@@ -403,6 +404,8 @@ class Tables {
 				'message' => __( 'Invalid nonce.', '' ),
 			]);
 		}
+
+		error_log( 'Data _POST: ' . print_r( $_POST, true ) );
 
 
 		$id = isset($_POST['id']) ? sanitize_text_field( wp_unslash($_POST['id'] ) ) : 'simpleform';
