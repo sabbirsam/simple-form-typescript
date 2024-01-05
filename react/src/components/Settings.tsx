@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import ReactSwitchreview from "react-switch";
 import ReactSwitchsupport from "react-switch";
+const Settingsicon = require('../../../assets/public/icons/Settings.gif');
 import { getNonce, getTables, getFormSettings } from './../Helpers';
 import "../styles/_setting.scss";
-const Settingsicon = require('../../../assets/public/icons/Settings.gif');
 
 const Settings = () => {
   const [tables, setTables] = useState(getTables());
@@ -143,10 +143,8 @@ const Settings = () => {
 
   return (
     <div className="acb_bottom" id="acb_bottom">
-      {/* <h3 className="upcomming">UPCOMMING</h3> */}
       <div className="acb_left">
         <h3 className="review-case-title">Simple Form settings panel</h3>
-
         <div className="wpnts-switch-floating">
           <label htmlFor="floating-widgets">Enable floating widgets:</label>
           <ReactSwitchsupport
@@ -171,10 +169,8 @@ const Settings = () => {
               setWhatsappRedirection(checked);
             }}
             disabled={!isProUser}
-
           />
         </div>
-
 
         <div className="wpnts-switch-review">
           <label htmlFor="reviewnoti">Enable Form customization:</label>
@@ -188,27 +184,21 @@ const Settings = () => {
               setformCustomization(checked);
             }}
             disabled={!isProUser}
-
           />
         </div>
 
-
-        {/* {!mailNotification && !whatsappRedirection && !floatingwidgets ? ( */}
         {!whatsappRedirection && !floatingwidgets ? (
           <form onSubmit={handleSubmit} id="wpntswebhook">
             <button type="submit" className="save-webhook">SAVE</button>
           </form>
         ) : null}
-
         <div className="no-tables-intro-img">
           <img style={{ width: '40vh', height: '40vh' }} src={Settingsicon} alt="Cloud Icon" />
         </div>
-
       </div>
 
       <div className="acb_right">
         <form onSubmit={handleSubmit} id="wpntswebhook">
-
           {floatingwidgets && (
             <div className="formInput">
               <label htmlFor="selectedTable">Select Form to display as floating widgets</label>
@@ -234,7 +224,6 @@ const Settings = () => {
 
             </div>
           )}
-
           {whatsappRedirection && (
             <div className="formInput">
               <label htmlFor="webhook">WhatsApp number</label>
@@ -251,17 +240,15 @@ const Settings = () => {
           )}
 
           {whatsappRedirection && (
-            <div>
+            <div className="sf-customization">
               <div className="formInput open-new-tab">
                 <label htmlFor="interval_review">Open in new tab</label>
-                <div className="wpnts-setting">
-                  <input
-                    type="checkbox"
-                    name="interval_review"
-                    checked={openInNewTab}
-                    onChange={(e) => setOpenInNewTab(e.target.checked)}
-                  />
-                </div>
+                <input
+                  type="checkbox"
+                  name="interval_review"
+                  checked={openInNewTab}
+                  onChange={(e) => setOpenInNewTab(e.target.checked)}
+                />
               </div>
 
               <div className="formInput">
@@ -354,14 +341,11 @@ const Settings = () => {
                       </option>
                     ))}
                   </select>
-                  {/* {selectedFont && (
-                      <p style={{ fontFamily: selectedFont, fontSize:'15px' }}>Selected font: {selectedFont}</p>
-                    )} */}
                 </div>
 
               </div>
 
-              <div className="formInput">
+              <div className="formInput simpleform-colorplate">
                 <label htmlFor="flotingwidgetsbgcolor">Floting widgets color</label>
                 <div className="wpnts-setting">
                   <input
@@ -374,7 +358,7 @@ const Settings = () => {
                 </div>
               </div>
 
-              <div className="formInput">
+              <div className="formInput simpleform-colorplate">
                 <label htmlFor="headertextcolor">Header text color</label>
                 <div className="wpnts-setting">
                   <input
@@ -388,9 +372,7 @@ const Settings = () => {
               </div>
 
               {/* Form color  */}
-
-              {/* <div className="formInput open-new-tab"> */}
-              <div className="formInput">
+              <div className="formInput simpleform-colorplate">
                 <label htmlFor="headerbackgroundcolor">header background color</label>
                 <div className="wpnts-setting">
                   <input
@@ -403,7 +385,7 @@ const Settings = () => {
                 </div>
               </div>
 
-              <div className="formInput">
+              <div className="formInput simpleform-colorplate">
                 <label htmlFor="formbackgroundcolor">Form background color</label>
                 <div className="wpnts-setting">
                   <input
@@ -416,7 +398,7 @@ const Settings = () => {
                 </div>
               </div>
 
-              <div className="formInput">
+              <div className="formInput simpleform-colorplate">
                 <label htmlFor="formfieldtextcolor">Form fields text/lable color</label>
                 <div className="wpnts-setting">
                   <input
@@ -429,7 +411,7 @@ const Settings = () => {
                 </div>
               </div>
 
-              <div className="formInput">
+              <div className="formInput simpleform-colorplate">
                 <label htmlFor="submitbtnbgcolor">Submit button BG color</label>
                 <div className="wpnts-setting">
                   <input
@@ -443,7 +425,7 @@ const Settings = () => {
                 </div>
               </div>
 
-              <div className="formInput">
+              <div className="formInput simpleform-colorplate">
                 <label htmlFor="submitbtntextcolor">Submit button text color</label>
                 <div className="wpnts-setting">
                   <input
@@ -457,7 +439,7 @@ const Settings = () => {
                 </div>
               </div>
 
-              <div className="formInput">
+              <div className="formInput simpleform-colorplate">
                 <label htmlFor="submitbtntexthovercolor">Submit button hover color</label>
                 <div className="wpnts-setting">
                   <input
@@ -474,7 +456,6 @@ const Settings = () => {
               <div className="seperationLine">
                 <hr />
               </div>
-
             </div>
           )}
 
@@ -487,11 +468,6 @@ const Settings = () => {
         </form>
       </div>
 
-      <div className="acb_right_two">
-        {/* HERE  */}
-
-        {/* HERE  */}
-      </div>
     </div>
   );
 };

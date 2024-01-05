@@ -1,238 +1,151 @@
-.acb_top,
+$breakpoint-small: 768px;
+
 .acb_bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin: 20px;
   padding: 10px;
-  // to make side by side
-  display: flex;
+  font-family: system-ui;
 
-  h1 {
-    color: lightgray;
-    font-size: 20px;
+  @media (max-width: $breakpoint-small) {
+    flex-direction: column;
   }
 
-  h1.setting_panel {
-    flex: 3;
-  }
+  .acb_left,
+  .acb_right {
+    width: 48%;
 
-  h1.tesing_panel {
-    flex: 3;
-  }
-
-  h1.setting_panel a {
-    color: lightgray;
-    text-decoration: none;
-    cursor: pointer;
-
-    &:hover {
-      color: teal;
+    @media (max-width: $breakpoint-small) {
+      width: 100%;
     }
   }
 
-  // left ------------------------------------------------
   .acb_left {
-    flex: 2 !important;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    // text-align: center;
     margin: 25px;
     box-shadow: 2px 4px 10px 1px rgb(201 201 201 / 47%);
     padding: 14px;
 
-    .review-case-title {
-      position: relative;
-
-      span.wcs_title {
-        position: absolute;
-
-        svg.wcs_tooltip_icon {
-          font-size: 15px;
-        }
-
-      }
+    h3.review-case-title {
+      font-size: 20px;
+      font-family: system-ui;
     }
 
-
+    .wpnts-switch-floating,
     .wpnts-switch-review,
-    .wpnts-switch-support,
-    .wpnts-switch-floating {
-      font-size: 17px;
-      text-align: left;
+    .wpnts-switch-customization {
       display: flex;
-      margin-bottom: 35px;
+      align-items: center;
+      margin-bottom: 60px;
+      justify-content: space-between;
 
       label {
-        margin-top: 4px;
-        margin: 11px;
-        margin-right: 350px;
-        white-space: nowrap;
+        margin-right: 10px;
       }
 
-      @media only screen and (max-width: 1366px) {
-        label {
-          margin-right: 100px;
-          white-space: nowrap;
-        }
+      .react-switch {}
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .save-webhook {
+        margin-top: 15px;
       }
-
     }
 
-    .reviewSwitch {
-      margin-left: 85px;
+    .no-tables-intro-img {
+      img {
+        width: 40vh;
+        height: 40vh;
+      }
     }
-
-    .customizationSwitch {
-      margin-left: 102px;
-    }
-
-    .supportSwitch-1 {
-      margin-left: 132px;
-    }
-
-    .supportSwitch-2 {
-      margin-left: 132px;
-    }
-
   }
 
   .acb_right {
-    flex: 4 !important;
-    margin: 25px;
-    margin-top: 37px;
-
-
-    .wpnts-setting {
-
-      .FlotingSelectionbg {
-        width: 154px;
-        height: 58px;
-        margin-left: 59px;
-      }
-
-      .colorSelectionformtext,
-      .colorSelectionformtextcolor,
-      .colorSelectionbg,
-      .colorSelectiontext,
-      .colorSelectionhover {
-        width: 154px;
-        height: 58px;
-        margin-bottom: 20px;
-      }
-
-    }
-
+    margin-top: 30px;
 
     form {
-      position: relative;
       display: flex;
       flex-direction: column;
-      flex-wrap: wrap; // to set all inside the wrap with the given width screen
-      gap: 20px;
-
-      label {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        white-space: nowrap;
-      }
+      // align-items: center;
+      width: 90%;
 
       .formInput {
-        width: 60%;
+        margin-bottom: 15px;
 
-        textarea {
-          height: 150px;
+        label {
+          margin-bottom: 5px;
         }
 
-        input {
-          // width: 100%;
-          padding: 5px;
-          border: none;
-          border-bottom: 1px solid gray;
-
-          &:focus {
-            outline: none;
-            box-shadow: none;
-          }
+        select,
+        input,
+        .react-switch {
+          width: 100%;
+          padding: 10px;
+          box-sizing: border-box;
+          margin-top: 5px;
 
         }
 
-        .wpnts-setting {
-          position: relative;
-
-          .passimg {
-            position: absolute;
-            left: 90px;
-            font-size: 18px;
-            top: -19px;
-          }
+        input.colorSelectionformtext,
+        input.colorSelectionbg,
+        input.colorSelectionformtextcolor,
+        input#submitbtntextcolor,
+        input#submitbtntexthovercolor {
+          height: 50px;
+          width: 50%;
         }
 
+        .seperationLine {
+          hr {}
+        }
+
+        .reviewSwitch {}
       }
 
-      .formInput.open-new-tab {
+      .sf-customization {
         display: flex;
-        gap: 9px;
+        flex-direction: column;
 
-        input[type="checkbox"] {
-          border: 1px solid white;
-          border-bottom: 1px solid gray;
-          border-top: 1px solid gray;
-          width: 18px;
+        .formInput.open-new-tab {
+          display: flex;
+          text-align: center;
+          align-items: center;
+          gap: 5px;
+
+          input[type="checkbox"] {
+            width: 10px;
+            margin-top: -5px;
+          }
+
+
         }
+
       }
 
       .save-webhook {
-        width: 160px;
-        padding: 10px;
+        margin-top: 15px;
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
         border: none;
-        background-color: teal;
-        color: white;
-        font-weight: bold;
+        border-radius: 5px;
         cursor: pointer;
-        float: left;
+        font-size: 16px;
+        transition: background-color 0.3s;
+        width: 120px;
+      }
+
+      .simpleform-colorplate {
+        margin-top: 15px;
       }
     }
-
-    .seperationLine hr {
-      width: 45vh;
-    }
-
-
   }
-
-  .acb_right_two {
-    flex: 4 !important;
-    margin: 25px;
-    margin-top: 37px;
-  }
-
-}
-
-.acb_bottom {
-  position: relative;
-
-  .upcomming {
-    position: absolute;
-    top: 123px;
-    left: 330px;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
-    animation: pulse 2s infinite;
-    transform-origin: center;
-    color: tomato;
-
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.2);
-      }
-
-      100% {
-        transform: scale(1);
-      }
-    }
-
-
-  }
-
-
 }

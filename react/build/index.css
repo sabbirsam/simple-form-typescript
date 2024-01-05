@@ -2346,231 +2346,123 @@ button.delete-button:active {
 /*!*************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/_setting.scss ***!
   \*************************************************************************************************************************************************************************************************************************************************/
-.acb_top,
 .acb_bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin: 20px;
   padding: 10px;
-  display: flex;
+  font-family: system-ui;
 }
-.acb_top h1,
-.acb_bottom h1 {
-  color: lightgray;
-  font-size: 20px;
+@media (max-width: 768px) {
+  .acb_bottom {
+    flex-direction: column;
+  }
 }
-.acb_top h1.setting_panel,
-.acb_bottom h1.setting_panel {
-  flex: 3;
+.acb_bottom .acb_left,
+.acb_bottom .acb_right {
+  width: 48%;
 }
-.acb_top h1.tesing_panel,
-.acb_bottom h1.tesing_panel {
-  flex: 3;
+@media (max-width: 768px) {
+  .acb_bottom .acb_left,
+  .acb_bottom .acb_right {
+    width: 100%;
+  }
 }
-.acb_top h1.setting_panel a,
-.acb_bottom h1.setting_panel a {
-  color: lightgray;
-  text-decoration: none;
-  cursor: pointer;
-}
-.acb_top h1.setting_panel a:hover,
-.acb_bottom h1.setting_panel a:hover {
-  color: teal;
-}
-.acb_top .acb_left,
 .acb_bottom .acb_left {
-  flex: 2 !important;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
   margin: 25px;
   box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
   padding: 14px;
 }
-.acb_top .acb_left .review-case-title,
-.acb_bottom .acb_left .review-case-title {
-  position: relative;
+.acb_bottom .acb_left h3.review-case-title {
+  font-size: 20px;
+  font-family: system-ui;
 }
-.acb_top .acb_left .review-case-title span.wcs_title,
-.acb_bottom .acb_left .review-case-title span.wcs_title {
-  position: absolute;
-}
-.acb_top .acb_left .review-case-title span.wcs_title svg.wcs_tooltip_icon,
-.acb_bottom .acb_left .review-case-title span.wcs_title svg.wcs_tooltip_icon {
-  font-size: 15px;
-}
-.acb_top .acb_left .wpnts-switch-review,
-.acb_top .acb_left .wpnts-switch-support,
-.acb_top .acb_left .wpnts-switch-floating,
+.acb_bottom .acb_left .wpnts-switch-floating,
 .acb_bottom .acb_left .wpnts-switch-review,
-.acb_bottom .acb_left .wpnts-switch-support,
-.acb_bottom .acb_left .wpnts-switch-floating {
-  font-size: 17px;
-  text-align: left;
-  display: flex;
-  margin-bottom: 35px;
-}
-.acb_top .acb_left .wpnts-switch-review label,
-.acb_top .acb_left .wpnts-switch-support label,
-.acb_top .acb_left .wpnts-switch-floating label,
-.acb_bottom .acb_left .wpnts-switch-review label,
-.acb_bottom .acb_left .wpnts-switch-support label,
-.acb_bottom .acb_left .wpnts-switch-floating label {
-  margin-top: 4px;
-  margin: 11px;
-  margin-right: 350px;
-  white-space: nowrap;
-}
-@media only screen and (max-width: 1366px) {
-  .acb_top .acb_left .wpnts-switch-review label,
-  .acb_top .acb_left .wpnts-switch-support label,
-  .acb_top .acb_left .wpnts-switch-floating label,
-  .acb_bottom .acb_left .wpnts-switch-review label,
-  .acb_bottom .acb_left .wpnts-switch-support label,
-  .acb_bottom .acb_left .wpnts-switch-floating label {
-    margin-right: 100px;
-    white-space: nowrap;
-  }
-}
-.acb_top .acb_left .reviewSwitch,
-.acb_bottom .acb_left .reviewSwitch {
-  margin-left: 85px;
-}
-.acb_top .acb_left .customizationSwitch,
-.acb_bottom .acb_left .customizationSwitch {
-  margin-left: 102px;
-}
-.acb_top .acb_left .supportSwitch-1,
-.acb_bottom .acb_left .supportSwitch-1 {
-  margin-left: 132px;
-}
-.acb_top .acb_left .supportSwitch-2,
-.acb_bottom .acb_left .supportSwitch-2 {
-  margin-left: 132px;
-}
-.acb_top .acb_right,
-.acb_bottom .acb_right {
-  flex: 4 !important;
-  margin: 25px;
-  margin-top: 37px;
-}
-.acb_top .acb_right .wpnts-setting .FlotingSelectionbg,
-.acb_bottom .acb_right .wpnts-setting .FlotingSelectionbg {
-  width: 154px;
-  height: 58px;
-  margin-left: 59px;
-}
-.acb_top .acb_right .wpnts-setting .colorSelectionformtext,
-.acb_top .acb_right .wpnts-setting .colorSelectionformtextcolor,
-.acb_top .acb_right .wpnts-setting .colorSelectionbg,
-.acb_top .acb_right .wpnts-setting .colorSelectiontext,
-.acb_top .acb_right .wpnts-setting .colorSelectionhover,
-.acb_bottom .acb_right .wpnts-setting .colorSelectionformtext,
-.acb_bottom .acb_right .wpnts-setting .colorSelectionformtextcolor,
-.acb_bottom .acb_right .wpnts-setting .colorSelectionbg,
-.acb_bottom .acb_right .wpnts-setting .colorSelectiontext,
-.acb_bottom .acb_right .wpnts-setting .colorSelectionhover {
-  width: 154px;
-  height: 58px;
-  margin-bottom: 20px;
-}
-.acb_top .acb_right form,
-.acb_bottom .acb_right form {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-.acb_top .acb_right form label,
-.acb_bottom .acb_right form label {
+.acb_bottom .acb_left .wpnts-switch-customization {
   display: flex;
   align-items: center;
-  gap: 10px;
-  white-space: nowrap;
+  margin-bottom: 60px;
+  justify-content: space-between;
 }
-.acb_top .acb_right form .formInput,
-.acb_bottom .acb_right form .formInput {
-  width: 60%;
+.acb_bottom .acb_left .wpnts-switch-floating label,
+.acb_bottom .acb_left .wpnts-switch-review label,
+.acb_bottom .acb_left .wpnts-switch-customization label {
+  margin-right: 10px;
 }
-.acb_top .acb_right form .formInput textarea,
-.acb_bottom .acb_right form .formInput textarea {
-  height: 150px;
-}
-.acb_top .acb_right form .formInput input,
-.acb_bottom .acb_right form .formInput input {
-  padding: 5px;
-  border: none;
-  border-bottom: 1px solid gray;
-}
-.acb_top .acb_right form .formInput input:focus,
-.acb_bottom .acb_right form .formInput input:focus {
-  outline: none;
-  box-shadow: none;
-}
-.acb_top .acb_right form .formInput .wpnts-setting,
-.acb_bottom .acb_right form .formInput .wpnts-setting {
-  position: relative;
-}
-.acb_top .acb_right form .formInput .wpnts-setting .passimg,
-.acb_bottom .acb_right form .formInput .wpnts-setting .passimg {
-  position: absolute;
-  left: 90px;
-  font-size: 18px;
-  top: -19px;
-}
-.acb_top .acb_right form .formInput.open-new-tab,
-.acb_bottom .acb_right form .formInput.open-new-tab {
+.acb_bottom .acb_left form {
   display: flex;
-  gap: 9px;
+  flex-direction: column;
+  align-items: center;
 }
-.acb_top .acb_right form .formInput.open-new-tab input[type=checkbox],
-.acb_bottom .acb_right form .formInput.open-new-tab input[type=checkbox] {
-  border: 1px solid white;
-  border-bottom: 1px solid gray;
-  border-top: 1px solid gray;
-  width: 18px;
+.acb_bottom .acb_left form .save-webhook {
+  margin-top: 15px;
 }
-.acb_top .acb_right form .save-webhook,
-.acb_bottom .acb_right form .save-webhook {
-  width: 160px;
+.acb_bottom .acb_left .no-tables-intro-img img {
+  width: 40vh;
+  height: 40vh;
+}
+.acb_bottom .acb_right {
+  margin-top: 30px;
+}
+.acb_bottom .acb_right form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+.acb_bottom .acb_right form .formInput {
+  margin-bottom: 15px;
+}
+.acb_bottom .acb_right form .formInput label {
+  margin-bottom: 5px;
+}
+.acb_bottom .acb_right form .formInput select,
+.acb_bottom .acb_right form .formInput input,
+.acb_bottom .acb_right form .formInput .react-switch {
+  width: 100%;
   padding: 10px;
+  box-sizing: border-box;
+  margin-top: 5px;
+}
+.acb_bottom .acb_right form .formInput input.colorSelectionformtext,
+.acb_bottom .acb_right form .formInput input.colorSelectionbg,
+.acb_bottom .acb_right form .formInput input.colorSelectionformtextcolor,
+.acb_bottom .acb_right form .formInput input#submitbtntextcolor,
+.acb_bottom .acb_right form .formInput input#submitbtntexthovercolor {
+  height: 50px;
+  width: 50%;
+}
+.acb_bottom .acb_right form .sf-customization {
+  display: flex;
+  flex-direction: column;
+}
+.acb_bottom .acb_right form .sf-customization .formInput.open-new-tab {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  gap: 5px;
+}
+.acb_bottom .acb_right form .sf-customization .formInput.open-new-tab input[type=checkbox] {
+  width: 10px;
+  margin-top: -5px;
+}
+.acb_bottom .acb_right form .save-webhook {
+  margin-top: 15px;
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
   border: none;
-  background-color: teal;
-  color: white;
-  font-weight: bold;
+  border-radius: 5px;
   cursor: pointer;
-  float: left;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  width: 120px;
 }
-.acb_top .acb_right .seperationLine hr,
-.acb_bottom .acb_right .seperationLine hr {
-  width: 45vh;
-}
-.acb_top .acb_right_two,
-.acb_bottom .acb_right_two {
-  flex: 4 !important;
-  margin: 25px;
-  margin-top: 37px;
-}
-
-.acb_bottom {
-  position: relative;
-}
-.acb_bottom .upcomming {
-  position: absolute;
-  top: 123px;
-  left: 330px;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
-  animation: pulse 2s infinite;
-  transform-origin: center;
-  color: tomato;
-}
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
+.acb_bottom .acb_right form .simpleform-colorplate {
+  margin-top: 15px;
 }
 /*!*******************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/styles/_documentation.scss ***!
