@@ -218,25 +218,30 @@ namespace SIMPLEFORM {
 			SIMPLEFORM()->database->migration->run( $network_wide );
 
 			$form_settings = [
-				'selectedTable' => '',
-				'floatingwidgets' => false,
-				'selectedWhatsapp' => '',
+				'selectedTable' => null,
+				'selectedWhatsapp' => null,
 				'whatsappRedirection' => false,
 				'formCustomization' => false,
-				'whatsappNumber' => '',
-				'openInNewTab' => '',
+				'floatingwidgets' => false,
 
-				'submitbtntext' => '',
-				'formheader' => '',
+				'whatsappNumber' => '',
+				'openInNewTab' => false,
+
+				'submitbtntext' => 'Send Message',
+				'formheader' => "Have question? - Submit the Form",
 				'formcta' => '',
-				'submitbtnbgcolor' => '',
-				'submitbtntextcolor' => '',
-				'submitbtntexthovercolor' => '',
-				'headerbackgroundcolor' => '',
-				'headertextcolor' => '',
-				'formfieldtextcolor' => '',
-				'formbackgroundcolor' => '',
-				'flotingwidgetsbgcolor' => '',
+
+				'submitbtnbgcolor' => "#FFA500",
+				'submitbtntextcolor' => "#FFFFFF",
+				'submitbtntexthovercolor' => "#3F98D2",
+
+				'headerbackgroundcolor' => "#293239",
+				'headertextcolor' => "#FFFFFF",
+
+				'formfieldtextcolor' => "#293239",
+				'formbackgroundcolor' => "#F7F7F7",
+
+				'flotingwidgetsbgcolor' => "#0065A0",
 				'selectedFont' => '',
 			];
 

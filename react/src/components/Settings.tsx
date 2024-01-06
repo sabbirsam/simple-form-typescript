@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import ReactSwitchreview from "react-switch";
 import ReactSwitchsupport from "react-switch";
 const Settingsicon = require('../../../assets/public/icons/Settings.gif');
-import { useLocation } from 'react-router-dom';
 import { getNonce, getTables, getFormSettings } from './../Helpers';
 import "../styles/_setting.scss";
 
 const Settings = () => {
   const [tables, setTables] = useState(getTables());
   const [formSettings, setSettings] = useState(getFormSettings());
-  const location = useLocation();
+
+
 
   // Custom hook to handle local storage for a specific key
   const useLocalStorage = (key, defaultValue) => {
@@ -31,32 +31,56 @@ const Settings = () => {
     return [state, setState];
   };
 
-
+  // const [selectedTable, setSelectedTable] = useState(formSettings.selectedTable || null);
   const [selectedTable, setSelectedTable] = useLocalStorage('selectedTable', formSettings.selectedTable || null);
-  const [floatingwidgets, setFloating] = useLocalStorage('floatingwidgets', formSettings.floatingwidgets || null);
-  const [selectedWhatsapp, setSelectedWhatsapp] = useLocalStorage('selectedWhatsapp', formSettings.selectedWhatsapp || null);
-  const [whatsappRedirection, setWhatsappRedirection] = useLocalStorage('whatsappRedirection', formSettings.whatsappRedirection || null);
-  const [formCustomization, setformCustomization] = useLocalStorage('formCustomization', formSettings.formCustomization || null);
-  const [whatsappNumber, setWhatsappNumber] = useLocalStorage('whatsappNumber', formSettings.whatsappNumber || null);
-  const [openInNewTab, setOpenInNewTab] = useLocalStorage('openInNewTab', formSettings.openInNewTab || null);
 
-  const [submitbtntext, setSubmitbtntext] = useLocalStorage('submitbtntext', formSettings.submitbtntext || null);
-  const [formheader, setFormheader] = useLocalStorage('formheader', formSettings.formheader || null);
-  const [formcta, setFormCTA] = useLocalStorage('formcta', formSettings.formcta || null);
 
-  const [submitbtnbgcolor, setSubmitbtnbgcolor] = useLocalStorage('submitbtnbgcolor', formSettings.submitbtnbgcolor || null);
-  const [submitbtntextcolor, setSubmitbtntextcolor] = useLocalStorage('submitbtntextcolor', formSettings.submitbtntextcolor || null);
-  const [submitbtntexthovercolor, setSubmitbtntexthovercolor] = useLocalStorage('submitbtntexthovercolor', formSettings.submitbtntexthovercolor || null);
+  // const [whatsappRedirection, setWhatsappRedirection] = useState(formSettings.whatsappRedirection == "true" ? true : false);
+  const [whatsappRedirection, setWhatsappRedirection] = useLocalStorage('whatsappRedirection', formSettings.whatsappRedirection || false);
 
-  const [headerbackgroundcolor, setHeaderbackgroundcolor] = useLocalStorage('headerbackgroundcolor', formSettings.headerbackgroundcolor || null);
-  const [headertextcolor, setHeadertextcolor] = useLocalStorage('headertextcolor', formSettings.headertextcolor || null);
+  // const [formCustomization, setformCustomization] = useState(formSettings.formCustomization == "true" ? true : false);
+  const [formCustomization, setformCustomization] = useLocalStorage('formCustomization', formSettings.formCustomization || false);
 
-  const [formfieldtextcolor, setFormfieldtextcolor] = useLocalStorage('formfieldtextcolor', formSettings.formfieldtextcolor || null);
-  const [formbackgroundcolor, setFormbackgroundcolor] = useLocalStorage('formbackgroundcolor', formSettings.formbackgroundcolor || null);
+  // const [floatingwidgets, setFloating] = useState(formSettings.floatingwidgets == "true" ? true : false);
+  const [floatingwidgets, setFloating] = useLocalStorage('floatingwidgets', formSettings.floatingwidgets || false);
 
-  const [flotingwidgetsbgcolor, setFlotingwidgetsbgcolor] = useLocalStorage('flotingwidgetsbgcolor', formSettings.flotingwidgetsbgcolor || null);
-  const [selectedFont, setSelectedFont] = useLocalStorage('selectedFont', formSettings.selectedFont || null);
+  // const [openInNewTab, setOpenInNewTab] = useState(formSettings.openInNewTab == "true" ? true : false);
+  const [openInNewTab, setOpenInNewTab] = useLocalStorage('openInNewTab', formSettings.openInNewTab || false);
 
+
+  const [selectedWhatsapp, setSelectedWhatsapp] = useState(formSettings.selectedWhatsapp || false);
+  const [whatsappNumber, setWhatsappNumber] = useState(formSettings.whatsappNumber || "");
+  const [submitbtntext, setSubmitbtntext] = useState(formSettings.submitbtntext || 'Send Message');
+  const [formheader, setFormheader] = useState(formSettings.formheader || "Have question? - Submit the Form");
+  const [formcta, setFormCTA] = useState(formSettings.formcta || "");
+
+  // const [submitbtnbgcolor, setSubmitbtnbgcolor] = useState(formSettings.submitbtnbgcolor || "#FFA500");
+  const [submitbtnbgcolor, setSubmitbtnbgcolor] = useLocalStorage('submitbtnbgcolor', formSettings.submitbtnbgcolor || "#FFA500");
+
+  // const [submitbtntextcolor, setSubmitbtntextcolor] = useState(formSettings.submitbtntextcolor || "#FFFFFF");
+  const [submitbtntextcolor, setSubmitbtntextcolor] = useLocalStorage('submitbtntextcolor', formSettings.submitbtntextcolor || "#FFFFFF");
+
+  // const [submitbtntexthovercolor, setSubmitbtntexthovercolor] = useState(formSettings.submitbtntexthovercolor || "#3F98D2");
+  const [submitbtntexthovercolor, setSubmitbtntexthovercolor] = useLocalStorage('submitbtntexthovercolor', formSettings.submitbtntexthovercolor || "#3F98D2");
+
+  // const [headerbackgroundcolor, setHeaderbackgroundcolor] = useState(formSettings.headerbackgroundcolor || "#293239");
+  const [headerbackgroundcolor, setHeaderbackgroundcolor] = useLocalStorage('headerbackgroundcolor', formSettings.headerbackgroundcolor || "#293239");
+
+  // const [headertextcolor, setHeadertextcolor] = useState(formSettings.headertextcolor || "#FFFFFF");
+  const [headertextcolor, setHeadertextcolor] = useLocalStorage('headertextcolor', formSettings.headertextcolor || "#FFFFFF");
+
+
+  // const [formfieldtextcolor, setFormfieldtextcolor] = useState(formSettings.formfieldtextcolor || "#293239");
+  const [formfieldtextcolor, setFormfieldtextcolor] = useLocalStorage('formfieldtextcolor', formSettings.formfieldtextcolor || "#293239");
+
+  // const [formbackgroundcolor, setFormbackgroundcolor] = useState(formSettings.formbackgroundcolor || "#F7F7F7");
+  const [formbackgroundcolor, setFormbackgroundcolor] = useLocalStorage('formbackgroundcolor', formSettings.formbackgroundcolor || "#F7F7F7");
+
+  // const [flotingwidgetsbgcolor, setFlotingwidgetsbgcolor] = useState(formSettings.flotingwidgetsbgcolor || "#0065A0");
+  const [flotingwidgetsbgcolor, setFlotingwidgetsbgcolor] = useLocalStorage('flotingwidgetsbgcolor', formSettings.flotingwidgetsbgcolor || "#0065A0");
+
+  // const [selectedFont, setSelectedFont] = useState(formSettings.selectedFont || "");
+  const [selectedFont, setSelectedFont] = useLocalStorage('selectedFont', formSettings.selectedFont || 'Arial');
 
 
   useEffect(() => {
@@ -65,6 +89,7 @@ const Settings = () => {
         nonce: getNonce(),
       },
       success(response) {
+        // console.log(response)
         setTables(response.tables);
       },
       error(error) {
@@ -132,6 +157,19 @@ const Settings = () => {
           },
 
           success({ }) {
+
+            wp.ajax.send('simpleform_get_settings', {
+              data: {
+                nonce: getNonce(),
+              },
+              success(response) {
+                setSettings(response.settings);
+              },
+              error(error) {
+                console.error(error);
+              },
+            });
+
             Swal.fire({
               position: 'center',
               icon: 'success',
@@ -139,8 +177,6 @@ const Settings = () => {
               showConfirmButton: false,
               timer: 1500,
             });
-
-            // navigate(`/`);
           },
           error({ message }) {
           },
@@ -176,39 +212,46 @@ const Settings = () => {
     setSelectedFont(e.target.value);
   };
 
+  // console.log(whatsappRedirection == "true" ? true : false);
+
   return (
     <div className="acb_bottom" id="acb_bottom">
       <div className="acb_left">
         <h3 className="review-case-title">Simple Form settings panel</h3>
-        <div className="wpnts-switch-floating">
-          <label htmlFor="floating-widgets">Enable floating widgets:</label>
+
+        <div className="wpnts-switch-review">
+          <label htmlFor="floatingwidgets">Enable floating widgets:</label>
           <ReactSwitchsupport
+            // checked={false}
             checked={floatingwidgets}
-            className="supportSwitch-2"
-            name="wpnts-switch-floating"
-            id="floating-widgets"
+            className="floatingwidgets"
+            name="floatingwidgets"
+            id="floatingwidgets"
             onChange={(checked) => setFloating(checked)}
           />
         </div>
 
         <div className="wpnts-switch-review">
-          <label htmlFor="reviewnoti">Enable WhatsApp redirection:</label>
+          <label htmlFor="whatsappRedirection">Enable WhatsApp redirection:</label>
           <ReactSwitchreview
+            // checked={true}
+            // checked={whatsappRedirection === "true" ? true : false}
             checked={whatsappRedirection}
-            className="reviewSwitch"
-            name="wpnts-switch-review"
-            id="reviewnoti"
+            className="whatsappRedirection"
+            name="whatsappRedirection"
+            id="whatsappRedirection"
             onChange={(checked) => setWhatsappRedirection(checked)}
           />
         </div>
 
         <div className="wpnts-switch-review">
-          <label htmlFor="reviewnoti">Enable Form customization:</label>
+          <label htmlFor="formCustomization">Enable Form customization:</label>
           <ReactSwitchreview
+            // checked={false}
             checked={formCustomization}
-            className="customizationSwitch"
-            name="wpnts-switch-review"
-            id="form-customization"
+            className="formCustomization"
+            name="formCustomization"
+            id="formCustomization"
             onChange={(checked) => setformCustomization(checked)}
           />
         </div>
@@ -268,10 +311,10 @@ const Settings = () => {
           {whatsappRedirection && (
             <div className="sf-customization">
               <div className="formInput open-new-tab">
-                <label htmlFor="interval_review">Open in new tab</label>
+                <label htmlFor="openinnewtab">Open in new tab</label>
                 <input
                   type="checkbox"
-                  name="interval_review"
+                  name="openinnewtab"
                   checked={openInNewTab}
                   onChange={(e) => setOpenInNewTab(e.target.checked)}
                 />
