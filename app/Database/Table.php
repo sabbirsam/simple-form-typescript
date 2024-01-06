@@ -187,7 +187,6 @@ class Table {
 				'mailNotification' => false,
 				'openInNewTab' => false,
 				'whatsappRedirection' => false,
-				'recipientMail' => '',
 				'selectedTable' => '',
 				'selectedWhatsapp' => '',
 				'whatsappNumber' => '',

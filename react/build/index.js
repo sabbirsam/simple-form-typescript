@@ -15565,30 +15565,6 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ "./node_modules/@mui/icons-material/DeleteSweep.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/@mui/icons-material/DeleteSweep.js ***!
-  \*********************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-"use client";
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@mui/icons-material/utils/createSvgIcon.js"));
-var _jsxRuntime = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-var _default = (0, _createSvgIcon.default)( /*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
-  d: "M15 16h4v2h-4zm0-8h7v2h-7zm0 4h6v2h-6zM3 18c0 1.1.9 2 2 2h6c1.1 0 2-.9 2-2V8H3v10zM14 5h-3l-1-1H6L5 5H2v2h12z"
-}), 'DeleteSweep');
-exports["default"] = _default;
-
-/***/ }),
-
 /***/ "./node_modules/@mui/icons-material/DisplaySettings.js":
 /*!*************************************************************!*\
   !*** ./node_modules/@mui/icons-material/DisplaySettings.js ***!
@@ -77642,6 +77618,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_switch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-switch */ "./node_modules/react-switch/dist/index.dev.mjs");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _Helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../Helpers */ "./src/Helpers.js");
 /* harmony import */ var _styles_setting_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../styles/_setting.scss */ "./src/styles/_setting.scss");
 
@@ -77651,32 +77628,31 @@ __webpack_require__.r(__webpack_exports__);
 const Settingsicon = __webpack_require__(/*! ../../../assets/public/icons/Settings.gif */ "../assets/public/icons/Settings.gif");
 
 
+
 const Settings = () => {
   const [tables, setTables] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)((0,_Helpers__WEBPACK_IMPORTED_MODULE_3__.getTables)());
   const [formSettings, setSettings] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)((0,_Helpers__WEBPACK_IMPORTED_MODULE_3__.getFormSettings)());
   const [selectedTable, setSelectedTable] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.selectedTable || null);
-  const [selectedWhatsapp, setSelectedWhatsapp] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.selectedWhatsapp || null);
   const [isProUser, setisProUser] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(true);
-  const [whatsappRedirection, setWhatsappRedirection] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.whatsappRedirection === 'true');
-  const [formCustomization, setformCustomization] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.formCustomization === 'true');
-  const [mailNotification, setMailNotification] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.mailNotification === 'true');
-  const [floatingwidgets, setFloating] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.floatingwidgets === 'true');
+  const location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useLocation)();
+  const [selectedWhatsapp, setSelectedWhatsapp] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.selectedWhatsapp || null);
+  const [whatsappRedirection, setWhatsappRedirection] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.whatsappRedirection === 'false');
+  const [formCustomization, setformCustomization] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.formCustomization === 'false');
+  const [floatingwidgets, setFloating] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.floatingwidgets === 'false');
   const [whatsappNumber, setWhatsappNumber] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.whatsappNumber || "");
-  const [openInNewTab, setOpenInNewTab] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.openInNewTab === 'true');
-  const [recipientMail, setRecipientMail] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.recipientMail || "");
-  const [submitbtntext, setSubmitbtntext] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.submitbtntext || 'Send');
-  const [formheader, setFormheader] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.formheader || "");
+  const [openInNewTab, setOpenInNewTab] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.openInNewTab === 'false');
+  const [submitbtntext, setSubmitbtntext] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.submitbtntext || 'Send Message');
+  const [formheader, setFormheader] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.formheader || "Have question? - Submit the Form");
   const [formcta, setFormCTA] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.formcta || "");
-  const [submitbtnbgcolor, setSubmitbtnbgcolor] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.submitbtnbgcolor || "");
-  const [submitbtntextcolor, setSubmitbtntextcolor] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.submitbtntextcolor || "");
-  const [headerbackgroundcolor, setHeaderbackgroundcolor] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.headerbackgroundcolor || "");
-  const [headertextcolor, setHeadertextcolor] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.headertextcolor || "");
-  const [formfieldtextcolor, setFormfieldtextcolor] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.formfieldtextcolor || "");
-  const [formbackgroundcolor, setFormbackgroundcolor] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.formbackgroundcolor || "");
-  const [flotingwidgetsbgcolor, setFlotingwidgetsbgcolor] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.flotingwidgetsbgcolor || "");
-  const [submitbtntexthovercolor, setSubmitbtntexthovercolor] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.submitbtntexthovercolor || "");
+  const [submitbtnbgcolor, setSubmitbtnbgcolor] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.submitbtnbgcolor || "#FFA500");
+  const [submitbtntextcolor, setSubmitbtntextcolor] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.submitbtntextcolor || "#FFFFFF");
+  const [submitbtntexthovercolor, setSubmitbtntexthovercolor] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.submitbtntexthovercolor || "#3F98D2");
+  const [headerbackgroundcolor, setHeaderbackgroundcolor] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.headerbackgroundcolor || "#293239");
+  const [headertextcolor, setHeadertextcolor] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.headertextcolor || "#FFFFFF");
+  const [formfieldtextcolor, setFormfieldtextcolor] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.formfieldtextcolor || "#293239");
+  const [formbackgroundcolor, setFormbackgroundcolor] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.formbackgroundcolor || "#F7F7F7");
+  const [flotingwidgetsbgcolor, setFlotingwidgetsbgcolor] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.flotingwidgetsbgcolor || "#0065A0");
   const [selectedFont, setSelectedFont] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.selectedFont || "");
-  const isSaveButtonDisabled = !whatsappRedirection && !mailNotification;
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
     wp.ajax.send('simpleform_get_tables', {
       data: {
@@ -77690,16 +77666,29 @@ const Settings = () => {
       }
     });
   }, []);
+
+  //Setting fetch
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+    wp.ajax.send('simpleform_get_settings', {
+      data: {
+        nonce: (0,_Helpers__WEBPACK_IMPORTED_MODULE_3__.getNonce)()
+      },
+      success(response) {
+        setSettings(response.settings);
+      },
+      error(error) {
+        console.error(error);
+      }
+    });
+  }, [location.hash]);
   const handleSubmit = e => {
     e.preventDefault();
     const settings = {
       whatsappRedirection,
-      mailNotification,
       formCustomization,
       floatingwidgets,
       whatsappNumber,
       openInNewTab,
-      recipientMail,
       selectedTable,
       selectedWhatsapp,
       submitbtntext,
@@ -78068,7 +78057,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mui_icons_material_EditCalendar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/icons-material/EditCalendar */ "./node_modules/@mui/icons-material/EditCalendar.js");
 /* harmony import */ var _mui_icons_material_HighlightOff__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/icons-material/HighlightOff */ "./node_modules/@mui/icons-material/HighlightOff.js");
 /* harmony import */ var _mui_icons_material_Recycling__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/icons-material/Recycling */ "./node_modules/@mui/icons-material/Recycling.js");
-/* harmony import */ var _mui_icons_material_DeleteSweep__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/icons-material/DeleteSweep */ "./node_modules/@mui/icons-material/DeleteSweep.js");
+/* harmony import */ var _mui_icons_material_DeleteOutline__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/icons-material/DeleteOutline */ "./node_modules/@mui/icons-material/DeleteOutline.js");
 /* harmony import */ var _styles_table_item_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../styles/_table_item.scss */ "./src/styles/_table_item.scss");
 /* harmony import */ var _core_Title__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../core/Title */ "./src/core/Title.tsx");
 /* harmony import */ var _Helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Helpers */ "./src/Helpers.js");
@@ -78251,7 +78240,7 @@ function TableItem({
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     className: "table-delete",
     onClick: handleDeleteTable
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_icons_material_DeleteSweep__WEBPACK_IMPORTED_MODULE_10__["default"], {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_icons_material_DeleteOutline__WEBPACK_IMPORTED_MODULE_10__["default"], {
     className: "scf-delete-btn"
   })))));
 }

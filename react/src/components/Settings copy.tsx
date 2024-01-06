@@ -2,41 +2,41 @@ import React, { useState, useEffect } from "react";
 import ReactSwitchreview from "react-switch";
 import ReactSwitchsupport from "react-switch";
 const Settingsicon = require('../../../assets/public/icons/Settings.gif');
-import { useLocation } from 'react-router-dom';
 import { getNonce, getTables, getFormSettings } from './../Helpers';
 import "../styles/_setting.scss";
 
 const Settings = () => {
   const [tables, setTables] = useState(getTables());
   const [formSettings, setSettings] = useState(getFormSettings());
+  const [currentUrl, setCurrentUrl] = useState(window.location.href);
+
   const [selectedTable, setSelectedTable] = useState(formSettings.selectedTable || null);
-  const [isProUser, setisProUser] = useState(true);
-  const location = useLocation();
-
   const [selectedWhatsapp, setSelectedWhatsapp] = useState(formSettings.selectedWhatsapp || null);
-  const [whatsappRedirection, setWhatsappRedirection] = useState(formSettings.whatsappRedirection === 'false');
-  const [formCustomization, setformCustomization] = useState(formSettings.formCustomization === 'false');
-  const [floatingwidgets, setFloating] = useState(formSettings.floatingwidgets === 'false');
+  const [isProUser, setisProUser] = useState(true);
+  const [whatsappRedirection, setWhatsappRedirection] = useState(formSettings.whatsappRedirection === 'true');
+  const [formCustomization, setformCustomization] = useState(formSettings.formCustomization === 'true');
+  const [mailNotification, setMailNotification] = useState(formSettings.mailNotification === 'true');
+  const [floatingwidgets, setFloating] = useState(formSettings.floatingwidgets === 'true');
   const [whatsappNumber, setWhatsappNumber] = useState(formSettings.whatsappNumber || "");
-  const [openInNewTab, setOpenInNewTab] = useState(formSettings.openInNewTab === 'false');
-
-  const [submitbtntext, setSubmitbtntext] = useState(formSettings.submitbtntext || 'Send Message');
-  const [formheader, setFormheader] = useState(formSettings.formheader || "Have question? - Submit the Form");
+  const [openInNewTab, setOpenInNewTab] = useState(formSettings.openInNewTab === 'true');
+  const [recipientMail, setRecipientMail] = useState(formSettings.recipientMail || "");
+  const [submitbtntext, setSubmitbtntext] = useState(formSettings.submitbtntext || 'Send');
+  const [formheader, setFormheader] = useState(formSettings.formheader || "");
   const [formcta, setFormCTA] = useState(formSettings.formcta || "");
 
-  const [submitbtnbgcolor, setSubmitbtnbgcolor] = useState(formSettings.submitbtnbgcolor || "#FFA500");
-  const [submitbtntextcolor, setSubmitbtntextcolor] = useState(formSettings.submitbtntextcolor || "#FFFFFF");
-  const [submitbtntexthovercolor, setSubmitbtntexthovercolor] = useState(formSettings.submitbtntexthovercolor || "#3F98D2");
+  const [submitbtnbgcolor, setSubmitbtnbgcolor] = useState(formSettings.submitbtnbgcolor || "");
+  const [submitbtntextcolor, setSubmitbtntextcolor] = useState(formSettings.submitbtntextcolor || "");
 
-  const [headerbackgroundcolor, setHeaderbackgroundcolor] = useState(formSettings.headerbackgroundcolor || "#293239");
-  const [headertextcolor, setHeadertextcolor] = useState(formSettings.headertextcolor || "#FFFFFF");
+  const [headerbackgroundcolor, setHeaderbackgroundcolor] = useState(formSettings.headerbackgroundcolor || "");
+  const [headertextcolor, setHeadertextcolor] = useState(formSettings.headertextcolor || "");
 
-  const [formfieldtextcolor, setFormfieldtextcolor] = useState(formSettings.formfieldtextcolor || "#293239");
-  const [formbackgroundcolor, setFormbackgroundcolor] = useState(formSettings.formbackgroundcolor || "#F7F7F7");
+  const [formfieldtextcolor, setFormfieldtextcolor] = useState(formSettings.formfieldtextcolor || "");
+  const [formbackgroundcolor, setFormbackgroundcolor] = useState(formSettings.formbackgroundcolor || "");
 
-  const [flotingwidgetsbgcolor, setFlotingwidgetsbgcolor] = useState(formSettings.flotingwidgetsbgcolor || "#0065A0");
+  const [flotingwidgetsbgcolor, setFlotingwidgetsbgcolor] = useState(formSettings.flotingwidgetsbgcolor || "");
+  const [submitbtntexthovercolor, setSubmitbtntexthovercolor] = useState(formSettings.submitbtntexthovercolor || "");
   const [selectedFont, setSelectedFont] = useState(formSettings.selectedFont || "");
-
+  const isSaveButtonDisabled = !whatsappRedirection && !mailNotification;
 
   useEffect(() => {
     wp.ajax.send('simpleform_get_tables', {
@@ -54,7 +54,7 @@ const Settings = () => {
 
 
   //Setting fetch
-  useEffect(() => {
+  /* useEffect(() => {
     wp.ajax.send('simpleform_get_settings', {
       data: {
         nonce: getNonce(),
@@ -66,17 +66,49 @@ const Settings = () => {
         console.error(error);
       },
     });
-  }, [location.hash]);
+  }, [formSettings]); */
+
+  // Effect to fetch settings when the URL changes
+  /* useEffect(() => {
+    wp.ajax.send('simpleform_get_settings', {
+      data: {
+        nonce: getNonce(),
+      },
+      success(response) {
+        setSettings(response.settings);
+      },
+      error(error) {
+        console.error(error);
+      },
+    });
+  }, [currentUrl]);
+
+  // Effect to update the current URL when it changes
+  useEffect(() => {
+    const handleUrlChange = () => {
+      setCurrentUrl(window.location.href);
+    };
+
+    // Add event listener for URL changes
+    window.addEventListener('hashchange', handleUrlChange);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('hashchange', handleUrlChange);
+    };
+  }, []); */
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const settings = {
       whatsappRedirection,
+      mailNotification,
       formCustomization,
       floatingwidgets,
       whatsappNumber,
       openInNewTab,
+      recipientMail,
       selectedTable,
       selectedWhatsapp,
       submitbtntext,
@@ -118,6 +150,7 @@ const Settings = () => {
               showConfirmButton: false,
               timer: 1500,
             });
+
 
             // navigate(`/`);
           },

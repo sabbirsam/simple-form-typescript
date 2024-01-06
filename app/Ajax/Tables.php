@@ -30,6 +30,8 @@ class Tables {
 
 		add_action( 'wp_ajax_simpleform_get_tables', [ $this, 'get_all' ] );
 		add_action( 'wp_ajax_simpleform_get_leads', [ $this, 'get_all_leads' ] );
+		
+		add_action( 'wp_ajax_simpleform_get_settings', [ $this, 'get_settings' ] );
 
 		add_action( 'wp_ajax_simpleform_delete_table', [ $this, 'delete' ] );
 		add_action( 'wp_ajax_simpleform_delete_leads', [ $this, 'delete_leads' ] );
@@ -151,7 +153,7 @@ class Tables {
 			'tables_count' => count( $tables ),
 		]);
 	}
-
+	
 
 	public function get_all_leads() {
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'SIMPLEFORM-admin-app-nonce-action' ) ) {
@@ -181,6 +183,23 @@ class Tables {
 
 		wp_send_json_success([
 			'tables'       => $table,
+		]);
+	}
+
+	/**
+	 * Settigns get
+	 */
+	public function get_settings() {
+		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'SIMPLEFORM-admin-app-nonce-action' ) ) {
+			wp_send_json_error([
+				'message' => __( 'Invalid nonce.', 'simpleform' ),
+			]);
+		}
+
+		$settings = SIMPLEFORM()->database->table->get_settings();
+
+		wp_send_json_success([
+			'settings'       => $settings
 		]);
 	}
 
