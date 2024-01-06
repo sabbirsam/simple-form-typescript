@@ -77648,7 +77648,6 @@ const Settings = () => {
         nonce: (0,_Helpers__WEBPACK_IMPORTED_MODULE_3__.getNonce)()
       },
       success(response) {
-        // console.log(response)
         setTables(response.tables);
       },
       error(error) {
@@ -77741,9 +77740,6 @@ const Settings = () => {
   const handleFontChange = e => {
     setSelectedFont(e.target.value);
   };
-
-  // console.log(whatsappRedirection == "true" ? true : false);
-
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "acb_bottom",
     id: "acb_bottom"
@@ -77767,10 +77763,7 @@ const Settings = () => {
     className: "wpnts-switch-review"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
     htmlFor: "whatsappRedirection"
-  }, "Enable WhatsApp redirection:"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_switch__WEBPACK_IMPORTED_MODULE_2__["default"]
-  // checked={true}
-  // checked={whatsappRedirection === "true" ? true : false}
-  , {
+  }, "Enable WhatsApp redirection:"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_switch__WEBPACK_IMPORTED_MODULE_2__["default"], {
     checked: whatsappRedirection,
     className: "whatsappRedirection",
     name: "whatsappRedirection",
@@ -77780,9 +77773,7 @@ const Settings = () => {
     className: "wpnts-switch-review"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
     htmlFor: "formCustomization"
-  }, "Enable Form customization:"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_switch__WEBPACK_IMPORTED_MODULE_2__["default"]
-  // checked={false}
-  , {
+  }, "Enable Form customization:"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_switch__WEBPACK_IMPORTED_MODULE_2__["default"], {
     checked: formCustomization,
     className: "formCustomization",
     name: "formCustomization",

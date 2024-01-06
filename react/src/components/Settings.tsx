@@ -29,43 +29,24 @@ const Settings = () => {
     return [state, setState];
   };
 
-
   const [selectedTable, setSelectedTable] = useLocalStorage('selectedTable', formSettings.selectedTable || null);
-
   const [whatsappRedirection, setWhatsappRedirection] = useLocalStorage('whatsappRedirection', formSettings.whatsappRedirection || false);
-
   const [formCustomization, setformCustomization] = useLocalStorage('formCustomization', formSettings.formCustomization || false);
-
   const [floatingwidgets, setFloating] = useLocalStorage('floatingwidgets', formSettings.floatingwidgets || false);
-
   const [openInNewTab, setOpenInNewTab] = useLocalStorage('openInNewTab', formSettings.openInNewTab || false);
-
   const [selectedWhatsapp, setSelectedWhatsapp] = useLocalStorage('selectedWhatsapp', formSettings.selectedWhatsapp || false);
-
   const [whatsappNumber, setWhatsappNumber] = useLocalStorage('whatsappNumber', formSettings.whatsappNumber || '');
-
   const [submitbtntext, setSubmitbtntext] = useLocalStorage('submitbtntext', formSettings.submitbtntext || 'Send Message');
-
   const [formheader, setFormheader] = useLocalStorage('formheader', formSettings.formheader || "Have question? - Submit the Form");
-
   const [formcta, setFormCTA] = useLocalStorage('formcta', formSettings.formcta || "Have queries?");
-
   const [submitbtnbgcolor, setSubmitbtnbgcolor] = useLocalStorage('submitbtnbgcolor', formSettings.submitbtnbgcolor || "#FFA500");
-
   const [submitbtntextcolor, setSubmitbtntextcolor] = useLocalStorage('submitbtntextcolor', formSettings.submitbtntextcolor || "#FFFFFF");
-
   const [submitbtntexthovercolor, setSubmitbtntexthovercolor] = useLocalStorage('submitbtntexthovercolor', formSettings.submitbtntexthovercolor || "#3F98D2");
-
   const [headerbackgroundcolor, setHeaderbackgroundcolor] = useLocalStorage('headerbackgroundcolor', formSettings.headerbackgroundcolor || "#293239");
-
   const [headertextcolor, setHeadertextcolor] = useLocalStorage('headertextcolor', formSettings.headertextcolor || "#FFFFFF");
-
   const [formfieldtextcolor, setFormfieldtextcolor] = useLocalStorage('formfieldtextcolor', formSettings.formfieldtextcolor || "#293239");
-
   const [formbackgroundcolor, setFormbackgroundcolor] = useLocalStorage('formbackgroundcolor', formSettings.formbackgroundcolor || "#F7F7F7");
-
   const [flotingwidgetsbgcolor, setFlotingwidgetsbgcolor] = useLocalStorage('flotingwidgetsbgcolor', formSettings.flotingwidgetsbgcolor || "#0065A0");
-
   const [selectedFont, setSelectedFont] = useLocalStorage('selectedFont', formSettings.selectedFont || 'Arial');
 
 
@@ -75,7 +56,6 @@ const Settings = () => {
         nonce: getNonce(),
       },
       success(response) {
-        // console.log(response)
         setTables(response.tables);
       },
       error(error) {
@@ -198,13 +178,10 @@ const Settings = () => {
     setSelectedFont(e.target.value);
   };
 
-  // console.log(whatsappRedirection == "true" ? true : false);
-
   return (
     <div className="acb_bottom" id="acb_bottom">
       <div className="acb_left">
         <h3 className="review-case-title">Simple Form settings panel</h3>
-
         <div className="wpnts-switch-review">
           <label htmlFor="floatingwidgets">Enable floating widgets:</label>
           <ReactSwitchsupport
@@ -220,8 +197,6 @@ const Settings = () => {
         <div className="wpnts-switch-review">
           <label htmlFor="whatsappRedirection">Enable WhatsApp redirection:</label>
           <ReactSwitchreview
-            // checked={true}
-            // checked={whatsappRedirection === "true" ? true : false}
             checked={whatsappRedirection}
             className="whatsappRedirection"
             name="whatsappRedirection"
@@ -233,7 +208,6 @@ const Settings = () => {
         <div className="wpnts-switch-review">
           <label htmlFor="formCustomization">Enable Form customization:</label>
           <ReactSwitchreview
-            // checked={false}
             checked={formCustomization}
             className="formCustomization"
             name="formCustomization"
@@ -335,10 +309,8 @@ const Settings = () => {
             </div>
           )}
 
-
           {formCustomization && (
             <div>
-
               <div className="formInput">
                 <label htmlFor="webhook">Submit button text</label>
                 <div className="wpnts-setting">
@@ -350,7 +322,6 @@ const Settings = () => {
                   />
                 </div>
               </div>
-
 
               <div className="formInput">
                 <label htmlFor="webhook">Form Header text</label>
@@ -507,13 +478,11 @@ const Settings = () => {
                   />
                 </div>
               </div>
-
               <div className="seperationLine">
                 <hr />
               </div>
             </div>
           )}
-
 
           {whatsappRedirection || floatingwidgets || formCustomization ? (
             <button type="submit" className="save-webhook">
@@ -522,7 +491,6 @@ const Settings = () => {
           ) : null}
         </form>
       </div>
-
     </div>
   );
 };
