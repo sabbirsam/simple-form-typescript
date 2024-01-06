@@ -194,7 +194,7 @@ class Table {
 
 				'submitbtntext' => 'Send Message',
 				'formheader' => "Have question? - Submit the Form",
-				'formcta' => '',
+				'formcta' => 'Have queries?',
 
 				'submitbtnbgcolor' => "#FFA500",
 				'submitbtntextcolor' => "#FFFFFF",
@@ -207,7 +207,7 @@ class Table {
 				'formbackgroundcolor' => "#F7F7F7",
 
 				'flotingwidgetsbgcolor' => "#0065A0",
-				'selectedFont' => '',
+				'selectedFont' => 'Arial',
 			);
 		}
 	}

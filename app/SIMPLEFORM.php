@@ -229,7 +229,7 @@ namespace SIMPLEFORM {
 
 				'submitbtntext' => 'Send Message',
 				'formheader' => "Have question? - Submit the Form",
-				'formcta' => '',
+				'formcta' => 'Have queries?',
 
 				'submitbtnbgcolor' => "#FFA500",
 				'submitbtntextcolor' => "#FFFFFF",
@@ -242,7 +242,7 @@ namespace SIMPLEFORM {
 				'formbackgroundcolor' => "#F7F7F7",
 
 				'flotingwidgetsbgcolor' => "#0065A0",
-				'selectedFont' => '',
+				'selectedFont' => 'Arial',
 			];
 
 			add_option( 'form_settings', json_encode($form_settings) );

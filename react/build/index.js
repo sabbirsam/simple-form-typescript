@@ -77606,7 +77606,7 @@ const Settings = () => {
   const [tables, setTables] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)((0,_Helpers__WEBPACK_IMPORTED_MODULE_3__.getTables)());
   const [formSettings, setSettings] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)((0,_Helpers__WEBPACK_IMPORTED_MODULE_3__.getFormSettings)());
 
-  // Custom hook to handle local storage for a specific key
+  // Hook to handle local storage for a specific key
   const useLocalStorage = (key, defaultValue) => {
     const [state, setState] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(() => {
       const storedState = localStorage.getItem(key);
@@ -77623,52 +77623,24 @@ const Settings = () => {
     }, [key, state]);
     return [state, setState];
   };
-
-  // const [selectedTable, setSelectedTable] = useState(formSettings.selectedTable || null);
   const [selectedTable, setSelectedTable] = useLocalStorage('selectedTable', formSettings.selectedTable || null);
-
-  // const [whatsappRedirection, setWhatsappRedirection] = useState(formSettings.whatsappRedirection == "true" ? true : false);
   const [whatsappRedirection, setWhatsappRedirection] = useLocalStorage('whatsappRedirection', formSettings.whatsappRedirection || false);
-
-  // const [formCustomization, setformCustomization] = useState(formSettings.formCustomization == "true" ? true : false);
   const [formCustomization, setformCustomization] = useLocalStorage('formCustomization', formSettings.formCustomization || false);
-
-  // const [floatingwidgets, setFloating] = useState(formSettings.floatingwidgets == "true" ? true : false);
   const [floatingwidgets, setFloating] = useLocalStorage('floatingwidgets', formSettings.floatingwidgets || false);
-
-  // const [openInNewTab, setOpenInNewTab] = useState(formSettings.openInNewTab == "true" ? true : false);
   const [openInNewTab, setOpenInNewTab] = useLocalStorage('openInNewTab', formSettings.openInNewTab || false);
-  const [selectedWhatsapp, setSelectedWhatsapp] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.selectedWhatsapp || false);
-  const [whatsappNumber, setWhatsappNumber] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.whatsappNumber || "");
-  const [submitbtntext, setSubmitbtntext] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.submitbtntext || 'Send Message');
-  const [formheader, setFormheader] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.formheader || "Have question? - Submit the Form");
-  const [formcta, setFormCTA] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(formSettings.formcta || "");
-
-  // const [submitbtnbgcolor, setSubmitbtnbgcolor] = useState(formSettings.submitbtnbgcolor || "#FFA500");
+  const [selectedWhatsapp, setSelectedWhatsapp] = useLocalStorage('selectedWhatsapp', formSettings.selectedWhatsapp || false);
+  const [whatsappNumber, setWhatsappNumber] = useLocalStorage('whatsappNumber', formSettings.whatsappNumber || '');
+  const [submitbtntext, setSubmitbtntext] = useLocalStorage('submitbtntext', formSettings.submitbtntext || 'Send Message');
+  const [formheader, setFormheader] = useLocalStorage('formheader', formSettings.formheader || "Have question? - Submit the Form");
+  const [formcta, setFormCTA] = useLocalStorage('formcta', formSettings.formcta || "Have queries?");
   const [submitbtnbgcolor, setSubmitbtnbgcolor] = useLocalStorage('submitbtnbgcolor', formSettings.submitbtnbgcolor || "#FFA500");
-
-  // const [submitbtntextcolor, setSubmitbtntextcolor] = useState(formSettings.submitbtntextcolor || "#FFFFFF");
   const [submitbtntextcolor, setSubmitbtntextcolor] = useLocalStorage('submitbtntextcolor', formSettings.submitbtntextcolor || "#FFFFFF");
-
-  // const [submitbtntexthovercolor, setSubmitbtntexthovercolor] = useState(formSettings.submitbtntexthovercolor || "#3F98D2");
   const [submitbtntexthovercolor, setSubmitbtntexthovercolor] = useLocalStorage('submitbtntexthovercolor', formSettings.submitbtntexthovercolor || "#3F98D2");
-
-  // const [headerbackgroundcolor, setHeaderbackgroundcolor] = useState(formSettings.headerbackgroundcolor || "#293239");
   const [headerbackgroundcolor, setHeaderbackgroundcolor] = useLocalStorage('headerbackgroundcolor', formSettings.headerbackgroundcolor || "#293239");
-
-  // const [headertextcolor, setHeadertextcolor] = useState(formSettings.headertextcolor || "#FFFFFF");
   const [headertextcolor, setHeadertextcolor] = useLocalStorage('headertextcolor', formSettings.headertextcolor || "#FFFFFF");
-
-  // const [formfieldtextcolor, setFormfieldtextcolor] = useState(formSettings.formfieldtextcolor || "#293239");
   const [formfieldtextcolor, setFormfieldtextcolor] = useLocalStorage('formfieldtextcolor', formSettings.formfieldtextcolor || "#293239");
-
-  // const [formbackgroundcolor, setFormbackgroundcolor] = useState(formSettings.formbackgroundcolor || "#F7F7F7");
   const [formbackgroundcolor, setFormbackgroundcolor] = useLocalStorage('formbackgroundcolor', formSettings.formbackgroundcolor || "#F7F7F7");
-
-  // const [flotingwidgetsbgcolor, setFlotingwidgetsbgcolor] = useState(formSettings.flotingwidgetsbgcolor || "#0065A0");
   const [flotingwidgetsbgcolor, setFlotingwidgetsbgcolor] = useLocalStorage('flotingwidgetsbgcolor', formSettings.flotingwidgetsbgcolor || "#0065A0");
-
-  // const [selectedFont, setSelectedFont] = useState(formSettings.selectedFont || "");
   const [selectedFont, setSelectedFont] = useLocalStorage('selectedFont', formSettings.selectedFont || 'Arial');
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
     wp.ajax.send('simpleform_get_tables', {
