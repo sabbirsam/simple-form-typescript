@@ -183,13 +183,26 @@ class Table {
 			return $options;
 		} else {
 			return array(
-				'floatingwidgets' => false,
-				'mailNotification' => false,
-				'openInNewTab' => false,
-				'whatsappRedirection' => false,
 				'selectedTable' => '',
+				'floatingwidgets' => false,
 				'selectedWhatsapp' => '',
+				'whatsappRedirection' => false,
+				'formCustomization' => false,
 				'whatsappNumber' => '',
+				'openInNewTab' => '',
+
+				'submitbtntext' => '',
+				'formheader' => '',
+				'formcta' => '',
+				'submitbtnbgcolor' => '',
+				'submitbtntextcolor' => '',
+				'submitbtntexthovercolor' => '',
+				'headerbackgroundcolor' => '',
+				'headertextcolor' => '',
+				'formfieldtextcolor' => '',
+				'formbackgroundcolor' => '',
+				'flotingwidgetsbgcolor' => '',
+				'selectedFont' => '',
 			);
 		}
 	}

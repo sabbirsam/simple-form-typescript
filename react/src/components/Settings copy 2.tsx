@@ -7,34 +7,101 @@ import { getNonce, getTables, getFormSettings } from './../Helpers';
 import "../styles/_setting.scss";
 
 const Settings = () => {
-  const [tables, setTables] = useState(getTables());
-  const [formSettings, setSettings] = useState(getFormSettings());
-  const [selectedTable, setSelectedTable] = useState(formSettings.selectedTable || null);
+
+
   const location = useLocation();
+  const [tables, setTables] = useState(getTables());
+  const [settings, setSettings] = useState([]);
 
-  const [selectedWhatsapp, setSelectedWhatsapp] = useState(formSettings.selectedWhatsapp || null);
-  const [whatsappRedirection, setWhatsappRedirection] = useState(formSettings.whatsappRedirection === 'false');
-  const [formCustomization, setformCustomization] = useState(formSettings.formCustomization === 'false');
-  const [floatingwidgets, setFloating] = useState(formSettings.floatingwidgets === 'false');
-  const [whatsappNumber, setWhatsappNumber] = useState(formSettings.whatsappNumber || "");
-  const [openInNewTab, setOpenInNewTab] = useState(formSettings.openInNewTab === 'false');
 
-  const [submitbtntext, setSubmitbtntext] = useState(formSettings.submitbtntext || 'Send Message');
-  const [formheader, setFormheader] = useState(formSettings.formheader || "Have question? - Submit the Form");
-  const [formcta, setFormCTA] = useState(formSettings.formcta || "");
+  useEffect(() => {
+    getFormSettings();
+  }, []);
 
-  const [submitbtnbgcolor, setSubmitbtnbgcolor] = useState(formSettings.submitbtnbgcolor || "#FFA500");
-  const [submitbtntextcolor, setSubmitbtntextcolor] = useState(formSettings.submitbtntextcolor || "#FFFFFF");
-  const [submitbtntexthovercolor, setSubmitbtntexthovercolor] = useState(formSettings.submitbtntexthovercolor || "#3F98D2");
+  function getFormSettings() {
+    const simple_settings = {
+      selectedTable: null,
+      selectedWhatsapp: null,
+      whatsappRedirection: 'false',
+      formCustomization: 'false',
+      floatingwidgets: 'false',
+      whatsappNumber: '',
+      openInNewTab: 'false',
 
-  const [headerbackgroundcolor, setHeaderbackgroundcolor] = useState(formSettings.headerbackgroundcolor || "#293239");
-  const [headertextcolor, setHeadertextcolor] = useState(formSettings.headertextcolor || "#FFFFFF");
+      formheader: "Have question? - Submit the Form",
+      formcta: '',
 
-  const [formfieldtextcolor, setFormfieldtextcolor] = useState(formSettings.formfieldtextcolor || "#293239");
-  const [formbackgroundcolor, setFormbackgroundcolor] = useState(formSettings.formbackgroundcolor || "#F7F7F7");
+      submitbtntext: 'Send Message',
+      submitbtnbgcolor: '#FFA500',
+      submitbtntextcolor: "#FFFFFF",
+      submitbtntexthovercolor: "#3F98D2",
 
-  const [flotingwidgetsbgcolor, setFlotingwidgetsbgcolor] = useState(formSettings.flotingwidgetsbgcolor || "#0065A0");
-  const [selectedFont, setSelectedFont] = useState(formSettings.selectedFont || "");
+      headerbackgroundcolor: "#293239",
+      headertextcolor: "#FFFFFF",
+
+      formfieldtextcolor: "#293239",
+      formbackgroundcolor: "#F7F7F7",
+      flotingwidgetsbgcolor: "#0065A0",
+      selectedFont: "",
+    };
+    const settingsData = JSON.parse(localStorage.getItem("simple_form_settings") || JSON.stringify(simple_settings));
+    setSettings(settingsData);
+  }
+
+  const [selectedTable, setSelectedTable] = useState(settings.selectedTable || null);
+
+  const [selectedWhatsapp, setSelectedWhatsapp] = useState(settings.selectedWhatsapp || null);
+  const [whatsappRedirection, setWhatsappRedirection] = useState(settings.whatsappRedirection === 'false');
+  const [formCustomization, setformCustomization] = useState(settings.formCustomization === 'false');
+  const [floatingwidgets, setFloating] = useState(settings.floatingwidgets === 'false');
+  const [whatsappNumber, setWhatsappNumber] = useState(settings.whatsappNumber || "");
+  const [openInNewTab, setOpenInNewTab] = useState(settings.openInNewTab === 'false');
+
+  const [formheader, setFormheader] = useState(settings.formheader || "Have question? - Submit the Form");
+  const [formcta, setFormCTA] = useState(settings.formcta || "");
+
+  const [submitbtntext, setSubmitbtntext] = useState(settings.submitbtntext || 'Send Message');
+  const [submitbtnbgcolor, setSubmitbtnbgcolor] = useState(settings.submitbtnbgcolor || "#FFA500");
+  const [submitbtntextcolor, setSubmitbtntextcolor] = useState(settings.submitbtntextcolor || "#FFFFFF");
+  const [submitbtntexthovercolor, setSubmitbtntexthovercolor] = useState(settings.submitbtntexthovercolor || "#3F98D2");
+
+  const [headerbackgroundcolor, setHeaderbackgroundcolor] = useState(settings.headerbackgroundcolor || "#293239");
+  const [headertextcolor, setHeadertextcolor] = useState(settings.headertextcolor || "#FFFFFF");
+
+  const [formfieldtextcolor, setFormfieldtextcolor] = useState(settings.formfieldtextcolor || "#293239");
+  const [formbackgroundcolor, setFormbackgroundcolor] = useState(settings.formbackgroundcolor || "#F7F7F7");
+
+  const [flotingwidgetsbgcolor, setFlotingwidgetsbgcolor] = useState(settings.flotingwidgetsbgcolor || "#0065A0");
+  const [selectedFont, setSelectedFont] = useState(settings.selectedFont || "");
+
+
+  const [formSettings, setFormsettings] = useState({
+    selectedTable: settings.selectedTable,
+    selectedWhatsapp: settings.selectedWhatsapp,
+    whatsappRedirection: settings.whatsappRedirection,
+    formCustomization: settings.formCustomization,
+    floatingwidgets: settings.floatingwidgets,
+    whatsappNumber: settings.whatsappNumber,
+    openInNewTab: settings.openInNewTab,
+
+    formheader: settings.formheader,
+    formcta: settings.formcta,
+
+    submitbtntext: settings.submitbtntext,
+    submitbtnbgcolor: settings.submitbtnbgcolor,
+    submitbtntextcolor: settings.submitbtntextcolor,
+    submitbtntexthovercolor: settings.submitbtntexthovercolor,
+
+    headerbackgroundcolor: settings.headerbackgroundcolor,
+    headertextcolor: settings.headertextcolor,
+
+    formfieldtextcolor: settings.formfieldtextcolor,
+    formbackgroundcolor: settings.formbackgroundcolor,
+    flotingwidgetsbgcolor: settings.flotingwidgetsbgcolor,
+    selectedFont: settings.selectedFont,
+
+  });
+
 
 
   useEffect(() => {
@@ -70,28 +137,8 @@ const Settings = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const settings = {
-      whatsappRedirection,
-      formCustomization,
-      floatingwidgets,
-      whatsappNumber,
-      openInNewTab,
-      selectedTable,
-      selectedWhatsapp,
-      submitbtntext,
-      selectedFont,
-      formcta,
-      formheader,
 
-      flotingwidgetsbgcolor,
-      formbackgroundcolor,
-      formfieldtextcolor,
-      headerbackgroundcolor,
-      headertextcolor,
-      submitbtntextcolor,
-      submitbtnbgcolor,
-      submitbtntexthovercolor
-    };
+    localStorage.setItem("simple_form_settings", JSON.stringify(formSettings));
 
     Swal.fire({
       text: 'Are you done!',
@@ -106,7 +153,7 @@ const Settings = () => {
         wp.ajax.send('simpleform_save_settings', {
           data: {
             nonce: getNonce(),
-            settings: settings,
+            settings: formSettings,
           },
 
           success({ }) {
@@ -150,9 +197,9 @@ const Settings = () => {
     'unset'
   ];
 
-  const handleFontChange = (e) => {
-    setSelectedFont(e.target.value);
-  };
+  // const handleFontChange = (e) => {
+  //   setSelectedFont(e.target.value);
+  // };
 
   return (
     <div className="acb_bottom" id="acb_bottom">
@@ -161,33 +208,37 @@ const Settings = () => {
         <div className="wpnts-switch-floating">
           <label htmlFor="floating-widgets">Enable floating widgets:</label>
           <ReactSwitchsupport
-            checked={floatingwidgets}
+            checked={formSettings.floatingwidgets}
             className="supportSwitch-2"
             name="wpnts-switch-floating"
             id="floating-widgets"
-            onChange={(checked) => setFloating(checked)}
+            // onChange={(checked) => setFloating(checked)}
+            onChange={(checked) => setFormsettings(prev => ({ ...prev, floatingwidgets: checked }))}
+          //setFormsettings(prev => ({ ...prev, [e.target.name]: e.target.value }))
           />
         </div>
 
         <div className="wpnts-switch-review">
           <label htmlFor="reviewnoti">Enable WhatsApp redirection:</label>
           <ReactSwitchreview
-            checked={whatsappRedirection}
+            checked={formSettings.whatsappRedirection}
             className="reviewSwitch"
             name="wpnts-switch-review"
             id="reviewnoti"
-            onChange={(checked) => setWhatsappRedirection(checked)}
+            // onChange={(checked) => setWhatsappRedirection(checked)}
+            onChange={(checked) => setWhatsappRedirection(prev => ({ ...prev, whatsappRedirection: checked }))}
           />
         </div>
 
         <div className="wpnts-switch-review">
           <label htmlFor="reviewnoti">Enable Form customization:</label>
           <ReactSwitchreview
-            checked={formCustomization}
+            checked={formSettings.formCustomization}
             className="customizationSwitch"
             name="wpnts-switch-review"
             id="form-customization"
-            onChange={(checked) => setformCustomization(checked)}
+            // onChange={(checked) => setformCustomization(checked)}
+            onChange={(checked) => setformCustomization(prev => ({ ...prev, formCustomization: checked }))}
           />
         </div>
 
@@ -210,8 +261,10 @@ const Settings = () => {
                 <select
                   id="selectedTable"
                   name="selectedTable"
-                  value={selectedTable || ''}
-                  onChange={(e) => setSelectedTable(parseInt(e.target.value, 10))}
+                  value={formSettings.selectedTable || ''}
+                  // onChange={(e) => setSelectedTable(parseInt(e.target.value, 10))}
+                  onChange={(e) => setSelectedTable(prev => ({ ...prev, selectedTable: e.target.value }))}
+
                 >
                   <option value="">Select a form</option>
                   {tables.map((table) => (
@@ -236,8 +289,9 @@ const Settings = () => {
                   type="text"
                   placeholder="Add country code ex. +88013071089564"
                   name="webhook"
-                  value={whatsappNumber}
-                  onChange={(e) => setWhatsappNumber(e.target.value)}
+                  value={formSettings.whatsappNumber}
+                  // onChange={(e) => setWhatsappNumber(e.target.value)}
+                  onChange={(e) => setWhatsappNumber(prev => ({ ...prev, whatsappNumber: e.target.value }))}
                 />
               </div>
             </div>
@@ -250,8 +304,9 @@ const Settings = () => {
                 <input
                   type="checkbox"
                   name="interval_review"
-                  checked={openInNewTab}
-                  onChange={(e) => setOpenInNewTab(e.target.checked)}
+                  checked={formSettings.openInNewTab}
+                  // onChange={(e) => setOpenInNewTab(e.target.checked)}
+                  onChange={(e) => setOpenInNewTab(prev => ({ ...prev, openInNewTab: e.target.value }))}
                 />
               </div>
 
@@ -262,10 +317,11 @@ const Settings = () => {
                     id="selectedWhatsapp"
                     name="selectedWhatsapp"
                     multiple
-                    value={selectedWhatsapp || []} // Initialize as an empty array
+                    value={formSettings.selectedWhatsapp || []} // Initialize as an empty array
                     onChange={(e) => {
                       const selectedWhatsappid = Array.from(e.target.selectedOptions, (option) => option.value);
-                      setSelectedWhatsapp(selectedWhatsappid);
+                      // setSelectedWhatsapp(selectedWhatsappid);
+                      setSelectedWhatsapp(prev => ({ ...prev, selectedWhatsapp: selectedWhatsappid }))
                     }}
                   >
                     {tables.map((table) => (
@@ -294,8 +350,10 @@ const Settings = () => {
                   <input
                     type="text"
                     name="interval_review"
-                    value={submitbtntext}
-                    onChange={(e) => setSubmitbtntext(e.target.value)}
+                    value={formSettings.submitbtntext}
+                    // onChange={(e) => setSubmitbtntext(e.target.value)}
+                    onChange={(e) => setSubmitbtntext(prev => ({ ...prev, submitbtntext: e.target.value }))}
+
                   />
                 </div>
               </div>
@@ -307,8 +365,9 @@ const Settings = () => {
                   <input
                     type="text"
                     name="interval_review"
-                    value={formheader}
-                    onChange={(e) => setFormheader(e.target.value)}
+                    value={formSettings.formheader}
+                    // onChange={(e) => setFormheader(e.target.value)}
+                    onChange={(e) => setFormheader(prev => ({ ...prev, formheader: e.target.value }))}
                   />
                 </div>
               </div>
@@ -319,8 +378,9 @@ const Settings = () => {
                   <input
                     type="text"
                     name="interval_review"
-                    value={formcta}
-                    onChange={(e) => setFormCTA(e.target.value)}
+                    value={formSettings.formcta}
+                    // onChange={(e) => setFormCTA(e.target.value)}
+                    onChange={(e) => setFormCTA(prev => ({ ...prev, formcta: e.target.value }))}
                   />
                 </div>
               </div>
@@ -335,8 +395,9 @@ const Settings = () => {
                   <select
                     id="selectedFont"
                     name="selectedFont"
-                    value={selectedFont}
-                    onChange={handleFontChange}
+                    value={formSettings.selectedFont}
+                    // onChange={handleFontChange}
+                    onChange={(e) => setSelectedFont(prev => ({ ...prev, selectedFont: e.target.value }))}
                   >
                     <option value="">Select a font</option>
                     {fontList.map((font) => (
@@ -356,8 +417,9 @@ const Settings = () => {
                     className="colorSelectionformtext"
                     type="color"
                     name="flotingwidgetsbgcolor"
-                    value={flotingwidgetsbgcolor}
-                    onChange={(e) => setFlotingwidgetsbgcolor(e.target.value)}
+                    value={formSettings.flotingwidgetsbgcolor}
+                    // onChange={(e) => setFlotingwidgetsbgcolor(e.target.value)}
+                    onChange={(e) => setFlotingwidgetsbgcolor(prev => ({ ...prev, flotingwidgetsbgcolor: e.target.value }))}
                   />
                 </div>
               </div>
@@ -369,8 +431,9 @@ const Settings = () => {
                     className="colorSelectionformtext"
                     type="color"
                     name="headertextcolor"
-                    value={headertextcolor}
-                    onChange={(e) => setHeadertextcolor(e.target.value)}
+                    value={formSettings.headertextcolor}
+                    // onChange={(e) => setHeadertextcolor(e.target.value)}
+                    onChange={(e) => setHeadertextcolor(prev => ({ ...prev, headertextcolor: e.target.value }))}
                   />
                 </div>
               </div>
@@ -383,8 +446,9 @@ const Settings = () => {
                     className="colorSelectionbg"
                     type="color"
                     name="headerbackgroundcolor"
-                    value={headerbackgroundcolor}
-                    onChange={(e) => setHeaderbackgroundcolor(e.target.value)}
+                    value={formSettings.headerbackgroundcolor}
+                    // onChange={(e) => setHeaderbackgroundcolor(e.target.value)}
+                    onChange={(e) => setHeaderbackgroundcolor(prev => ({ ...prev, headerbackgroundcolor: e.target.value }))}
                   />
                 </div>
               </div>
@@ -396,8 +460,9 @@ const Settings = () => {
                     className="colorSelectionbg"
                     type="color"
                     name="formbackgroundcolor"
-                    value={formbackgroundcolor}
-                    onChange={(e) => setFormbackgroundcolor(e.target.value)}
+                    value={formSettings.formbackgroundcolor}
+                    // onChange={(e) => setFormbackgroundcolor(e.target.value)}
+                    onChange={(e) => setFormbackgroundcolor(prev => ({ ...prev, formbackgroundcolor: e.target.value }))}
                   />
                 </div>
               </div>
@@ -409,8 +474,9 @@ const Settings = () => {
                     className="colorSelectionformtextcolor"
                     type="color"
                     name="formfieldtextcolor"
-                    value={formfieldtextcolor}
-                    onChange={(e) => setFormfieldtextcolor(e.target.value)}
+                    value={formSettings.formfieldtextcolor}
+                    // onChange={(e) => setFormfieldtextcolor(e.target.value)}
+                    onChange={(e) => setFormfieldtextcolor(prev => ({ ...prev, formfieldtextcolor: e.target.value }))}
                   />
                 </div>
               </div>
@@ -423,8 +489,9 @@ const Settings = () => {
                     className="colorSelectionbg"
                     type="color"
                     name="submitbtnbgcolor"
-                    value={submitbtnbgcolor}
-                    onChange={(e) => setSubmitbtnbgcolor(e.target.value)}
+                    value={formSettings.submitbtnbgcolor}
+                    // onChange={(e) => setSubmitbtnbgcolor(e.target.value)}
+                    onChange={(e) => setSubmitbtnbgcolor(prev => ({ ...prev, submitbtnbgcolor: e.target.value }))}
                   />
                 </div>
               </div>
@@ -437,8 +504,9 @@ const Settings = () => {
                     className="colorSelectiontext"
                     type="color"
                     name="submitbtntextcolor"
-                    value={submitbtntextcolor}
-                    onChange={(e) => setSubmitbtntextcolor(e.target.value)}
+                    value={formSettings.submitbtntextcolor}
+                    // onChange={(e) => setSubmitbtntextcolor(e.target.value)}
+                    onChange={(e) => setSubmitbtntextcolor(prev => ({ ...prev, submitbtntextcolor: e.target.value }))}
                   />
                 </div>
               </div>
@@ -451,8 +519,9 @@ const Settings = () => {
                     className="colorSelectionhover"
                     type="color"
                     name="submitbtntexthovercolor"
-                    value={submitbtntexthovercolor}
-                    onChange={(e) => setSubmitbtntexthovercolor(e.target.value)}
+                    value={formSettings.submitbtntexthovercolor}
+                    onChange={(e) => setSubmitbtntexthovercolor(prev => ({ ...prev, submitbtntexthovercolor: e.target.value }))}
+                  // onChange={(e) => setSubmitbtntexthovercolor(e.target.value)}
                   />
                 </div>
               </div>

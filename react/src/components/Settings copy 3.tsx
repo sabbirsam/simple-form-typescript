@@ -10,31 +10,34 @@ const Settings = () => {
   const [tables, setTables] = useState(getTables());
   const [formSettings, setSettings] = useState(getFormSettings());
   const [selectedTable, setSelectedTable] = useState(formSettings.selectedTable || null);
+
   const location = useLocation();
 
-  const [selectedWhatsapp, setSelectedWhatsapp] = useState(formSettings.selectedWhatsapp || null);
-  const [whatsappRedirection, setWhatsappRedirection] = useState(formSettings.whatsappRedirection === 'false');
-  const [formCustomization, setformCustomization] = useState(formSettings.formCustomization === 'false');
-  const [floatingwidgets, setFloating] = useState(formSettings.floatingwidgets === 'false');
-  const [whatsappNumber, setWhatsappNumber] = useState(formSettings.whatsappNumber || "");
-  const [openInNewTab, setOpenInNewTab] = useState(formSettings.openInNewTab === 'false');
+  const [selectedWhatsapp, setSelectedWhatsapp] = useState(formSettings.selectedWhatsapp);
+  const [whatsappRedirection, setWhatsappRedirection] = useState(formSettings.whatsappRedirection);
+  const [formCustomization, setformCustomization] = useState(formSettings.formCustomization);
+  const [floatingwidgets, setFloating] = useState(formSettings.floatingwidgets);
+  const [whatsappNumber, setWhatsappNumber] = useState(formSettings.whatsappNumber);
+  const [openInNewTab, setOpenInNewTab] = useState(formSettings.openInNewTab);
 
-  const [submitbtntext, setSubmitbtntext] = useState(formSettings.submitbtntext || 'Send Message');
-  const [formheader, setFormheader] = useState(formSettings.formheader || "Have question? - Submit the Form");
-  const [formcta, setFormCTA] = useState(formSettings.formcta || "");
+  const [submitbtntext, setSubmitbtntext] = useState(formSettings.submitbtntext);
+  const [formheader, setFormheader] = useState(formSettings.formheader);
+  const [formcta, setFormCTA] = useState(formSettings.formcta);
 
-  const [submitbtnbgcolor, setSubmitbtnbgcolor] = useState(formSettings.submitbtnbgcolor || "#FFA500");
-  const [submitbtntextcolor, setSubmitbtntextcolor] = useState(formSettings.submitbtntextcolor || "#FFFFFF");
-  const [submitbtntexthovercolor, setSubmitbtntexthovercolor] = useState(formSettings.submitbtntexthovercolor || "#3F98D2");
+  const [submitbtnbgcolor, setSubmitbtnbgcolor] = useState(formSettings.submitbtnbgcolor);
+  const [submitbtntextcolor, setSubmitbtntextcolor] = useState(formSettings.submitbtntextcolor);
+  const [submitbtntexthovercolor, setSubmitbtntexthovercolor] = useState(formSettings.submitbtntexthovercolor);
 
-  const [headerbackgroundcolor, setHeaderbackgroundcolor] = useState(formSettings.headerbackgroundcolor || "#293239");
-  const [headertextcolor, setHeadertextcolor] = useState(formSettings.headertextcolor || "#FFFFFF");
+  const [headerbackgroundcolor, setHeaderbackgroundcolor] = useState(formSettings.headerbackgroundcolor);
+  const [headertextcolor, setHeadertextcolor] = useState(formSettings.headertextcolor);
 
-  const [formfieldtextcolor, setFormfieldtextcolor] = useState(formSettings.formfieldtextcolor || "#293239");
-  const [formbackgroundcolor, setFormbackgroundcolor] = useState(formSettings.formbackgroundcolor || "#F7F7F7");
+  const [formfieldtextcolor, setFormfieldtextcolor] = useState(formSettings.formfieldtextcolor);
+  const [formbackgroundcolor, setFormbackgroundcolor] = useState(formSettings.formbackgroundcolor);
 
-  const [flotingwidgetsbgcolor, setFlotingwidgetsbgcolor] = useState(formSettings.flotingwidgetsbgcolor || "#0065A0");
-  const [selectedFont, setSelectedFont] = useState(formSettings.selectedFont || "");
+  const [flotingwidgetsbgcolor, setFlotingwidgetsbgcolor] = useState(formSettings.flotingwidgetsbgcolor);
+  const [selectedFont, setSelectedFont] = useState(formSettings.selectedFont);
+
+  console.log(formSettings);
 
 
   useEffect(() => {
@@ -60,12 +63,13 @@ const Settings = () => {
       },
       success(response) {
         setSettings(response.settings);
+        console.log(response.settings);
       },
       error(error) {
         console.error(error);
       },
     });
-  }, [location.hash]);
+  }, []);
 
 
   const handleSubmit = (e) => {

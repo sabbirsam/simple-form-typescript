@@ -217,6 +217,31 @@ namespace SIMPLEFORM {
 		public function register_active_deactive_hooks( $network_wide ) {
 			SIMPLEFORM()->database->migration->run( $network_wide );
 
+			$form_settings = [
+				'selectedTable' => '',
+				'floatingwidgets' => false,
+				'selectedWhatsapp' => '',
+				'whatsappRedirection' => false,
+				'formCustomization' => false,
+				'whatsappNumber' => '',
+				'openInNewTab' => '',
+
+				'submitbtntext' => '',
+				'formheader' => '',
+				'formcta' => '',
+				'submitbtnbgcolor' => '',
+				'submitbtntextcolor' => '',
+				'submitbtntexthovercolor' => '',
+				'headerbackgroundcolor' => '',
+				'headertextcolor' => '',
+				'formfieldtextcolor' => '',
+				'formbackgroundcolor' => '',
+				'flotingwidgetsbgcolor' => '',
+				'selectedFont' => '',
+			];
+
+			add_option( 'form_settings', json_encode($form_settings) );
+
 			add_option( 'simpleform_activation_redirect', 1 );
 
 			if ( ! get_option( 'simpleformActivationTime' ) ) {

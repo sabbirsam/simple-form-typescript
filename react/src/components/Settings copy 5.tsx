@@ -9,32 +9,47 @@ import "../styles/_setting.scss";
 const Settings = () => {
   const [tables, setTables] = useState(getTables());
   const [formSettings, setSettings] = useState(getFormSettings());
-  const [selectedTable, setSelectedTable] = useState(formSettings.selectedTable || null);
   const location = useLocation();
 
-  const [selectedWhatsapp, setSelectedWhatsapp] = useState(formSettings.selectedWhatsapp || null);
-  const [whatsappRedirection, setWhatsappRedirection] = useState(formSettings.whatsappRedirection === 'false');
-  const [formCustomization, setformCustomization] = useState(formSettings.formCustomization === 'false');
-  const [floatingwidgets, setFloating] = useState(formSettings.floatingwidgets === 'false');
-  const [whatsappNumber, setWhatsappNumber] = useState(formSettings.whatsappNumber || "");
-  const [openInNewTab, setOpenInNewTab] = useState(formSettings.openInNewTab === 'false');
+  // Custom hook to handle local storage for a specific key
+  const useLocalStorage = (key, defaultValue) => {
+    const [state, setState] = useState(() => {
+      const storedState = localStorage.getItem(key);
+      return storedState ? JSON.parse(storedState) : defaultValue;
+    });
 
-  const [submitbtntext, setSubmitbtntext] = useState(formSettings.submitbtntext || 'Send Message');
-  const [formheader, setFormheader] = useState(formSettings.formheader || "Have question? - Submit the Form");
-  const [formcta, setFormCTA] = useState(formSettings.formcta || "");
+    useEffect(() => {
+      localStorage.setItem(key, JSON.stringify(state));
+    }, [key, state]);
 
-  const [submitbtnbgcolor, setSubmitbtnbgcolor] = useState(formSettings.submitbtnbgcolor || "#FFA500");
-  const [submitbtntextcolor, setSubmitbtntextcolor] = useState(formSettings.submitbtntextcolor || "#FFFFFF");
-  const [submitbtntexthovercolor, setSubmitbtntexthovercolor] = useState(formSettings.submitbtntexthovercolor || "#3F98D2");
+    return [state, setState];
+  };
 
-  const [headerbackgroundcolor, setHeaderbackgroundcolor] = useState(formSettings.headerbackgroundcolor || "#293239");
-  const [headertextcolor, setHeadertextcolor] = useState(formSettings.headertextcolor || "#FFFFFF");
+  const [selectedTable, setSelectedTable] = useLocalStorage('selectedTable', formSettings.selectedTable || null);
+  const [floatingwidgets, setFloating] = useLocalStorage('floatingwidgets', formSettings.floatingwidgets);
+  const [selectedWhatsapp, setSelectedWhatsapp] = useLocalStorage('selectedWhatsapp', formSettings.selectedWhatsapp);
+  const [whatsappRedirection, setWhatsappRedirection] = useLocalStorage('whatsappRedirection', formSettings.whatsappRedirection);
+  const [formCustomization, setformCustomization] = useLocalStorage('formCustomization', formSettings.formCustomization);
+  const [whatsappNumber, setWhatsappNumber] = useLocalStorage('whatsappNumber', formSettings.whatsappNumber);
+  const [openInNewTab, setOpenInNewTab] = useLocalStorage('openInNewTab', formSettings.openInNewTab);
 
-  const [formfieldtextcolor, setFormfieldtextcolor] = useState(formSettings.formfieldtextcolor || "#293239");
-  const [formbackgroundcolor, setFormbackgroundcolor] = useState(formSettings.formbackgroundcolor || "#F7F7F7");
+  const [submitbtntext, setSubmitbtntext] = useLocalStorage('submitbtntext', formSettings.submitbtntext);
+  const [formheader, setFormheader] = useLocalStorage('formheader', formSettings.formheader);
+  const [formcta, setFormCTA] = useLocalStorage('formcta', formSettings.formcta);
 
-  const [flotingwidgetsbgcolor, setFlotingwidgetsbgcolor] = useState(formSettings.flotingwidgetsbgcolor || "#0065A0");
-  const [selectedFont, setSelectedFont] = useState(formSettings.selectedFont || "");
+  const [submitbtnbgcolor, setSubmitbtnbgcolor] = useLocalStorage('submitbtnbgcolor', formSettings.submitbtnbgcolor);
+  const [submitbtntextcolor, setSubmitbtntextcolor] = useLocalStorage('submitbtntextcolor', formSettings.submitbtntextcolor);
+  const [submitbtntexthovercolor, setSubmitbtntexthovercolor] = useLocalStorage('submitbtntexthovercolor', formSettings.submitbtntexthovercolor);
+
+  const [headerbackgroundcolor, setHeaderbackgroundcolor] = useLocalStorage('headerbackgroundcolor', formSettings.headerbackgroundcolor);
+  const [headertextcolor, setHeadertextcolor] = useLocalStorage('headertextcolor', formSettings.headertextcolor);
+
+  const [formfieldtextcolor, setFormfieldtextcolor] = useLocalStorage('formfieldtextcolor', formSettings.formfieldtextcolor);
+  const [formbackgroundcolor, setFormbackgroundcolor] = useLocalStorage('formbackgroundcolor', formSettings.formbackgroundcolor);
+
+  const [flotingwidgetsbgcolor, setFlotingwidgetsbgcolor] = useLocalStorage('flotingwidgetsbgcolor', formSettings.flotingwidgetsbgcolor);
+  const [selectedFont, setSelectedFont] = useLocalStorage('selectedFont', formSettings.selectedFont);
+
 
 
   useEffect(() => {
@@ -65,7 +80,7 @@ const Settings = () => {
         console.error(error);
       },
     });
-  }, [location.hash]);
+  }, []);
 
 
   const handleSubmit = (e) => {
