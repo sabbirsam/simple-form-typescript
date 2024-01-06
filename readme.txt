@@ -4,7 +4,7 @@ Tags: simple form, contact, form, contact form, feedback, email, ajax, captcha, 
 Requires at least: 5.0 or higher
 Tested up to: 6.4
 Requires PHP: 5.4 or higher
-Stable Tag: 2.4.2
+Stable Tag: 2.4.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,18 +62,28 @@ You will then automatically be redirected to the "Data" page, from there you can
 
 == Changelog ==
 
-= 2.4.2 – 06 JAN 2024 =
+= 2.4.5 – 06 JAN 2024 =
+* Fix: Fix widgets and form not submitting
+
+= 2.4.4 – 05 JAN 2024 =
+* Fix: Missing file added 
+
+= 2.4.3 – 03 JAN 2024 =
+* Fix: Theme compatibility
+* Fix: Settings page value update Issues
+
+= 2.4.2 – 01 JAN 2024 =
 * Fix: Minor bug fixes for compatibility issues
 
-= 2.4.1 – 06 JAN 2024 =
+= 2.4.1 – 26 NOV 2024 =
 * Fix: Fixed form not sending error
 
-= 2.4.0 – 05 JAN 2024 =
+= 2.4.0 – 25 NOV 2024 =
 * New: Leads page UI improvement
 * Fix: Fixed null value error not showing the form leads
 * Fix: Fixed widgets form custom color issues
 
-= 2.3.0 – 01 JAN 2024 =
+= 2.3.0 – 20 NOV 2024 =
 * New: Widgets more customization options add
 * Fix: Fix widgets and form not loading without login bugs
 

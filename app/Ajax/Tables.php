@@ -425,7 +425,6 @@ class Tables {
 		}
 
 		$id = isset($_POST['id']) ? sanitize_text_field( wp_unslash($_POST['id'] ) ) : 'simpleform';
-		// Sanitize and validate form_data.
 		$form_data = isset( $_POST['form_data'] ) ? json_decode( stripslashes( wp_unslash( $_POST['form_data'] ) ), true ) : array();
 		$form_data = is_array( $form_data ) ? array_map( 'sanitize_text_field', $form_data ) : array();
 
@@ -449,7 +448,14 @@ class Tables {
 		 */
 		$options = get_option('form_settings');
 
-		$selectedWhatsapp = isset($options['selectedWhatsapp']) && $options['selectedWhatsapp'] !== '' ? array_map('sanitize_text_field', $options['selectedWhatsapp']) : [];
+		$selectedWhatsapp = isset($options['selectedWhatsapp']) ? (
+			is_array($options['selectedWhatsapp']) ? 
+				array_map('sanitize_text_field', $options['selectedWhatsapp']) : 
+				($options['selectedWhatsapp'] !== '' ? [sanitize_text_field($options['selectedWhatsapp'])] : [])
+		) : [];
+		
+
+
 		$mailNotification = isset($options['mailNotification']) ? filter_var($options['mailNotification'], FILTER_VALIDATE_BOOLEAN) : false;
 		$recipientMail = isset($options['recipientMail']) ? sanitize_email($options['recipientMail']) : null;
 
