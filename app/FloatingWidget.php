@@ -35,14 +35,14 @@ class FloatingWidget {
 		if ( isset($options['formCustomization']) && $options['formCustomization'] === 'true' ) {
 			$submittext = isset($options['submitbtntext']) ? esc_html($options['submitbtntext']) : 'Send Message';
 			$formheader = isset($options['formheader']) ? esc_html($options['formheader']) : 'Have question? - Submit the Form';
-			
+
 			$submitbtntextcolor = isset($options['submitbtntextcolor']) ? sanitize_hex_color($options['submitbtntextcolor']) : '#ffffff';
 			$submitbtnbgcolor = isset($options['submitbtnbgcolor']) ? sanitize_hex_color($options['submitbtnbgcolor']) : 'orange';
 
-			$headertextcolor = isset($options['formtextcolor']) ? sanitize_hex_color($options['formtextcolor']) : '#ffffff';
-			$headerbgcolor = isset($options['submitbtnbgcolor']) ? sanitize_hex_color($options['submitbtnbgcolor']) : 'orange';
-			
-			$bodytextcolor = isset($options['submitbtntextcolor']) ? sanitize_hex_color($options['submitbtntextcolor']) : '#ffffff';
+			$headerbgcolor = isset($options['headerbackgroundcolor']) ? sanitize_hex_color($options['headerbackgroundcolor']) : 'orange';
+			$headertextcolor = isset($options['headertextcolor']) ? sanitize_hex_color($options['headertextcolor']) : '#ffffff';
+
+			$bodytextcolor = isset($options['formfieldtextcolor']) ? sanitize_hex_color($options['formfieldtextcolor']) : '#ffffff';
 			$bodybgcolor = isset($options['formbackgroundcolor']) ? sanitize_hex_color($options['formbackgroundcolor']) : 'orange';
 
 			$flotingwidgetsbgcolor = isset($options['flotingwidgetsbgcolor']) ? sanitize_hex_color($options['flotingwidgetsbgcolor']) : 'orange';
@@ -61,7 +61,7 @@ class FloatingWidget {
 
 			$bodytextcolor = '#293239';
 			$bodybgcolor = '#f7f7f7';
-			
+
 			$flotingwidgetsbgcolor = '#0065a0';
 			$submitbtntexthovercolor = '#2196f3';
 			$selectedFont = 'Arial';
@@ -88,6 +88,7 @@ class FloatingWidget {
 				<div class="form-content">    
 					<header class="clearfix">
 						<h4 class="offline"><i class="fa fa-envelope"></i> ' . esc_attr($formheader) . '</h4>
+						<span class="sf-close">X</span>
 					</header>
 					<div class="simple_form_container simple_form_container_floating ' . esc_attr($selectedTable) . '" data-form-id="' . esc_attr($selectedTable) . '" data-nonce="' . esc_attr(wp_create_nonce('simpleform_sheet_nonce_action')) . '">
 						<form class="simple_form" data-form-id="' . esc_attr($selectedTable) . '" data-nonce="' . esc_attr(wp_create_nonce('simpleform_sheet_nonce_action')) . '">
@@ -108,8 +109,12 @@ class FloatingWidget {
 						}
 						header.clearfix{
 							background-color: ' . esc_attr($headerbgcolor) . '; 
+						}
+
+						.floating-whatsapp .form-content h4{
 							color: ' . esc_attr($headertextcolor) . ';
 						}
+
 						circle {
 							fill: ' . esc_attr($flotingwidgetsbgcolor) . ';
 						}

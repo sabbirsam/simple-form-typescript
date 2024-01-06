@@ -162,8 +162,6 @@ namespace SIMPLEFORM {
 			register_activation_hook( SIMPLEFORM_PLUGIN_FILE, [ $this, 'register_active_deactive_hooks' ] );
 
 			$this->helpers     = new \SIMPLEFORM\Helpers();
-			$this->settings    = new \SIMPLEFORM\Settings();
-			$this->notices     = new \SIMPLEFORM\Notices();
 			$this->multisite   = new \SIMPLEFORM\Multisite();
 			$this->assets      = new \SIMPLEFORM\Assets();
 			$this->admin       = new \SIMPLEFORM\Admin();
@@ -219,16 +217,41 @@ namespace SIMPLEFORM {
 		public function register_active_deactive_hooks( $network_wide ) {
 			SIMPLEFORM()->database->migration->run( $network_wide );
 
+			$form_settings = [
+				'selectedTable' => null,
+				'selectedWhatsapp' => null,
+				'whatsappRedirection' => false,
+				'formCustomization' => false,
+				'floatingwidgets' => false,
+
+				'whatsappNumber' => '',
+				'openInNewTab' => false,
+
+				'submitbtntext' => 'Send Message',
+				'formheader' => "Have question? - Submit the Form",
+				'formcta' => 'Have queries?',
+
+				'submitbtnbgcolor' => "#FFA500",
+				'submitbtntextcolor' => "#FFFFFF",
+				'submitbtntexthovercolor' => "#3F98D2",
+
+				'headerbackgroundcolor' => "#293239",
+				'headertextcolor' => "#FFFFFF",
+
+				'formfieldtextcolor' => "#293239",
+				'formbackgroundcolor' => "#F7F7F7",
+
+				'flotingwidgetsbgcolor' => "#0065A0",
+				'selectedFont' => 'Arial',
+			];
+
+			add_option( 'form_settings', json_encode($form_settings) );
+
 			add_option( 'simpleform_activation_redirect', 1 );
 
 			if ( ! get_option( 'simpleformActivationTime' ) ) {
 				add_option( 'simpleformActivationTime', time() );
 			}
-
-			// Review notice options.
-			add_option( 'gswptsReviewNotice', false );
-
-			add_option( 'deafaultNoticeInterval', ( time() + 7 * 24 * 60 * 60 ) );
 
 			flush_rewrite_rules();
 		}

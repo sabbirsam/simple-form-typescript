@@ -27,7 +27,6 @@ class Assets {
 	public function __construct() {
 		add_action( 'admin_enqueue_scripts', [ $this, 'admin_scripts' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'fe_scripts' ] );
-
 	}
 
 	/**
@@ -111,8 +110,8 @@ class Assets {
 	 */
 
 	public function fe_scripts() {
-        $this->frontend_scripts();
-    }
+		$this->frontend_scripts();
+	}
 
 	/**
 	 * Enqueue frontend files.

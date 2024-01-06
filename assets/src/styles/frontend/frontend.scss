@@ -28,7 +28,7 @@ input[type="email"],
 input[type="hidden"],
 textarea,
 input[type="range"] {
-  width: 100%;
+  width: auto;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
@@ -37,7 +37,7 @@ input[type="range"] {
 }
 
 form input[type=number] {
-  max-width: 100%;
+  max-width: auto;
 }
 
 /* Style for select inputs */
@@ -154,6 +154,7 @@ input[type="radio"] {
   display: flex;
   flex-direction: column;
   margin-top: 5px;
+  overflow: hidden;
 }
 
 .text-fields {
@@ -247,7 +248,7 @@ input[type="radio"] {
   font-size: 13px;
   margin: 8px 0px 0px 0;
   padding: 12px;
-  color: #fff;
+  // color: #fff;
 }
 
 
@@ -260,15 +261,18 @@ input[type="radio"] {
   margin-bottom: 12px;
 }
 
-.floating-whatsapp .main-search-btn:hover {
-  color: #fff;
-  background-color: #2196F3;
-}
 
 .simple_form_container_floating {
   background: #f7f7f7;
   border: 1px solid #ddd;
   padding: 2px 15px;
+}
+
+span.sf-close {
+  color: white;
+  position: absolute;
+  right: 5px;
+  top: 0px;
 }
 
 

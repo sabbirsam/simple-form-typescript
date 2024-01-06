@@ -5,8 +5,9 @@ import Row from '../core/Row';
 import EditCalendarIcon from '@mui/icons-material/EditCalendar';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import RecyclingIcon from '@mui/icons-material/Recycling';
+import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { CopyIcon, Cross, DeleteIcon, EditIcon, TrashCan } from '../icons';
-
 //styles
 import '../styles/_table_item.scss';
 import Title from '../core/Title';
@@ -191,7 +192,7 @@ function TableItem({ table, setCopiedTables, setTableCount, setTables, setLoader
 								/>
 							</svg>
 						)}
-						COPY
+						Copy Shortcode
 					</button>
 					<Link
 						to={`/edit/${table.id}`}
@@ -205,7 +206,7 @@ function TableItem({ table, setCopiedTables, setTableCount, setTables, setLoader
 						onClick={handleDeleteTable}
 					>
 						{/* {DeleteIcon} */}
-						<HighlightOffIcon className='scf-delete-btn' />
+						<DeleteOutlineIcon className='scf-delete-btn' />
 					</button>
 				</div>
 			</div>

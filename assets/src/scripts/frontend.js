@@ -329,6 +329,9 @@ window.addEventListener('load', function () {
                   clearInterval(timerInterval)
                 }
               })
+            } else{
+              console.log(responseData.data.message); 
+              errorDiv.textContent = "Don't try it again! You silly human!"
             }
 
           } else {
@@ -395,12 +398,21 @@ window.addEventListener('load', function () {
   // Get references to the WhatsApp icon and the form content
   const whatsappIcon = document.querySelector('.whatsapp-icon');
   const formContent = document.querySelector('.form-content');
+  const closeButton = document.querySelector('.sf-close');
 
   // Toggle the "active" class and adjust the height of the form content when the icon is clicked
   if(whatsappIcon){
     whatsappIcon.addEventListener('click', function () {
       formContent.classList.toggle('active');
       adjustFormHeight(formContent);
+    });
+  }
+
+   // Close the form when the close button is clicked
+   if (closeButton) {
+    closeButton.addEventListener('click', function () {
+      formContent.classList.remove('active');
+      formContent.style.height = '0';
     });
   }
   
@@ -415,6 +427,7 @@ window.addEventListener('load', function () {
       element.style.height = '0';
     }
   }
+  
 });
 
 // Function to restart the animation

@@ -57,7 +57,7 @@
             h2 {
                 color: #1E1E1E;
                 font-weight: 600;
-                font-size: 20px;
+                font-size: 15px;
                 line-height: 27px;
                 margin-top: 0;
                 margin-bottom: 6px;
@@ -74,16 +74,16 @@
         }
 
         .table-action-box {
-            
+
             .copy-shortcode {
-    
+
                 &.btn-success {
                     color: #FF7E47;
                 }
             }
 
             .table-edit {
-                
+
                 &:hover {
 
                     svg path {
@@ -113,6 +113,7 @@
     @media screen and (max-width: 992px) {
         padding: 40px 0 20px;
     }
+
     @media screen and (max-width: 575px) {
         padding: 20px 0 0;
     }
@@ -120,7 +121,7 @@
     h2 {
         color: #1E1E1E;
         font-weight: 600;
-        font-size: 20px;
+        font-size: 15px;
         line-height: 27px;
         margin: 0 0 6px;
     }

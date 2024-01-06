@@ -1,39 +1,54 @@
 import React, { useState, useEffect } from "react";
 import ReactSwitchreview from "react-switch";
 import ReactSwitchsupport from "react-switch";
+const Settingsicon = require('../../../assets/public/icons/Settings.gif');
 import { getNonce, getTables, getFormSettings } from './../Helpers';
 import "../styles/_setting.scss";
-const Settingsicon = require('../../../assets/public/icons/Settings.gif');
 
 const Settings = () => {
   const [tables, setTables] = useState(getTables());
   const [formSettings, setSettings] = useState(getFormSettings());
 
+  // Hook to handle local storage for a specific key
+  const useLocalStorage = (key, defaultValue) => {
+    const [state, setState] = useState(() => {
+      const storedState = localStorage.getItem(key);
+      try {
+        const parsedState = storedState ? JSON.parse(storedState) : defaultValue;
+        return parsedState;
+      } catch (error) {
+        console.error(`Error parsing JSON for key ${key}:`, error);
+        return defaultValue;
+      }
+    });
 
-  const [selectedTable, setSelectedTable] = useState(formSettings.selectedTable || null);
-  const [selectedWhatsapp, setSelectedWhatsapp] = useState(formSettings.selectedWhatsapp || null);
-  const [isProUser, setisProUser] = useState(true);
-  const [whatsappRedirection, setWhatsappRedirection] = useState(formSettings.whatsappRedirection === 'true');
-  const [formCustomization, setformCustomization] = useState(formSettings.formCustomization === 'true');
-  const [mailNotification, setMailNotification] = useState(formSettings.mailNotification === 'true');
-  const [floatingwidgets, setFloating] = useState(formSettings.floatingwidgets === 'true');
-  const [whatsappNumber, setWhatsappNumber] = useState(formSettings.whatsappNumber || "");
-  const [openInNewTab, setOpenInNewTab] = useState(formSettings.openInNewTab === 'true');
-  const [recipientMail, setRecipientMail] = useState(formSettings.recipientMail || "");
-  const [submitbtntext, setSubmitbtntext] = useState(formSettings.submitbtntext || 'Send');
-  const [formheader, setFormheader] = useState(formSettings.formheader || "");
-  const [formcta, setFormCTA] = useState(formSettings.formcta || "");
+    useEffect(() => {
+      localStorage.setItem(key, JSON.stringify(state));
+    }, [key, state]);
 
-  const [submitbtnbgcolor, setSubmitbtnbgcolor] = useState(formSettings.submitbtnbgcolor || "");
-  const [submitbtntextcolor, setSubmitbtntextcolor] = useState(formSettings.submitbtntextcolor || "");
+    return [state, setState];
+  };
 
-  const [formbackgroundcolor, setFormbackgroundcolor] = useState(formSettings.formbackgroundcolor || "");
-  const [formtextcolor, setFormtextcolor] = useState(formSettings.formtextcolor || "");
+  const [selectedTable, setSelectedTable] = useLocalStorage('selectedTable', formSettings.selectedTable || null);
+  const [whatsappRedirection, setWhatsappRedirection] = useLocalStorage('whatsappRedirection', formSettings.whatsappRedirection || false);
+  const [formCustomization, setformCustomization] = useLocalStorage('formCustomization', formSettings.formCustomization || false);
+  const [floatingwidgets, setFloating] = useLocalStorage('floatingwidgets', formSettings.floatingwidgets || false);
+  const [openInNewTab, setOpenInNewTab] = useLocalStorage('openInNewTab', formSettings.openInNewTab || false);
+  const [selectedWhatsapp, setSelectedWhatsapp] = useLocalStorage('selectedWhatsapp', formSettings.selectedWhatsapp || false);
+  const [whatsappNumber, setWhatsappNumber] = useLocalStorage('whatsappNumber', formSettings.whatsappNumber || '');
+  const [submitbtntext, setSubmitbtntext] = useLocalStorage('submitbtntext', formSettings.submitbtntext || 'Send Message');
+  const [formheader, setFormheader] = useLocalStorage('formheader', formSettings.formheader || "Have question? - Submit the Form");
+  const [formcta, setFormCTA] = useLocalStorage('formcta', formSettings.formcta || "Have queries?");
+  const [submitbtnbgcolor, setSubmitbtnbgcolor] = useLocalStorage('submitbtnbgcolor', formSettings.submitbtnbgcolor || "#FFA500");
+  const [submitbtntextcolor, setSubmitbtntextcolor] = useLocalStorage('submitbtntextcolor', formSettings.submitbtntextcolor || "#FFFFFF");
+  const [submitbtntexthovercolor, setSubmitbtntexthovercolor] = useLocalStorage('submitbtntexthovercolor', formSettings.submitbtntexthovercolor || "#3F98D2");
+  const [headerbackgroundcolor, setHeaderbackgroundcolor] = useLocalStorage('headerbackgroundcolor', formSettings.headerbackgroundcolor || "#293239");
+  const [headertextcolor, setHeadertextcolor] = useLocalStorage('headertextcolor', formSettings.headertextcolor || "#FFFFFF");
+  const [formfieldtextcolor, setFormfieldtextcolor] = useLocalStorage('formfieldtextcolor', formSettings.formfieldtextcolor || "#293239");
+  const [formbackgroundcolor, setFormbackgroundcolor] = useLocalStorage('formbackgroundcolor', formSettings.formbackgroundcolor || "#F7F7F7");
+  const [flotingwidgetsbgcolor, setFlotingwidgetsbgcolor] = useLocalStorage('flotingwidgetsbgcolor', formSettings.flotingwidgetsbgcolor || "#0065A0");
+  const [selectedFont, setSelectedFont] = useLocalStorage('selectedFont', formSettings.selectedFont || 'Arial');
 
-  const [flotingwidgetsbgcolor, setFlotingwidgetsbgcolor] = useState(formSettings.flotingwidgetsbgcolor || "");
-  const [submitbtntexthovercolor, setSubmitbtntexthovercolor] = useState(formSettings.submitbtntexthovercolor || "");
-  const [selectedFont, setSelectedFont] = useState(formSettings.selectedFont || "");
-  const isSaveButtonDisabled = !whatsappRedirection && !mailNotification;
 
   useEffect(() => {
     wp.ajax.send('simpleform_get_tables', {
@@ -50,28 +65,45 @@ const Settings = () => {
   }, []);
 
 
+  //Setting fetch
+  useEffect(() => {
+    wp.ajax.send('simpleform_get_settings', {
+      data: {
+        nonce: getNonce(),
+      },
+      success(response) {
+        setSettings(response.settings);
+      },
+      error(error) {
+        console.error(error);
+      },
+    });
+  }, []);
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const settings = {
       whatsappRedirection,
-      mailNotification,
       formCustomization,
       floatingwidgets,
       whatsappNumber,
       openInNewTab,
-      recipientMail,
       selectedTable,
       selectedWhatsapp,
-      flotingwidgetsbgcolor,
       submitbtntext,
-      formheader,
-      submitbtnbgcolor,
-      formbackgroundcolor,
-      formtextcolor,
-      submitbtntextcolor,
       selectedFont,
-      formcta
+      formcta,
+      formheader,
 
+      flotingwidgetsbgcolor,
+      formbackgroundcolor,
+      formfieldtextcolor,
+      headerbackgroundcolor,
+      headertextcolor,
+      submitbtntextcolor,
+      submitbtnbgcolor,
+      submitbtntexthovercolor
     };
 
     Swal.fire({
@@ -91,6 +123,19 @@ const Settings = () => {
           },
 
           success({ }) {
+
+            wp.ajax.send('simpleform_get_settings', {
+              data: {
+                nonce: getNonce(),
+              },
+              success(response) {
+                setSettings(response.settings);
+              },
+              error(error) {
+                console.error(error);
+              },
+            });
+
             Swal.fire({
               position: 'center',
               icon: 'success',
@@ -98,8 +143,6 @@ const Settings = () => {
               showConfirmButton: false,
               timer: 1500,
             });
-
-            // navigate(`/`);
           },
           error({ message }) {
           },
@@ -137,72 +180,54 @@ const Settings = () => {
 
   return (
     <div className="acb_bottom" id="acb_bottom">
-      {/* <h3 className="upcomming">UPCOMMING</h3> */}
       <div className="acb_left">
         <h3 className="review-case-title">Simple Form settings panel</h3>
-
-        <div className="wpnts-switch-floating">
-          <label htmlFor="floating-widgets">Enable floating widgets:</label>
+        <div className="wpnts-switch-review">
+          <label htmlFor="floatingwidgets">Enable floating widgets:</label>
           <ReactSwitchsupport
+            // checked={false}
             checked={floatingwidgets}
-            className="supportSwitch-2"
-            name="wpnts-switch-floating"
-            id="floating-widgets"
-            onChange={(checked) => { if (!isProUser) { return; } setFloating(checked) }}
-          //onChange={(checked) => setFloating(checked)}
+            className="floatingwidgets"
+            name="floatingwidgets"
+            id="floatingwidgets"
+            onChange={(checked) => setFloating(checked)}
           />
         </div>
 
         <div className="wpnts-switch-review">
-          <label htmlFor="reviewnoti">Enable WhatsApp redirection:</label>
+          <label htmlFor="whatsappRedirection">Enable WhatsApp redirection:</label>
           <ReactSwitchreview
             checked={whatsappRedirection}
-            className="reviewSwitch"
-            name="wpnts-switch-review"
-            id="reviewnoti"
-            onChange={(checked) => {
-              if (!isProUser) { return; }
-              setWhatsappRedirection(checked);
-            }}
-            disabled={!isProUser}
-
+            className="whatsappRedirection"
+            name="whatsappRedirection"
+            id="whatsappRedirection"
+            onChange={(checked) => setWhatsappRedirection(checked)}
           />
         </div>
-
 
         <div className="wpnts-switch-review">
-          <label htmlFor="reviewnoti">Enable Form customization:</label>
+          <label htmlFor="formCustomization">Enable Form customization:</label>
           <ReactSwitchreview
             checked={formCustomization}
-            className="customizationSwitch"
-            name="wpnts-switch-review"
-            id="form-customization"
-            onChange={(checked) => {
-              if (!isProUser) { return; }
-              setformCustomization(checked);
-            }}
-            disabled={!isProUser}
-
+            className="formCustomization"
+            name="formCustomization"
+            id="formCustomization"
+            onChange={(checked) => setformCustomization(checked)}
           />
         </div>
 
-
-        {/* {!mailNotification && !whatsappRedirection && !floatingwidgets ? ( */}
         {!whatsappRedirection && !floatingwidgets ? (
           <form onSubmit={handleSubmit} id="wpntswebhook">
             <button type="submit" className="save-webhook">SAVE</button>
           </form>
         ) : null}
-
         <div className="no-tables-intro-img">
           <img style={{ width: '40vh', height: '40vh' }} src={Settingsicon} alt="Cloud Icon" />
         </div>
-
       </div>
 
       <div className="acb_right">
         <form onSubmit={handleSubmit} id="wpntswebhook">
-
           {floatingwidgets && (
             <div className="formInput">
               <label htmlFor="selectedTable">Select Form to display as floating widgets</label>
@@ -228,7 +253,6 @@ const Settings = () => {
 
             </div>
           )}
-
           {whatsappRedirection && (
             <div className="formInput">
               <label htmlFor="webhook">WhatsApp number</label>
@@ -245,17 +269,15 @@ const Settings = () => {
           )}
 
           {whatsappRedirection && (
-            <div>
+            <div className="sf-customization">
               <div className="formInput open-new-tab">
-                <label htmlFor="interval_review">Open in new tab</label>
-                <div className="wpnts-setting">
-                  <input
-                    type="checkbox"
-                    name="interval_review"
-                    checked={openInNewTab}
-                    onChange={(e) => setOpenInNewTab(e.target.checked)}
-                  />
-                </div>
+                <label htmlFor="openinnewtab">Open in new tab</label>
+                <input
+                  type="checkbox"
+                  name="openinnewtab"
+                  checked={openInNewTab}
+                  onChange={(e) => setOpenInNewTab(e.target.checked)}
+                />
               </div>
 
               <div className="formInput">
@@ -287,10 +309,8 @@ const Settings = () => {
             </div>
           )}
 
-
           {formCustomization && (
             <div>
-
               <div className="formInput">
                 <label htmlFor="webhook">Submit button text</label>
                 <div className="wpnts-setting">
@@ -302,7 +322,6 @@ const Settings = () => {
                   />
                 </div>
               </div>
-
 
               <div className="formInput">
                 <label htmlFor="webhook">Form Header text</label>
@@ -348,30 +367,51 @@ const Settings = () => {
                       </option>
                     ))}
                   </select>
-                  {/* {selectedFont && (
-                      <p style={{ fontFamily: selectedFont, fontSize:'15px' }}>Selected font: {selectedFont}</p>
-                    )} */}
                 </div>
 
               </div>
 
-              <div className="formInput">
-                <label htmlFor="formtextcolor">Form text color</label>
+              <div className="formInput simpleform-colorplate">
+                <label htmlFor="flotingwidgetsbgcolor">Floting widgets color</label>
                 <div className="wpnts-setting">
                   <input
                     className="colorSelectionformtext"
                     type="color"
-                    name="formtextcolor"
-                    value={formtextcolor}
-                    onChange={(e) => setFormtextcolor(e.target.value)}
+                    name="flotingwidgetsbgcolor"
+                    value={flotingwidgetsbgcolor}
+                    onChange={(e) => setFlotingwidgetsbgcolor(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              <div className="formInput simpleform-colorplate">
+                <label htmlFor="headertextcolor">Header text color</label>
+                <div className="wpnts-setting">
+                  <input
+                    className="colorSelectionformtext"
+                    type="color"
+                    name="headertextcolor"
+                    value={headertextcolor}
+                    onChange={(e) => setHeadertextcolor(e.target.value)}
                   />
                 </div>
               </div>
 
               {/* Form color  */}
+              <div className="formInput simpleform-colorplate">
+                <label htmlFor="headerbackgroundcolor">header background color</label>
+                <div className="wpnts-setting">
+                  <input
+                    className="colorSelectionbg"
+                    type="color"
+                    name="headerbackgroundcolor"
+                    value={headerbackgroundcolor}
+                    onChange={(e) => setHeaderbackgroundcolor(e.target.value)}
+                  />
+                </div>
+              </div>
 
-              {/* <div className="formInput open-new-tab"> */}
-              <div className="formInput">
+              <div className="formInput simpleform-colorplate">
                 <label htmlFor="formbackgroundcolor">Form background color</label>
                 <div className="wpnts-setting">
                   <input
@@ -384,20 +424,20 @@ const Settings = () => {
                 </div>
               </div>
 
-              <div className="formInput">
-                <label htmlFor="submitbtntextcolor">Form fields text color</label>
+              <div className="formInput simpleform-colorplate">
+                <label htmlFor="formfieldtextcolor">Form fields text/lable color</label>
                 <div className="wpnts-setting">
                   <input
                     className="colorSelectionformtextcolor"
                     type="color"
-                    name="submitbtntextcolor"
-                    value={submitbtntextcolor}
-                    onChange={(e) => setSubmitbtntextcolor(e.target.value)}
+                    name="formfieldtextcolor"
+                    value={formfieldtextcolor}
+                    onChange={(e) => setFormfieldtextcolor(e.target.value)}
                   />
                 </div>
               </div>
 
-              <div className="formInput">
+              <div className="formInput simpleform-colorplate">
                 <label htmlFor="submitbtnbgcolor">Submit button BG color</label>
                 <div className="wpnts-setting">
                   <input
@@ -411,7 +451,7 @@ const Settings = () => {
                 </div>
               </div>
 
-              <div className="formInput">
+              <div className="formInput simpleform-colorplate">
                 <label htmlFor="submitbtntextcolor">Submit button text color</label>
                 <div className="wpnts-setting">
                   <input
@@ -425,7 +465,7 @@ const Settings = () => {
                 </div>
               </div>
 
-              <div className="formInput">
+              <div className="formInput simpleform-colorplate">
                 <label htmlFor="submitbtntexthovercolor">Submit button hover color</label>
                 <div className="wpnts-setting">
                   <input
@@ -438,14 +478,11 @@ const Settings = () => {
                   />
                 </div>
               </div>
-
               <div className="seperationLine">
                 <hr />
               </div>
-
             </div>
           )}
-
 
           {whatsappRedirection || floatingwidgets || formCustomization ? (
             <button type="submit" className="save-webhook">
@@ -453,12 +490,6 @@ const Settings = () => {
             </button>
           ) : null}
         </form>
-      </div>
-
-      <div className="acb_right_two">
-        {/* HERE  */}
-
-        {/* HERE  */}
       </div>
     </div>
   );

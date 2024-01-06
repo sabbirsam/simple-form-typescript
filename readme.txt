@@ -4,17 +4,17 @@ Tags: simple form, contact, form, contact form, feedback, email, ajax, captcha, 
 Requires at least: 5.0 or higher
 Tested up to: 6.4
 Requires PHP: 5.4 or higher
-Stable Tag: 2.3.0
+Stable Tag: 2.4.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Introducing "Simple Form" - Your Free Solution for Seamless Form Creation and Leads Collection with Leads Redirection to WhatsApp
+Introducing "Simple Form- Advance Drag and Drop Builder with Seamless Leads Collection and Social Redirection" - Your Affordable Solution for Effortless Form Creation and Leads Management with WhatsApp Redirection
 
-Are you seeking a hassle-free way to create and manage contact/lead forms on your WordPress website without breaking the bank? Look no further! "Simple Contact Form for WordPress" is here to simplify your form-building journey and streamline your data collection process, all at absolutely no cost. The plugin is mainly brought to users by using this theory of how to create custom forms without knowing any programming language.
+Are you looking for an affordable, simple way to create and manage contact/lead forms on your WordPress website? There's nowhere else to look! "Simple Contact Form for WordPress" is intended to expedite your data collection process and make form creation easier for you at a very low cost. The purpose of the plugin is to enable users to construct personalized forms without requiring any prior knowledge of programming languages.
 
-It's a simple contact form that lets you easily create forms via the drag-and-drop feature. You can use this form using a shortcode anywhere on your website. It's totally free to collect all leads from the created forms.
+It's a simple contact form that lets you easily create forms via the drag-and-drop feature. You can use this form using a shortcode or floating widgets anywhere on your website.
 
 Works across all operating systems including Android, iOS, and macOS. No settings are needed. 
 
@@ -25,28 +25,16 @@ Works across all operating systems including Android, iOS, and macOS. No setting
 
 1. **Drag and Drop Form Builder** –Creating forms has never been this intuitive. With our drag and drop form builder, you can effortlessly design and customize forms to your heart's content. Say goodbye to coding hassles and hello to a seamless form-building experience. Simply drag and drop elements to craft the perfect form that suits your needs.
 
-2. **Seamless Lead Collection** – Gathering leads should be a breeze, and that's precisely what we offer. Our plugin allows you to effortlessly collect leads by placing forms anywhere on your website using a simple shortcode. No more struggling with complicated integrations or worrying about where to put your forms – it's as easy as copy and paste.
+2. **Seamless Lead Collection** – Gathering leads should be a breeze, and that's precisely what we offer. Our plugin allows you to effortlessly collect leads by placing forms anywhere on your website using a simple shortcode or floating widgets. No more struggling with complicated integrations or worrying about where to put your forms – it's as easy as copy and paste.
 
 3. **Redirection to WhatsApp** – Now, you can offer your users the convenience of initiating a WhatsApp chat directly from your forms. Whether it's for inquiries, support, or quick questions, this feature takes user engagement to a whole new level.
 
-But that's not all! "Simple Form" offers a range of additional benefits:
 
-**Responsive Design**: Your forms will look and function flawlessly on all devices, ensuring that your users have a smooth experience whether they're on a desktop, tablet, or smartphone.
+4. **Shortcode Magic** - Our simple shortcode integration makes it effortless to place forms wherever you need them on your website. It's like magic, but better!
 
-**Lead Management**: Easily access and manage the leads you've collected, all from within your intuitive dashboard. No more sifting through emails or manual data entry.
+5. **Floating Widgets**: We understand the importance of user experience, and that's why we've added Floating Widgets. These sleek and customizable widgets can be placed anywhere on your website, ensuring that your forms are easily accessible to your visitors at all times. Float your forms strategically to capture leads, gather feedback, or facilitate engagement without disrupting your website's flow.
 
-**Shortcode Magic**: Our simple shortcode integration makes it effortless to place forms wherever you need them on your website. It's like magic, but better!
-
-**Instant Gratification**: Start using "Simple Form" today, and experience instant results. No steep learning curve, no hidden fees – just a powerful form builder at your fingertips.
-
-**Redirection to WhatsApp**: Connect Like Never Before
-
-In today's world, seamless communication is key. That's why we've introduced the Redirection to WhatsApp feature. Now, you can offer your users the convenience of initiating a WhatsApp chat directly from your forms. Whether it's for inquiries, support, or quick questions, this feature takes user engagement to a whole new level. Make it easy for your audience to reach out and connect with you effortlessly.
-
-**Floating Widgets**: Elevate User Experience
-
-We understand the importance of user experience, and that's why we've added Floating Widgets. These sleek and customizable widgets can be placed anywhere on your website, ensuring that your forms are easily accessible to your visitors at all times. Float your forms strategically to capture leads, gather feedback, or facilitate engagement without disrupting your website's flow.
-
+6. **Easy-Peasy Customization for Stylish Forms**: Let your imagination run wild with our super-friendly customization panel. Make your forms truly yours by playing with cool colors, funky designs, and even tweak the header and button text. It's like giving your forms a makeover without breaking a sweat!
 
 Say goodbye to form-building frustrations and hello to "Simple Form." Create, collect, and conquer with the ultimate form-building solution. Download now and see for yourself why "Simple Form" is the preferred choice for savvy website owners like you. Simplify, collect, and thrive with "Simple Form."
 
@@ -74,7 +62,28 @@ You will then automatically be redirected to the "Data" page, from there you can
 
 == Changelog ==
 
-= 2.3.0 – 01 JAN 2024 =
+= 2.4.5 – 06 JAN 2024 =
+* Fix: Fix widgets and form not submitting
+
+= 2.4.4 – 05 JAN 2024 =
+* Fix: Missing file added 
+
+= 2.4.3 – 03 JAN 2024 =
+* Fix: Theme compatibility
+* Fix: Settings page value update Issues
+
+= 2.4.2 – 01 JAN 2024 =
+* Fix: Minor bug fixes for compatibility issues
+
+= 2.4.1 – 26 NOV 2024 =
+* Fix: Fixed form not sending error
+
+= 2.4.0 – 25 NOV 2024 =
+* New: Leads page UI improvement
+* Fix: Fixed null value error not showing the form leads
+* Fix: Fixed widgets form custom color issues
+
+= 2.3.0 – 20 NOV 2024 =
 * New: Widgets more customization options add
 * Fix: Fix widgets and form not loading without login bugs
 

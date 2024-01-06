@@ -30,6 +30,8 @@ class Tables {
 
 		add_action( 'wp_ajax_simpleform_get_tables', [ $this, 'get_all' ] );
 		add_action( 'wp_ajax_simpleform_get_leads', [ $this, 'get_all_leads' ] );
+		
+		add_action( 'wp_ajax_simpleform_get_settings', [ $this, 'get_settings' ] );
 
 		add_action( 'wp_ajax_simpleform_delete_table', [ $this, 'delete' ] );
 		add_action( 'wp_ajax_simpleform_delete_leads', [ $this, 'delete_leads' ] );
@@ -41,6 +43,7 @@ class Tables {
 		add_action('wp_ajax_nopriv_simpleform_table_html', [ $this, 'rendertable' ] );
 
 		add_action( 'wp_ajax_simpleform_get_submit_data', [ $this, 'get_submitdata' ] );
+		add_action('wp_ajax_nopriv_simpleform_get_submit_data', [ $this, 'get_submitdata' ] );
 	}
 
 	/**
@@ -72,8 +75,6 @@ class Tables {
 
 		$name     = isset( $_POST['name'] ) ? sanitize_text_field( wp_unslash($_POST['name'] ) ) : __( 'Untitled', 'simpleform' );
 		$from_data = isset( $_POST['formdata'] ) ? sanitize_text_or_array_field( wp_unslash($_POST['formdata'] ) ) : [];
-
-		// error_log( 'Data Received: ' . print_r( $from_data, true ) );
 
 		$table = [
 			'form_name'     => $name,
@@ -152,7 +153,7 @@ class Tables {
 			'tables_count' => count( $tables ),
 		]);
 	}
-
+	
 
 	public function get_all_leads() {
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'SIMPLEFORM-admin-app-nonce-action' ) ) {
@@ -182,6 +183,23 @@ class Tables {
 
 		wp_send_json_success([
 			'tables'       => $table,
+		]);
+	}
+
+	/**
+	 * Settigns get
+	 */
+	public function get_settings() {
+		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'SIMPLEFORM-admin-app-nonce-action' ) ) {
+			wp_send_json_error([
+				'message' => __( 'Invalid nonce.', 'simpleform' ),
+			]);
+		}
+
+		$settings = SIMPLEFORM()->database->table->get_settings();
+
+		wp_send_json_success([
+			'settings'       => $settings
 		]);
 	}
 
@@ -361,11 +379,13 @@ class Tables {
 	 * @since 3.0.0
 	 */
 	public function rendertable() {
-		if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( $_GET['nonce'], 'simpleform_sheet_nonce_action' ) ) {
+		
+		if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['nonce'] ) ), 'simpleform_sheet_nonce_action' ) ) {
 			wp_send_json_error([
-				'message' => __( 'Invalid nonce.', 'simpleform' ),
+				'message' => __( 'Invalid nonce.', '' ),
 			]);
 		}
+
 
 		$table_id = ! empty( $_GET['id'] ) ? absint( $_GET['id'] ) : 0;
 
@@ -398,23 +418,28 @@ class Tables {
 	 * @since 3.0.0
 	 */
 	public function get_submitdata() {
-		if ( ! wp_verify_nonce($_POST['nonce'], 'simpleform_sheet_nonce_action') ) {
+		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'simpleform_sheet_nonce_action' ) ) {
 			wp_send_json_error([
-				'message' => __('Invalid nonce.', 'simpleform'),
+				'message' => __( 'Invalid nonce.', '' ),
 			]);
 		}
 
-		// Get the form data from the POST request.
 		$id = isset($_POST['id']) ? sanitize_text_field( wp_unslash($_POST['id'] ) ) : 'simpleform';
-		$form_data = isset($_POST['form_data']) ? json_decode( stripslashes( wp_unslash($_POST['form_data'] ) ), true) : [];
+		$form_data = isset( $_POST['form_data'] ) ? json_decode( stripslashes( wp_unslash( $_POST['form_data'] ) ), true ) : array();
+		$form_data = is_array( $form_data ) ? array_map( 'sanitize_text_field', $form_data ) : array();
 
-		// error_log('Data Received: ' . print_r($form_data, true));
+		if ( empty( $form_data ) ) {
+			wp_send_json_error( array(
+				'message' => esc_html__( 'Form data is empty, not storing in the database.', 'simpleform' ),
+			) );
+		}
 
-		$table = [
+		// Validate and sanitize other values.
+		$table = array(
 			'form_id' => $id,
-			'fields' => $form_data,
-			'time' => current_time('mysql'),
-		];
+			'fields'  => $form_data,
+			'time'    => current_time( 'mysql' ),
+		);
 
 		$table_id = SIMPLEFORM()->database->table->insertleads($table);
 
@@ -422,8 +447,15 @@ class Tables {
 		 * WhatsApp redirection.
 		 */
 		$options = get_option('form_settings');
+
+		$selectedWhatsapp = isset($options['selectedWhatsapp']) ? (
+			is_array($options['selectedWhatsapp']) ? 
+				array_map('sanitize_text_field', $options['selectedWhatsapp']) : 
+				($options['selectedWhatsapp'] !== '' ? [sanitize_text_field($options['selectedWhatsapp'])] : [])
+		) : [];
 		
-		$selectedWhatsapp = isset($options['selectedWhatsapp']) ? array_map('sanitize_text_field', $options['selectedWhatsapp']) : [];
+
+
 		$mailNotification = isset($options['mailNotification']) ? filter_var($options['mailNotification'], FILTER_VALIDATE_BOOLEAN) : false;
 		$recipientMail = isset($options['recipientMail']) ? sanitize_email($options['recipientMail']) : null;
 

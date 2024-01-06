@@ -188,7 +188,8 @@ All the default css will place here...
 
 // Shortcode button from dashboard
 .btn-shortcode {
-    border: none;
+    border: 1px solid #e9e8e8;
+    border-radius: 11px;
     padding: 9px;
     background: white;
     display: inline-flex;

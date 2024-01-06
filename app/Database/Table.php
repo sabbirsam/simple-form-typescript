@@ -104,7 +104,6 @@ class Table {
 		// $results = $wpdb->get_results($wpdb->prepare("SELECT * FROM $table WHERE form_id = %d", absint($id)), ARRAY_A);
 		$results = $wpdb->get_results($wpdb->prepare("SELECT * FROM $table WHERE form_id = %d ORDER BY time DESC", absint($id)), ARRAY_A);
 
-
 		return ! empty($results) ? $results : null;
 	}
 
@@ -184,14 +183,31 @@ class Table {
 			return $options;
 		} else {
 			return array(
-				'floatingwidgets' => false,
-				'mailNotification' => false,
-				'openInNewTab' => false,
+				'selectedTable' => null,
+				'selectedWhatsapp' => null,
 				'whatsappRedirection' => false,
-				'recipientMail' => '',
-				'selectedTable' => '',
-				'selectedWhatsapp' => '',
+				'formCustomization' => false,
+				'floatingwidgets' => false,
+
 				'whatsappNumber' => '',
+				'openInNewTab' => false,
+
+				'submitbtntext' => 'Send Message',
+				'formheader' => "Have question? - Submit the Form",
+				'formcta' => 'Have queries?',
+
+				'submitbtnbgcolor' => "#FFA500",
+				'submitbtntextcolor' => "#FFFFFF",
+				'submitbtntexthovercolor' => "#3F98D2",
+
+				'headerbackgroundcolor' => "#293239",
+				'headertextcolor' => "#FFFFFF",
+
+				'formfieldtextcolor' => "#293239",
+				'formbackgroundcolor' => "#F7F7F7",
+
+				'flotingwidgetsbgcolor' => "#0065A0",
+				'selectedFont' => 'Arial',
 			);
 		}
 	}
