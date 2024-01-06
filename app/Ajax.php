@@ -67,8 +67,6 @@ class Ajax {
 	 * @since 2.12.15
 	 */
 	public function __construct() {
-		$this->notices  = new \SIMPLEFORM\Ajax\Notices();
 		$this->tables   = new \SIMPLEFORM\Ajax\Tables();
-		$this->settings = new \SIMPLEFORM\Ajax\Settings();
 	}
 }

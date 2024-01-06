@@ -25,28 +25,3 @@ export function getDefaultSettings() {
 		whatsappNumber: "",
 	};
 }
-
-export function getLicenseUrl() {
-	return config.pro.license_url;
-}
-
-export function isProInstalled() {
-	return config.pro.installed;
-}
-
-export function isProActive() {
-	return config.pro.active;
-}
-
-export function isProLicenseActive() {
-	return config.pro.license;
-}
-
-export const screenSize = () => {
-	// Desktop screen size
-	if (screen.width > 740) {
-		return "desktop";
-	} else {
-		return "mobile";
-	}
-}

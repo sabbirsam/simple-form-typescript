@@ -67,6 +67,6 @@ class Helpers {
 	 * @return bool
 	 */
 	public function is_latest_version(): bool {
-		return version_compare( SIMPLEFORM_VERSION, '1.4.0', '>' );
+		return version_compare( SIMPLEFORM_VERSION, '2.4.0', '>' );
 	}
 }

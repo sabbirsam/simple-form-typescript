@@ -162,8 +162,6 @@ namespace SIMPLEFORM {
 			register_activation_hook( SIMPLEFORM_PLUGIN_FILE, [ $this, 'register_active_deactive_hooks' ] );
 
 			$this->helpers     = new \SIMPLEFORM\Helpers();
-			$this->settings    = new \SIMPLEFORM\Settings();
-			$this->notices     = new \SIMPLEFORM\Notices();
 			$this->multisite   = new \SIMPLEFORM\Multisite();
 			$this->assets      = new \SIMPLEFORM\Assets();
 			$this->admin       = new \SIMPLEFORM\Admin();
@@ -224,11 +222,6 @@ namespace SIMPLEFORM {
 			if ( ! get_option( 'simpleformActivationTime' ) ) {
 				add_option( 'simpleformActivationTime', time() );
 			}
-
-			// Review notice options.
-			add_option( 'gswptsReviewNotice', false );
-
-			add_option( 'deafaultNoticeInterval', ( time() + 7 * 24 * 60 * 60 ) );
 
 			flush_rewrite_rules();
 		}
